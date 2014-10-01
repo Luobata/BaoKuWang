@@ -29,12 +29,4 @@ define('DB_PASSWORD', '');
 define('DB_DATABASE', 'pawnshop');
 define('DB_PREFIX', 'shop_');
 
-//DB : remote
-/*define('DB_DRIVER', 'mysqli');
-define('DB_HOSTNAME', '103.27.110.37:3306');
-define('DB_USERNAME', 'a1208213859');
-define('DB_PASSWORD', '38808272');
-define('DB_DATABASE', 'a1208213859');
-define('DB_PREFIX', 'shop_');*/
-
 ?>
