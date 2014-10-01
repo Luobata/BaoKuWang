@@ -19,9 +19,9 @@ define('DIR_LOGS', 'D:\WampServer\www/system/logs/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
-define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_DATABASE', 'pawnshop');
+define('DB_HOSTNAME', '103.27.110.37');
+define('DB_USERNAME', 'a1208213859');
+define('DB_PASSWORD', '38808272');
+define('DB_DATABASE', 'a1208213859');
 define('DB_PREFIX', 'shop_');
 ?>
