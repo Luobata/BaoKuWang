@@ -121,3 +121,5 @@
 <?php exit;?>	2014-10-01 01:24	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-1 01:29	
 <?php exit;?>	2014-10-01 02:07	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-1 02:12	
 <?php exit;?>	2014-10-01 23:44	127.0.0.1	/forum/	cron_1_next_time:2014-10-1 23:49	
+<?php exit;?>	2014-10-02 00:26	127.0.0.1	/forum/	cron_1_next_time:2014-10-2 00:31	
+<?php exit;?>	2014-10-02 00:26	127.0.0.1	/forum/	cron_2_next_time:2014-10-3 00:00	
