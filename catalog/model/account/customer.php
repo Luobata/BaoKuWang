@@ -1,11 +1,14 @@
 <?php
 class ModelAccountCustomer extends Model {
+
 	public function addCustomer($data) {
 		if (isset($data['customer_group_id']) && is_array($this->config->get('config_customer_group_display')) && in_array($data['customer_group_id'], $this->config->get('config_customer_group_display'))) {
 			$customer_group_id = $data['customer_group_id'];
 		} else {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}
+
+        // 商城注册
 
 		$this->load->model('account/customer_group');
 
@@ -21,7 +24,23 @@ class ModelAccountCustomer extends Model {
 
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET address_id = '" . (int)$address_id . "' WHERE customer_id = '" . (int)$customer_id . "'");
 
-		$this->language->load('mail/customer');
+
+        // 论坛模拟注册并登录
+
+        $Helper = new Helper();
+        $AuthCookie = $Helper->http_post( HTTP_SERVER . 'forum/?user-create.htm' , array('email'=> $this->db->escape($data['email']) ) );
+        if( $AuthCookie ) {
+            // 模拟登录
+            $AuthCookie = explode('/',$AuthCookie);
+            $Helper->setcookie($AuthCookie[0], $AuthCookie[1], time()+86400, '/', '', TRUE);  //24小时
+            // 创建关联
+            $this->db->query("INSERT INTO " . DB_PREFIX . "bbs_user ( shop_cid , bbs_uid ) VALUES (" . (int)$customer_id . "," . (int)$AuthCookie[2] . ")");
+        }
+
+
+        // 发送邮件
+
+        $this->language->load('mail/customer');
 
 		$subject = sprintf($this->language->get('text_subject'), $this->config->get('config_name'));
 

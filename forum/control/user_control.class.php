@@ -18,6 +18,95 @@ class user_control extends common_control {
 		
 	}
 	
+
+	// 获取登录 COOKIE
+
+	public function on_getLoginAuth() {
+		
+		$user['uid'] = core::gpc('uid', 'P');
+		$user['username'] = core::gpc('username', 'P');
+		$user['password'] = core::gpc('password', 'P');
+		$user['groupid'] = core::gpc('groupid', 'P');
+		$user['accesson'] = core::gpc('accesson', 'P');
+
+		$cookie_name = $this->conf['cookie_pre'].'auth';
+		$xn_auth = $this->user->get_xn_auth($user);
+		echo $cookie_name.'/'.$xn_auth;
+
+	}
+
+	// 模拟登录之后
+	public function on_afterLogin() {
+		$this->update_online();
+	}
+
+	// 模拟退出
+
+	public function on_logout() {
+		
+		// hook user_logout_start.php
+
+		// 清除 online username
+		$sid = $this->_sid;
+		$online = $this->online->read($sid);
+		if($online) {
+			$online['groupid'] = 0;
+			$online['uid'] = 0;
+			$online['username'] = '';
+			$this->online->update($online);
+		}
+
+		// hook user_logout_after.php
+	}
+
+	// 模拟注册
+
+	public function on_create() {
+		
+		// hook user_create_start.php
+
+		$email = core::gpc('email', 'P');
+		$groupid = $this->conf['reg_email_on'] ? 6 : 11;
+		$salt = substr(md5(rand(10000000, 99999999).$_SERVER['time']), 0, 8);
+		$user = array(
+			'email'=>$email,
+			'username'=>$email,
+			'password'=>'',
+			//'password'=>$this->user->md5_md5($password, $salt),
+			'groupid'=>$groupid,
+			'salt'=>$salt,
+		);
+		
+		// hook user_create_after.php
+			
+		$uid = $this->user->xcreate($user);
+		if($uid) {
+
+			$userdb = $this->user->read($uid);
+			//$this->user->set_login_cookie($userdb, time() + 86400 );	//24小时
+			$this->runtime->xset('users', '+1');
+			$this->runtime->xset('todayusers', '+1');
+			$this->runtime->xset('newuid', $uid);
+			$this->runtime->xset('newusername', $userdb['username']);
+
+			// hook user_create_succeed.php
+			
+			$cookie_name = $this->conf['cookie_pre'].'auth';
+			$xn_auth = $this->user->get_xn_auth($userdb);
+			echo $cookie_name.'/'.$xn_auth.'/'.$uid;
+			
+			//return array('status'=>'success','uid'=>$uid);
+		}
+
+		echo FALSE;
+	}
+
+
+
+	/*******
+				以下为 XiunoBBS 原始程序
+	********/
+
 	// ajax 登录
 	public function on_login() {
 		// hook user_login_start.php
@@ -76,136 +165,6 @@ class user_control extends common_control {
 			}
 			$this->message($error);
 			
-		}
-	}
-	
-	public function on_logout() {
-		
-		// hook user_logout_start.php
-		$error = array();
-		if(!$this->form_submit()) {
-			
-			// hook user_logout_before.php
-			if(core::gpc('ajax')) {
-				$this->view->display('user_logout_ajax.htm');
-			} else {
-				$referer = $this->get_referer();
-				$this->view->assign('referer', $referer);
-				$this->view->display('user_logout.htm');
-			}
-		} else {
-			
-			// 清除 online username
-			$sid = $this->_sid;
-			$online = $this->online->read($sid);
-			if($online) {
-				$online['groupid'] = 0;
-				$online['uid'] = 0;
-				$online['username'] = '';
-				$this->online->update($online);
-			}
-			
-			// hook user_logout_after.php
-			misc::setcookie($this->conf['cookie_pre'].'auth', '', 0, $this->conf['cookie_path'], $this->conf['cookie_domain']);
-			$this->message($error);
-		}
-	}
-	
-	// ajax 注册
-	public function on_create() {
-		
-		// 检查IP 屏蔽
-		$this->check_ip();
-		
-		if(!$this->conf['reg_on']) {
-			$this->message('当前注册功能已经关闭。', 0);
-		}
-		// hook user_create_start.php
-		if(!$this->form_submit()) {
-			
-			// hook user_create_before.php
-			if(core::gpc('ajax')) {
-				$this->view->display('user_create_ajax.htm');
-			} else {
-				$referer = $this->get_referer();
-				$this->view->assign('referer', $referer);
-				$this->view->display('user_create.htm');
-			}
-		} else {
-			
-			// 接受数据
-			$userdb = $error = array();
-			$email = core::gpc('email', 'P');
-			$username = core::gpc('username', 'P');
-			$password= core::gpc('password', 'P');
-			$password2 = core::gpc('password2', 'P');
-			$clienttime = core::gpc('clienttime', 'P');
-			
-			// check 数据格式
-			$error['email'] = $this->user->check_email($email);
-			$error['email_exists'] = $this->user->check_email_exists($email);
-			
-			// 如果email存在
-			if($error['email_exists']) {
-				// 如果该Email一天内没激活，则删除掉，防止被坏蛋“占坑”。
-				$uid = $this->user->get_uid_by_email($email);
-				$_user = $this->user->read($uid);
-				if($_user['groupid'] == 6 && $_SERVER['time'] - $_user['regdate'] > 86400) {
-					$this->user->delete($uid);
-					$error['email_exists'] = '';
-				}
-			}
-			$error['username'] = $this->user->check_username($username);
-			$error['username_exists'] = $this->user->check_username_exists($username);
-			$error['password'] = $this->user->check_password($password);
-			$error['password2'] = $this->user->check_password2($password, $password2);
-			
-			$groupid = $this->conf['reg_email_on'] ? 6 : 11;
-			$salt = substr(md5(rand(10000000, 99999999).$_SERVER['time']), 0, 8);
-			$user = array(
-				'username'=>$username,
-				'email'=>$email,
-				'password'=>$this->user->md5_md5($password, $salt),
-				'groupid'=>$groupid,
-				'salt'=>$salt,
-			);
-			
-			// hook user_create_after.php
-			
-			// 判断结果
-			if(!array_filter($error)) {
-				$error = array();
-				$uid = $this->user->xcreate($user);
-				if($uid) {
-					// 发送激活邮件
-					if($this->conf['reg_email_on']) {
-						try {
-							$this->send_active_mail($uid, $username, $email, $error);	// $error['email_smtp_url']
-						} catch(Exception $e) {
-							$error['emailsend'] = '激活邮件发送失败！';
-						}
-					}
-					
-					// 此处由 $error 携带部分用户信息返回。
-					$userdb = $this->user->read($uid);
-					$error['user'] = array();
-					$error['user']['username'] = $userdb['username'];
-					$error['user']['auth'] = $this->user->get_xn_auth($userdb);
-					$error['user']['groupid'] = $userdb['groupid'];
-					$error['user']['uid'] = $uid; // 此处遗漏，感谢杨永全细心指正。
-					
-					$this->user->set_login_cookie($userdb, $clienttime + 86400 * 30);
-					$this->runtime->xset('users', '+1');
-					$this->runtime->xset('todayusers', '+1');
-					$this->runtime->xset('newuid', $uid);
-					$this->runtime->xset('newusername', $userdb['username']);
-					// $this->runtime->xsave();
-					
-					// hook user_create_succeed.php
-					
-				}
-			}
-			$this->message($error);
 		}
 	}
 	

@@ -5,7 +5,12 @@ class ControllerAccountLogout extends Controller {
 			$this->customer->logout();
 			$this->cart->clear();
 
-			unset($this->session->data['wishlist']);
+            // 论坛模拟退出
+            $Helper = new Helper();
+            $Helper->setcookie('bbs_auth', '', 0, '/', '', TRUE);
+            $Helper->http_post( HTTP_SERVER . 'forum/?user-logout.htm' );
+
+            unset($this->session->data['wishlist']);
 			unset($this->session->data['shipping_address_id']);
 			unset($this->session->data['shipping_country_id']);
 			unset($this->session->data['shipping_zone_id']);

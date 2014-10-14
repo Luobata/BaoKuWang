@@ -2,22 +2,48 @@
 class ControllerAccountRegister extends Controller {
 	private $error = array();
 
+    public function set_other_data() {
+        $this->request->post['firstname'] = '';
+        $this->request->post['lastname'] = '';
+        $this->request->post['telephone'] = '';
+        $this->request->post['fax'] = '';
+        $this->request->post['fax_id'] = '';
+        $this->request->post['tax_id'] = '';
+        $this->request->post['company'] = '';
+        $this->request->post['company_id'] = '';
+        $this->request->post['address_1'] = '';
+        $this->request->post['address_2'] = '';
+        $this->request->post['city'] = '';
+        $this->request->post['postcode'] = '';
+        $this->request->post['country_id'] = '';
+        $this->request->post['zone_id'] = '';
+    }
+
 	public function index() {
+
+        // 判断登录
 		if ($this->customer->isLogged()) {
 			$this->redirect($this->url->link('account/account', '', 'SSL'));
 		}
 
+        // 前端设置
 		$this->language->load('account/register');
-
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
 		$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
 
 		$this->load->model('account/customer');
 
+        // 已经提交表单
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+
+            // Set other data
+            $this->set_other_data();
+
+			// Register
 			$this->model_account_customer->addCustomer($this->request->post);
 
+			// Login
 			$this->customer->login($this->request->post['email'], $this->request->post['password']);
 
 			unset($this->session->data['guest']);
@@ -37,6 +63,9 @@ class ControllerAccountRegister extends Controller {
 
 			$this->redirect($this->url->link('account/success'));
 		}
+
+
+        // 未提交表单
 
 		$this->data['breadcrumbs'] = array();
 
@@ -90,6 +119,8 @@ class ControllerAccountRegister extends Controller {
 		$this->data['entry_confirm'] = $this->language->get('entry_confirm');
 
 		$this->data['button_continue'] = $this->language->get('button_continue');
+
+        // 接收错误信息
 
 		if (isset($this->error['warning'])) {
 			$this->data['error_warning'] = $this->error['warning'];
@@ -175,7 +206,10 @@ class ControllerAccountRegister extends Controller {
 			$this->data['error_zone'] = '';
 		}
 
+        // 设置链接
 		$this->data['action'] = $this->url->link('account/register', '', 'SSL');
+
+        // 接收数据
 
 		if (isset($this->request->post['firstname'])) {
 			$this->data['firstname'] = $this->request->post['firstname'];
@@ -350,13 +384,15 @@ class ControllerAccountRegister extends Controller {
 	}
 
 	protected function validate() {
-		if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
+		/*
+        if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}
 
 		if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen($this->request->post['lastname']) > 32)) {
 			$this->error['lastname'] = $this->language->get('error_lastname');
 		}
+        */
 
 		if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
 			$this->error['email'] = $this->language->get('error_email');
@@ -366,6 +402,7 @@ class ControllerAccountRegister extends Controller {
 			$this->error['warning'] = $this->language->get('error_exists');
 		}
 
+        /*
 		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
 			$this->error['telephone'] = $this->language->get('error_telephone');
 		}
@@ -425,6 +462,7 @@ class ControllerAccountRegister extends Controller {
 		if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '') {
 			$this->error['zone'] = $this->language->get('error_zone');
 		}
+        */
 
 		if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
 			$this->error['password'] = $this->language->get('error_password');
@@ -434,6 +472,7 @@ class ControllerAccountRegister extends Controller {
 			$this->error['confirm'] = $this->language->get('error_confirm');
 		}
 
+        /*
 		if ($this->config->get('config_account_id')) {
 			$this->load->model('catalog/information');
 
@@ -443,6 +482,7 @@ class ControllerAccountRegister extends Controller {
 				$this->error['warning'] = sprintf($this->language->get('error_agree'), $information_info['title']);
 			}
 		}
+        */
 
 		if (!$this->error) {
 			return true;

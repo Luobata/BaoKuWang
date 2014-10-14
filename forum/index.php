@@ -1,9 +1,5 @@
 <?php
 
-/*
- * Copyright (C) xiuno.com
- */
-
 //sae_xhprof_start();
 
 // 调试模式: 0:关闭; 1: 线上调试模式; 2: 本地开发详细调试模式;
@@ -17,12 +13,12 @@ define('BBS_PATH', str_replace('\\', '/', dirname(__FILE__)).'/');
 
 // 加载应用的配置文件，唯一的全局变量 $conf
 if(!($conf = include BBS_PATH.'conf/conf.php')) {
-	header('Location:install/');
-	exit;
+    header('Location:install/');
+    exit;
 }
 if(empty($conf['installed'])) {
-	header('Location:install/');
-	exit;
+    header('Location:install/');
+    exit;
 }
 
 // 框架的物理路径
@@ -41,6 +37,5 @@ core::ob_start();
 core::run($conf);
 
 //sae_xhprof_end();
-// 完毕
 
 ?>

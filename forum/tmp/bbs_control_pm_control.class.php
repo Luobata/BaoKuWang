@@ -5,7 +5,7 @@
  */
 
 !defined('FRAMEWORK_PATH') && exit('FRAMEWORK_PATH not defined.');
-	include 'D:/WampServer/wamp/www/forum/tmp/control_common_control.class.php';
+	include 'D:/WampServer/www/forum/tmp/control_common_control.class.php';
 
 class pm_control extends common_control {
 	

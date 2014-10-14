@@ -12,6 +12,8 @@
   <h1><?php echo $heading_title; ?></h1>
   <p><?php echo $text_account_already; ?></p>
   <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+
+    <!--
     <h2><?php echo $text_your_details; ?></h2>
     <div class="content">
       <table class="form">
@@ -30,13 +32,6 @@
             <?php } ?></td>
         </tr>
         <tr>
-          <td><span class="required">*</span> <?php echo $entry_email; ?></td>
-          <td><input type="text" name="email" value="<?php echo $email; ?>" />
-            <?php if ($error_email) { ?>
-            <span class="error"><?php echo $error_email; ?></span>
-            <?php } ?></td>
-        </tr>
-        <tr>
           <td><span class="required">*</span> <?php echo $entry_telephone; ?></td>
           <td><input type="text" name="telephone" value="<?php echo $telephone; ?>" />
             <?php if ($error_telephone) { ?>
@@ -49,6 +44,9 @@
         </tr>
       </table>
     </div>
+    -->
+
+    <!--
     <h2><?php echo $text_your_address; ?></h2>
     <div class="content">
       <table class="form">
@@ -135,18 +133,30 @@
         </tr>
       </table>
     </div>
+    -->
+
+    <!--
     <h2><?php echo $text_your_password; ?></h2>
+    -->
+
     <div class="content">
       <table class="form">
         <tr>
-          <td><span class="required">*</span> <?php echo $entry_password; ?></td>
+          <td><?php echo $entry_email; ?></td>
+          <td><input type="text" name="email" value="<?php echo $email; ?>" />
+              <?php if ($error_email) { ?>
+              <span class="error"><?php echo $error_email; ?></span>
+              <?php } ?></td>
+        </tr>
+        <tr>
+          <td><?php echo $entry_password; ?></td>
           <td><input type="password" name="password" value="<?php echo $password; ?>" />
             <?php if ($error_password) { ?>
             <span class="error"><?php echo $error_password; ?></span>
             <?php } ?></td>
         </tr>
         <tr>
-          <td><span class="required">*</span> <?php echo $entry_confirm; ?></td>
+          <td><?php echo $entry_confirm; ?></td>
           <td><input type="password" name="confirm" value="<?php echo $confirm; ?>" />
             <?php if ($error_confirm) { ?>
             <span class="error"><?php echo $error_confirm; ?></span>
@@ -154,6 +164,8 @@
         </tr>
       </table>
     </div>
+
+    <!--
     <h2><?php echo $text_newsletter; ?></h2>
     <div class="content">
       <table class="form">
@@ -173,6 +185,8 @@
         </tr>
       </table>
     </div>
+    -->
+
     <?php if ($text_agree) { ?>
     <div class="buttons">
       <div class="right"><?php echo $text_agree; ?>

@@ -166,12 +166,15 @@ class common_control extends base_control {
 	
 	// 初始化 _user, 解密 cookie
 	private function init_user() {
+
+		// 获取 COOKIE
 		$auth = core::gpc($this->conf['cookie_pre'].'auth', 'R');
 		$this->view->assign('_auth', $auth);
 		
+		// 根据 COOKIE 来获取用户信息
 		$this->_user = $this->user->decrypt_auth($auth);
 		$this->view->assign('_user', $this->_user);
-		
+
 		$this->_group = $this->group->read($this->_user['groupid']);
 		$this->view->assign('_group', $this->_group);
 		

@@ -1,11 +1,12 @@
 <?php
+
 // Version
 define('VERSION', '1.5.6.4');
 
 // Configuration
 if (file_exists('config.php')) {
 	require_once('config.php');
-}  
+}
 
 // Install 
 if (!defined('DIR_APPLICATION')) {
@@ -238,4 +239,3 @@ $controller->dispatch($action, new Action('error/not_found'));
 
 // Output
 $response->output();
-?>

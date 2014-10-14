@@ -174,7 +174,7 @@ class common_control extends base_control {
 		// 根据 COOKIE 来获取用户信息
 		$this->_user = $this->user->decrypt_auth($auth);
 		$this->view->assign('_user', $this->_user);
-		
+
 		$this->_group = $this->group->read($this->_user['groupid']);
 		$this->view->assign('_group', $this->_group);
 		
