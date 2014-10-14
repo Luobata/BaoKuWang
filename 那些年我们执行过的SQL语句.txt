@@ -1,0 +1,9 @@
+
+【陈雄威，2014-10-14，晚上】
+【创建商城与论坛账户的关联表】
+
+CREATE TABLE shop_bbs_user
+(
+	shop_cid int(11) DEFAULT 0 NOT NULL,
+	bbs_uid  int(11) DEFAULT 0 NOT NULL
+)
