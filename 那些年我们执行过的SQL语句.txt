@@ -1,22 +1,22 @@
 
 aaaaaaa
-bbbbbbb
+eeeee
 cccccccc
 
-¡¾³ÂÐÛÍþ£¬2014-10-15£¬23:40¡¿
-¡¾Ôö¼ÓÉÌÆ·»ù±¾ÐÅÏ¢×Ö¶Î¡¿
+ã€é™ˆé›„å¨ï¼Œ2014-10-15ï¼Œ23:40ã€‘
+ã€å¢žåŠ å•†å“åŸºæœ¬ä¿¡æ¯å­—æ®µã€‘
 
-ALTER TABLE shop_product ADD COLUMN title varchar(60) DEFAULT 'Î´ÉèÖÃ' NOT NULL;
-ALTER TABLE shop_product ADD COLUMN place varchar(40) DEFAULT 'Î´Öª' NOT NULL;
-ALTER TABLE shop_product ADD COLUMN mobile varchar(11) DEFAULT 'Î´Öª' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN title varchar(60) DEFAULT 'æœªè®¾ç½®' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN place varchar(40) DEFAULT 'æœªçŸ¥' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN mobile varchar(11) DEFAULT 'æœªçŸ¥' NOT NULL;
 ALTER TABLE shop_product ADD COLUMN cid int(11) DEFAULT 0 NOT NULL;
 ALTER TABLE shop_product ADD COLUMN sale tinyint(1) DEFAULT 0 NOT NULL;
 ALTER TABLE shop_product ADD COLUMN identify tinyint(1) DEFAULT 0 NOT NULL;
 ALTER TABLE shop_product ADD COLUMN serial varchar(32) DEFAULT '00000000000000000000000000000000' NOT NULL;
 
 
-¡¾³ÂÐÛÍþ£¬2014-10-14£¬20:30¡¿
-¡¾´´½¨ÍøÕ¾ÓëÂÛÌ³ÕË»§¼äµÄ¹ØÁª±í¡¿
+ã€é™ˆé›„å¨ï¼Œ2014-10-14ï¼Œ20:30ã€‘
+ã€åˆ›å»ºç½‘ç«™ä¸Žè®ºå›è´¦æˆ·é—´çš„å…³è”è¡¨ã€‘
 
 CREATE TABLE shop_bbs_user
 (
