@@ -52,7 +52,7 @@ class ControllerProductCategory extends Controller {
 
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
-			}	
+			}
 
 			if (isset($this->request->get['order'])) {
 				$url .= '&order=' . $this->request->get['order'];
@@ -66,8 +66,10 @@ class ControllerProductCategory extends Controller {
 
 			$parts = explode('_', (string)$this->request->get['path']);
 
+            // 删除并返回数组最后一个值，及最底层的分类ID
 			$category_id = (int)array_pop($parts);
 
+            // 设置面包屑
 			foreach ($parts as $path_id) {
 				if (!$path) {
 					$path = (int)$path_id;
@@ -173,7 +175,11 @@ class ControllerProductCategory extends Controller {
 
 			$this->data['categories'] = array();
 
+            // 获取需要查询的分类下面的所有子分类
 			$results = $this->model_catalog_category->getCategories($category_id);
+
+            //var_dump($results);
+            //exit();
 
 			foreach ($results as $result) {
 				$data = array(
@@ -189,6 +195,9 @@ class ControllerProductCategory extends Controller {
 				);
 			}
 
+
+            // 开始获取商品信息
+
 			$this->data['products'] = array();
 
 			$data = array(
@@ -203,6 +212,9 @@ class ControllerProductCategory extends Controller {
 			$product_total = $this->model_catalog_product->getTotalProducts($data); 
 
 			$results = $this->model_catalog_product->getProducts($data);
+
+            //var_dump($results);
+            //exit();
 
 			foreach ($results as $result) {
 				if ($result['image']) {

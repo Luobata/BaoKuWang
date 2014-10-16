@@ -55,6 +55,8 @@ $('#search input').keyup(function(e) {
 // 登陆后才能发帖
 $('#create_thread').click(function() {
 	if(g_uid == 0) {
+		alert('请先登录');
+		/*
 		ajaxdialog_request('http://localhost/forum/?user-login.htm', function() {
 			$('#create_thread').unbind('click');
 			ajaxdialog_request($('#create_thread').attr('href'));
@@ -63,6 +65,7 @@ $('#create_thread').click(function() {
 			});
 		}, {fullicon: 1});
 		return false;
+		*/
 	} else {
 		ajaxdialog_request($('#create_thread').attr('href'), null);
 		return false;

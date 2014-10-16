@@ -222,6 +222,8 @@ class ModelCatalogProduct extends Model {
 			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
 		}
 
+        //exit($sql);
+
 		return $product_data;
 	}
 

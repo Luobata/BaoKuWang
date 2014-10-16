@@ -56,4 +56,27 @@ class Helper {
         }
     }
 
+    // 获取随机字符串
+
+    function generate_rand($l){
+
+        if($l<1) {
+            return false;
+        }
+
+        //$c= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        $c= "0123456789";
+
+        srand((double)microtime()*1000000);
+
+        $rand = '';
+
+        for( $i=0 ; $i<$l ; $i++ ) {
+            $rand .= $c[rand()%strlen($c)];
+        }
+
+        return $rand;
+    }
+
 }

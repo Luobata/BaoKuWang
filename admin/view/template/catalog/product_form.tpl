@@ -14,8 +14,11 @@
       <div class="buttons"><a onclick="$('#form').submit();" class="button"><?php echo $button_save; ?></a><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a></div>
     </div>
     <div class="content">
+      <!--
       <div id="tabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a><a href="#tab-data"><?php echo $tab_data; ?></a><a href="#tab-links"><?php echo $tab_links; ?></a><a href="#tab-attribute"><?php echo $tab_attribute; ?></a><a href="#tab-option"><?php echo $tab_option; ?></a><a href="#tab-profile"><?php echo $tab_profile; ?></a><a href="#tab-discount"><?php echo $tab_discount; ?></a><a href="#tab-special"><?php echo $tab_special; ?></a><a href="#tab-image"><?php echo $tab_image; ?></a><a href="#tab-reward"><?php echo $tab_reward; ?></a><a href="#tab-design"><?php echo $tab_design; ?></a></div>
+      -->
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
+        <!--
         <div id="tab-general">
           <div id="languages" class="htabs">
             <?php foreach ($languages as $language) { ?>
@@ -52,15 +55,118 @@
           </div>
           <?php } ?>
         </div>
+        -->
         <div id="tab-data">
           <table class="form">
-            <tr>
-              <td><span class="required">*</span> <?php echo $entry_model; ?></td>
-              <td><input type="text" name="model" value="<?php echo $model; ?>" />
-                <?php if ($error_model) { ?>
-                <span class="error"><?php echo $error_model; ?></span>
-                <?php } ?></td>
-            </tr>
+              <tr>
+                  <td><span class="required">*</span>用户ID</td>
+                  <td><input type="text" name="cid" value="<?php echo $cid; ?>" />
+                      <?php if ($error_cid) { ?>
+                      <span class="error"><?php echo $error_cid; ?></span>
+                      <?php } ?></td>
+              </tr>
+
+              <!-- 名称
+              <?php foreach ($languages as $language) { ?>
+              <tr>
+                  <td><span class="required">*</span> <?php echo $entry_name; ?></td>
+                  <td><input type="text" name="product_description[<?php echo $language['language_id']; ?>][name]" size="100" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['name'] : ''; ?>" />
+                      <?php if (isset($error_name[$language['language_id']])) { ?>
+                      <span class="error"><?php echo $error_name[$language['language_id']]; ?></span>
+                      <?php } ?></td>
+              </tr>
+              <?php } ?>
+              -->
+
+              <tr>
+                  <td><span class="required">*</span>商品名称（标题）</td>
+                  <td><input type="text" name="title" value="<?php echo $title; ?>" />
+                      <?php if ($error_title) { ?>
+                      <span class="error"><?php echo $error_title; ?></span>
+                      <?php } ?></td>
+              </tr>
+
+              <!-- 商品分类 -->
+              <tr>
+                  <td><span class="required">*</span>商品分类</td>
+                  <td><input type="text" name="category" value="" />
+                      <?php if ($error_category) { ?>
+                      <span class="error"><?php echo $error_category; ?></span>
+                      <?php } ?></td>
+              </tr>
+              <tr>
+                  <td>&nbsp;</td>
+                  <td><div id="product-category" class="scrollbox">
+                          <?php $class = 'odd'; ?>
+                          <?php foreach ($product_categories as $product_category) { ?>
+                          <?php $class = ($class == 'even' ? 'odd' : 'even'); ?>
+                          <div id="product-category<?php echo $product_category['category_id']; ?>" class="<?php echo $class; ?>"><?php echo $product_category['name']; ?><img src="view/image/delete.png" alt="" />
+                              <input type="hidden" name="product_category[]" value="<?php echo $product_category['category_id']; ?>" />
+                          </div>
+                          <?php } ?>
+                      </div></td>
+              </tr>
+              <!-- 商品分类 -->
+
+              <tr>
+                  <td><span class="required">*</span>转让价格</td>
+                  <td><input type="text" name="price" value="<?php echo $price; ?>" />
+                  <?php if ($error_price) { ?>
+                  <span class="error"><?php echo $error_price; ?></span>
+                  <?php } ?></td>
+              </tr>
+              <tr>
+                  <td><span class="required">*</span>商品图片</td>
+                  <td><div class="image"><img src="<?php echo $thumb; ?>" alt="" id="thumb" /><br />
+                          <input type="hidden" name="image" value="<?php echo $image; ?>" id="image" />
+                          <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', '');"><?php echo $text_clear; ?></a></div>
+                      <?php if ($error_image) { ?>
+                      <span class="error"><?php echo $error_image; ?></span>
+                      <?php } ?>
+                  </td>
+              </tr>
+              <tr>
+                  <td><span class="required">*</span>所在地</td>
+                  <td><input type="text" name="place" value="<?php echo $place; ?>" />
+                      <?php if ($error_place) { ?>
+                      <span class="error"><?php echo $error_place; ?></span>
+                      <?php } ?></td>
+              </tr>
+              <tr>
+                  <td><span class="required">*</span>手机号码</td>
+                  <td><input type="text" name="mobile" value="<?php echo $mobile; ?>" />
+                      <?php if ($error_mobile) { ?>
+                      <span class="error"><?php echo $error_mobile; ?></span>
+                      <?php } ?></td>
+              </tr>
+              <tr>
+                  <td>QQ号码</td>
+                  <td><input type="text" name="qq" value="<?php echo $qq; ?>" /></td>
+              </tr>
+              <tr>
+                  <td>微信号</td>
+                  <td><input type="text" name="wechat" value="<?php echo $wechat; ?>" /></td>
+              </tr>
+
+              <!-- 详情
+              <?php foreach ($languages as $language) { ?>
+              <tr>
+                  <td><?php echo $entry_description; ?></td>
+                  <td><textarea name="product_description[<?php echo $language['language_id']; ?>][description]" id="description<?php echo $language['language_id']; ?>"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['description'] : ''; ?></textarea></td>
+              </tr>
+              <?php } ?>
+              -->
+
+              <!--
+              <tr>
+                <td><span class="required">*</span> <?php echo $entry_model; ?></td>
+                <td><input type="text" name="model" value="<?php echo $model; ?>" />
+                  <?php if ($error_model) { ?>
+                  <span class="error"><?php echo $error_model; ?></span>
+                  <?php } ?></td>
+              </tr>
+
+
             <tr>
               <td><?php echo $entry_sku; ?></td>
               <td><input type="text" name="sku" value="<?php echo $sku; ?>" /></td>
@@ -216,8 +322,10 @@
               <td><?php echo $entry_sort_order; ?></td>
               <td><input type="text" name="sort_order" value="<?php echo $sort_order; ?>" size="2" /></td>
             </tr>
+            -->
           </table>
         </div>
+        <!--
         <div id="tab-links">
           <table class="form">
             <tr>
@@ -753,6 +861,7 @@
             <?php } ?>
           </table>
         </div>
+        -->
       </form>
     </div>
   </div>

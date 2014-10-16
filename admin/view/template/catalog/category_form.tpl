@@ -14,24 +14,35 @@
       <div class="buttons"><a onclick="$('#form').submit();" class="button"><?php echo $button_save; ?></a><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a></div>
     </div>
     <div class="content">
+      <!--
       <div id="tabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a><a href="#tab-data"><?php echo $tab_data; ?></a><a href="#tab-design"><?php echo $tab_design; ?></a></div>
+      -->
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
         <div id="tab-general">
+          <!--
           <div id="languages" class="htabs">
             <?php foreach ($languages as $language) { ?>
             <a href="#language<?php echo $language['language_id']; ?>"><img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a>
             <?php } ?>
           </div>
+          -->
           <?php foreach ($languages as $language) { ?>
           <div id="language<?php echo $language['language_id']; ?>">
             <table class="form">
-              <tr>
-                <td><span class="required">*</span> <?php echo $entry_name; ?></td>
-                <td><input type="text" name="category_description[<?php echo $language['language_id']; ?>][name]" size="100" value="<?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['name'] : ''; ?>" />
-                  <?php if (isset($error_name[$language['language_id']])) { ?>
-                  <span class="error"><?php echo $error_name[$language['language_id']]; ?></span>
-                  <?php } ?></td>
-              </tr>
+                <tr>
+                    <td><span class="required">*</span> <?php echo $entry_name; ?></td>
+                    <td><input type="text" name="category_description[<?php echo $language['language_id']; ?>][name]" size="100" value="<?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['name'] : ''; ?>" />
+                        <?php if (isset($error_name[$language['language_id']])) { ?>
+                        <span class="error"><?php echo $error_name[$language['language_id']]; ?></span>
+                        <?php } ?></td>
+                </tr>
+                <tr>
+                    <td>父级分类：</td>
+                    <td><input type="text" name="path" value="<?php echo $path; ?>" size="100" />
+                        <input type="hidden" name="parent_id" value="<?php echo $parent_id; ?>" /></td>
+                </tr>
+
+              <!--
               <tr>
                 <td><?php echo $entry_meta_description; ?></td>
                 <td><textarea name="category_description[<?php echo $language['language_id']; ?>][meta_description]" cols="40" rows="5"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_description'] : ''; ?></textarea></td>
@@ -44,10 +55,12 @@
                 <td><?php echo $entry_description; ?></td>
                 <td><textarea name="category_description[<?php echo $language['language_id']; ?>][description]" id="description<?php echo $language['language_id']; ?>"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['description'] : ''; ?></textarea></td>
               </tr>
+              -->
             </table>
           </div>
           <?php } ?>
         </div>
+        <!--
         <div id="tab-data">
           <table class="form">
             <tr>
@@ -181,6 +194,7 @@
             <?php } ?>
           </table>
         </div>
+        -->
       </form>
     </div>
   </div>
