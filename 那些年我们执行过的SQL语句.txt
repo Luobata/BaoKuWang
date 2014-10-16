@@ -3,10 +3,10 @@
 【增加商品基本信息字段】
 
 ALTER TABLE shop_product ADD COLUMN title varchar(60) DEFAULT '未设置' NOT NULL;
-ALTER TABLE shop_product ADD COLUMN price_z int(11) DEFAULT 0 NOT NULL;
 ALTER TABLE shop_product ADD COLUMN place varchar(40) DEFAULT '未知' NOT NULL;
 ALTER TABLE shop_product ADD COLUMN mobile varchar(11) DEFAULT '未知' NOT NULL;
 ALTER TABLE shop_product ADD COLUMN cid int(11) DEFAULT 0 NOT NULL;
+ALTER TABLE shop_product ADD COLUMN serial varchar(32) DEFAULT '00000000000000000000000000000000' NOT NULL;
 
 
 【陈雄威，2014-10-14，20:30】
