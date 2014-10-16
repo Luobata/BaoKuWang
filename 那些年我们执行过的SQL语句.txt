@@ -1,5 +1,9 @@
 ﻿
-【陈雄威，2014-10-15，23:40】
+【陈雄威，2014-10-16，23:20】
+【增加商城用户信息字段】
+ALTER TABLE shop_customer ADD COLUMN name varchar(40) DEFAULT '未设置' NOT NULL;
+
+【陈雄威，2014-10-16，20:40】
 【增加商品基本信息字段】
 
 ALTER TABLE shop_product ADD COLUMN title varchar(60) DEFAULT '未设置' NOT NULL;
