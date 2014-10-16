@@ -1,4 +1,8 @@
 
+aaaaaaa
+bbbbbbb
+cccccccc
+
 【陈雄威，2014-10-15，23:40】
 【增加商品基本信息字段】
 
