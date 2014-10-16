@@ -1,12 +1,4 @@
-
-aaaaaaa
-<<<<<<< HEAD
-bbbbbbbrrrrrrr
-=======
-bbbbbbbb
->>>>>>> ddf61b361d918408ba3d5f0e79b6a438e3a42aeb
-cccccccc
-
+﻿
 【陈雄威，2014-10-15，23:40】
 【增加商品基本信息字段】
 
