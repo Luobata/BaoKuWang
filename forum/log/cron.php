@@ -245,3 +245,6 @@
 <?php exit;?>	2014-10-15 20:50	127.0.0.1	/forum/	cron_1_next_time:2014-10-15 20:55	
 <?php exit;?>	2014-10-15 21:20	127.0.0.1	/forum/	cron_1_next_time:2014-10-15 21:25	
 <?php exit;?>	2014-10-15 22:48	127.0.0.1	/forum/admin/	cron_1_next_time:2014-10-15 22:53	
+<?php exit;?>	2014-10-17 15:03	127.0.0.1	/forum/	cron_1_next_time:2014-10-17 15:08	
+<?php exit;?>	2014-10-17 15:03	127.0.0.1	/forum/	cron_2_next_time:2014-10-18 00:00	
+<?php exit;?>	2014-10-17 19:32	127.0.0.1	/forum/	cron_1_next_time:2014-10-17 19:37	

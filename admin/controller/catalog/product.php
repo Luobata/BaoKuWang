@@ -125,6 +125,9 @@ class ControllerCatalogProduct extends Controller {
 
 		$this->load->model('catalog/product');
 
+        //var_dump($this->request->post);
+        //exit();
+
 		if (isset($this->request->post['selected']) && $this->validateDelete()) {
 			foreach ($this->request->post['selected'] as $product_id) {
 				$this->model_catalog_product->deleteProduct($product_id);
@@ -243,10 +246,10 @@ class ControllerCatalogProduct extends Controller {
             $filter_serial = null;
         }
 
-		if (isset($this->request->get['filter_name'])) {
-			$filter_name = $this->request->get['filter_name'];
+		if (isset($this->request->get['filter_title'])) {
+			$filter_title = $this->request->get['filter_title'];
 		} else {
-			$filter_name = null;
+			$filter_title = null;
 		}
 
         if (isset($this->request->get['filter_price'])) {
@@ -255,10 +258,10 @@ class ControllerCatalogProduct extends Controller {
             $filter_price = null;
         }
 
-        if (isset($this->request->get['filter_owner'])) {
-            $filter_owner = $this->request->get['filter_owner'];
+        if (isset($this->request->get['filter_cid'])) {
+            $filter_cid = $this->request->get['filter_cid'];
         } else {
-            $filter_owner = null;
+            $filter_cid = null;
         }
 
         if (isset($this->request->get['filter_mobile'])) {
@@ -394,9 +397,9 @@ class ControllerCatalogProduct extends Controller {
 		$data = array(                                  // 数据筛选的参数
             'filter_id'	      => $filter_id,
             'filter_serial'	  => $filter_serial,
-			'filter_name'	  => $filter_name,
+			'filter_title'	  => $filter_title,
 			'filter_price'	  => $filter_price,
-            'filter_owner'	  => $filter_owner,
+            'filter_cid'	  => $filter_cid,
             'filter_mobile'	  => $filter_mobile,
             'filter_qq' 	  => $filter_qq,
             'filter_wechat'	  => $filter_wechat,
@@ -419,6 +422,8 @@ class ControllerCatalogProduct extends Controller {
 
         //var_dump($product_total,$results);
         //exit();
+
+        //$this->load->model('sale/customer');
 
 		foreach ($results as $result) {
 			$action = array();
@@ -446,15 +451,24 @@ class ControllerCatalogProduct extends Controller {
 				}					
 			}
 
+            //$customer = $this->model_sale_customer->getCustomer($result['cid']);
+
+            //var_dump($result['cid'],$customer);
+            //exit();
+
 			$this->data['products'][] = array(
-				'product_id' => $result['product_id'],
-				'name'       => $result['name'],
-				'model'      => $result['model'],
+				'id'         => $result['product_id'],
+                'serial'     => $result['serial'],
+				'title'      => $result['title'],
 				'price'      => $result['price'],
-				'special'    => $special,
+                'owner_id'   => $result['cid'],
+                'cid'        => $result['cid'],//$customer ? $customer['name'] : '未设置',
+                'mobile'     => $result['mobile'],
+                'qq'         => $result['qq'],
+                'wechat'     => $result['wechat'],
+                'sale'       => $result['sale'],
+                'identify'   => $result['identify'],
 				'image'      => $image,
-				'quantity'   => $result['quantity'],
-				'status'     => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
 				'selected'   => isset($this->request->post['selected']) && in_array($result['product_id'], $this->request->post['selected']),
 				'action'     => $action
 			);
@@ -500,20 +514,59 @@ class ControllerCatalogProduct extends Controller {
 			$this->data['success'] = '';
 		}
 
-        // 设置项目栏按钮的链接
+        // 设置项目栏按钮的链接：暂时关闭（不开发）
 
 		$url = '';
 
+        if (isset($this->request->get['filter_id'])) {
+            $url .= '&filter_id=' . $this->request->get['filter_id'];
+        }
+
+        if (isset($this->request->get['filter_serial'])) {
+            $url .= '&filter_serial=' . $this->request->get['filter_serial'];
+        }
+
+        if (isset($this->request->get['filter_title'])) {
+            $url .= '&filter_title=' . urlencode(html_entity_decode($this->request->get['filter_title'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_price'])) {
+            $url .= '&filter_price=' . $this->request->get['filter_price'];
+        }
+
+        if (isset($this->request->get['filter_cid'])) {
+            $url .= '&filter_cid=' . $this->request->get['filter_cid'];
+        }
+
+        if (isset($this->request->get['filter_mobile'])) {
+            $url .= '&filter_mobile=' . $this->request->get['filter_mobile'];
+        }
+
+        if (isset($this->request->get['filter_qq'])) {
+            $url .= '&filter_qq=' . $this->request->get['filter_qq'];
+        }
+
+        if (isset($this->request->get['filter_wechat'])) {
+            $url .= '&filter_wechat=' . urlencode(html_entity_decode($this->request->get['filter_wechat'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_sale'])) {
+            $url .= '&filter_sale=' . $this->request->get['filter_sale'];
+        }
+
+        if (isset($this->request->get['filter_identify'])) {
+            $url .= '&filter_identify=' . $this->request->get['filter_identify'];
+        }
+
+        // 宝库网 ↑↑↑
+
+        /*
 		if (isset($this->request->get['filter_name'])) {
 			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
 		}
 
 		if (isset($this->request->get['filter_model'])) {
 			$url .= '&filter_model=' . urlencode(html_entity_decode($this->request->get['filter_model'], ENT_QUOTES, 'UTF-8'));
-		}
-
-		if (isset($this->request->get['filter_price'])) {
-			$url .= '&filter_price=' . $this->request->get['filter_price'];
 		}
 
 		if (isset($this->request->get['filter_quantity'])) {
@@ -523,6 +576,7 @@ class ControllerCatalogProduct extends Controller {
 		if (isset($this->request->get['filter_status'])) {
 			$url .= '&filter_status=' . $this->request->get['filter_status'];
 		}
+        */
 
 		if ($order == 'ASC') {
 			$url .= '&order=DESC';
@@ -545,6 +599,49 @@ class ControllerCatalogProduct extends Controller {
 
 		$url = '';
 
+        if (isset($this->request->get['filter_id'])) {
+            $url .= '&filter_id=' . $this->request->get['filter_id'];
+        }
+
+        if (isset($this->request->get['filter_serial'])) {
+            $url .= '&filter_serial=' . $this->request->get['filter_serial'];
+        }
+
+        if (isset($this->request->get['filter_title'])) {
+            $url .= '&filter_title=' . urlencode(html_entity_decode($this->request->get['filter_title'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_price'])) {
+            $url .= '&filter_price=' . $this->request->get['filter_price'];
+        }
+
+        if (isset($this->request->get['filter_cid'])) {
+            $url .= '&filter_cid=' . $this->request->get['filter_cid'];
+        }
+
+        if (isset($this->request->get['filter_mobile'])) {
+            $url .= '&filter_mobile=' . $this->request->get['filter_mobile'];
+        }
+
+        if (isset($this->request->get['filter_qq'])) {
+            $url .= '&filter_qq=' . $this->request->get['filter_qq'];
+        }
+
+        if (isset($this->request->get['filter_wechat'])) {
+            $url .= '&filter_wechat=' . urlencode(html_entity_decode($this->request->get['filter_wechat'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_sale'])) {
+            $url .= '&filter_sale=' . $this->request->get['filter_sale'];
+        }
+
+        if (isset($this->request->get['filter_identify'])) {
+            $url .= '&filter_identify=' . $this->request->get['filter_identify'];
+        }
+
+        // 宝库网 ↑↑↑
+
+        /*
 		if (isset($this->request->get['filter_name'])) {
 			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
 		}
@@ -564,6 +661,7 @@ class ControllerCatalogProduct extends Controller {
 		if (isset($this->request->get['filter_status'])) {
 			$url .= '&filter_status=' . $this->request->get['filter_status'];
 		}
+        */
 
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
@@ -584,11 +682,16 @@ class ControllerCatalogProduct extends Controller {
 
         // 设置筛选栏内的数据
 
-		$this->data['filter_name'] = $filter_name;
-		$this->data['filter_model'] = $filter_model;
+        $this->data['filter_id'] = $filter_id;
+        $this->data['filter_serial'] = $filter_serial;
+		$this->data['filter_title'] = $filter_title;
 		$this->data['filter_price'] = $filter_price;
-		$this->data['filter_quantity'] = $filter_quantity;
-		$this->data['filter_status'] = $filter_status;
+        $this->data['filter_cid'] = $filter_cid;
+        $this->data['filter_mobile'] = $filter_mobile;
+        $this->data['filter_qq'] = $filter_qq;
+        $this->data['filter_wechat'] = $filter_wechat;
+        $this->data['filter_sale'] = $filter_sale;
+        $this->data['filter_identify'] = $filter_identify;
 
 		$this->data['sort'] = $sort;
 		$this->data['order'] = $order;
@@ -765,6 +868,18 @@ class ControllerCatalogProduct extends Controller {
             $this->data['error_mobile'] = $this->error['mobile'];
         } else {
             $this->data['error_mobile'] = '';
+        }
+
+        if (isset($this->error['sale'])) {
+            $this->data['error_sale'] = $this->error['sale'];
+        } else {
+            $this->data['error_sale'] = '';
+        }
+
+        if (isset($this->error['identify'])) {
+            $this->data['error_identify'] = $this->error['identify'];
+        } else {
+            $this->data['error_identify'] = '';
         }
 
         // 结束
@@ -1419,58 +1534,79 @@ class ControllerCatalogProduct extends Controller {
 
         // 检测宝库网商品信息
 
+        //var_dump($product_info);
+        //exit();
+
         if (isset($this->request->post['cid'])) {
             $this->data['cid'] = $this->request->post['cid'];
+        } elseif ( isset($product_info) ) {
+            $this->data['cid'] = $product_info['cid'];
         } else {
             $this->data['cid'] = '';
         }
 
-        if (isset($this->request->post['cat_1'])) {
-            $this->data['cat_1'] = $this->request->post['cat_1'];
-        } else {
-            $this->data['cat_1'] = '';
-        }
-
-        if (isset($this->request->post['cat_2'])) {
-            $this->data['cat_2'] = $this->request->post['cat_2'];
-        } else {
-            $this->data['cat_2'] = '';
-        }
-
         if (isset($this->request->post['price'])) {
             $this->data['price'] = $this->request->post['price'];
+        } elseif ( isset($product_info) ) {
+            $this->data['price'] = $product_info['price'];
         } else {
             $this->data['price'] = '';
         }
 
         if (isset($this->request->post['title'])) {
             $this->data['title'] = $this->request->post['title'];
+        } elseif ( isset($product_info) ) {
+            $this->data['title'] = $product_info['title'];
         } else {
             $this->data['title'] = '';
         }
 
         if (isset($this->request->post['place'])) {
             $this->data['place'] = $this->request->post['place'];
+        } elseif ( isset($product_info) ) {
+            $this->data['place'] = $product_info['place'];
         } else {
             $this->data['place'] = '';
         }
 
         if (isset($this->request->post['mobile'])) {
             $this->data['mobile'] = $this->request->post['mobile'];
+        } elseif ( isset($product_info) ) {
+            $this->data['mobile'] = $product_info['mobile'];
         } else {
             $this->data['mobile'] = '';
         }
 
         if (isset($this->request->post['qq'])) {
             $this->data['qq'] = $this->request->post['qq'];
+        } elseif ( isset($product_info) ) {
+            $this->data['qq'] = $product_info['qq'];
         } else {
             $this->data['qq'] = '';
         }
 
         if (isset($this->request->post['wechat'])) {
             $this->data['wechat'] = $this->request->post['wechat'];
+        } elseif ( isset($product_info) ) {
+            $this->data['wechat'] = $product_info['wechat'];
         } else {
             $this->data['wechat'] = '';
+        }
+
+        if (isset($this->request->post['sale'])) {
+            $this->data['sale'] = $this->request->post['sale'];
+        } elseif ( isset($product_info) ) {
+            $this->data['sale'] = $product_info['sale'];
+        } else {
+            $this->data['sale'] = '';
+        }
+
+        if (isset($this->request->post['identify'])) {
+            $this->data['identify'] = $this->request->post['identify'];
+        } elseif ( isset($product_info) ) {
+            $this->data['identify'] = $product_info['identify'];
+        } else {
+            $this->data['identify'] = '';
         }
 
         // 检测结束
@@ -1538,6 +1674,14 @@ class ControllerCatalogProduct extends Controller {
 
         if ( preg_match('/^\d*$/',$this->request->post['mobile']) == 0 || (utf8_strlen($this->request->post['mobile']) != 11) ) {
             $this->error['mobile'] = '请检查 手机号码 的输入是否有误';
+        }
+
+        if ( $this->request->post['sale'] != '1' && $this->request->post['sale'] != '0' && $this->request->post['sale'] != '' ) {
+            $this->error['sale'] = '此项必须是 1（开） 或 0（关）';
+        }
+
+        if ( $this->request->post['identify'] != '1' && $this->request->post['identify'] != '0' && $this->request->post['identify'] != '' ) {
+            $this->error['identify'] = '此项必须是 1（开） 或 0（关）';
         }
 
         // After

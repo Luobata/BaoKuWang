@@ -59,7 +59,7 @@
         <div id="tab-data">
           <table class="form">
               <tr>
-                  <td><span class="required">*</span>用户ID</td>
+                  <td><span class="required">*</span>寄卖人ID</td>
                   <td><input type="text" name="cid" value="<?php echo $cid; ?>" />
                       <?php if ($error_cid) { ?>
                       <span class="error"><?php echo $error_cid; ?></span>
@@ -146,6 +146,20 @@
               <tr>
                   <td>微信号</td>
                   <td><input type="text" name="wechat" value="<?php echo $wechat; ?>" /></td>
+              </tr>
+              <tr>
+                  <td>特卖</td>
+                  <td><input type="text" name="sale" value="<?php echo $sale; ?>" />
+                  <?php if ($error_sale) { ?>
+                  <span class="error"><?php echo $error_sale; ?></span>
+                  <?php } ?></td>
+              </tr>
+              <tr>
+                  <td>鉴定</td>
+                  <td><input type="text" name="identify" value="<?php echo $identify; ?>" />
+                  <?php if ($error_identify) { ?>
+                  <span class="error"><?php echo $error_identify; ?></span>
+                  <?php } ?></td>
               </tr>
 
               <!-- 详情

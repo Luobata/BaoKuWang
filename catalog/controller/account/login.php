@@ -205,27 +205,26 @@ class ControllerAccountLogin extends Controller {
         // 商城登录
 		if (!$this->customer->login($this->request->post['email'], $this->request->post['password'])) {
 			$this->error['warning'] = $this->language->get('error_login');
-		}
-
-        // 模拟论坛登录
-        $BBSUSER = $this->db->query("SELECT b.* FROM " . DB_PREFIX . "customer AS s
+		} else {
+            // 模拟论坛登录
+            $BBSUSER = $this->db->query("SELECT b.* FROM " . DB_PREFIX . "customer AS s
                                      LEFT JOIN " . DB_PREFIX . "bbs_user AS i ON s.customer_id = i.shop_cid
                                      LEFT JOIN bbs_user AS b ON i.bbs_uid = b.uid
                                      WHERE s.customer_id = " . (int)$this->customer->getId() );
-        $Helper = new Helper();
-        $AuthCookie = $Helper->http_post( HTTP_SERVER . 'forum/?user-getLoginAuth.htm' ,
-                                          array( 'uid' => $BBSUSER->rows[0]['uid'] ,
-                                                 'username' => $BBSUSER->rows[0]['username'] ,
-                                                 'password' => $BBSUSER->rows[0]['password'] ,
-                                                 'groupid'  => $BBSUSER->rows[0]['groupid']  ,
-                                                 'accesson' => $BBSUSER->rows[0]['accesson'] )  );
-        if( $AuthCookie ) {
-            // 模拟登录
-            $AuthCookie = explode('/',$AuthCookie);
-            $Helper->setcookie($AuthCookie[0], $AuthCookie[1], time()+86400, '/', '', TRUE);  //24小时
-            $Helper->http_post( HTTP_SERVER . 'forum/?user-afterLogin.htm' );
+            $Helper = new Helper();
+            $AuthCookie = $Helper->http_post( HTTP_SERVER . 'forum/?user-getLoginAuth.htm' ,
+                array( 'uid' => $BBSUSER->rows[0]['uid'] ,
+                    'username' => $BBSUSER->rows[0]['username'] ,
+                    'password' => $BBSUSER->rows[0]['password'] ,
+                    'groupid'  => $BBSUSER->rows[0]['groupid']  ,
+                    'accesson' => $BBSUSER->rows[0]['accesson'] )  );
+            if( $AuthCookie ) {
+                // 模拟登录
+                $AuthCookie = explode('/',$AuthCookie);
+                $Helper->setcookie($AuthCookie[0], $AuthCookie[1], time()+86400, '/', '', TRUE);  //24小时
+                $Helper->http_post( HTTP_SERVER . 'forum/?user-afterLogin.htm' );
+            }
         }
-
 
         // After
 
