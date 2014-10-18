@@ -14,7 +14,7 @@
   <div class="box">
     <div class="heading">
       <h1><img src="view/image/product.png" alt="" /> <?php echo $heading_title; ?></h1>
-      <div class="buttons"><a href="<?php echo $insert; ?>" class="button"><?php echo $button_insert; ?></a><a onclick="$('#form').attr('action', '<?php echo $copy; ?>'); $('#form').submit();" class="button"><?php echo $button_copy; ?></a><a onclick="$('form').submit();" class="button"><?php echo $button_delete; ?></a></div>
+      <div class="buttons"><a href="<?php echo $insert; ?>" class="button"><?php echo $button_insert; ?></a><!--<a onclick="$('#form').attr('action', '<?php echo $copy; ?>'); $('#form').submit();" class="button"><?php echo $button_copy; ?></a>--><a onclick="$('form').submit();" class="button"><?php echo $button_delete; ?></a></div>
     </div>
     <div class="content">
       <form action="<?php echo $delete; ?>" method="post" enctype="multipart/form-data" id="form">
@@ -22,6 +22,18 @@
           <thead>
             <tr>
               <td width="1" style="text-align: center;"><input type="checkbox" onclick="$('input[name*=\'selected\']').attr('checked', this.checked);" /></td>
+                <td class="center">图片</td>
+                <td class="left">ID</td>
+                <td class="left">序列号</td>
+                <td class="left">名称</td>
+                <td class="left">价格</td>
+                <td class="left">寄卖人ID</td>
+                <td class="left">手机</td>
+                <td class="left">QQ</td>
+                <td class="left">微信号</td>
+                <td class="left">特卖</td>
+                <td class="left">鉴定</td>
+              <!--
               <td class="center"><?php echo $column_image; ?></td>
               <td class="left"><?php if ($sort == 'pd.name') { ?>
                 <a href="<?php echo $sort_name; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_name; ?></a>
@@ -48,13 +60,27 @@
                 <?php } else { ?>
                 <a href="<?php echo $sort_status; ?>"><?php echo $column_status; ?></a>
                 <?php } ?></td>
+              -->
               <td class="right"><?php echo $column_action; ?></td>
             </tr>
           </thead>
           <tbody>
             <tr class="filter">
-              <td></td>
-              <td></td>
+                <td></td>
+                <td></td>
+                <td><input type="text" style="width:50px;" name="filter_id" value="<?php echo $filter_id; ?>" /></td>
+                <td><input type="text" style="width:240px;" name="filter_serial" value="<?php echo $filter_serial; ?>" /></td>
+                <td><input type="text" name="filter_title" value="<?php echo $filter_title; ?>" /></td>
+                <td><input type="text" style="width:60px;" name="filter_price" value="<?php echo $filter_price; ?>" /></td>
+                <td><input type="text" style="width:60px;" name="filter_cid" value="<?php echo $filter_cid; ?>" /></td>
+                <td><input type="text" style="width:85px;" name="filter_mobile" value="<?php echo $filter_mobile; ?>" /></td>
+                <td><input type="text" style="width:95px;" name="filter_qq" value="<?php echo $filter_qq; ?>" /></td>
+                <td><input type="text" style="width:80px;" name="filter_wechat" value="<?php echo $filter_wechat; ?>" /></td>
+                <td><input type="text" style="width:15px;" name="filter_sale" value="<?php echo $filter_sale; ?>" /></td>
+                <td><input type="text" style="width:15px;" name="filter_identify" value="<?php echo $filter_identify; ?>" /></td>
+                <td align="right"><a onclick="filter();" class="button"><?php echo $button_filter; ?></a></td>
+
+              <!--
               <td><input type="text" name="filter_name" value="<?php echo $filter_name; ?>" /></td>
               <td><input type="text" name="filter_model" value="<?php echo $filter_model; ?>" /></td>
               <td align="left"><input type="text" name="filter_price" value="<?php echo $filter_price; ?>" size="8"/></td>
@@ -72,17 +98,33 @@
                   <option value="0"><?php echo $text_disabled; ?></option>
                   <?php } ?>
                 </select></td>
-              <td align="right"><a onclick="filter();" class="button"><?php echo $button_filter; ?></a></td>
+              -->
             </tr>
             <?php if ($products) { ?>
             <?php foreach ($products as $product) { ?>
             <tr>
-              <td style="text-align: center;"><?php if ($product['selected']) { ?>
-                <input type="checkbox" name="selected[]" value="<?php echo $product['product_id']; ?>" checked="checked" />
+                <td style="text-align: center;"><?php if ($product['selected']) { ?>
+                <input type="checkbox" name="selected[]" value="<?php echo $product['id']; ?>" checked="checked" />
                 <?php } else { ?>
-                <input type="checkbox" name="selected[]" value="<?php echo $product['product_id']; ?>" />
+                <input type="checkbox" name="selected[]" value="<?php echo $product['id']; ?>" />
+                <?php } ?>
+                </td>
+                <td class="center"><img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>" style="padding: 1px; border: 1px solid #DDDDDD;" /></td>
+                <td class="left"><?php echo $product['id']; ?></td>
+                <td class="left"><?php echo $product['serial']; ?></td>
+                <td class="left"><?php echo $product['title']; ?></td>
+                <td class="left"><?php echo $product['price']; ?></td>
+                <td class="left"><?php echo $product['cid']; ?></td>
+                <td class="left"><?php echo $product['mobile']; ?></td>
+                <td class="left"><?php echo $product['qq']; ?></td>
+                <td class="left"><?php echo $product['wechat']; ?></td>
+                <td class="left"><?php echo $product['sale']; ?></td>
+                <td class="left"><?php echo $product['identify']; ?></td>
+                <td class="right"><?php foreach ($product['action'] as $action) { ?>
+                [ <a href="<?php echo $action['href']; ?>"><?php echo $action['text']; ?></a> ]
                 <?php } ?></td>
-              <td class="center"><img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>" style="padding: 1px; border: 1px solid #DDDDDD;" /></td>
+
+              <!--
               <td class="left"><?php echo $product['name']; ?></td>
               <td class="left"><?php echo $product['model']; ?></td>
               <td class="left"><?php if ($product['special']) { ?>
@@ -102,11 +144,12 @@
               <td class="right"><?php foreach ($product['action'] as $action) { ?>
                 [ <a href="<?php echo $action['href']; ?>"><?php echo $action['text']; ?></a> ]
                 <?php } ?></td>
+              -->
             </tr>
             <?php } ?>
             <?php } else { ?>
             <tr>
-              <td class="center" colspan="8"><?php echo $text_no_results; ?></td>
+              <td class="center" colspan="13"><?php echo $text_no_results; ?></td>
             </tr>
             <?php } ?>
           </tbody>
@@ -116,43 +159,65 @@
     </div>
   </div>
 </div>
-<script type="text/javascript"><!--
+<script type="text/javascript">
 function filter() {
+    //设置链接
 	url = 'index.php?route=catalog/product&token=<?php echo $token; ?>';
-	
-	var filter_name = $('input[name=\'filter_name\']').attr('value');
-	
-	if (filter_name) {
-		url += '&filter_name=' + encodeURIComponent(filter_name);
-	}
-	
-	var filter_model = $('input[name=\'filter_model\']').attr('value');
-	
-	if (filter_model) {
-		url += '&filter_model=' + encodeURIComponent(filter_model);
-	}
-	
-	var filter_price = $('input[name=\'filter_price\']').attr('value');
-	
-	if (filter_price) {
-		url += '&filter_price=' + encodeURIComponent(filter_price);
-	}
-	
-	var filter_quantity = $('input[name=\'filter_quantity\']').attr('value');
-	
-	if (filter_quantity) {
-		url += '&filter_quantity=' + encodeURIComponent(filter_quantity);
-	}
-	
-	var filter_status = $('select[name=\'filter_status\']').attr('value');
-	
-	if (filter_status != '*') {
-		url += '&filter_status=' + encodeURIComponent(filter_status);
-	}	
 
-	location = url;
+    var filter_id = $('input[name=\'filter_id\']').attr('value');
+    if (filter_id) {
+        url += '&filter_id=' + encodeURIComponent(filter_id);
+    }
+
+    var filter_serial = $('input[name=\'filter_serial\']').attr('value');
+    if (filter_serial) {
+        url += '&filter_serial=' + encodeURIComponent(filter_serial);
+    }
+
+    var filter_title = $('input[name=\'filter_title\']').attr('value');
+    if (filter_title) {
+        url += '&filter_title=' + encodeURIComponent(filter_title);
+    }
+
+    var filter_price = $('input[name=\'filter_price\']').attr('value');
+    if (filter_price) {
+        url += '&filter_price=' + encodeURIComponent(filter_price);
+    }
+
+    var filter_cid = $('input[name=\'filter_cid\']').attr('value');
+    if (filter_cid) {
+        url += '&filter_cid=' + encodeURIComponent(filter_cid);
+    }
+
+    var filter_mobile = $('input[name=\'filter_mobile\']').attr('value');
+    if (filter_mobile) {
+        url += '&filter_mobile=' + encodeURIComponent(filter_mobile);
+    }
+
+    var filter_qq = $('input[name=\'filter_qq\']').attr('value');
+    if (filter_qq) {
+        url += '&filter_qq=' + encodeURIComponent(filter_qq);
+    }
+
+    var filter_wechat = $('input[name=\'filter_wechat\']').attr('value');
+    if (filter_wechat) {
+        url += '&filter_wechat=' + encodeURIComponent(filter_wechat);
+    }
+
+    var filter_sale = $('input[name=\'filter_sale\']').attr('value');
+    if (filter_sale) {
+        url += '&filter_sale=' + encodeURIComponent(filter_sale);
+    }
+
+    var filter_identify = $('input[name=\'filter_identify\']').attr('value');
+    if (filter_identify) {
+        url += '&filter_identify=' + encodeURIComponent(filter_identify);
+    }
+
+    //跳转页面
+    location = url;
 }
-//--></script> 
+</script>
 <script type="text/javascript"><!--
 $('#form input').keydown(function(e) {
 	if (e.keyCode == 13) {

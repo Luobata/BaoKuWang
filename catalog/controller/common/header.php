@@ -147,6 +147,7 @@ class ControllerCommonHeader extends Controller {
 			$this->template = 'default/template/common/header.tpl';
 		}
 
+        // 不输出内容的
 		$this->render();
 	} 	
 }

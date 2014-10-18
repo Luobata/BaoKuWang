@@ -245,3 +245,14 @@
 <?php exit;?>	2014-10-15 20:50	127.0.0.1	/forum/	cron_1_next_time:2014-10-15 20:55	
 <?php exit;?>	2014-10-15 21:20	127.0.0.1	/forum/	cron_1_next_time:2014-10-15 21:25	
 <?php exit;?>	2014-10-15 22:48	127.0.0.1	/forum/admin/	cron_1_next_time:2014-10-15 22:53	
+<?php exit;?>	2014-10-17 15:03	127.0.0.1	/forum/	cron_1_next_time:2014-10-17 15:08	
+<?php exit;?>	2014-10-17 15:03	127.0.0.1	/forum/	cron_2_next_time:2014-10-18 00:00	
+<?php exit;?>	2014-10-17 19:32	127.0.0.1	/forum/	cron_1_next_time:2014-10-17 19:37	
+<?php exit;?>	2014-10-17 19:40	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 19:45	
+<?php exit;?>	2014-10-17 19:45	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 19:50	
+<?php exit;?>	2014-10-17 19:55	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 20:00	
+<?php exit;?>	2014-10-17 20:06	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 20:11	
+<?php exit;?>	2014-10-17 20:27	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 20:32	
+<?php exit;?>	2014-10-17 21:10	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 21:15	
+<?php exit;?>	2014-10-17 22:35	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 22:40	
+<?php exit;?>	2014-10-17 23:27	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-17 23:32	
