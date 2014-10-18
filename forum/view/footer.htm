@@ -8,14 +8,14 @@
 
 <!--{hook footer_start.htm}-->
 
-<div id="footer" role="contentinfo">
+<!-- <div id="footer" role="contentinfo">
 	<!--{hook footer_footer_start.htm}-->
 	<table class="width">
 		<tr>
 			<td class="left">
 				$conf[app_copyright]<br />
 				Powered by  <a href="http://bbs.xiuno.com" target="_blank" class="grey">Xiuno BBS <b>$conf[version]</b></a>
-				<!--{hook footer_version_after.htm}-->
+				{hook footer_version_after.htm}
 			</td>
 			<td class="right">
 				$conf[china_icp]<br />
@@ -26,6 +26,57 @@
 	</table>
 	<!--{hook footer_footer_end.htm}-->
 </div>
+ -->
+	<!-- footer----------------------------------- -->
+
+	<div class="footer">
+		<div class="f_content">
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_1"></div>
+				<li><a href="">正品保证</a></li>
+			</div>
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_2"></div>
+				<li><a href="">专家评估</a></li>
+			</div>
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_3"></div>
+				<li><a href="">权威保证</a></li>
+			</div>
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_4"></div>
+				<li><a href="">7天退货</a></li>
+			</div>
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_5"></div>
+				<li><a href="">五星物流服务</a></li>
+			</div>
+		</div>
+	</div>
+	<div class="footer_2">
+		<div class="f2_content">
+			<div class="num"></div>
+			<div class="f2_texts">
+					<ul class="nav">
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">购物流程</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">常见问题</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">连锁查询</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">免责声明</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">退货说明</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">关于我们</a></li>
+						
+					</ul>
+				</div>
+		</div>
+
+	</div>
+
 
 <!--{require footer_debug.htm}-->
 
@@ -55,8 +106,6 @@ $('#search input').keyup(function(e) {
 // 登陆后才能发帖
 $('#create_thread').click(function() {
 	if(g_uid == 0) {
-		alert('请先登录');
-		/*
 		ajaxdialog_request('?user-login.htm', function() {
 			$('#create_thread').unbind('click');
 			ajaxdialog_request($('#create_thread').attr('href'));
@@ -65,7 +114,6 @@ $('#create_thread').click(function() {
 			});
 		}, {fullicon: 1});
 		return false;
-		*/
 	} else {
 		ajaxdialog_request($('#create_thread').attr('href'), null);
 		return false;
