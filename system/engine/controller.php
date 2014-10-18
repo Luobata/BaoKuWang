@@ -30,7 +30,8 @@ abstract class Controller {
 		exit();				
 	}
 
-	protected function getChild($child, $args = array()) {
+    // 此函数会把 $child 执行后输出的页面内容返回
+	protected function getChild($child, $styles = array(), $scripts = array(), $args = array()) {
 		$action = new Action($child, $args);
 
 		if (file_exists($action->getFile())) {
@@ -40,6 +41,15 @@ abstract class Controller {
 
 			$controller = new $class($this->registry);
 
+            // header 设置需要的文件
+            foreach ( $styles as $style ) {
+                $controller->document->addStyle($style);
+            }
+            foreach ( $scripts as $script ) {
+                $controller->document->addStyle($script);
+            }
+
+            // 执行
 			$controller->{$action->getMethod()}($action->getArgs());
 
 			return $controller->output;
@@ -69,9 +79,15 @@ abstract class Controller {
 		}		
 	}
 
-	protected function render() {
-		foreach ($this->children as $child) {
-			$this->data[basename($child)] = $this->getChild($child);
+    // 此函数会将输出内容保存在 所有者函数 的 output 成员内，并将 output 返回
+	protected function render( $styles = array() , $scripts = array() ) {
+		foreach ( $this->children as $child ) {
+            // 如果是头部 就将需要文件传进去
+            if( $child == 'common/header' ) {
+                $this->data[basename($child)] = $this->getChild($child,$styles,$scripts);
+            } else {
+                $this->data[basename($child)] = $this->getChild($child);
+            }
 		}
 
 		if (file_exists(DIR_TEMPLATE . $this->template)) {

@@ -1,0 +1,9 @@
+.login-content{width: 998px;margin-top: 16px;border: 1px #eadbc4  solid;padding-top: 40px;padding-bottom: 40px;overflow: hidden;}
+.left{width: 600px;border-right: 1px #eadbc4  solid;float: left;}
+.login-input{width: 480px;margin-left: 40px;border: 1px #eadbc4  solid;height: 44px;line-height:44px;padding-left: 16px;}
+
+.name-input{margin-bottom: 30px;}
+.extra{width: 480px;margin-left: 40px;margin-top: 16px;}
+.remember{margin-left: 10px;color:#673413;}
+.submit{margin-left: 40px;background-color: #ad8140;color: #fff;margin-top: 16px;height: 36px;line-height: 36px;width: 260px;}
+.right{float:right;width: 368px;padding-left: 28px;}

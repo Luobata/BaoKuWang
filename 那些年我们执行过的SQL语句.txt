@@ -1,5 +1,11 @@
 ﻿
-【陈雄威，2014-10-17，19:05】
+【陈雄威，2014-10-17，20:40】
+【增加商品详细说明字段】
+
+ALTER TABLE shop_product ADD COLUMN detail text NOT NULL;
+
+
+【陈雄威，2014-10-17，19:00】
 【修改商品价格字段类型】
 
 ALTER TABLE shop_product MODIFY COLUMN price int(11);

@@ -852,6 +852,12 @@ class ControllerCatalogProduct extends Controller {
             $this->data['error_image'] = '';
         }
 
+        if (isset($this->error['detail'])) {
+            $this->data['error_detail'] = $this->error['detail'];
+        } else {
+            $this->data['error_detail'] = '';
+        }
+
         if (isset($this->error['title'])) {
             $this->data['error_title'] = $this->error['title'];
         } else {
@@ -1561,6 +1567,14 @@ class ControllerCatalogProduct extends Controller {
             $this->data['title'] = '';
         }
 
+        if (isset($this->request->post['detail'])) {
+            $this->data['detail'] = $this->request->post['detail'];
+        } elseif ( isset($product_info) ) {
+            $this->data['detail'] = $product_info['detail'];
+        } else {
+            $this->data['detail'] = '';
+        }
+
         if (isset($this->request->post['place'])) {
             $this->data['place'] = $this->request->post['place'];
         } elseif ( isset($product_info) ) {
@@ -1666,6 +1680,10 @@ class ControllerCatalogProduct extends Controller {
 
         if ( utf8_strlen($this->request->post['image']) < 1 ) {
             $this->error['image'] = '请上传商品图片';
+        }
+
+        if ( utf8_strlen($this->request->post['detail']) < 1 ) {
+            $this->error['detail'] = '请检查 详细说明 的输入是否有误';
         }
 
         if ((utf8_strlen($this->request->post['place']) < 1) || (utf8_strlen($this->request->post['place']) > 40)) {

@@ -1,0 +1,254 @@
+*{
+	padding:0px;
+	border: 0px;
+	font-family: microsoft yahei;
+	margin: 0px;
+	font-size: 14px;
+}
+a{
+	text-decoration:none;
+	color: #000;
+}
+li{
+	list-style: none;
+	text-align: center;
+}
+header{
+	//background-repeat: no-repeat;
+	background-position: center;
+	background-image:url('../../image/baoku/title.png');
+}
+.head{
+	width: 1000px;
+	height: 110px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+.logo{
+	width:185px;
+	height: 80px;
+	position: relative;
+	top: 12%;
+	background-repeat: no-repeat;
+	background-position: center;
+	float: left;
+}
+.search {
+	overflow: hidden;
+	float: left;
+}
+.head .text {
+	width:425px;
+	margin-left: 46px;	
+	
+}
+.head .button{
+	width: 85px;
+	background-color: #a37b52;
+	color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+.head input{
+	float: left;
+	line-height: 31px;
+	margin-top: 34px;
+	border-color:#a85c29;
+	border-style: solid;
+	border-width: 1px;
+}
+.search .hot{
+    margin-left: 46px;
+    margin-top: 68px;
+    
+}
+.search a{
+	color:#8e6e58;
+	
+	
+	margin-right: 14px;
+	font-size: 14px;
+}
+.search p{
+	overflow: hidden;
+	float: left;
+}
+.login{
+	float: left;
+	overflow: hidden;
+	margin-left: 75px;
+	margin-top: 46px;
+} 
+.login a{
+	color:#8e6e58;
+	text-decoration:none;
+	float: left;
+}
+.login p{
+	float: left;
+	overflow: hidden;
+	margin-right: 14px;
+
+}
+.qbcode{
+	width:95px;
+	height: 95px;
+	position: absolute;
+	margin-left: 909px;
+	top: 6px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image:url('../../image/baoku/qbcode.png');
+	float: left;
+}
+
+.title{
+	width:100%;
+	height: 44px;
+	background-color: #673413;
+	overflow: hidden;
+}
+.title .index{
+	width: 1000px;
+	height: 44px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.index .all{
+	float: left;
+	width: 200px;
+	height: 44px;
+	background-color: #ad813f;
+}
+.index a{
+	text-decoration:none;
+	color: #fff;
+	line-height: 44px;
+}
+.index li{
+	text-align: center;
+}
+.index .others{
+	float: left;
+	width:800px;
+	height: 44px;
+}
+.others .nav{
+	display: inline;
+	float: left;
+}
+.nav .text {
+	float: left;
+	width: 90px;
+}
+.nav img{
+	float: left;
+	margin-left: -44px;
+}
+.nav .line{
+	float: left;
+	line-height: 44px;
+	color: #85613a;
+}
+
+
+/**
+ *footer
+ **/
+ .footer,.footer_2{
+ 	width: 100%;
+ 	background-color:#f4f1ec;	
+ 	overflow: hidden;
+ }
+ .footer{
+ 	margin-top: 30px;
+ 	border-bottom-style: solid;
+ 	border-bottom-width: 1px;
+ 	border-bottom-color: #e7dccb;
+ 	height: 150px;
+ }
+ .footer_2{
+ 	height: 54px;
+ }
+ .footer .f_content,.f2_content{
+ 	width: 1000px;
+ 	overflow: hidden;
+ 	margin-right: auto;
+ 	margin-left: auto;
+ }
+ .f_content{
+ 	margin-top: 10px;
+ }
+ .f2_content{
+ 	margin-bottom: 10px;
+ }
+ .f_head{
+ 	width: 100px;
+ 	height: 120px;
+ 	float: left;
+ 	margin-right: 50px;
+ 	margin-left: 50px;
+ }
+ .f_pic{
+ 	height: 100px;
+ 	width: 100px;
+ 	background-position: center;
+	background-repeat: no-repeat;
+	
+ }
+ #f_pic_1{
+ 	background-image:url('../../image/baoku/foot1.png');
+ }
+ #f_pic_2{
+ 	background-image:url('../../image/baoku/foot2.png');
+ }
+ #f_pic_3{
+ 	background-image:url('../../image/baoku/foot3.png');
+ }
+ #f_pic_4{
+ 	background-image:url('../../image/baoku/foot4.png');
+ }
+ #f_pic_5{
+ 	background-image:url('../../image/baoku/foot5.png');
+ }
+ .footer_2 .num{
+ 	width: 230px;
+ 	height: 50px;
+ 	float: left;
+ 	margin-right: 45px;
+ 	background-position: center;
+	background-repeat: no-repeat;
+	background-image:url('../../image/baoku/num.png');
+ }
+ .footer_2 .f2_texts li{
+ 	float: left;
+ 	line-height: 50px;
+ 	color: #ad813f;
+ } 
+ .footer_2 .f2_text  {
+ 	width: 115px;
+ 	
+ }
+ .footer_2 .f2_text a{
+ 	color: #ad813f;
+ }
+
+.content{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+
+.bread{
+	margin-top: 16px;
+	overflow: hidden;
+}
+.bread li{
+	float: left;
+}
+.bread a{
+
+}
