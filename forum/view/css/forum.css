@@ -1,0 +1,137 @@
+.indextitle{
+    font-size: 30px;
+    color: #673413;
+    width:150px;
+    line-height: 50px;
+}
+.indextitle span{
+	position: relative;
+	top: 24px;
+}
+.fatie{
+	position: relative;
+	left:180px;
+}
+.huitie{
+	position: relative;
+	left: 124px;
+}
+.chakan{
+	position: relative;
+	left: 20px;
+}
+.today,.todayposts{
+    font-size: 18px;
+}
+.todayposts{
+    color: #673413;
+}
+.threadlist table{
+	height: 75px;
+	border-color: #e9dcc5;
+	border-style: solid;
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+}
+.blank_icon{
+	margin-left: 24px;
+	width: 60px;
+	height: 60px;
+	margin-top: -4px;
+}
+.blank_pic{
+	width: 120px;
+}
+.blan_name li{
+	text-align: left;
+	margin-top: 5px;
+}
+.blan_name a{
+	font-size: 18px;
+	color: #744932;
+}
+.my_grey{
+	color: #d0d0d0;
+	font-size: 14px;
+}
+.blan_name .my_Y{
+	color: #c4a680;
+}
+.page_left,.page_right{
+	overflow: hidden;
+	float: left;
+}
+.page_left{
+	min-width: 715px;
+}
+.page_right{
+	width: 270px;
+	margin-left:10px;
+}
+.div{
+	width:715px;
+}
+.page_content{
+	min-width: 1000px;
+	margin: auto;
+	overflow: hidden;
+}
+.username{
+	padding-right: 10px;
+}
+.username li{
+	text-align: right;
+}
+.newt,.recommand .rec{
+	width: 268px;
+	height: 45px;
+	text-align: center;
+	line-height: 45px;
+	color: #fff;
+	font-size: 18px;
+}
+.newt{
+	background-color: #673413;
+}
+.recommand{
+	width: 268px;
+	min-height: 195px;
+	margin-top: 10px;
+	border: solid 1px #a37b52;
+}
+.recommand .rec{
+	background-color: #a37b52;
+}
+.recommand span{
+	background-color: #e9dcc5;
+	font-size: 18px;
+	border-radius: 5px;
+	height: 36px;
+	line-height: 36px;
+}
+.twotext{
+	width: 90px;
+}
+.rec_content li{
+	overflow: hidden;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.fourtext{
+	width: 124px;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.sec{
+	margin-top: 20px;
+}
+.fir{
+	margin-top: 30px;
+}
+.page_right #create_thread{
+	margin-left: 0px;
+}

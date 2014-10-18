@@ -1,0 +1,22 @@
+.form-content{border: 1px;border-style: solid;border-color: #eadbc4;margin-top: 16px;padding-bottom: 30px;padding-top: 24px;float: right;padding-right: 20px;color: #673414;width: 734px;}
+.row{padding-left: 40px;overflow: hidden;height: 50px;line-height: 50px;}
+.nes-tip{color: red}
+.input-title{width: 70px;display: inline-block;}
+
+.input-content{margin-left: 20px;width: 200px;height: 28px;padding-left: 10px}
+input{border:1px;border-style: solid;border-color: #e8dcc4;}
+
+.submit-btn{width: 220px;height: 32px;line-height:32px;color: #fff;background-color: #ad813f;margin-left: 270px;margin-top: 30px;}
+
+.none{opacity: 0}
+
+.left{width: 200px;background-color: #ececec;overflow: hidden;margin-top: 16px;float: left;}
+.left li{border-bottom: 1px;border-color: #ccc;border-style: solid;height: 40px;line-height: 40px;text-align: left;padding-left: 20px;}
+.goods-num{float: right;padding-right: 20px;color: #673414}
+#user-name a,.userinfo a{font-size: 20px;color: #673413;}
+#user-name{height: 60px;line-height: 60px;}
+#last {border-bottom: 0px;}
+
+.area-select{width: 100px;}
+
+.input-tip{color: #ccc;font-size: 12px;margin-left: 10px;}
