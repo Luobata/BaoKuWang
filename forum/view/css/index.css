@@ -1,0 +1,157 @@
+table{
+	border-spacing: 0px;
+	border-collapse: collapse;
+	width: 1000px;
+}
+td{
+	border-style: solid;
+border-width: 1px;
+border-color: #d3d3d3;
+}
+.content{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+.content_head{
+	width: 200px;
+	overflow: hidden;
+	float: left;
+}
+.content_head .goods{
+	width: 200px;
+	height: 45px;
+	text-align: center;
+	background-color: #edeced;
+	line-height: 45px;
+}
+.goods .goods_line{
+	width: 194px;
+	height:44px;
+	border-bottom-color: #c5bfbd;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.pic{
+	width: 800px;
+	height:405px;
+	float: left;
+}
+
+.first,.second,.third{
+	overflow: hidden;
+	width: 100%;
+}
+.second,.third{
+	margin-top: 26px;
+}
+.s_head,.s_content,.row,.t_head{
+	width: 100%;
+	overflow: hidden;
+}
+.s_head{
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #673413;
+	margin-bottom: 7px;
+}
+.pic_head{
+	float: left;
+	width: 200px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+#head1{
+	background-color: #673413;
+}
+#head3{
+	background-color: #ad813f;
+}
+.head1,.head3{
+	color: #fff;
+}
+.s_content .pics{
+	height: 200px;
+	float: left;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#pic1,#pic3,#pic4,#pic5,#pic6{
+	width: 200px;
+}
+#pic2{
+	width: 600px;
+}
+#pic7{
+	width: 400px;
+}
+
+.t_head{
+	overflow: hidden;
+	width: 999px;
+	border-style: solid;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-right-width: 1px;
+	border-right-color: #d3d3d3;
+	border-bottom-color: #ad813f; 
+	border-top-color: #d3d3d3;
+		
+}
+.t_head .jew{
+	float: left;
+	width: 799px;
+	height: 45px;
+	line-height: 45px;
+}
+.t_nav .text{
+	float: left;
+	width: 72px;
+}
+.t_nav .line{
+	float: left;
+}
+.t_nav .text a,.t_nav li{
+	color: #999999;
+}
+#more{
+	margin-left: 35px;
+}
+
+.t_row_jew{
+	width: 248px;
+	height: 250px;
+	float: left;
+
+}
+.t_row_pic{
+	width: 200px;
+	height: 180px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+
+.savep-price{color: red}
+
+.head3{font-size: 20px;}

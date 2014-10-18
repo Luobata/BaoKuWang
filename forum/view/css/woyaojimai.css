@@ -1,0 +1,41 @@
+.bread{
+	margin-top: 16px;
+	overflow: hidden;
+}
+.bread li{
+	float: left;
+}
+.bread a{
+
+}
+
+.form-content{border: 1px;border-style: solid;border-color: #eadbc4;margin-top: 16px;padding-bottom: 30px;}
+
+.row{padding-left: 40px;overflow: hidden;height: 50px;line-height: 50px;}
+.nes-tip{color: red}
+.input-title{width: 50px;}
+.input-content{margin-left: 20px;width: 200px;height: 28px;}
+.col{float: left;margin-right: 60px;width: 320px;}
+
+input{border:1px;border-style: solid;border-color: #e8dcc4;}
+
+.tip-btn{text-decoration: underline;color: #673514;margin-left: 30px;}
+
+.htitle{width: 340px;}
+
+.none{opacity: 0}
+
+.pic{background-color: #ad8140;color: #fff}
+
+.edit{height: auto}
+
+.edit-bar{height: 28px;line-height:28px;background-color: #e9dcc5;width: 500px;border:1px;border-style: solid;border-color: #e9dcc5}
+.edit-bar a{padding-left: 20px;}
+.edit-bar a img{padding-top: 5px;}
+.info-edit textarea{width: 500px;height: 300px;vertical-align: top;border:1px;border-style: solid;border-color: #e9dcc5}
+
+.info-edit{display: inline-block;vertical-align: top;margin-left: 20px;margin-top: 10px;}
+.submit-btn{width: 220px;height: 32px;line-height:32px;color: #fff;background-color: #ad813f;margin-left: 340px;margin-top: 100px;}
+
+
+

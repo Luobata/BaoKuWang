@@ -1,0 +1,37 @@
+.bread{
+	margin-top: 16px;
+	overflow: hidden;
+}
+.bread li{
+	float: left;
+}
+.bread a{
+
+}
+
+
+.left{width: 200px;background-color: #ececec;overflow: hidden;margin-top: 16px;float: left;}
+.left li{border-bottom: 1px;border-color: #ccc;border-style: solid;height: 40px;line-height: 40px;text-align: left;padding-left: 20px;}
+
+.goods-num{float: right;padding-right: 20px;color: #673414}
+#user-name a,.userinfo a{font-size: 20px;color: #673413;}
+#user-name{height: 60px;line-height: 60px;}
+
+#last {border-bottom: 0px;}
+
+.goods-list{width: 774px;border:1px;border-style: solid;border-color: #e9dcc5;float: right;margin-top: 16px;}
+
+
+.goods-list thead {height: 40px;background-color: #ad813f;line-height: 40px;color: #fff;}
+
+.goods-list table{border-spacing:0px; border:1px;border-collapse: collapse;}
+
+
+.pic{text-align: left;padding-left: 10px;padding-right: 10px;}
+.pic img{float: left;}
+
+.goods-info{float: left;padding-top: 15px;}
+.goods-title{max-width: 203px;}
+.goods-price{color: #673413;margin-top: 5px;}
+
+.item{height: 130px;border-bottom:1px;border-style: solid;border-color: #e9dcc5;}
