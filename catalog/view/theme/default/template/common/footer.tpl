@@ -1,3 +1,4 @@
+<!--
 <div id="footer">
   <?php if ($informations) { ?>
   <div class="column">
@@ -35,7 +36,61 @@
       <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>
     </ul>
   </div>
-</div>
+</div> -->
 <!-- <div id="powered"><?php //echo $powered; ?></div> -->
+
+
 </div>
+<!-- footer----------------------------------- -->
+
+	<div class="footer">
+		<div class="f_content">
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_1"></div>
+				<li><a href="">正品保证</a></li>
+			</div>
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_2"></div>
+				<li><a href="">专家评估</a></li>
+			</div>
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_3"></div>
+				<li><a href="">权威保证</a></li>
+			</div>
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_4"></div>
+				<li><a href="">7天退货</a></li>
+			</div>
+			<div class="f_head">
+				<div class="f_pic" id="f_pic_5"></div>
+				<li><a href="">五星物流服务</a></li>
+			</div>
+		</div>
+	</div>
+	<div class="footer_2">
+		<div class="f2_content">
+			<div class="num"></div>
+			<div class="f2_texts">
+					<ul class="nav">
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">购物流程</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">常见问题</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">连锁查询</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">免责声明</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">退货说明</a></li>
+						<li class="f2_line">|</li>
+						<li class="f2_text"><a href="">关于我们</a></li>
+						
+					</ul>
+				</div>
+		</div>
+
+	</div>
+<script type="text/javascript" src="catalog/view/javascript/baoku/swipe.js"></script>
+<script type="text/javascript" src="catalog/view/javascript/baoku/index.js"></script>
+
 </body></html>
