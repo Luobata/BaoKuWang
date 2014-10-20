@@ -5,8 +5,7 @@
  */
 
 !defined('FRAMEWORK_PATH') && exit('FRAMEWORK_PATH not defined.');
-
-include BBS_PATH.'control/common_control.class.php';
+	include 'C:/Users/yaogou/Documents/SoftWare/wamp/wamp/www/forum/tmp/control_common_control.class.php';
 
 class index_control extends common_control {
 	
@@ -21,7 +20,7 @@ class index_control extends common_control {
 	// 给插件预留个位置
 	public function on_index() {
 
-		// hook index_index_before.php
+
 		
 		$this->on_bbs();
 	}
@@ -30,7 +29,7 @@ class index_control extends common_control {
 	public function on_bbs() {
 		$this->_checked['index'] = ' class="checked"';
 		
-		// hook index_bbs_before.php
+
 		
 
 		//获取所有版块信息cou 建议修改能生成fid的数组
@@ -120,7 +119,7 @@ class index_control extends common_control {
 		$readtids = substr($readtids, 1); 
 		$click_server = $this->conf['click_server']."?db=tid&r=$readtids";
 		
-		$pages = misc::simple_pages('?index-index.htm', count($threadlist), $page, $pagesize);
+		$pages = misc::simple_pages('http://localhost/forum/?index-index.htm', count($threadlist), $page, $pagesize);
 
 
 
@@ -137,7 +136,7 @@ class index_control extends common_control {
 		$this->view->assign('cou',$cou);
 		$this->view->assign('blank',$blank);
 		
-		// hook index_bbs_after.php
+
 		
 		$this->view->display('index_index.htm');
 	}
@@ -173,7 +172,7 @@ class index_control extends common_control {
 		}
 		return $fidtids;
 	}
-	//hook index_control_after.php
+
 }
 
 ?>

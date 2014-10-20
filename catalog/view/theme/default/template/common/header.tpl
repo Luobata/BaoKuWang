@@ -106,7 +106,7 @@
             </div>
             <div class="others">
                 <ul class="nav">
-                    <li class="text"><a href="index.html">首页</a></li>
+                    <li class="text"><a href="">首页</a></li>
                     <li class="line">|</li>
                     <li class="text"><a href="woyaoxunbao.html">我要寻宝</a></li>
                     <li class="line">|</li>
@@ -116,7 +116,7 @@
                     <li class="line">|</li>
                     <li class="text"><a href="">我要估值</a></li>
                     <li class="line">|</li>
-                    <li class="text"><a href="">我要交流</a></li>
+                    <li class="text"><a href="./forum">我要交流</a></li>
                     <li class="line">|</li>
                     <li class="text"><a href="">宝库自营</a></li>
                     <li class="line">|</li>
