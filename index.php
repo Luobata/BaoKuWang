@@ -2,6 +2,7 @@
 
 // Version
 define('VERSION', '1.5.6.4');
+define('SECRET'  , 'miyangongzuoshi');
 
 // Configuration
 if (file_exists('config.php')) {

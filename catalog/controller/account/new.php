@@ -22,7 +22,7 @@ class ControllerAccountNew extends Controller {
         $this->data['breadcrumbs'][] = array(
             'text'      => '我要寄卖',
             'href'      => $this->url->link('account/new', '', 'SSL'),
-            'separator' => $this->language->get('text_separator')
+            'separator' => '&nbsp;>&nbsp;'
         );
 
         // 页面文件
@@ -38,12 +38,60 @@ class ControllerAccountNew extends Controller {
             'common/header'
         );
 
+        // 文件加载
         $styles = array(
             '/catalog/view/theme/default/stylesheet/baoku/woyaojimai.css'
         );
 
+        // 获取分类数据
+        $this->load->model('catalog/category');
+        $categories = $this->model_catalog_category->getSuperCategories();
+        $this->data['categories'] = $categories;
+
         // 渲染页面
         $this->response->setOutput($this->render($styles));
+
+        //$Helper = new Helper();
+        //$form_output = $Helper->http_post( HTTP_SERVER . 'admin/index.php?route=catalog/product/insert_customer' ,
+                                           //array( 'cid' => $this->customer->getId() ) );
+        //echo $form_output;
+    }
+
+    public function insert() {
+
+        if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
+            $data = $_POST;
+            $data['cid'] = $this->customer->getId();
+            $data['secret'] = SECRET;
+
+            //var_dump($data);
+            //exit();
+
+            // POST 转换
+            $post_split = '#split#';
+            $product_image = '';
+            foreach( $data['product_image'] as $image ) {
+                if($image['image']){
+                    $product_image .= ( $post_split . $image['image'] . $post_split . $image['sort_order'] );
+                } else {
+                    continue;
+                }
+            }
+            if( $product_image ) {
+                $data['product_image'] = substr($product_image,strlen($post_split));
+            } else {
+                unset($data['product_image']);
+            }
+
+            // DO POST
+            $Helper = new Helper();
+            $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
+            //echo $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
+            //exit();
+        }
+
+        $this->redirect(HTTP_SERVER.'index.php?route=account/new');
+
     }
 }
 ?>

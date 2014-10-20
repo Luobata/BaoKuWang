@@ -1,4 +1,9 @@
 ﻿
+【陈雄威，2014-10-19，21:00】
+【增加商品寄卖人字段】
+ALTER TABLE shop_product ADD COLUMN owner varchar(20) DEFAULT '未设置' NOT NULL;
+
+
 【陈雄威，2014-10-17，20:40】
 【增加商品详细说明字段】
 

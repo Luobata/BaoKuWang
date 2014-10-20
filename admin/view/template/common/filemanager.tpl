@@ -196,7 +196,7 @@ $(document).ready(function() {
 		ui: {		
 			theme_name: 'classic',
 			animation: 700
-		},	
+		},
 		types: { 
 			'default': {
 				clickable: true,
