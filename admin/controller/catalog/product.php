@@ -12,6 +12,23 @@ class ControllerCatalogProduct extends Controller {
 		$this->getList();
 	}
 
+    /*
+    public function insert_customer(){
+        // 检验入口
+        if (!isset($_POST['cid'])) {
+            exit(0); //失败信号
+        }
+
+        $this->language->load('catalog/product');
+
+		$this->document->setTitle($this->language->get('heading_title'));
+
+		$this->load->model('catalog/product');
+
+        $this->getForm();
+    }
+    */
+
 	public function insert() {
 		$this->language->load('catalog/product');
 
@@ -252,6 +269,12 @@ class ControllerCatalogProduct extends Controller {
 			$filter_title = null;
 		}
 
+        if (isset($this->request->get['filter_owner'])) {
+            $filter_owner = $this->request->get['filter_owner'];
+        } else {
+            $filter_owner = null;
+        }
+
         if (isset($this->request->get['filter_price'])) {
             $filter_price = $this->request->get['filter_price'];
         } else {
@@ -344,6 +367,10 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&filter_model=' . urlencode(html_entity_decode($this->request->get['filter_model'], ENT_QUOTES, 'UTF-8'));
 		}
 
+        if (isset($this->request->get['filter_owner'])) {
+            $url .= '&filter_owner=' . $this->request->get['filter_owner'];
+        }
+
 		if (isset($this->request->get['filter_price'])) {
 			$url .= '&filter_price=' . $this->request->get['filter_price'];
 		}
@@ -399,7 +426,7 @@ class ControllerCatalogProduct extends Controller {
             'filter_serial'	  => $filter_serial,
 			'filter_title'	  => $filter_title,
 			'filter_price'	  => $filter_price,
-            'filter_cid'	  => $filter_cid,
+            'filter_owner'	  => $filter_owner,
             'filter_mobile'	  => $filter_mobile,
             'filter_qq' 	  => $filter_qq,
             'filter_wechat'	  => $filter_wechat,
@@ -461,8 +488,8 @@ class ControllerCatalogProduct extends Controller {
                 'serial'     => $result['serial'],
 				'title'      => $result['title'],
 				'price'      => $result['price'],
-                'owner_id'   => $result['cid'],
-                'cid'        => $result['cid'],//$customer ? $customer['name'] : '未设置',
+                'owner'      => $result['owner'],
+                //'cid'        => $result['cid'],  //$customer ? $customer['name'] : '未设置',
                 'mobile'     => $result['mobile'],
                 'qq'         => $result['qq'],
                 'wechat'     => $result['wechat'],
@@ -528,6 +555,10 @@ class ControllerCatalogProduct extends Controller {
 
         if (isset($this->request->get['filter_title'])) {
             $url .= '&filter_title=' . urlencode(html_entity_decode($this->request->get['filter_title'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_owner'])) {
+            $url .= '&filter_owner=' . urlencode(html_entity_decode($this->request->get['filter_owner'], ENT_QUOTES, 'UTF-8'));
         }
 
         if (isset($this->request->get['filter_price'])) {
@@ -611,6 +642,10 @@ class ControllerCatalogProduct extends Controller {
             $url .= '&filter_title=' . urlencode(html_entity_decode($this->request->get['filter_title'], ENT_QUOTES, 'UTF-8'));
         }
 
+        if (isset($this->request->get['filter_owner'])) {
+            $url .= '&filter_owner=' . urlencode(html_entity_decode($this->request->get['filter_owner'], ENT_QUOTES, 'UTF-8'));
+        }
+
         if (isset($this->request->get['filter_price'])) {
             $url .= '&filter_price=' . $this->request->get['filter_price'];
         }
@@ -686,7 +721,7 @@ class ControllerCatalogProduct extends Controller {
         $this->data['filter_serial'] = $filter_serial;
 		$this->data['filter_title'] = $filter_title;
 		$this->data['filter_price'] = $filter_price;
-        $this->data['filter_cid'] = $filter_cid;
+        $this->data['filter_owner'] = $filter_owner;
         $this->data['filter_mobile'] = $filter_mobile;
         $this->data['filter_qq'] = $filter_qq;
         $this->data['filter_wechat'] = $filter_wechat;
@@ -862,6 +897,12 @@ class ControllerCatalogProduct extends Controller {
             $this->data['error_title'] = $this->error['title'];
         } else {
             $this->data['error_title'] = '';
+        }
+
+        if (isset($this->error['owner'])) {
+            $this->data['error_owner'] = $this->error['owner'];
+        } else {
+            $this->data['error_owner'] = '';
         }
 
         if (isset($this->error['place'])) {
@@ -1575,6 +1616,14 @@ class ControllerCatalogProduct extends Controller {
             $this->data['detail'] = '';
         }
 
+        if (isset($this->request->post['owner'])) {
+            $this->data['owner'] = $this->request->post['owner'];
+        } elseif ( isset($product_info) ) {
+            $this->data['owner'] = $product_info['owner'];
+        } else {
+            $this->data['owner'] = '';
+        }
+
         if (isset($this->request->post['place'])) {
             $this->data['place'] = $this->request->post['place'];
         } elseif ( isset($product_info) ) {
@@ -1670,9 +1719,11 @@ class ControllerCatalogProduct extends Controller {
             $this->error['category'] = '请至少选择一个分类';
         }
 
+        /*
         if ((utf8_strlen($this->request->post['cid']) < 1) || (utf8_strlen($this->request->post['cid']) > 11)) {
             $this->error['cid'] = '请检查 用户ID 的输入是否有误';
         }
+        */
 
         if ( (utf8_strlen($this->request->post['price']) < 1) || preg_match('/^\d*$/',$this->request->post['price']) == 0 || (int)($this->request->post['price']) < 0 ) {
             $this->error['price'] = '请检查 转让价格 的输入是否有误';
@@ -1684,6 +1735,10 @@ class ControllerCatalogProduct extends Controller {
 
         if ( utf8_strlen($this->request->post['detail']) < 1 ) {
             $this->error['detail'] = '请检查 详细说明 的输入是否有误';
+        }
+
+        if ((utf8_strlen($this->request->post['owner']) < 1) || (utf8_strlen($this->request->post['owner']) > 20)) {
+            $this->error['owner'] = '请检查 寄卖人 的输入是否有误，最长为10字';
         }
 
         if ((utf8_strlen($this->request->post['place']) < 1) || (utf8_strlen($this->request->post['place']) > 40)) {

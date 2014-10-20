@@ -1,6 +1,7 @@
 <?php
 // Version
-define('VERSION', '1.5.6.4');
+define('VERSION' , '1.5.6.4');
+define('SECRET'  , 'miyangongzuoshi');
 
 // Configuration
 if (file_exists('config.php')) {
@@ -145,11 +146,13 @@ $registry->set('openbay', new Openbay($registry));
 // Front Controller
 $controller = new Front($registry);
 
-// Login
-$controller->addPreAction(new Action('common/home/login'));
-
-// Permission
-$controller->addPreAction(new Action('common/home/permission'));
+// 使商城前台能调用后台接口
+if ( !isset($_POST['secret']) || $_POST['secret'] != SECRET ) {
+    // Login
+    $controller->addPreAction(new Action('common/home/login'));
+    // Permission
+    $controller->addPreAction(new Action('common/home/permission'));
+}
 
 // Router
 if (isset($request->get['route'])) {

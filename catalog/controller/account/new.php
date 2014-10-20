@@ -22,7 +22,7 @@ class ControllerAccountNew extends Controller {
         $this->data['breadcrumbs'][] = array(
             'text'      => '我要寄卖',
             'href'      => $this->url->link('account/new', '', 'SSL'),
-            'separator' => $this->language->get('text_separator')
+            'separator' => '&nbsp;>&nbsp;'
         );
 
         // 页面文件
@@ -38,12 +38,27 @@ class ControllerAccountNew extends Controller {
             'common/header'
         );
 
+        // 文件加载
         $styles = array(
             '/catalog/view/theme/default/stylesheet/baoku/woyaojimai.css'
         );
 
+        // 获取分类数据
+        $this->load->model('catalog/category');
+        $categories = $this->model_catalog_category->getSuperCategories();
+        $this->data['categories'] = $categories;
+
         // 渲染页面
         $this->response->setOutput($this->render($styles));
+
+
+
+
+
+        //$Helper = new Helper();
+        //$form_output = $Helper->http_post( HTTP_SERVER . 'admin/index.php?route=catalog/product/insert_customer' ,
+                                           //array( 'cid' => $this->customer->getId() ) );
+        //echo $form_output;
     }
 }
 ?>

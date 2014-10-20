@@ -33,6 +33,7 @@ final class Front {
 	}
 
     // 如果存在方法，就执行且返回结果；如果不存在，就返回处理错误的方法
+    // 正常结果为空，错误结果为非空
 	private function execute($action) {
 		if (file_exists($action->getFile())) {
 			require_once($action->getFile());

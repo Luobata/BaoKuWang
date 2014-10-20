@@ -27,7 +27,7 @@
                 <td class="left">序列号</td>
                 <td class="left">名称</td>
                 <td class="left">价格</td>
-                <td class="left">寄卖人ID</td>
+                <td class="left">寄卖人</td>
                 <td class="left">手机</td>
                 <td class="left">QQ</td>
                 <td class="left">微信号</td>
@@ -72,7 +72,7 @@
                 <td><input type="text" style="width:240px;" name="filter_serial" value="<?php echo $filter_serial; ?>" /></td>
                 <td><input type="text" name="filter_title" value="<?php echo $filter_title; ?>" /></td>
                 <td><input type="text" style="width:60px;" name="filter_price" value="<?php echo $filter_price; ?>" /></td>
-                <td><input type="text" style="width:60px;" name="filter_cid" value="<?php echo $filter_cid; ?>" /></td>
+                <td><input type="text" style="width:60px;" name="filter_owner" value="<?php echo $filter_owner; ?>" /></td>
                 <td><input type="text" style="width:85px;" name="filter_mobile" value="<?php echo $filter_mobile; ?>" /></td>
                 <td><input type="text" style="width:95px;" name="filter_qq" value="<?php echo $filter_qq; ?>" /></td>
                 <td><input type="text" style="width:80px;" name="filter_wechat" value="<?php echo $filter_wechat; ?>" /></td>
@@ -114,7 +114,7 @@
                 <td class="left"><?php echo $product['serial']; ?></td>
                 <td class="left"><?php echo $product['title']; ?></td>
                 <td class="left"><?php echo $product['price']; ?></td>
-                <td class="left"><?php echo $product['cid']; ?></td>
+                <td class="left"><?php echo $product['owner']; ?></td>
                 <td class="left"><?php echo $product['mobile']; ?></td>
                 <td class="left"><?php echo $product['qq']; ?></td>
                 <td class="left"><?php echo $product['wechat']; ?></td>
@@ -184,9 +184,9 @@ function filter() {
         url += '&filter_price=' + encodeURIComponent(filter_price);
     }
 
-    var filter_cid = $('input[name=\'filter_cid\']').attr('value');
-    if (filter_cid) {
-        url += '&filter_cid=' + encodeURIComponent(filter_cid);
+    var filter_owner = $('input[name=\'filter_owner\']').attr('value');
+    if (filter_owner) {
+        url += '&filter_owner=' + encodeURIComponent(filter_owner);
     }
 
     var filter_mobile = $('input[name=\'filter_mobile\']').attr('value');
