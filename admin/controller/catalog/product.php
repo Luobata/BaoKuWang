@@ -12,24 +12,16 @@ class ControllerCatalogProduct extends Controller {
 		$this->getList();
 	}
 
-    /*
-    public function insert_customer(){
-        // 检验入口
-        if (!isset($_POST['cid'])) {
-            exit(0); //失败信号
-        }
-
-        $this->language->load('catalog/product');
-
-		$this->document->setTitle($this->language->get('heading_title'));
-
-		$this->load->model('catalog/product');
-
-        $this->getForm();
+    public function insert_customer() {
+        $this->load->model('catalog/product');
+        $this->model_catalog_product->addProduct($this->request->post);
     }
-    */
 
 	public function insert() {
+
+        var_dump($_POST);
+        //exit();
+
 		$this->language->load('catalog/product');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -82,6 +74,10 @@ class ControllerCatalogProduct extends Controller {
 	}
 
 	public function update() {
+
+        //var_dump($_POST);
+        //exit();
+
 		$this->language->load('catalog/product');
 
 		$this->document->setTitle($this->language->get('heading_title'));

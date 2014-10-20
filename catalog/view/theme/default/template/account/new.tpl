@@ -8,7 +8,7 @@
         <?php } ?>
     </ul>
 
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="/index.php?route=account/new/insert" method="post" enctype="multipart/form-data">
         <div class="form-content">
 
             <div class="row">
@@ -29,7 +29,7 @@
                     <span class="nes-tip">*</span>
                     &nbsp;&nbsp;&nbsp;
                     <span class="input-title">二级分类</span>
-                    <select class="input-content" id="category_children">
+                    <select class="input-content" id="category_children" name="category">
                         <?php
                             foreach( $categories[0]['children'] as $child ) {
                                 echo '<option value="' . $child['id'] . '">' . $child['name'] . '</option>';
@@ -82,46 +82,89 @@
 
             </div>
 
+            <!-- 图片 -->
+            <script type="text/javascript" src="/image/ckfinder/ckfinder.js"></script>
+
             <div class="row" style="height: auto;">
                 <div>
                     <span class="nes-tip">*</span>
                     &nbsp;&nbsp;&nbsp;
-                    <span class="input-title">物品图片</span>
+                    <span class="input-title">物品主图</span>
+                </div>
+                <div style="position: relative; top: -44px;">
+                    <div style="display: inline-block; visibility: hidden;">
+                        <span class="nes-tip">*</span>
+                        &nbsp;&nbsp;&nbsp;
+                        <span class="input-title">物品主图</span>
+                    </div>
+                    <div style="display: inline-block;">
+                        <div id="product_image_main" class="product_image"></div>
+                        <input onclick="BrowseServer_main();" type="button" class="pic input-content" value="选择图片" /><br/>
+                    </div>
+                </div>
+
+                <input type="hidden" name="image" id="product_image" />
+
+                <script type="text/javascript">
+                    function BrowseServer_main()
+                    {
+                        var finder = new CKFinder();
+                        finder.basePath = '/image/ckfinder/';
+                        finder.selectActionFunction = SetFileField_main;
+                        finder.popup();
+                    }
+                    function SetFileField_main( fileUrl )
+                    {
+                        $('#product_image_main').html('<img src="' + fileUrl + '"/>');
+                        fileUrl = fileUrl.substr(fileUrl.indexOf('data/userfiles/'));
+                        document.getElementById('product_image').value = fileUrl;
+                    }
+                </script>
+
+            </div>
+
+
+
+
+
+            <div class="row" style="height: auto;position: relative; top: -18px;">
+                <div>
+                    <span class="input-title">更多图片</span>
                 </div>
 
                 <div style="position: relative; top: -44px;">
                     <div style="display: inline-block; visibility: hidden;">
                         <span class="nes-tip">*</span>
                         &nbsp;&nbsp;&nbsp;
-                        <span class="input-title">物品图片</span>
+                        <span class="input-title">更多图片</span>
                     </div>
                     <div style="display: inline-block;">
 
                         <div id="product_image_1" class="product_image"></div>
-                        <input onclick="BrowseServer('1');" type="button" class="pic input-content" value="上传第一张图片" /><br/>
+                        <input onclick="BrowseServer('1');" type="button" class="pic input-content" value="选择第一张" /><br/>
 
                         <div id="product_image_2" class="product_image"></div>
-                        <input onclick="BrowseServer('2');" type="button" class="pic input-content" value="上传第二张图片" /><br/>
+                        <input onclick="BrowseServer('2');" type="button" class="pic input-content" value="选择第二张" /><br/>
 
                         <div id="product_image_3" class="product_image"></div>
-                        <input onclick="BrowseServer('3');" type="button" class="pic input-content" value="上传第三张图片" /><br/>
+                        <input onclick="BrowseServer('3');" type="button" class="pic input-content" value="选择第三张" /><br/>
 
                         <div id="product_image_4" class="product_image"></div>
-                        <input onclick="BrowseServer('4');" type="button" class="pic input-content" value="上传第四张图片" /><br/>
-
-                        <div id="product_image_5" class="product_image"></div>
-                        <input onclick="BrowseServer('5');" type="button" class="pic input-content" value="上传第五张图片" />
+                        <input onclick="BrowseServer('4');" type="button" class="pic input-content" value="选择第四张" /><br/>
 
                     </div>
                 </div>
 
-                <input type="hidden" name="image1" id="product_image_one" />
-                <input type="hidden" name="image2" id="product_image_two" />
-                <input type="hidden" name="image3" id="product_image_three" />
-                <input type="hidden" name="image4" id="product_image_four" />
-                <input type="hidden" name="image5" id="product_image_five" />
+                <input type="hidden" name="product_image[0][image]" id="product_image_one" />
+                <input type="hidden" name="product_image[1][image]" id="product_image_two" />
+                <input type="hidden" name="product_image[2][image]" id="product_image_three" />
+                <input type="hidden" name="product_image[3][image]" id="product_image_four" />
 
-                <script type="text/javascript" src="/image/ckfinder/ckfinder.js"></script>
+                <input type="hidden" name="product_image[0][sort_order]" value="1" />
+                <input type="hidden" name="product_image[1][sort_order]" value="2" />
+                <input type="hidden" name="product_image[2][sort_order]" value="3" />
+                <input type="hidden" name="product_image[3][sort_order]" value="4" />
+
                 <script type="text/javascript">
                 function BrowseServer( imageId )
                 {
@@ -133,9 +176,10 @@
                 }
                 function SetFileField( fileUrl, data )
                 {
-                    var number  = new Array('one','two','three','four','five');
+                    var number  = new Array('one','two','three','four');
                     var imageId = data["selectActionData"];
                     $('#product_image_'+imageId).html('<img src="' + fileUrl + '"/>');
+                    fileUrl = fileUrl.substr(fileUrl.indexOf('data/userfiles/'));
                     document.getElementById( 'product_image_'+number[imageId-1] ).value = fileUrl;
                 }
                 </script>

@@ -146,7 +146,7 @@ $registry->set('openbay', new Openbay($registry));
 // Front Controller
 $controller = new Front($registry);
 
-// 使商城前台能调用后台接口
+// 使商城前台能通过秘钥来调用后台接口
 if ( !isset($_POST['secret']) || $_POST['secret'] != SECRET ) {
     // Login
     $controller->addPreAction(new Action('common/home/login'));

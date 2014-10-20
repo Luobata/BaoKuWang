@@ -64,7 +64,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = '/image/ckfinder/userfiles/'.$_SESSION['user_id'].'/';
+$baseUrl = '/image/data/userfiles/'.$_SESSION['user_id'].'/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the

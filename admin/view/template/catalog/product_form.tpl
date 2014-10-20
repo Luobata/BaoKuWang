@@ -17,7 +17,7 @@
 <!--
 <div id="tabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a><a href="#tab-data"><?php echo $tab_data; ?></a><a href="#tab-links"><?php echo $tab_links; ?></a><a href="#tab-attribute"><?php echo $tab_attribute; ?></a><a href="#tab-option"><?php echo $tab_option; ?></a><a href="#tab-profile"><?php echo $tab_profile; ?></a><a href="#tab-discount"><?php echo $tab_discount; ?></a><a href="#tab-special"><?php echo $tab_special; ?></a><a href="#tab-image"><?php echo $tab_image; ?></a><a href="#tab-reward"><?php echo $tab_reward; ?></a><a href="#tab-design"><?php echo $tab_design; ?></a></div>
 -->
-<form action="/admin/index.php?route=catalog/product/insert" method="post" enctype="multipart/form-data" id="form">
+<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
 <!--
 <div id="tab-general">
   <div id="languages" class="htabs">
@@ -120,7 +120,7 @@
         <?php } ?></td>
 </tr>
 <tr>
-    <td><span class="required">*</span>商品图片</td>
+    <td><span class="required">*</span>商品主图</td>
     <td><div class="image"><img src="<?php echo $thumb; ?>" alt="" id="thumb" /><br />
             <input type="hidden" name="image" value="<?php echo $image; ?>" id="image" />
             <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', '');"><?php echo $text_clear; ?></a></div>
@@ -129,6 +129,42 @@
         <?php } ?>
     </td>
 </tr>
+<!-- 商品图片 -->
+<tr>
+    <td>更多商品图片</td>
+    <td>
+        <table id="images" class="list">
+            <thead>
+            <tr>
+                <td class="left">图片预览</td>
+                <td class="right">展示顺序</td>
+                <td></td>
+            </tr>
+            </thead>
+            <?php $image_row = 0; ?>
+            <?php foreach ($product_images as $product_image) { ?>
+            <tbody id="image-row<?php echo $image_row; ?>">
+            <tr>
+                <td class="left"><div class="image"><img src="<?php echo $product_image['thumb']; ?>" alt="" id="thumb<?php echo $image_row; ?>" />
+                        <input type="hidden" name="product_image[<?php echo $image_row; ?>][image]" value="<?php echo $product_image['image']; ?>" id="image<?php echo $image_row; ?>" />
+                        <br />
+                        <a onclick="image_upload('image<?php echo $image_row; ?>', 'thumb<?php echo $image_row; ?>');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb<?php echo $image_row; ?>').attr('src', '<?php echo $no_image; ?>'); $('#image<?php echo $image_row; ?>').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+                <td class="right"><input type="text" name="product_image[<?php echo $image_row; ?>][sort_order]" value="<?php echo $product_image['sort_order']; ?>" size="2" /></td>
+                <td class="left"><a onclick="$('#image-row<?php echo $image_row; ?>').remove();" class="button"><?php echo $button_remove; ?></a></td>
+            </tr>
+            </tbody>
+            <?php $image_row++; ?>
+            <?php } ?>
+            <tfoot>
+            <tr>
+                <td colspan="2"></td>
+                <td class="left"><a onclick="addImage();" class="button"><?php echo $button_add_image; ?></a></td>
+            </tr>
+            </tfoot>
+        </table>
+    </td>
+</tr>
+
 <tr>
     <td><span class="required">*</span>详细说明</td>
     <td><textarea name="detail" id="description2">
@@ -181,7 +217,6 @@
         <span class="error"><?php echo $error_identify; ?></span>
         <?php } ?></td>
 </tr>
-
 
 <!-- 详情
 <?php foreach ($languages as $language) { ?>

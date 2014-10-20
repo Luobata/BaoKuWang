@@ -51,14 +51,46 @@ class ControllerAccountNew extends Controller {
         // 渲染页面
         $this->response->setOutput($this->render($styles));
 
-
-
-
-
         //$Helper = new Helper();
         //$form_output = $Helper->http_post( HTTP_SERVER . 'admin/index.php?route=catalog/product/insert_customer' ,
                                            //array( 'cid' => $this->customer->getId() ) );
         //echo $form_output;
+    }
+
+    public function insert() {
+
+        if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
+            $data = $_POST;
+            $data['cid'] = $this->customer->getId();
+            $data['secret'] = SECRET;
+
+            var_dump($data);
+            //exit();
+
+            // POST 转换
+            $post_split = '#split#';
+            $product_image = '';
+            foreach( $data['product_image'] as $image ) {
+                if($image['image']){
+                    $product_image .= ( $post_split . $image['image'] . $post_split . $image['sort_order'] );
+                } else {
+                    continue;
+                }
+            }
+            if( $product_image ) {
+                $data['product_image'] = substr($product_image,strlen($post_split));
+            } else {
+                unset($data['product_image']);
+            }
+
+            // DO POST
+            $Helper = new Helper();
+            echo $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
+            exit();
+        }
+
+        $this->redirect(HTTP_SERVER.'index.php?route=account/new');
+
     }
 }
 ?>
