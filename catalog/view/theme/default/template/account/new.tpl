@@ -8,7 +8,7 @@
         <?php } ?>
     </ul>
 
-    <form action="/index.php?route=account/new/insert" method="post" enctype="multipart/form-data">
+    <form action="/index.php?route=account/new/insert" onsubmit="return product_validate();return false;" method="post" enctype="multipart/form-data">
         <div class="form-content">
 
             <div class="row">
@@ -64,22 +64,21 @@
             </div>
 
             <div class="row">
-
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <input type="text" class="htitle input-content" name="title"/>
+                <input type="text" class="htitle input-content" name="title" id="product_title"/>
                 <a class="tip-btn" href="">免费鉴定</a>
+                <span id="error_title" class="error_prompt"></span>
             </div>
             <div class="row">
-
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">转让价格</span>
-                <input type="text" class="price input-content" name="price">
+                <input type="text" class="price input-content" name="price" id="product_price">
                 <span style="margin-left:16px;">元</span>
                 <a class="tip-btn" href="">免费估值</a>
-
+                <span id="error_price" class="error_prompt"></span>
             </div>
 
             <!-- 图片 -->
@@ -97,9 +96,10 @@
                         &nbsp;&nbsp;&nbsp;
                         <span class="input-title">物品主图</span>
                     </div>
-                    <div style="display: inline-block;">
+                    <div style="display: inline-block;width:600px;">
                         <div id="product_image_main" class="product_image"></div>
-                        <input onclick="BrowseServer_main();" type="button" class="pic input-content" value="选择图片" /><br/>
+                        <input onclick="BrowseServer_main();" type="button" class="pic input-content" value="选择图片" />
+                        <span id="error_image_main" class="error_prompt"></span>
                     </div>
                 </div>
 
@@ -122,10 +122,6 @@
                 </script>
 
             </div>
-
-
-
-
 
             <div class="row" style="height: auto;position: relative; top: -18px;">
                 <div>
@@ -191,6 +187,7 @@
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">详细说明</span>
+                <span id="error_description" class="error_prompt"></span>
                 <!--
                 <div class="info-edit">
                     <div class="edit-bar">
@@ -202,10 +199,10 @@
                     <textarea></textarea>
                 </div>
                 -->
-                <textarea id="description" name="detail"></textarea>
+                <textarea id="product_description" name="detail"></textarea>
                 <script type="text/javascript" src="/admin/view/javascript/ckeditor/ckeditor.js"></script>
                 <script type="text/javascript">
-                CKEDITOR.replace('description', {
+                CKEDITOR.replace('product_description', {
                     filebrowserBrowseUrl : '/image/ckfinder/ckfinder.html',
                     filebrowserImageBrowseUrl : '/image/ckfinder/ckfinder.html?Type=Images',
                     filebrowserflashBrowseUrl : '/image/ckfinder/ckfinder.html?Type=Flash',
@@ -220,20 +217,23 @@
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">所&nbsp;在&nbsp;&nbsp;地</span>
-                <input type="text" class="input-content" name="place"/>
+                <input type="text" class="input-content" name="place" id="product_place"/>
+                <span id="error_place" class="error_prompt"></span>
             </div>
 
             <div class="row">
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">联&nbsp;系&nbsp;&nbsp;人</span>
-                <input type="text" class="input-content" name="owner"/>
+                <input type="text" class="input-content" name="owner" id="product_owner"/>
+                <span id="error_owner" class="error_prompt"></span>
             </div>
             <div class="row">
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">手&nbsp;机&nbsp;&nbsp;号</span>
-                <input type="text" class="input-content" name="mobile"/>
+                <input type="text" class="input-content" name="mobile" id="product_mobile"/>
+                <span id="error_mobile" class="error_prompt"></span>
             </div>
             <div class="row">
                 <span class="nes-tip none">*</span>
@@ -254,6 +254,78 @@
         </div>
     </form>
 
+    <script>
+        // 表单验证
+        function product_validate() {
+
+            var error = false;
+
+            // 标题
+            if( document.getElementById('product_title').value.length == 0 ) {
+                $('#error_title').html('商品标题不能为空');
+                error = true;
+            } else {
+                $('#error_title').html('');
+            }
+
+            // 价格
+            if( (document.getElementById('product_price').value.length == 0) ||
+                isNaN(document.getElementById('product_price').value) ) {
+                $('#error_price').html('价格必须是整数数字');
+                error = true;
+            } else {
+                $('#error_price').html('');
+            }
+
+            // 主图片
+            if( document.getElementById('product_image').value.length == 0 ) {
+                $('#error_image_main').html('请上传物品主图');
+                error = true;
+            } else {
+                $('#error_image_main').html('');
+            }
+
+            // 详细说明
+            if( CKEDITOR.instances.product_description.getData().length == 0 ) {
+                $('#error_description').html('详细说明不能为空');
+                error = true;
+            } else {
+                $('#error_description').html('');
+            }
+
+            // 所在地
+            if( document.getElementById('product_place').value.length == 0 ) {
+                $('#error_place').html('所在地不能为空');
+                error = true;
+            } else {
+                $('#error_place').html('');
+            }
+
+            // 联系人
+            if( document.getElementById('product_owner').value.length == 0 ) {
+                $('#error_owner').html('所在地不能为空');
+                error = true;
+            } else {
+                $('#error_owner').html('');
+            }
+
+            // 手机
+            if( (document.getElementById('product_mobile').value.length != 11) ||
+                isNaN(document.getElementById('product_mobile').value) ) {
+                $('#error_mobile').html('手机必须是11位数字');
+                error = true;
+            } else {
+                $('#error_mobile').html('');
+            }
+
+            if ( error ) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+
 </div>
 
-<?php //echo $footer; ?>
+<?php echo $footer; ?>

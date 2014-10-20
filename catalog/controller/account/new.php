@@ -64,7 +64,7 @@ class ControllerAccountNew extends Controller {
             $data['cid'] = $this->customer->getId();
             $data['secret'] = SECRET;
 
-            var_dump($data);
+            //var_dump($data);
             //exit();
 
             // POST 转换
@@ -85,8 +85,9 @@ class ControllerAccountNew extends Controller {
 
             // DO POST
             $Helper = new Helper();
-            echo $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
-            exit();
+            $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
+            //echo $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
+            //exit();
         }
 
         $this->redirect(HTTP_SERVER.'index.php?route=account/new');

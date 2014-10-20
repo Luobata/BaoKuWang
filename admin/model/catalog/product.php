@@ -85,7 +85,7 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
-        var_dump($data);
+        //var_dump($data);
 
 		if (isset($data['product_special'])) {
 			foreach ($data['product_special'] as $product_special) {
@@ -94,6 +94,26 @@ class ModelCatalogProduct extends Model {
 		}
 
 		if (isset($data['product_image'])) {
+
+            // POST 回转
+            if( !is_array($data['product_image']) ) {
+                $post_split = '#split#';
+                $product_image = (string)($data['product_image']);
+                //var_dump($product_image);
+                $product_image = explode($post_split,$product_image);
+                //var_dump($product_image);
+                $product_images = array();
+                $product_counts = count($product_image)/2;
+                foreach( $product_image as $key => $val ) {
+                    if( $key < $product_counts ) {
+                        $product_images[] = array( 'image' => $product_image[(2*$key)] ,
+                            'sort_order' => $product_image[(2*$key+1)] );
+                    }
+                }
+                //var_dump($product_images);
+                $data['product_image'] = $product_images;
+            }
+
 			foreach ($data['product_image'] as $product_image) {
                 if( $product_image['image'] ) {
 				    $this->db->query("INSERT INTO " . DB_PREFIX . "product_image SET product_id = '" . (int)$product_id . "', image = '" . $this->db->escape(html_entity_decode($product_image['image'], ENT_QUOTES, 'UTF-8')) . "', sort_order = '" . (int)$product_image['sort_order'] . "'");
