@@ -228,6 +228,8 @@ class ControllerProductProduct extends Controller {
 			$this->document->addScript('catalog/view/javascript/jquery/tabs.js');
 			$this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
+			$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/detail.css');
+			//$this->document->addStyle('catalog/view/javascript/baoku/detail.js');
 
 			$this->data['heading_title'] = $product_info['name'];
 
@@ -277,6 +279,21 @@ class ControllerProductProduct extends Controller {
 			$this->data['model'] = $product_info['model'];
 			$this->data['reward'] = $product_info['reward'];
 			$this->data['points'] = $product_info['points'];
+			var_dump($product_info);
+			//加入cid
+			$this->data['cid']=$product_info['cid'];
+			$this->data['place']=$product_info['place'];
+			$this->data['mobile']=$product_info['mobile'];
+			$this->data['qq']=$product_info['qq'];
+			$this->data['wechat']=$product_info['wechat'];
+			$this->data['detail']=$product_info['detail'];
+			//需要获取customer的name
+			$this->load->model('account/customer');
+			$customer_info = $this->model_account_customer->getCustomer($product_info['cid']);
+			//传入name
+			$this->data['customer_name']=$customer_info['name'];
+			//var_dump($customer_info);
+			//var_dump($product_info);
 
 			if ($product_info['quantity'] <= 0) {
 				$this->data['stock'] = $product_info['stock_status'];
@@ -461,7 +478,10 @@ class ControllerProductProduct extends Controller {
 			} else {
 				$this->template = 'default/template/product/product.tpl';
 			}
-
+			//加载css
+			$styles = array(
+            '/catalog/view/theme/default/stylesheet/baoku/detail.css'
+        	);
 			$this->children = array(
 				'common/column_left',
 				'common/column_right',

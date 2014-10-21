@@ -31,10 +31,10 @@ class hot_control extends common_control{
 	public function on_listbyId(){
 		//获取uid
 		$uid = intval(core::gpc('uid'));
-		var_dump($uid);
+		//var_dump($uid);
 		$list=$this->thread->index_fetch(array(('uid')=>array('='=>$uid)),array('dateline'=>-1),0,3);
-		var_dump(array_values($list));
-		return $list;
+		echo json_encode(array_values($list));
+		//return $list;
 	}
 }
 

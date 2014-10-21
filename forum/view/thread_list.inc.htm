@@ -9,7 +9,7 @@
 		<table width="100%" cellspacing="0" cellpadding="0" style="word-break: break-all" >
 			<tr align="left">
 				<td valign="middle" class="subject indextitle">
-				<!--{if $fid}-->
+				<!--{if isset($keyword)?$fid||$keyword:$fid}-->
 					<a href="?forum-index-fid-$fid.htm" rel="nofollow" {if !core::gpc('digest')}class="grey"{/if}>普通主题</a>  
 					<a href="?forum-index-fid-$fid-digest-1.htm" rel="nofollow" {if core::gpc('digest')}class="grey"{/if}>精华主题</a>
 					<!--{hook thread_list_orderby_before.htm}-->
@@ -24,14 +24,14 @@
 					<!--{hook thread_list_orderby_after.htm}-->
 				</td>
 				<!--{hook thread_list_subject_after.htm}-->
-				{if $fid}
+				{if isset($keyword)?$fid||$keyword:$fid}
 				<td width="80" class="username fatie">发帖</td>
 				<td width="80" class="lastpost huitie">回帖</td>
 				<td width="80" class="views chakan" align="center">回复/查看</td>
-                {/if}
+                
                 
                 <td>
-                {if  !$fid}
+                {else}
                 
 				
 				<span class="grey today">今日：</span><span class="todayposts ">$conf[todayposts]</span>
@@ -47,13 +47,15 @@
 	<div class="body threadlist" id="threadlist">
 	
 		<!--{hook thread_list_threadlist_before.htm}-->
-		{if $fid}
+		{if  isset($keyword)?$fid||$keyword:$fid}
+
 		<!--{loop $toplist $thread}-->
 			<!--{require thread_list_line.inc.htm}-->
 		<!--{/loop}--> 
-		{/if}
+		
+
 		<!--如果是首页则展示板块，否则展示-->
-		{if !$fid}
+		{else}
 		<!--展示板块-->
 		<!--{loop $conf[forumarr] $_fid $_name}-->
 			<!--{require thread_list_line.inc.htm}-->
@@ -69,7 +71,7 @@
 		<hr />
 		<!--{/if}-->
 		<!-- 这里好像有点问题-->
-		{if $fid}
+		{if  isset($keyword)?$fid||$keyword:$fid}
 
 		{loop $threadlist $thread}
 			{require thread_list_line.inc.htm}
@@ -81,7 +83,11 @@
 	</div>
 	<!-- <div class="footer"></div> -->
 	</div>
-	<div class="page_right">
+	{if isset($keyword)}
+	<div class="page_right" style="display:none">
+		{else}
+		<div class="page_right">
+			{/if}
 		{if !$fid}
 		<a href="?post-thread-fid-$fid-ajax-1.htm" target="_blank" onclick="return false;" id="create_thread"  rel="nofollow">
 		{else}
@@ -97,12 +103,12 @@
 			</div>
 			<div class="rec_content">
 				<li class="fir">
-					<a href=""><span class="twotext left">鉴定</span></a>
-					<a href=""><span class="fourtext right">线下交易</span></a>
+					<a href="./?search-index-keyword-鉴定.htm"><span class="twotext left">鉴定</span></a>
+					<a href="./?search-index-keyword-地下交易.htm"><span class="fourtext right">线下交易</span></a>
 				</li>
 				<li class="sec">
-					<a href=""><span class="fourtext left">古玩知识</span></a>
-					<a href=""><span class="twotext right">估值</span></a>
+					<a href="./?search-index-keyword-古玩知识.htm"><span class="fourtext left">古玩知识</span></a>
+					<a href="./?search-index-keyword-估值.htm"><span class="twotext right">估值</span></a>
 				</li>
 			</div>
 		</div>

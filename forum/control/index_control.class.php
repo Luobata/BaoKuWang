@@ -38,7 +38,7 @@ class index_control extends common_control {
 		//var_dump($cou[0]['fid']);
 		//var_dump($cou);
 		//$i=1;
-		//var_dump($cou["forum-fid-".$i]['threads']);
+		//var_dump($cou[$i]['threads']);
 		//$cou=$cou['forum-fid-1'];
 		// for($i=0;$i<count($cou);$i++){
 		// 	$array[] = $cou[$i][threads];
@@ -50,26 +50,29 @@ class index_control extends common_control {
 		//需要封装一个二维数组，包含版块名称，版块总主题数，版块最新消息tid，tid对应的标题和发帖人，版主，版块信息
 		//有点问题，应该把$i换成不同的fid数组中的值
 		$all=count($cou);
-		for($i=1;$i<=$all;$i++){
-			if(isset($cou["forum-fid-".$i])){
-			$blank[$i]['name']=$cou["forum-fid-".$i]['name'];
-			$blank[$i]['threads']=$cou["forum-fid-".$i]['threads'];
-			$blank[$i]['lasttid']=$cou["forum-fid-".$i]['lasttid'];
+		$cou=array_values($cou);
+		//var_dump($cou);
+		for($i=0;$i<$all;$i++){
+			//if(isset($cou[$i])){
+			$blank[$cou[$i]['fid']]['name']=$cou[$i]['name'];
+			$blank[$cou[$i]['fid']]['threads']=$cou[$i]['threads'];
+			$blank[$cou[$i]['fid']]['lasttid']=$cou[$i]['lasttid'];
 			//获取tid对应的标题和发帖人
-			$blank[$i]['modnames']=$cou["forum-fid-".$i]['modnames'];
-			$blank[$i]['brief']=$cou["forum-fid-".$i]['brief'];
-			$text=$this->thread->read($i,$blank[$i]['lasttid']);			
-			$blank[$i]['author']=$text['username'];
-			$blank[$i]['subject']=$text['subject'];}
-			else{
-				$i++;
-				$all++;
-				break;
-			}
-			if($blank[$i]['author']==null){
-				$blank[$i]['date']=null;
+			$blank[$cou[$i]['fid']]['modnames']=$cou[$i]['modnames'];
+			$blank[$cou[$i]['fid']]['brief']=$cou[$i]['brief'];
+			$text=$this->thread->read($cou[$i]['fid'],$blank[$cou[$i]['fid']]['lasttid']);			
+			$blank[$cou[$i]['fid']]['author']=$text['username'];
+			$blank[$cou[$i]['fid']]['subject']=$text['subject'];
+			//}
+			// else{
+			// 	$i++;
+			// 	$all++;
+			// 	break;
+			// }
+			if($blank[$cou[$i]['fid']]['author']==null){
+				$blank[$cou[$i]['fid']]['date']=null;
 			}else{
-				$blank[$i]['date']=date('Y-m-d H:i:s', $text['dateline']);
+				$blank[$cou[$i]['fid']]['date']=date('Y-m-d H:i:s', $text['dateline']);
 			}
 		}
 		//var_dump($blank[1]['lasttid']);

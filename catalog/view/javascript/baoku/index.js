@@ -57,18 +57,3 @@ window.mySwipe = new Swipe(document.getElementById('slider'), {
  	};
  });
 
- $(document).ready(function() {
-  $.ajax({
-      //alert(1);
-      url:"./forum/?hot-list.htm",
-      //data:{ randomid: Math.random() },
-      dataType:"json",
-      success:function(data){
-        $.parseJSON('data');
-             alert(1);
-             alert(a);
-
-             alert(data);
-              }
-        });  
- });
