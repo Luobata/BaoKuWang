@@ -4,26 +4,39 @@ class ModelCatalogProduct extends Model {
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET viewed = (viewed + 1) WHERE product_id = '" . (int)$product_id . "'");
 	}
 
-
     public function getProductMainInfo_List($data) {
 
-        $sql = "SELECT * FROM " . DB_PREFIX . "product AS p";
+        $sql = "SELECT p.product_id , p.image , p.title , p.price , p.identify FROM " . DB_PREFIX . "product AS p";
 
+        // 筛选
         if( isset($data['filter_category']) ) {
-            $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = AND ");
+            $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id WHERE p2c.category_id = " . (int)$data['filter_category'] . " AND p.status = 1");
+        } else {
+            $sql .= " WHERE p.status = 1";
+        }
+        if( isset($data['filter_place']) ) {
+            $sql .= " AND p.place = '" . $this->db->escape($data['filter_place']) . "'";
+        }
+        if( isset($data['filter_identify']) ) {
+            $sql .= " AND p.identify = " . (int)$data['filter_identify'];
+        }
+        if( isset($data['filter_price_2']) ) {
+            $sql .= " AND p.price >= " . (int)$data['filter_price_2']['low'] . " AND p.price < " . (int)$data['filter_price_2']['high'];
         }
 
         // 排序
         if( isset($data['order']) ) {
             $order = $this->db->escape($data['order']);
-            if( $order=='hot_desc' ) {
-                $sql .= " ORDER BY p.viewed, p.date_added DESC";
-            } elseif ( $order=='price_esc' ) {
-                $sql .= " ORDER BY p.price ESC";
-            } elseif ( $order=='price_desc' ) {
+            if( $order == 'hot_desc' ) {
+                $sql .= " ORDER BY p.viewed , p.date_added DESC";
+            } elseif ( $order == 'price_esc' ) {
+                $sql .= " ORDER BY p.price";
+            } elseif ( $order == 'price_desc' ) {
                 $sql .= " ORDER BY p.price DESC";
             }
         }
+
+        $result_nolimit = $this->db->query($sql);
 
         // 分页
         $limit = 16;
@@ -34,7 +47,11 @@ class ModelCatalogProduct extends Model {
             $sql .= " LIMIT " . $limit;
         }
 
-        //$query = $this->db->query("SELECT DISTINCT *, pd.name AS name, p.image, p.title, p.price as price, m.name AS manufacturer, (SELECT points FROM " . DB_PREFIX . "product_reward pr WHERE pr.product_id = p.product_id AND customer_group_id = '" . (int)$customer_group_id . "') AS reward, (SELECT ss.name FROM " . DB_PREFIX . "stock_status ss WHERE ss.stock_status_id = p.stock_status_id AND ss.language_id = '" . (int)$this->config->get('config_language_id') . "') AS stock_status, (SELECT wcd.unit FROM " . DB_PREFIX . "weight_class_description wcd WHERE p.weight_class_id = wcd.weight_class_id AND wcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS weight_class, (SELECT lcd.unit FROM " . DB_PREFIX . "length_class_description lcd WHERE p.length_class_id = lcd.length_class_id AND lcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS length_class, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT COUNT(*) AS total FROM " . DB_PREFIX . "review r2 WHERE r2.product_id = p.product_id AND r2.status = '1' GROUP BY r2.product_id) AS reviews, p.sort_order FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id) WHERE p.product_id = '" . (int)$product_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
+        //echo $sql;
+
+        $result = $this->db->query($sql);
+        $result->num_total = $result_nolimit->num_rows;
+        return $result;
     }
 
     public function getProductMainInfo($product_id) {

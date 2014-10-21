@@ -214,10 +214,19 @@
             </div>
 
             <div class="row">
-                <span class="nes-tip">*</span>
-                &nbsp;&nbsp;&nbsp;
-                <span class="input-title">所&nbsp;在&nbsp;&nbsp;地</span>
-                <input type="text" class="input-content" name="place" id="product_place"/>
+
+                <div class="col">
+                    <span class="nes-tip">*</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span class="input-title">所&nbsp;在&nbsp;&nbsp;地</span>
+                    <select class="input-content" name="place" id="product_place">
+                        <?php
+                            foreach( $zones as $zone ) {
+                                echo '<option value="' . $zone['name'] . '">' . $zone['name'] . '</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
                 <span id="error_place" class="error_prompt"></span>
             </div>
 

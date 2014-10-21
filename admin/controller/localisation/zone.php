@@ -172,6 +172,7 @@ class ControllerLocalisationZone extends Controller {
 		$zone_total = $this->model_localisation_zone->getTotalZones();
 
 		$results = $this->model_localisation_zone->getZones($data);
+        //var_dump($results);
 
 		foreach ($results as $result) {
 			$action = array();
@@ -380,8 +381,8 @@ class ControllerLocalisationZone extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 64)) {
-			$this->error['name'] = $this->language->get('error_name');
+		if ((utf8_strlen($this->request->post['name']) < 1) || (utf8_strlen($this->request->post['name']) > 64)) {
+			$this->error['name'] = '地区名不能为空';
 		}
 
 		if (!$this->error) {

@@ -23,11 +23,11 @@
               <span class="error"><?php echo $error_name; ?></span>
               <?php } ?></td>
           </tr>
-          <tr>
+          <tr style="display: none;">
             <td><?php echo $entry_code; ?></td>
             <td><input type="text" name="code" value="<?php echo $code; ?>" /></td>
           </tr>
-          <tr>
+          <tr style="display: none;">
             <td><?php echo $entry_country; ?></td>
             <td><select name="country_id">
                 <?php foreach ($countries as $country) { ?>
@@ -39,7 +39,7 @@
                 <?php } ?>
               </select></td>
           </tr>
-          <tr>
+          <tr style="display: none;">
             <td><?php echo $entry_status; ?></td>
             <td><select name="status">
                 <?php if ($status) { ?>

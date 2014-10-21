@@ -9,7 +9,7 @@
 		<table width="100%" cellspacing="0" cellpadding="0" style="word-break: break-all" >
 			<tr align="left">
 				<td valign="middle" class="subject indextitle">
-				<?php if($fid) { ?>
+				<?php if(isset($keyword)?$fid||$keyword:$fid) { ?>
 					<a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>.htm" rel="nofollow" <?php if(!core::gpc('digest')) { ?>class="grey"<?php } ?>>普通主题</a>  
 					<a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>-digest-1.htm" rel="nofollow" <?php if(core::gpc('digest')) { ?>class="grey"<?php } ?>>精华主题</a>
 					
@@ -24,14 +24,14 @@
 					
 				</td>
 				
-				<?php if($fid) { ?>
+				<?php if(isset($keyword)?$fid||$keyword:$fid) { ?>
 				<td width="80" class="username fatie">发帖</td>
 				<td width="80" class="lastpost huitie">回帖</td>
 				<td width="80" class="views chakan" align="center">回复/查看</td>
-                <?php } ?>
+                
                 
                 <td>
-                <?php if(!$fid) { ?>
+                <?php } else { ?>
                 
 				
 				<span class="grey today">今日：</span><span class="todayposts "><?php echo isset($conf['todayposts']) ? $conf['todayposts'] : '';?></span>
@@ -47,13 +47,15 @@
 	<div class="body threadlist" id="threadlist">
 	
 		
-		<?php if($fid) { ?>
+		<?php if(isset($keyword)?$fid||$keyword:$fid) { ?>
+
 		<?php if(!empty($toplist)) { foreach($toplist as &$thread) {?>
 			<?php include $this->gettpl('thread_list_line.inc.htm');?>
 		<?php }} ?> 
-		<?php } ?>
+		
+
 		<!--如果是首页则展示板块，否则展示-->
-		<?php if(!$fid) { ?>
+		<?php } else { ?>
 		<!--展示板块-->
 		<?php if(!empty($conf['forumarr'])) { foreach($conf['forumarr'] as $_fid=>&$_name) {?>
 			<?php include $this->gettpl('thread_list_line.inc.htm');?>
@@ -69,7 +71,7 @@
 		<hr />
 		<?php } ?>
 		<!-- 这里好像有点问题-->
-		<?php if($fid) { ?>
+		<?php if(isset($keyword)?$fid||$keyword:$fid) { ?>
 
 		<?php if(!empty($threadlist)) { foreach($threadlist as &$thread) {?>
 			<?php include $this->gettpl('thread_list_line.inc.htm');?>
@@ -81,7 +83,11 @@
 	</div>
 	<!-- <div class="footer"></div> -->
 	</div>
-	<div class="page_right">
+	<?php if(isset($keyword)) { ?>
+	<div class="page_right" style="display:none">
+		<?php } else { ?>
+		<div class="page_right">
+			<?php } ?>
 		<?php if(!$fid) { ?>
 		<a href="http://localhost/forum/?post-thread-fid-<?php echo isset($fid) ? $fid : '';?>-ajax-1.htm" target="_blank" onclick="return false;" id="create_thread"  rel="nofollow">
 		<?php } else { ?>
@@ -97,12 +103,12 @@
 			</div>
 			<div class="rec_content">
 				<li class="fir">
-					<a href=""><span class="twotext left">鉴定</span></a>
-					<a href=""><span class="fourtext right">线下交易</span></a>
+					<a href="./?search-index-keyword-鉴定.htm"><span class="twotext left">鉴定</span></a>
+					<a href="./?search-index-keyword-地下交易.htm"><span class="fourtext right">线下交易</span></a>
 				</li>
 				<li class="sec">
-					<a href=""><span class="fourtext left">古玩知识</span></a>
-					<a href=""><span class="twotext right">估值</span></a>
+					<a href="./?search-index-keyword-古玩知识.htm"><span class="fourtext left">古玩知识</span></a>
+					<a href="./?search-index-keyword-估值.htm"><span class="twotext right">估值</span></a>
 				</li>
 			</div>
 		</div>

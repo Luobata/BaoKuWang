@@ -5,7 +5,7 @@
  */
 
 !defined('FRAMEWORK_PATH') && exit('FRAMEWORK_PATH not defined.');
-	include 'C:/Users/yaogou/Documents/SoftWare/wamp/wamp/www/forum/tmp/control_common_control.class.php';
+	include 'D:/WampServer/www/forum/tmp/control_common_control.class.php';
 
 class thread_control extends common_control {
 	

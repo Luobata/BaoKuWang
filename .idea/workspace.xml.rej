@@ -1,0 +1,24 @@
+diff a/.idea/workspace.xml b/.idea/workspace.xml	(rejected hunks)
+@@ -117,21 +117,21 @@
+          <option value="$PROJECT_DIR$/catalog/view/javascript/baoku/index.js" />
+          <option value="$PROJECT_DIR$/catalog/controller/product/category.php" />
+          <option value="$PROJECT_DIR$/catalog/view/theme/default/template/product/category.tpl" />
+ -        <option value="$PROJECT_DIR$/catalog/controller/common/home.php" />
+ -        <option value="$PROJECT_DIR$/admin/view/template/localisation/zone_form.tpl" />
+ -        <option value="$PROJECT_DIR$/admin/controller/localisation/zone.php" />
+ -        <option value="$PROJECT_DIR$/admin/model/localisation/zone.php" />
+ -        <option value="$PROJECT_DIR$/admin/view/template/localisation/zone_list.tpl" />
+ -        <option value="$PROJECT_DIR$/catalog/controller/account/new.php" />
+ -        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/new.tpl" />
+ -        <option value="$PROJECT_DIR$/image/ckfinder/config.php" />
+          <option value="$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/woyaoxunbao.css" />
+ -        <option value="$PROJECT_DIR$/catalog/model/catalog/product.php" />
+ -        <option value="$PROJECT_DIR$/catalog/controller/product/list.php" />
+          <option value="$PROJECT_DIR$/catalog/view/theme/default/template/product/list.tpl" />
+ +        <option value="$PROJECT_DIR$/catalog/controller/product/list.php" />
+-         <option value="$PROJECT_DIR$/catalog/model/catalog/product.php" />
+ +        <option value="$PROJECT_DIR$/catalog/controller/common/home.php" />
+++        <option value="$PROJECT_DIR$/catalog/model/catalog/product.php" />
+        </list>
+      </option>
+    </component>

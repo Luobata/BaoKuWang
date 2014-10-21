@@ -8,12 +8,12 @@
 .bread a{
 
 }
-
+.nav-category-wrap{margin-left: 100px;}
 .nav-category-group{clear: both;margin-top: 16px;border: 1px;border-color: #ccc;border-style: solid;}
 
-.nav-category{min-height: 44px;line-height: 44px;border:0;border-bottom: 1px;border-color: #ccc;border-style: dashed;width: auto;float: none;}
-.nav-category h4{width: 80px;height:100%;background-color: #673413;color: #fff;padding-left: 20px;float: left;overflow: hidden;}
-
+.nav-category{border:0;border-bottom: 1px;border-color: #ccc;border-style: dashed;width: auto;float: none;overflow: hidden;line-height: 44px;min-height:44px;position: relative;}
+.nav-category-content li{height: 44px;line-height: 44px;}
+.nav-category h4{width: 80px;background-color: #673413;color: #fff;padding-left: 20px;float: left;overflow: hidden;min-height: 44px;position: absolute;height: 100%}
 .nav-category-group .lastline{border-bottom: 0px;}
 
 .nav-category-content{float:left;overflow: hidden;margin-left: 24px;}
@@ -22,20 +22,24 @@
 	float: left; 
  }
 
- .sortbar{height: 44px;line-height: 44px;background-color: #673413;margin-top: 16px;color: #ccc}
+ .sortbar{height: 44px;line-height: 44px;background-color: #673413;margin-top: 16px;color: #ccc;overflow: hidden;}
  .sort-btn{overflow: hidden;}
- .sort-btn li{}
- .sort-btn li a{float: left;color: #fff;width: 100px;}
+ .sort-btn li{float: left;width: 100px;}
+ .sort-btn li a{color: #fff;}
+
+ .price-sort{overflow: hidden;}
 
 
 
-li.active a{background-color: #a37b52}
+
+.active {background-color: #a37b52}
 
 
 .item-content{margin-top: 16px;}
 .row{overflow: hidden;margin-bottom: 4px;}
-.col{border: 1px;border-style: solid;border-color: #ccc;width: 245px;float: left;margin-right: 4px;}
-.col img{max-width: 245px;}
+.col{border: 1px;border-style: solid;border-color: #ccc;width: 245px;height:248px;float: left;margin-right: 4px;}
+.col_img{width: 100%; height: 180px;}
+.col img{width: 100%; height: 100%;}
 .col-last{margin-right: 0px;}
 .price-info{padding-left: 10px;padding-bottom: 24px}
 .item-title{padding-left: 10px;margin-top: 16px;}
@@ -47,8 +51,7 @@ li.active a{background-color: #a37b52}
 
 
 
-.button-selected{background-color: #a37b52;height: 26px;line-height: 26px;padding-left: 10px;padding-right: 10px;
-	margin-left: 20px;color: #fff}
+.button-selected{background-color: #a37b52;height: 26px;line-height: 26px;padding-left: 10px;padding-right: 10px;margin-left: 20px;color: #fff;}
 
 .goods-page{float: right;margin-top: 16px;}
 

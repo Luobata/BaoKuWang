@@ -290,3 +290,11 @@
 <?php exit;?>	2014-10-20 13:07	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-20 13:12	
 <?php exit;?>	2014-10-21 19:03	127.0.0.1	/forum/	cron_1_next_time:2014-10-21 19:08	
 <?php exit;?>	2014-10-21 19:03	127.0.0.1	/forum/	cron_2_next_time:2014-10-22 00:00	
+<?php exit;?>	2014-10-21 23:10	127.0.0.1	/forum/	cron_1_next_time:2014-10-21 23:15	
+<?php exit;?>	2014-10-21 23:10	127.0.0.1	/forum/	cron_1_next_time:2014-10-21 23:15	
+<?php exit;?>	2014-10-22 00:44	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-22 00:49	
+<?php exit;?>	2014-10-22 00:44	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_2_next_time:2014-10-23 00:00	
+<?php exit;?>	2014-10-22 02:04	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-22 02:09	
+<?php exit;?>	2014-10-22 02:04	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-22 02:09	
+<?php exit;?>	2014-10-22 04:27	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-22 04:32	
+<?php exit;?>	2014-10-22 04:27	127.0.0.1	/forum/?hot-listbyId-uid-2.htm	cron_1_next_time:2014-10-22 04:32	

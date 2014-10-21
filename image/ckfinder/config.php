@@ -31,7 +31,7 @@ function CheckAuthentication()
 	// user logs in your system. To be able to use session variables don't
 	// forget to add session_start() at the top of this file.
 
-	if( $_SESSION['user_id'] )
+	if( $_SESSION['customer_id'] )
 		return true;
 	else
 		return false;
@@ -64,7 +64,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = '/image/data/userfiles/'.$_SESSION['user_id'].'/';
+$baseUrl = '/image/data/userfiles/'.$_SESSION['customer_id'].'/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the

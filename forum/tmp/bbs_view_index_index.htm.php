@@ -17,6 +17,10 @@
 				
 			</td>
 			<td class="center2">
+				<form action="http://localhost/forum/?search-index.htm" target="_blank" id="search_form" method="post">
+								<div id="search"><input type="text" id="search_keyword" name="keyword" x-webkit-speech lang="zh-CN" /></div>
+								
+							</form>
 				<?php include $this->gettpl('header_user.inc.htm');?>
 				<!-- <a href="http://localhost/forum/?post-thread-fid-<?php echo isset($fid) ? $fid : '';?>-ajax-1.htm" target="_blank" onclick="return false;" id="create_thread"  rel="nofollow"><span class="icon icon-post-newthread"></span> 发新帖</a> -->
 			</td>

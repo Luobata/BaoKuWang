@@ -1,4 +1,4 @@
-<?php !defined('FRAMEWORK_PATH') && exit('Access Denied');?><?php if($fid) { ?>
+<?php !defined('FRAMEWORK_PATH') && exit('Access Denied');?><?php if(isset($keyword)?$fid||$keyword:$fid) { ?>
 
 
  <!--------------------- 替换整个table------------------------------------------------- -->
@@ -61,13 +61,12 @@
 </table>
 
 <hr />
-<?php } ?>
 
 
 
 
 
-<?php if(!$fid) { ?>
+<?php } else { ?>
 	<table width="100%" cellspacing="0" cellpadding="0" tid="<?php echo isset($thread['tid']) ? $thread['tid'] : '';?>" class="thread" lastpost="<?php echo isset($thread['lastpost']) ? $thread['lastpost'] : '';?>" style="table-layout: fixed;">
 	<tr height="32">
 		<td valign="middle" class="subject blank_pic">

@@ -1,4 +1,14 @@
 ﻿
+【陈雄威，2014-10-22，02:45】
+【创建城市表】
+
+CREATE TABLE shop_city
+(
+	city_id int(11) PRIMARY KEY AUTO_INCREMENT,
+	city_name varchar(30) NOT NULL
+)
+
+
 【陈雄威，2014-10-19，21:00】
 【增加商品寄卖人字段】
 ALTER TABLE shop_product ADD COLUMN owner varchar(20) DEFAULT '未设置' NOT NULL;

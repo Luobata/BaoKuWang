@@ -14,20 +14,22 @@ class ControllerProductList extends Controller {
         }
 
         // 获取排序参数
+        $this->data['order_default'] = true;
         $this->data['order_hot'] = false;
         $this->data['order_price'] = false;
         $this->data['order_price_desc'] = false;
         if (isset($this->request->get['order'])) {
             $this->data['order'] = $this->request->get['order'];
             // 设置页面变量
-            if( strpos($this->data['order'],'hot') != false ) {
+            if( strpos($this->data['order'],'hot') !== false ) {
                 $this->data['order_hot'] = true;
-            } elseif ( strpos($this->data['order'],'price') != false ) {
+            } elseif ( strpos($this->data['order'],'price') !== false ) {
                 $this->data['order_price'] = true;
-                if( strpos($this->data['order'],'desc') != false ) {
+                if( strpos($this->data['order'],'desc') !== false ) {
                     $this->data['order_price_desc'] = true;
                 }
             }
+            $this->data['order_default'] = false;
         }
 
         // 获取过滤参数
@@ -44,16 +46,40 @@ class ControllerProductList extends Controller {
             $this->data['filter_price'] = $this->request->get['filter_price'];
         }
 
+        // 设置各类链接
+        $this->data['url'] = $this->getUrl($this->data);
+        var_dump($this->data['url']);
+
+        // 设置过滤价格
+        $this->data['price'] = array(
+            0 => array( 'low' => 0 , 'high' => 1000 ),
+            1 => array( 'low' => 1000 , 'high' => 3000 ),
+            2 => array( 'low' => 3000 , 'high' => 10000 ),
+            3 => array( 'low' => 10000 , 'high' => 50000 ),
+            4 => array( 'low' => 50000 , 'high' => 100000 ),
+            5 => array( 'low' => 100000 , 'high' => false ),
+        );
+        if (isset($this->request->get['filter_price'])) {
+            $this->data['filter_price_2']['low'] = $this->data['price'][(int)$this->request->get['filter_price']]['low'];
+            $this->data['filter_price_2']['high'] = $this->data['price'][(int)$this->request->get['filter_price']]['high'];
+        }
+
         // 获取商品信息
         $this->load->model('catalog/product');
-
-        // 获取各类链接
-        $this->data['url'] = $this->getUrl($this->data);
+        $products = $this->model_catalog_product->getProductMainInfo_List($this->data);
+        $this->data['products'] = $products->rows;
+        $this->data['products_page_number'] = (int)((($products->num_total)-1)/16)+1;
+        //var_dump($this->data['products']);
 
         // 获取分类数据
         $this->load->model('catalog/category');
         $categories = $this->model_catalog_category->getSuperCategories();
         $this->data['categories'] = $categories;
+        //var_dump($categories);
+
+        // 获取地区数据
+        $this->load->model('localisation/zone');
+        $this->data['zones'] = $this->model_localisation_zone->getZonesByCountryId(44);
 
         // 标题
         $this->document->setTitle('我要寻宝');
@@ -78,19 +104,22 @@ class ControllerProductList extends Controller {
 
         // 渲染页面
         $this->response->setOutput($this->render($styles));
+
+        //var_dump($this->data);
     }
 
 
     public function getUrl($data) {
 
         $url = array();
-        $url['search'] = '';
-        $url['category'] = '';
-        $url['place'] = '';
-        $url['identify'] = '';
-        $url['price'] = '';
-        $url['order'] = '';
-        $url['page'] = '');
+        $url_base = $this->url->link('product/list');
+        $url['search'] = $url_base;
+        $url['category'] = $url_base;
+        $url['place'] = $url_base;
+        $url['identify'] = $url_base;
+        $url['price'] = $url_base;
+        $url['order'] = $url_base;
+        $url['page'] = $url_base;
 
         if( isset($data['search']) ) {
             $url['category'] .= ('&search='.$data['search']);

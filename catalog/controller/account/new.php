@@ -48,6 +48,11 @@ class ControllerAccountNew extends Controller {
         $categories = $this->model_catalog_category->getSuperCategories();
         $this->data['categories'] = $categories;
 
+        // 获取地区数据
+        $this->load->model('localisation/zone');
+        $this->data['zones'] = $this->model_localisation_zone->getZonesByCountryId(44);
+        //var_dump($this->data['zones']);
+
         // 渲染页面
         $this->response->setOutput($this->render($styles));
 
