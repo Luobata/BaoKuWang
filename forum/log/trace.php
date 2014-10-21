@@ -144,3 +144,45 @@ Array
     [bbs_lastday] => 1378437285
 )
  - 0.711
+
+
+---------------------------------------------------------------------------------
+<?php exit;?>
+---------------------------------------------------------------------------------
+/forum/?ueditor-uploadimage-ajax-1.htm
+POST:Array
+(
+    [Filename] => 我要交流.jpg
+    [fileName] => 我要交流.jpg
+    [param2] => value2
+    [param1] => value1
+    [dir] => 1
+    [pictitle] => 我要交流.jpg
+    [Upload] => Submit Query
+)
+
+SQL:Array
+(
+    [0] => SELECT * FROM bbs_runtime WHERE k='runtime' LIMIT 1
+    [1] => SELECT * FROM bbs_group WHERE groupid='1' LIMIT 1
+    [2] => SELECT * FROM bbs_user WHERE uid='1' LIMIT 1
+    [3] => SELECT maxid FROM bbs_framework_maxid WHERE name='attach'
+    [4] => UPDATE bbs_framework_maxid SET maxid=maxid+'1' WHERE name='attach' LIMIT 1
+    [5] => SELECT count FROM bbs_framework_count WHERE name='attach'
+    [6] => UPDATE bbs_framework_count SET count='1' WHERE name='attach' LIMIT 1
+    [7] => SELECT * FROM bbs_attach WHERE fid='0' AND aid='3' LIMIT 1
+    [8] => INSERT INTO bbs_attach SET fid='0',tid='0',pid='0',filesize='0',width='0',height='0',filename='',orgfilename='我要交流.jpg',filetype='image',dateline='1413830301',comment='',downloads='0',isimage='1',golds='0',uid='1',aid='3'
+    [9] => UPDATE bbs_attach SET fid='0',tid='0',pid='0',filesize='139499',width='900',height='887',filename='000/000/0a1ba8c9476607d21c71afd0d14719a0.jpg',orgfilename='我要交流.jpg',filetype='image',dateline='1413830301',comment='',downloads='0',isimage='1',golds='0',uid='1',aid='3' WHERE fid='0' AND aid='3' LIMIT 1
+)
+
+Array
+(
+    [timeoffset] => +08
+    [bbs_sid] => 69c9da69e25418c3
+    [bbs_auth] => BlgHRxAMkomQPEzURcThVTc2nKmRGNqFai%252FYLvjD6n0hAXGkcAZUbg%3D%3D
+    [bbs_lastday] => 1413809762
+    [bbs_admin_auth] => pQ1RWKaLI1pUs4POFW5zOvdS%2B3E%3D
+    [bbs_page] => 1
+    [bbs_lastonlineupdate] => 1413830269
+)
+ - 1.885
