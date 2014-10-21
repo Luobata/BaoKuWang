@@ -288,3 +288,5 @@
 <?php exit;?>	2014-10-20 12:22	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-20 12:27	
 <?php exit;?>	2014-10-20 12:43	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-20 12:48	
 <?php exit;?>	2014-10-20 13:07	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-20 13:12	
+<?php exit;?>	2014-10-21 19:03	127.0.0.1	/forum/	cron_1_next_time:2014-10-21 19:08	
+<?php exit;?>	2014-10-21 19:03	127.0.0.1	/forum/	cron_2_next_time:2014-10-22 00:00	

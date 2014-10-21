@@ -1,12 +1,12 @@
 window.mySwipe = new Swipe(document.getElementById('slider'), {
-  startSlide: 2,
-  speed: 400,
-  auto: 3000,
-  continuous: true,
-  disableScroll: false,
-  stopPropagation: false,
-  callback: function(index, elem) {},
-  transitionEnd: function(index, elem) {}
+startSlide: 0,
+speed: 400,
+auto: 3000,
+continuous: true,
+disableScroll: false,
+stopPropagation: false,
+callback: function(index, elem) {},
+transitionEnd: function(index, elem) {}
 });
 
 // function nextpics(){
@@ -39,20 +39,45 @@ window.mySwipe = new Swipe(document.getElementById('slider'), {
    	$('#s_content_1').attr("style","display:block");
 	})
 //};
-/*
- *点击按钮切换颜色，更改图片路径
- */
- $('.t_nav .text').bind("click",function(e){
 
- 	$('.t_nav .text a').attr('style', 'color:#999999');
- 	var a=this.childNodes;
- 	$(a[0]).attr('style', 'color:#ad813f');
- 	alert($(this).val());
- 	//根据获取的点击value将前台数据展示的改变内容替换
- 	for (var i = 0; i < 8; i++) {
- 		$(".t_row #img_"+(i+1)).attr('src', 'catalog/view/theme/default/image/baoku/jew5.png');
- 		$('.t_row #text_'+(i+1)).html("sss");
- 		$('.t_row #sprice_'+(i+1)).html("333");
- 		$('.t_row #bprice_'+(i+1)).html("222");
- 	};
- });
+
+// 点击按钮切换颜色，更改图片路径
+
+$('#head3 li').bind("click",function(){
+    // 改变颜色
+    $('.t_nav .text a').css('color','#999999');
+    // 根据获取的点击value将前台数据展示的改变内容替换
+    var i = 1;
+    for( id in parent_polular_product ) {
+        $(".t_row #url_"+i).attr('href','/index.php?route=product/product&product_id='+id);
+        $(".t_row #img_"+i).attr('src','/image/'+parent_polular_product[id]['image']);
+        $('.t_row #text_'+i).html(parent_polular_product[id]['title']);
+        $('.t_row #sprice_'+i).html(parent_polular_product[id]['price']);
+        //$('.t_row #bprice_'+i).html("222");
+        i++;
+    }
+})
+
+$('.t_nav .text').bind("click",function(){
+    // 改变颜色
+    $('.t_nav .text a').css('color','#999999');
+    $(this).children('a').css('color','#ad813f');
+    // 根据获取的点击value将前台数据展示的改变内容替换
+    var products = children_polular_product[this.value];
+    //console.log(products);
+    var i = 1;
+    for( id in products ) {
+        $(".t_row #url_"+i).attr('href','/index.php?route=product/product&product_id='+id);
+        $(".t_row #img_"+i).attr('src','/image/'+products[id]['image']);
+        $('.t_row #text_'+i).html(products[id]['title']);
+        $('.t_row #sprice_'+i).html(products[id]['price']);
+        //$('.t_row #bprice_'+i).html("222");
+        i++;
+    }
+    /*
+    do{
+        $(".t_row #url_"+i).parents('.t_row').remove();
+        i++;
+    } while(i>=9);
+    */
+});

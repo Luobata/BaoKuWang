@@ -11,8 +11,8 @@
 
 .nav-category-group{clear: both;margin-top: 16px;border: 1px;border-color: #ccc;border-style: solid;}
 
-.nav-category{height: 44px;line-height: 44px;border-bottom: 1px;border-color: #ccc;border-style: dashed;width: auto;float: none;}
-.nav-category h4{width: 80px;background-color: #673413;color: #fff;padding-left: 20px;float: left;overflow: hidden;}
+.nav-category{min-height: 44px;line-height: 44px;border:0;border-bottom: 1px;border-color: #ccc;border-style: dashed;width: auto;float: none;}
+.nav-category h4{width: 80px;height:100%;background-color: #673413;color: #fff;padding-left: 20px;float: left;overflow: hidden;}
 
 .nav-category-group .lastline{border-bottom: 0px;}
 

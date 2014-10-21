@@ -40,6 +40,7 @@ class ControllerCommonContentTop extends Controller {
 
 		$this->load->model('setting/extension');
 
+        // 获取扩展
 		$extensions = $this->model_setting_extension->getExtensions('module');		
 
 		foreach ($extensions as $extension) {

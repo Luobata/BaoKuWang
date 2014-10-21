@@ -2,6 +2,32 @@
 class ControllerDesignBanner extends Controller {
 	private $error = array();
 
+    public function getBanner_shop() {
+        if( isset($_POST['bid']) ) {
+            $banner_id = $_POST['bid'];
+            $this->load->model('design/banner');
+            $images = $this->model_design_banner->getBannerImages($banner_id);
+            // 数组 - 字符串 转换
+            $post_split = '#split#';
+            $echo = '';
+            foreach( $images as $image ) {
+                if($image['image']){
+                    $echo .= ( $post_split . $image['image'] . $post_split . $image['link'] );
+                } else {
+                    continue;
+                }
+            }
+            if( $echo ) {
+                $echo = substr($echo,strlen($post_split));
+                echo $echo;
+            } else {
+                echo false;
+            }
+        } else {
+            echo false;
+        }
+    }
+
 	public function index() {
 		$this->language->load('design/banner');
 

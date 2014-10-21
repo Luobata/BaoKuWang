@@ -19,7 +19,7 @@ class ControllerCatalogProduct extends Controller {
 
 	public function insert() {
 
-        var_dump($_POST);
+        //var_dump($_POST);
         //exit();
 
 		$this->language->load('catalog/product');

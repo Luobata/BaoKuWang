@@ -405,6 +405,8 @@ class ControllerProductCategory extends Controller {
 				'common/header'
 			);
 
+            $this->document->addStyle('/catalog/view/theme/default/stylesheet/baoku/woyaoxunbao.css');
+
 			$this->response->setOutput($this->render());										
 		} else {
 			$url = '';
