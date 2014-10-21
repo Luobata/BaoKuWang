@@ -298,3 +298,5 @@
 <?php exit;?>	2014-10-22 02:04	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-22 02:09	
 <?php exit;?>	2014-10-22 04:27	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-22 04:32	
 <?php exit;?>	2014-10-22 04:27	127.0.0.1	/forum/?hot-listbyId-uid-2.htm	cron_1_next_time:2014-10-22 04:32	
+<?php exit;?>	2014-10-22 07:29	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-22 07:34	
+<?php exit;?>	2014-10-22 07:29	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-22 07:34	

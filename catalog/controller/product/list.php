@@ -48,7 +48,7 @@ class ControllerProductList extends Controller {
 
         // 设置各类链接
         $this->data['url'] = $this->getUrl($this->data);
-        var_dump($this->data['url']);
+        //var_dump($this->data['url']);
 
         // 设置过滤价格
         $this->data['price'] = array(

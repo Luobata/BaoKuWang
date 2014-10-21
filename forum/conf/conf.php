@@ -34,7 +34,7 @@ return array(
 			'master' => array(
 				'host' => 'localhost',
 				'user' => 'root',
-				'password' => 'ychshe123',
+				'password' => '',
 				'name' => 'pawnshop',
 				'charset' => 'utf8',
 				'tablepre' => 'bbs_',

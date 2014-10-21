@@ -117,21 +117,66 @@
         </div>
     </div>
 
-    <!--page-->
+    <!--分页按钮-->
     <div class="goods-page">
-        <a href="#" ><span><</span></a>
+        <!--<a href="#" ><span><</span></a>-->
 
         <?php if(!isset($page)) { ?>
-        <a href="#" ><span><</span></a>
-        <a class="active" href="<?php echo $url['page'].'&page=1'; ?>">
-        <a href="<?php echo $url['page'].'&page=2'; ?>">
-        <a href="<?php echo $url['page'].'&page=3'; ?>">
-        <a href="<?php echo $url['page'].'&page=4'; ?>">
-        <a href="<?php echo $url['page'].'&page=5'; ?>">
-        <?php }?>
+              <!-- 未传页码参数的 -->
+              <a><span><</span></a>
+              <a class="active"><span>1</span></a>
+        <?php     $i = 2;
+                  while( $i <= $products_page_number && $i<= 5 ) { ?>
+                      <a href="<?php echo $url['page'].'&page='.$i; ?>"><span><?php echo $i; ?></span></a>
+        <?php         $i++;
+                  }
+                  if($products_page_number>=2) {  ?>
+                  <a href="<?php echo $url['page'].'&page=2'; ?>" ><span>></span></a>
+        <?php     } else { ?>
+                  <a><span>></span></a>
+        <?php     }
+              } else { ?>
+              <!-- 已传页码参数的 -->
+        <?php     if($products_page_number<=5) { ?>
+                      <!-- 总页码不大于五 -->
+                      <a<?php if($page>1) { echo ' href="'.$url['page'].'&page='.($page-1).'"'; } ?>><span><</span></a>
+        <?php         $i=1;
+                      while($i<=$products_page_number) { ?>
+                          <a <?php if($i==$page) { echo 'class="active"'; } ?> href="<?php echo $url['page'].'&page='.$i; ?>"><span><?php echo $i;?></span></a>
+        <?php             $i++;
+                      } ?>
+                      <a<?php if($page<$products_page_number){ echo ' href="'.$url['page'].'&page='.($page+1).'"'; } ?>><span>></span></a>
+        <?php     } else { ?>
+                      <!-- 总页码大于五 -->
+        <?php         if( $page<=3 ) { ?>
+                          <a<?php if($page>1){ echo ' href="'.$url['page'].'&page='.($page-1).'"'; } ?>><span><</span></a>
+        <?php             $i=1;
+                          while($i<=5) { ?>
+                              <a <?php if($i==$page) { echo 'class="active"'; } ?> href="<?php echo $url['page'].'&page='.$i; ?>"><span><?php echo $i; ?></span></a>
+        <?php                 $i++;
+                          } ?>
+                          <a href="<?php echo $url['page'].'&page='.($page+1);?>"><span>></span></a>
+        <?php         } elseif ( ($products_page_number-$page)<3 ) { ?>
+                          <a href="<?php echo $url['page'].'&page='.($page-1);?>"><span><</span></a>
+        <?php             $i=4;
+                          while($i>=0) { ?>
+                          <a <?php if(($products_page_number-$i)==$page) { echo 'class="active"'; } ?> href="<?php echo $url['page'].'&page='.($products_page_number-$i); ?>"><span><?php echo ($products_page_number-$i); ?></span></a>
+        <?php             $i--;
+                          } ?>
+                          <a<?php if($page<$products_page_number){ echo ' href="'.$url['page'].'&page='.($page+1).'"'; } ?>><span>></span></a>
+        <?php         } else { ?>
+                          <a href="<?php echo $url['page'].'&page='.($page-1);?>"><span><</span></a>
+        <?php             $i = -2;
+                          while($i<3) { ?>
+                          <a <?php if($i==0) { echo 'class="active"'; } ?> href="<?php echo $url['page'].'&page='.($page+$i); ?>"><span><?php echo ($page+$i); ?></span></a>
+        <?php             $i++;
+                          } ?>
+                          <a href="<?php echo $url['page'].'&page='.($page+1);?>"><span>></span></a>
+        <?php         }
+                  }
+              } ?>
 
-
-
+        <!--
         <?php $i = $products_page_number;
               while( $i ) {
                   $thePage = $products_page_number-$i+1; ?>
@@ -140,13 +185,29 @@
         <?php     $i--;
               } ?>
 
-        <a href="#" ><span>></span></a>
+        <a href="#" ><span>></span></a>-->
+
         &nbsp;&nbsp;&nbsp;
         <span>共</span><span><?php echo $products_page_number; ?></span><span>页</span>
         &nbsp;&nbsp;&nbsp;
-        <span>到</span>&nbsp;<input class="page-input" type="text">&nbsp;<span>页</span>
-        &nbsp;&nbsp;&nbsp;
-        <input class="page-sel-btn"type="button" value="确定">
+        <span>到</span>&nbsp;
+        <form style="display: inline-block;" onsubmit="Gotopage(this);return false;">
+            <input class="page-input" type="text"/>&nbsp;<span>页</span>
+            &nbsp;&nbsp;&nbsp;
+            <input class="page-sel-btn" type="submit" value="确定">
+        </form>
+        <script>
+        function Gotopage( thisObj ){
+            var MAX = <?php echo $products_page_number; ?>;
+            var aim = parseInt($(thisObj).children('input').val());
+            if( aim > MAX || aim < 1 || isNaN(aim) ) {
+                alert('页数不符合要求哦');
+                return false;
+            }
+            var url = '<?php echo $url['page'];?>'+'&page='+aim;
+            location = url;
+        }
+        </script>
     </div>
 </div>
 
