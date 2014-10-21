@@ -56,3 +56,4 @@ window.mySwipe = new Swipe(document.getElementById('slider'), {
  		$('.t_row #bprice_'+(i+1)).html("222");
  	};
  });
+

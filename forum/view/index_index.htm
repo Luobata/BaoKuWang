@@ -17,6 +17,10 @@
 				<!--{hook index_index_nav_center_after.htm}-->
 			</td>
 			<td class="center2">
+				<form action="?search-index.htm" target="_blank" id="search_form" method="post">
+								<div id="search"><input type="text" id="search_keyword" name="keyword" x-webkit-speech lang="zh-CN" /></div>
+								{hook header_menu_search_end.htm}
+							</form>
 				<!--{include header_user.inc.htm}-->
 				<!-- <a href="?post-thread-fid-$fid-ajax-1.htm" target="_blank" onclick="return false;" id="create_thread"  rel="nofollow"><span class="icon icon-post-newthread"></span> 发新帖</a> -->
 			</td>

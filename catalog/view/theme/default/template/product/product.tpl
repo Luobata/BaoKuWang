@@ -349,8 +349,166 @@
   </div>
   <?php } ?>
   <?php echo $content_bottom; ?></div>
+
+<div class="content">
+    <ul class="c_head">
+      <li><a href="">首页 >&nbsp</a></li>
+      <li><a href="">古董古玩 >&nbsp</a></li>
+      <li><a href="">戒指指环 >&nbsp</a></li>
+      <li><a href="">Bvlgari(宝格丽)PARENTESI系列18K黄金窄版镂空戒指</a></li>
+    </ul>
+
+    <div class="d_first">
+      <div class="f_pics">
+        <div class="b_pic">
+          <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>"class="b_img" alt="<?php echo $product['name']; ?>" /></a>
+          <!-- <a href=""><img src="./catalog/view/theme/default/image/baoku/b_pic.png" class="b_img"></a> -->
+        </div>
+        <div class="s_pic">
+          <ul class="s_pic_con">
+            <a href="#"><img src="./catalog/view/theme/default/image/baoku/s_pic1.png" class="mover"></a>
+            <a href=""><img src="./catalog/view/theme/default/image/baoku/s_pic2.png" class="mover"></a>
+            <a href=""><img src="./catalog/view/theme/default/image/baoku/s_pic3.png" class="mover"></a>
+            <a href=""><img src="./catalog/view/theme/default/image/baoku/s_pic4.png" class="mover"></a>
+          </ul>
+        </div>
+      </div>
+      <div class="f_texts">
+        <div class="f_texts_title">
+          <?php echo $heading_title; ?>
+        </div>
+        <div class="f_texts_con">
+          <li>价&nbsp&nbsp&nbsp格 :<span>&nbsp&nbsp&nbsp;<?php echo$price;?> 元</span></li>
+          <li>所在地 :<span>&nbsp&nbsp&nbsp;<?php echo$place;?></span></li>
+          <li>卖&nbsp&nbsp&nbsp家 :<span>&nbsp&nbsp&nbsp;<?php echo$customer_name;?></span></li>
+          <li>咨&nbsp&nbsp&nbsp询 :<span>&nbsp&nbsp&nbsp</span><a href=""><img src="./catalog/view/theme/default/image/baoku/liuyan.png"></a>
+          </li>
+          <li>联&nbsp&nbsp&nbsp系 :<span>&nbsp&nbsp&nbsp;<?php echo$mobile;?>&nbsp&nbsp&nbsp<a href=""><img src="./catalog/view/theme/default/image/baoku/lianxi.png"></a></span></li>
+          <li>QQ&nbsp号 :<span>&nbsp&nbsp&nbsp;<?php echo$qq;?>&nbsp<a href=""><img src="./catalog/view/theme/default/image/baoku/linshi.png"></a></span></li>
+          <li>微信号 :<span>&nbsp&nbsp&nbsp;<?php echo$wechat;?></span></li>
+        </div>
+        
+        <div class="f_click">
+          <div class="f_buttons">
+            <input type="button" value="收藏" class="f_button">
+
+            <input type="button" value="自由交易" class="f_button">
+
+            <input type="button" value="担保交易" class="f_button" id="f_button">
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="d_second">
+      <div class="s_left">
+        <div class="s_about">
+          <div class="s_left_title">
+            相关物品
+          </div>
+          <div class="s_about_detail">
+            <a href="">
+            <div class="s_about_pic">
+              <img src="./catalog/view/theme/default/image/baoku/about1.png">
+            </div>
+            <p><span class="s_price">￥3430.00</span><span class="b_price">￥3780.00</span></p>
+            <p>
+              swarovski/施华洛世奇紫色心形花瓣项链1169642
+            </p>
+            </a>
+          </div>
+          <div class="s_about_detail">
+            <a href="">
+            <div class="s_about_pic">
+              <img src="./catalog/view/theme/default/image/baoku/about1.png">
+            </div>
+            <p><span class="s_price">￥3430.00</span><span class="b_price">￥3780.00</span></p>
+            <p>
+              swarovski/施华洛世奇紫色心形花瓣项链1169642
+            </p>
+            </a>
+          </div>
+          <div class="s_about_detail">
+            <a href="">
+            <div class="s_about_pic">
+              <img src="./catalog/view/theme/default/image/baoku/about1.png">
+            </div>
+            <p><span class="s_price">￥3430.00</span><span class="b_price">￥3780.00</span></p>
+            <p>
+              swarovski/施华洛世奇紫色心形花瓣项链1169642
+            </p>
+            </a>
+          </div>
+        </div>
+        <div class="s_goods">
+          <div class="s_left_title">
+            物品百科
+          </div>
+          <div class="s_left_con">
+            <a href="">宝格丽戒指好不好</a>
+          </div>
+          <div class="s_left_con">
+            <a href="">宝格丽戒指好不好</a>
+          </div>
+          <div class="s_left_con">
+            <a href="">宝格丽戒指好不好</a>
+          </div>
+          <div class="s_left_con" id="s_left_con">
+            <a href="">宝格丽戒指好不好</a>
+          </div>
+        </div>
+        <div class="s_friends">
+          <div class="s_left_title">
+            宝友会热帖<?php echo $cid;?>
+          </div>
+        
+        </div>
+        <div class="s_solder">
+          <div class="s_left_title">
+            卖家最新发帖
+          </div>
+        </div>
+      </div>
+      <div class="s_right">
+        <div class="s_right_title">
+            物品详情
+          </div>
+        <div class="s_right_pic">
+          <img src="./catalog/view/theme/default/image/baoku/d_r_pic1.png">
+          <img src="./catalog/view/theme/default/image/baoku/d_r_pic2.png">
+        </div>
+        <div class="s_right_desc">
+          <?php echo$detail;?>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src="catalog/view/javascript/baoku/detail.js"></script>
 <script type="text/javascript"><!--
 $(document).ready(function() {
+  var cid="<?php echo $cid;?>"
+$.ajax({
+      //alert(1);
+      url:"./forum/?hot-listbyId-uid-"+cid+".htm",
+      //data:{ randomid: Math.random() },
+      dataType:"json",
+      success:function(data){
+        //$.parseJSON('data');
+             //alert(1);
+
+             for (var i = 0; i < data.length-1; i++) {
+              //$('.s_friends .tip_'+(i+1)+' a').html(data[i].subject);
+              $('.s_solder').append(" <div class='s_left_con'>"+
+                "<a href='./forum/?thread-index-fid-"+data[i].fid+"-tid-"+data[i].tid+".htm'>"+data[i].subject+"</a></div>");
+             };
+             $('.s_solder').append(" <div class='s_left_con' id='s_left_con'>"+
+                "<a href='./forum/?thread-index-fid-"+data[i].fid+"-tid-"+data[i].tid+".htm'>"+data[i].subject+"</a></div>");
+             //alert(data);
+              }
+        });   
 	$('.colorbox').colorbox({
 		overlayClose: true,
 		opacity: 0.5,

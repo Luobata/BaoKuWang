@@ -22,6 +22,8 @@ class ControllerCommonHome extends Controller {
 		);
 										
 		$this->response->setOutput($this->render());
+		//js=>script 1=>
+
 	}
 }
 ?>

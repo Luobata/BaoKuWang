@@ -57,7 +57,13 @@ class ModelCatalogProduct extends Model {
 				'status'           => $query->row['status'],
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
-				'viewed'           => $query->row['viewed']
+				'viewed'           => $query->row['viewed'],
+				'cid'			   => $query->row['cid'],
+				'mobile'		   => $query->row['mobile'],
+				'place'			   => $query->row['place'],
+				'qq'			   => $query->row['qq'],
+				'wechat'		   => $query->row['wechat'],
+				'detail'		   => $query->row['detail']
 			);
 		} else {
 			return false;

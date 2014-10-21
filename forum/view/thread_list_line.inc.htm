@@ -1,4 +1,4 @@
-{if $fid}
+{if isset($keyword)?$fid||$keyword:$fid}
 <!--{hook thread_list_line_inc_start.htm}-->
 
  <!--------------------- 替换整个table------------------------------------------------- -->
@@ -61,13 +61,12 @@
 </table>
 <!--{hook thread_list_line_inc_end.htm}-->
 <hr />
-{/if}
 
 
 
 
 
-{if !$fid}
+{else}
 	<table width="100%" cellspacing="0" cellpadding="0" tid="$thread[tid]" class="thread" lastpost="$thread[lastpost]" style="table-layout: fixed;">
 	<tr height="32">
 		<td valign="middle" class="subject blank_pic">
