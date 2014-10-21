@@ -32,13 +32,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="product.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalog/model/catalog/product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="502" selection-end="502" vertical-scroll-proportion="0.575" vertical-offset="0" max-vertical-offset="15663">
+            <state line="20" column="0" selection-start="762" selection-end="762" vertical-scroll-proportion="-8.070175" vertical-offset="0" max-vertical-offset="15801">
               <folding>
-                <marker date="1413902343372" expanded="true" signature="294:307" placeholder="SELECT * FRO..." />
+                <marker date="1413903023126" expanded="true" signature="294:307" placeholder="SELECT * FRO..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/catalog/controller/common/home.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="79" column="0" selection-start="3212" selection-end="3212" vertical-scroll-proportion="0.70566726" vertical-offset="1431" max-vertical-offset="2047">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,7 +115,6 @@
         <option value="$PROJECT_DIR$/admin/controller/catalog/product.php" />
         <option value="$PROJECT_DIR$/catalog/model/catalog/category.php" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/template/common/home.tpl" />
-        <option value="$PROJECT_DIR$/catalog/controller/common/home.php" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/index.css" />
         <option value="$PROJECT_DIR$/catalog/view/javascript/baoku/index.js" />
         <option value="$PROJECT_DIR$/catalog/controller/product/category.php" />
@@ -115,6 +123,7 @@
         <option value="$PROJECT_DIR$/catalog/view/theme/default/template/product/list.tpl" />
         <option value="$PROJECT_DIR$/catalog/controller/product/list.php" />
         <option value="$PROJECT_DIR$/catalog/model/catalog/product.php" />
+        <option value="$PROJECT_DIR$/catalog/controller/common/home.php" />
       </list>
     </option>
   </component>
@@ -623,6 +632,28 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="controller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="common">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -678,7 +709,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="更改" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -925,13 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/common/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="10" selection-start="2781" selection-end="2781" vertical-scroll-proportion="0.71480805" vertical-offset="1012" max-vertical-offset="2047">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/model/catalog/category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="672" selection-end="672" vertical-scroll-proportion="0.33638024" vertical-offset="0" max-vertical-offset="2484">
@@ -1011,10 +1035,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/model/catalog/product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="502" selection-end="502" vertical-scroll-proportion="0.575" vertical-offset="0" max-vertical-offset="15663">
+        <state line="20" column="0" selection-start="762" selection-end="762" vertical-scroll-proportion="-8.070175" vertical-offset="0" max-vertical-offset="15801">
           <folding>
-            <marker date="1413902343372" expanded="true" signature="294:307" placeholder="SELECT * FRO..." />
+            <marker date="1413903023126" expanded="true" signature="294:307" placeholder="SELECT * FRO..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/common/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="0" selection-start="3212" selection-end="3212" vertical-scroll-proportion="0.70566726" vertical-offset="1431" max-vertical-offset="2047">
+          <folding />
         </state>
       </provider>
     </entry>
