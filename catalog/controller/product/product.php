@@ -161,9 +161,12 @@ class ControllerProductProduct extends Controller {
 		}
 
 		$this->load->model('catalog/product');
+		//var_dump(session);
+		//var_export($_SESSION);
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
+		
 		if ($product_info) {
 			$url = '';
 
@@ -279,7 +282,7 @@ class ControllerProductProduct extends Controller {
 			$this->data['model'] = $product_info['model'];
 			$this->data['reward'] = $product_info['reward'];
 			$this->data['points'] = $product_info['points'];
-			var_dump($product_info);
+			//var_dump($product_info);
 			//加入cid
 			$this->data['cid']=$product_info['cid'];
 			$this->data['place']=$product_info['place'];
@@ -292,9 +295,16 @@ class ControllerProductProduct extends Controller {
 			$customer_info = $this->model_account_customer->getCustomer($product_info['cid']);
 			//传入name
 			$this->data['customer_name']=$customer_info['name'];
+
+			var_dump($_SESSION);
 			//var_dump($customer_info);
 			//var_dump($product_info);
+			//var_dump($this->model_catalog_product->getLatestProductsByCid($product_info['cid'],3));
+			//根据cid获取最近的三个发布商品
+			$product_late=$this->model_catalog_product->getLatestProductsByCid($product_info['cid'],3);
+			//var_dump($product_late);
 
+			//var_dump($this->model_catalog_product->getLatestProductsByCid($product_info['cid'],3));
 			if ($product_info['quantity'] <= 0) {
 				$this->data['stock'] = $product_info['stock_status'];
 			} elseif ($this->config->get('config_stock_display')) {
