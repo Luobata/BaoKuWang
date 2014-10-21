@@ -67,6 +67,7 @@ class ControllerAccountAccount extends Controller {
 			$this->data['reward'] = '';
 		}
 
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userinfo.css');
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/account.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/account/account.tpl';
 		} else {

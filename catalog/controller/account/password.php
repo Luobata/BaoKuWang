@@ -80,7 +80,7 @@ class ControllerAccountPassword extends Controller {
 		}
 
 		$this->data['back'] = $this->url->link('account/account', '', 'SSL');
-
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userinfo.css');
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/password.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/account/password.tpl';
 		} else {

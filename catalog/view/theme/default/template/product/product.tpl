@@ -1,4 +1,5 @@
-<?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
+<?php echo $header; ?>
+<!-- <?php echo $column_left; ?><?php echo $column_right; ?>
 <div id="content"><?php echo $content_top; ?>
   <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -236,10 +237,15 @@
       <div class="review">
         <div><img src="catalog/view/theme/default/image/stars-<?php echo $rating; ?>.png" alt="<?php echo $reviews; ?>" />&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');"><?php echo $reviews; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');"><?php echo $text_write; ?></a></div>
         <div class="share"><!-- AddThis Button BEGIN -->
-          <div class="addthis_default_style"><a class="addthis_button_compact"><?php echo $text_share; ?></a> <a class="addthis_button_email"></a><a class="addthis_button_print"></a> <a class="addthis_button_facebook"></a> <a class="addthis_button_twitter"></a></div>
+          
+          <!-- <div class="addthis_default_style"><a class="addthis_button_compact"><?php echo $text_share; ?></a> <a class="addthis_button_email"></a><a class="addthis_button_print"></a> <a class="addthis_button_facebook"></a> <a class="addthis_button_twitter"></a></div>
+ -->
           <script type="text/javascript" src="//s7.addthis.com/js/250/addthis_widget.js"></script> 
+         
+
+
           <!-- AddThis Button END --> 
-        </div>
+ <!--       </div>
       </div>
       <?php } ?>
     </div>
@@ -349,8 +355,13 @@
   </div>
   <?php } ?>
   <?php echo $content_bottom; ?></div>
-
+ -->
 <div class="content">
+  <div class="breadcrumb">
+    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+    <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+    <?php } ?>
+  </div>
     <ul class="c_head">
       <li><a href="">首页 >&nbsp</a></li>
       <li><a href="">古董古玩 >&nbsp</a></li>
@@ -361,7 +372,7 @@
     <div class="d_first">
       <div class="f_pics">
         <div class="b_pic">
-          <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>"class="b_img" alt="<?php echo $product['name']; ?>" /></a>
+         <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a>
           <!-- <a href=""><img src="./catalog/view/theme/default/image/baoku/b_pic.png" class="b_img"></a> -->
         </div>
         <div class="s_pic">
@@ -381,16 +392,21 @@
           <li>价&nbsp&nbsp&nbsp格 :<span>&nbsp&nbsp&nbsp;<?php echo$price;?> 元</span></li>
           <li>所在地 :<span>&nbsp&nbsp&nbsp;<?php echo$place;?></span></li>
           <li>卖&nbsp&nbsp&nbsp家 :<span>&nbsp&nbsp&nbsp;<?php echo$customer_name;?></span></li>
-          <li>咨&nbsp&nbsp&nbsp询 :<span>&nbsp&nbsp&nbsp</span><a href=""><img src="./catalog/view/theme/default/image/baoku/liuyan.png"></a>
-          </li>
-          <li>联&nbsp&nbsp&nbsp系 :<span>&nbsp&nbsp&nbsp;<?php echo$mobile;?>&nbsp&nbsp&nbsp<a href=""><img src="./catalog/view/theme/default/image/baoku/lianxi.png"></a></span></li>
-          <li>QQ&nbsp号 :<span>&nbsp&nbsp&nbsp;<?php echo$qq;?>&nbsp<a href=""><img src="./catalog/view/theme/default/image/baoku/linshi.png"></a></span></li>
+          <!-- <li>咨&nbsp&nbsp&nbsp询 :<span>&nbsp&nbsp&nbsp</span><a href="javascript:show()"><img src="./catalog/view/theme/default/image/baoku/liuyan.png"></a>
+          </li> -->
+          <li>联&nbsp&nbsp&nbsp系 :
+            <span class="show" >&nbsp;
+              <a  href="javascript:show()"> <img src="./catalog/view/theme/default/image/baoku/lianxi.png"></a></span></li>
+          <li>QQ&nbsp号 :<span>&nbsp&nbsp&nbsp;<?php echo$qq;?>&nbsp
+            
+           <!-- <img src="./catalog/view/theme/default/image/baoku/linshi.png"> --></span></li>
           <li>微信号 :<span>&nbsp&nbsp&nbsp;<?php echo$wechat;?></span></li>
         </div>
         
         <div class="f_click">
           <div class="f_buttons">
-            <input type="button" value="收藏" class="f_button">
+
+            <input type="button" value="收藏" class="f_button" onclick="addToWishList('<?php echo $product_id; ?>');">
 
             <input type="button" value="自由交易" class="f_button">
 
@@ -461,7 +477,7 @@
         </div>
         <div class="s_friends">
           <div class="s_left_title">
-            宝友会热帖<?php echo $cid;?>
+            宝友会热帖
           </div>
         
         </div>
@@ -515,6 +531,13 @@ $.ajax({
 		rel: "colorbox"
 	});
 });
+ function show(){
+    if("<?php echo isset($_SESSION['customer_id']);?>"){
+      $('.show').html("&nbsp&nbsp<?php echo$mobile;?>&nbsp&nbsp&nbsp");
+    }else{
+      window.location.href="./index.php?route=account/login";
+    }
+ }
 //--></script> 
 <script type="text/javascript"><!--
 

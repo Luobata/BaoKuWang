@@ -11,7 +11,10 @@ input{border:1px;border-style: solid;border-color: #e8dcc4;}
 .none{opacity: 0}
 
 .left{width: 200px;background-color: #ececec;overflow: hidden;margin-top: 16px;float: left;}
-.left li{border-bottom: 1px;border-color: #ccc;border-style: solid;height: 40px;line-height: 40px;text-align: left;padding-left: 20px;}
+.left li{
+	border-top-width: 0px;
+border-left-width: 0px;
+border-right-width: 0px;border-bottom: 1px;border-color: #ccc;border-style: solid;height: 40px;line-height: 40px;text-align: left;padding-left: 20px;}
 .goods-num{float: right;padding-right: 20px;color: #673414}
 #user-name a,.userinfo a{font-size: 20px;color: #673413;}
 #user-name{height: 60px;line-height: 60px;}
