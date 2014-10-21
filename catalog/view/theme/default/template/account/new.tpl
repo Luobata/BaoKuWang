@@ -8,7 +8,7 @@
         <?php } ?>
     </ul>
 
-    <form action="/index.php?route=account/new/insert" onsubmit="return product_validate();return false;" method="post" enctype="multipart/form-data">
+    <form action="/index.php?route=account/new/insert" onsubmit="return product_validate();" method="post" enctype="multipart/form-data">
         <div class="form-content">
 
             <div class="row">

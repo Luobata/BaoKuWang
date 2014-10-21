@@ -105,7 +105,15 @@ class ModelAccountCustomer extends Model {
 	}
 
 	public function editCustomer($data) {
-		$this->db->query("UPDATE " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "' WHERE customer_id = '" . (int)$this->customer->getId() . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "customer SET 
+			qq = '" . $this->db->escape($data['qq']) . "', 
+			wechat = '" . $this->db->escape($data['wechat']) . "', 
+			place = '" . $this->db->escape($data['place']) . "', 
+			telephone = '" . $this->db->escape($data['telephone']) . "', 
+			name = '" . $this->db->escape($data['name']) . "',
+			zone = '" . $this->db->escape($data['zone']) . "',
+			sex = '" . $this->db->escape($data['sex']) . "'
+			WHERE customer_id = '" . (int)$this->customer->getId() . "'");
 	}
 
 	public function editPassword($email, $password) {

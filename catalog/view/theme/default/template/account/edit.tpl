@@ -63,7 +63,7 @@
        </ul>  
        <div class="left">
         <ul class="home-nav">
-          <li id="user-name"><a href="userhome.html">于先生的宝贝</a></li>
+          <li id="user-name"><a href="userhome.html"><?php echo$firstname;?>的宝贝</a></li>
           <li><a href="">已发布的宝贝</a><span class="goods-num">5</span></li>
           <li><a href="">已鉴定的宝贝</a></li>
           <li><a href="">未鉴定的宝贝</a><span class="goods-num">20</span></li>
@@ -74,7 +74,7 @@
         </ul>
  </div> 
 
-       <form>
+       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
           <div class="form-content">
 
           <div class="row">
@@ -82,7 +82,7 @@
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <div class="input-title">用户名</div>
-                   <input type="text" class="htitle input-content" value="余先生" style="color:#ccc"readonly>
+                   <input type="text" class="htitle input-content" value="<?php echo$firstname;?>" style="color:#ccc"readonly>
                 
           </div>
           <div class="row">
@@ -90,8 +90,10 @@
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <div class="input-title">真实姓名</div>
-                   <input type="text" class="price input-content">
-                 
+                   <input type="text" class="price input-content" name="name" value="<?php echo $name;?>">
+                    <?php if($error_name) {?>
+                        <span class="error"><?php echo $error_name; ?></span>
+                        <?php } ?></td>
 
           </div>
 
@@ -100,8 +102,8 @@
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <span class="input-title">性别</span>  
-                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">男</input>
-                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">女</input>
+                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="0">男</input>
+                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="1">女</input>
                   </div>
 
 
@@ -111,8 +113,8 @@
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
                        <span class="input-title">所在区域</span>
-                       <select class="input-content area-select">
-                        <option>省份</option>
+                       <select class="input-content area-select" name="zone">
+                        <option><?php echo $zone;?></option>
                         <option>北京</option>
                         <option>上海</option>
                        </select>
@@ -136,30 +138,41 @@
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
                        <span class="input-title">详细地址</span>
-                       <input type="text" class="input-content">
-                     
+                       <input type="text" class="input-content" name="place"value="<?php echo $place; ?>">
+                      <?php if($error_place) {?>
+                        <span class="error"><?php echo $error_place; ?></span>
+                        <?php } ?></td>
                   </div>
                   <div class="row">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
                        <span class="input-title">联系电话</span>
-                       <input type="text" class="input-content">
+                       <input type="text" name="telephone" class="input-content" value="<?php echo $telephone; ?>" />
                        <span class="input-tip">* 请填写真实号码，以便买家联系您</span>
+                        <?php if ($error_telephone) { ?>
+                        <span class="error"><?php echo $error_telephone; ?></span>
+                        <?php } ?></td>
                   </div>
                    <div class="row">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
                        <span class="input-title">QQ&nbsp;号码</span>
-                       <input type="text" class="input-content">
+                       <input type="text" class="input-content" name="qq" value="<?php echo $qq; ?>">
                        <span class="input-tip">* 用于商品页面买家与您临时沟通</span>
+                       <?php if($error_qq) {?>
+                        <span class="error"><?php echo $error_qq; ?></span>
+                        <?php } ?></td>
                   </div>
 
                   <div class="row">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
                        <span class="input-title">微&nbsp;信&nbsp;&nbsp;号</span>
-                       <input type="text" class="input-content">
-                       <span class="input-tip">* 用于在商品页面显示，方便买家与您沟通</span>
+                       <input type="text" class="input-content" name="wechat" value="<?php echo $wechat; ?>">
+                       <span class="input-tip">* 用于在商品页面显示，方便买家沟通</span>
+                       <?php if($error_wechat) {?>
+                        <span class="error"><?php echo $error_wechat; ?></span>
+                        <?php } ?></td>
                   </div>
 
 

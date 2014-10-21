@@ -25,7 +25,7 @@ define('DIR_LOGS',        DIR_ROOT . '/system/logs/');
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'ychshe123');
 define('DB_DATABASE', 'pawnshop');
 define('DB_PREFIX', 'shop_');
 

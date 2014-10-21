@@ -11,7 +11,7 @@ class ControllerAccountEdit extends Controller {
 
 		$this->language->load('account/edit');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setTitle($this->language->get('编辑资料'));
 
 		$this->load->model('account/customer');
 
@@ -52,7 +52,8 @@ class ControllerAccountEdit extends Controller {
 		$this->data['entry_email'] = $this->language->get('entry_email');
 		$this->data['entry_telephone'] = $this->language->get('entry_telephone');
 		$this->data['entry_fax'] = $this->language->get('entry_fax');
-
+		//$this->data['entry_name']=$this->language->get('entry_name');
+		var_dump($this->data);
 		$this->data['button_continue'] = $this->language->get('button_continue');
 		$this->data['button_back'] = $this->language->get('button_back');
 
@@ -84,6 +85,26 @@ class ControllerAccountEdit extends Controller {
 			$this->data['error_telephone'] = $this->error['telephone'];
 		} else {
 			$this->data['error_telephone'] = '';
+		}
+		if (isset($this->error['qq'])) {
+			$this->data['error_qq'] = $this->error['qq'];
+		} else {
+			$this->data['error_qq'] = '';
+		}
+		if (isset($this->error['wechat'])) {
+			$this->data['error_wechat'] = $this->error['wechat'];
+		} else {
+			$this->data['error_wechat'] = '';
+		}
+		if (isset($this->error['name'])) {
+			$this->data['error_name'] = $this->error['name'];
+		} else {
+			$this->data['error_name'] = '';
+		}
+		if (isset($this->error['place'])) {
+			$this->data['error_place'] = $this->error['place'];
+		} else {
+			$this->data['error_place'] = '';
 		}	
 
 		$this->data['action'] = $this->url->link('account/edit', '', 'SSL');
@@ -131,10 +152,52 @@ class ControllerAccountEdit extends Controller {
 		} else {
 			$this->data['fax'] = '';
 		}
-
+		if (isset($this->request->post['name'])) {
+			$this->data['name'] = $this->request->post['name'];
+		} elseif (isset($customer_info)) {
+			$this->data['name'] = $customer_info['name'];
+		} else {
+			$this->data['name'] = '';
+		}
+		if (isset($this->request->post['place'])) {
+			$this->data['place'] = $this->request->post['place'];
+		} elseif (isset($customer_info)) {
+			$this->data['place'] = $customer_info['place'];
+		} else {
+			$this->data['place'] = '';
+		}
+		if (isset($this->request->post['qq'])) {
+			$this->data['qq'] = $this->request->post['qq'];
+		} elseif (isset($customer_info)) {
+			$this->data['qq'] = $customer_info['qq'];
+		} else {
+			$this->data['qq'] = '';
+		}
+		if (isset($this->request->post['wechat'])) {
+			$this->data['wechat'] = $this->request->post['wechat'];
+		} elseif (isset($customer_info)) {
+			$this->data['wechat'] = $customer_info['wechat'];
+		} else {
+			$this->data['wechat'] = '';
+		}
+		if (isset($this->request->post['sex'])) {
+			$this->data['sex'] = $this->request->post['sex'];
+		} elseif (isset($customer_info)) {
+			$this->data['sex'] = $customer_info['sex'];
+		} else {
+			$this->data['sex'] = 0;
+		}
+		if (isset($this->request->post['zone'])) {
+			$this->data['zone'] = $this->request->post['zone'];
+		} elseif (isset($customer_info)) {
+			$this->data['zone'] = $customer_info['zone'];
+		} else {
+			$this->data['zone'] = '省份';
+		}
+		var_dump($customer_info);
 		$this->data['back'] = $this->url->link('account/account', '', 'SSL');
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userinfo.css');
-		
+
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/edit.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/account/edit.tpl';
 		} else {
@@ -149,27 +212,38 @@ class ControllerAccountEdit extends Controller {
 			'common/footer',
 			'common/header'	
 		);
-
+var_dump($this->$error);
 		$this->response->setOutput($this->render());	
 	}
 
 	protected function validate() {
-		if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
-			$this->error['firstname'] = $this->language->get('error_firstname');
-		}
+		// if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
+		// 	$this->error['firstname'] = $this->language->get('error_firstname');
+		// }
 
-		if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen($this->request->post['lastname']) > 32)) {
-			$this->error['lastname'] = $this->language->get('error_lastname');
-		}
+		// if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen($this->request->post['lastname']) > 32)) {
+		// 	$this->error['lastname'] = $this->language->get('error_lastname');
+		// }
 
-		if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
-			$this->error['email'] = $this->language->get('error_email');
-		}
+		// if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
+		// 	$this->error['email'] = $this->language->get('error_email');
+		// }
 
-		if (($this->customer->getEmail() != $this->request->post['email']) && $this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
-			$this->error['warning'] = $this->language->get('error_exists');
+		// if (($this->customer->getEmail() != $this->request->post['email']) && $this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
+		// 	$this->error['warning'] = $this->language->get('error_exists');
+		// }
+		if ((utf8_strlen($this->request->post['wechat']) < 3) || (utf8_strlen($this->request->post['wechat']) > 20)) {
+			$this->error['wechat'] = '请检查 wechat 的输入是否有误，最长为10字';
 		}
-
+		if ((utf8_strlen($this->request->post['qq']) < 3) || (utf8_strlen($this->request->post['qq']) > 12)) {
+			$this->error['qq'] = '请检查 qq 的输入是否有误';
+		}
+		if ((utf8_strlen($this->request->post['name']) < 1) || (utf8_strlen($this->request->post['name']) > 20)) {
+            $this->error['name'] = '请检查 真实姓名 的输入是否有误，最长为10字';
+        }
+		if ((utf8_strlen($this->request->post['place']) < 1) || (utf8_strlen($this->request->post['place']) > 40)) {
+            $this->error['place'] = '请检查 所在地点 的输入是否有误，最长为20字';
+        }
 		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
 			$this->error['telephone'] = $this->language->get('error_telephone');
 		}
