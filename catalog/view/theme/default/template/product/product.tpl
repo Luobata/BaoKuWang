@@ -424,40 +424,22 @@
           <div class="s_left_title">
             相关物品
           </div>
+          <?php for ($i=0; $i <sizeof($product_late); $i++) { ;?>
+            
           <div class="s_about_detail">
             <a href="">
             <div class="s_about_pic">
-              <img src="./catalog/view/theme/default/image/baoku/about1.png">
+              <img src="<?php echo $product_late[$i]['image'];?>">
             </div>
-            <p><span class="s_price">￥3430.00</span><span class="b_price">￥3780.00</span></p>
+            <p><span class="s_price">￥<?php echo $product_late[$i]['price'];?></span><!-- <span class="b_price">￥3780.00</span> --></p>
             <p>
-              swarovski/施华洛世奇紫色心形花瓣项链1169642
+              <?php echo $product_late[$i]['title'];?>
             </p>
             </a>
           </div>
-          <div class="s_about_detail">
-            <a href="">
-            <div class="s_about_pic">
-              <img src="./catalog/view/theme/default/image/baoku/about1.png">
-            </div>
-            <p><span class="s_price">￥3430.00</span><span class="b_price">￥3780.00</span></p>
-            <p>
-              swarovski/施华洛世奇紫色心形花瓣项链1169642
-            </p>
-            </a>
-          </div>
-          <div class="s_about_detail">
-            <a href="">
-            <div class="s_about_pic">
-              <img src="./catalog/view/theme/default/image/baoku/about1.png">
-            </div>
-            <p><span class="s_price">￥3430.00</span><span class="b_price">￥3780.00</span></p>
-            <p>
-              swarovski/施华洛世奇紫色心形花瓣项链1169642
-            </p>
-            </a>
-          </div>
+          <?php };?>
         </div>
+          
         <div class="s_goods">
           <div class="s_left_title">
             物品百科
@@ -495,8 +477,10 @@
           <img src="./catalog/view/theme/default/image/baoku/d_r_pic1.png">
           <img src="./catalog/view/theme/default/image/baoku/d_r_pic2.png">
         </div>
+        
         <div class="s_right_desc">
           <?php echo$detail;?>
+
 
         </div>
       </div>

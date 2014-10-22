@@ -102,8 +102,13 @@
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <span class="input-title">性别</span>  
-                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="0">男</input>
-                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="1">女</input>
+                   <?php if($sex){;?>
+                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="0" >男</input>
+                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="1" checked>女</input>
+                 <?php }else{ ;?>
+                 <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="0" checked>男</input>
+                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="1" >女</input>
+                   <?php };?>
                   </div>
 
 

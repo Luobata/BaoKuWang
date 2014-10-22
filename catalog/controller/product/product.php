@@ -233,9 +233,10 @@ class ControllerProductProduct extends Controller {
 			$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
 			$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/detail.css');
 			//$this->document->addStyle('catalog/view/javascript/baoku/detail.js');
-
-			$this->data['heading_title'] = $product_info['name'];
-
+			//$this->data['heading_title'] = $product_info['name'];
+			//面包屑可能被修改了
+			$this->data['heading_title'] = $product_info['title'];
+			//var_dump($product_info);
 			$this->data['text_select'] = $this->language->get('text_select');
 			$this->data['text_manufacturer'] = $this->language->get('text_manufacturer');
 			$this->data['text_model'] = $this->language->get('text_model');
@@ -290,20 +291,25 @@ class ControllerProductProduct extends Controller {
 			$this->data['qq']=$product_info['qq'];
 			$this->data['wechat']=$product_info['wechat'];
 			$this->data['detail']=$product_info['detail'];
+			//echo $product_info['cid'];
 			//需要获取customer的name
 			$this->load->model('account/customer');
 			$customer_info = $this->model_account_customer->getCustomer($product_info['cid']);
 			//传入name
 			$this->data['customer_name']=$customer_info['name'];
 
-			var_dump($_SESSION);
+
+			//var_dump($_SESSION);
 			//var_dump($customer_info);
 			//var_dump($product_info);
 			//var_dump($this->model_catalog_product->getLatestProductsByCid($product_info['cid'],3));
 			//根据cid获取最近的三个发布商品
-			$product_late=$this->model_catalog_product->getLatestProductsByCid($product_info['cid'],3);
+			$product_late=$this->model_catalog_product->getProductsBycid($product_info['cid']);
+			$this->data['product_late']=$product_late->rows;
 			//var_dump($product_late);
-
+			//var_dump($this->model_catalog_product->getLatestProducts(1));
+			//var_dump($this->model_catalog_product->getLatestProducts(2));
+			//var_dump($product_late->rows);
 			//var_dump($this->model_catalog_product->getLatestProductsByCid($product_info['cid'],3));
 			if ($product_info['quantity'] <= 0) {
 				$this->data['stock'] = $product_info['stock_status'];

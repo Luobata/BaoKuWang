@@ -11,7 +11,10 @@
 
 
 .left{width: 200px;background-color: #ececec;overflow: hidden;margin-top: 16px;float: left;}
-.left li{border-bottom: 1px;border-color: #ccc;border-style: solid;height: 40px;line-height: 40px;text-align: left;padding-left: 20px;}
+.left li{
+		border-top-width: 0px;
+border-left-width: 0px;
+border-right-width: 0px;border-bottom: 1px;border-color: #ccc;border-style: solid;height: 40px;line-height: 40px;text-align: left;padding-left: 20px;}
 
 .goods-num{float: right;padding-right: 20px;color: #673414}
 #user-name a,.userinfo a{font-size: 20px;color: #673413;}
@@ -28,7 +31,8 @@
 
 
 .pic{text-align: left;padding-left: 10px;padding-right: 10px;}
-.pic img{float: left;}
+.pic img{float: left;max-width: 80px;
+max-height: 80px;}
 
 .goods-info{float: left;padding-top: 15px;}
 .goods-title{max-width: 203px;}
