@@ -93,6 +93,10 @@ border-color: #d3d3d3;
 #pic7{
 	width: 400px;
 }
+.s_content .pics img{
+    width: 100%;
+    height: 100%;
+}
 
 .t_head{
 	overflow: hidden;

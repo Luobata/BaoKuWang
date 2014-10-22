@@ -78,13 +78,14 @@ header{
 .login{
 	float: left;
 	overflow: hidden;
-	margin-left: 75px;
-	margin-top: 46px;
+	margin-left: 35px;
+	margin-top: 40px;
 } 
 .login a{
 	color:#8e6e58;
 	text-decoration:none;
 	float: left;
+    padding-left: 20px;
 }
 .login p{
 	float: left;

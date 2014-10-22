@@ -108,21 +108,20 @@
                 <ul class="nav">
                     <li class="text"><a href="">首页</a></li>
                     <li class="line">|</li>
-                    <li class="text"><a href="woyaoxunbao.html">我要寻宝</a></li>
+                    <li class="text"><a href="/index.php?route=product/list">我要寻宝</a></li>
                     <li class="line">|</li>
-                    <li class="text"><a href="woyaojimai.html">我要寄卖</a></li>
+                    <li class="text"><a href="/index.php?route=account/new">我要寄卖</a></li>
                     <li class="line">|</li>
-                    <li class="text"><a href="">我要鉴定</a></li>
+                    <li class="text"><a href="/index.php?route=product/identify">我要鉴定</a></li>
                     <li class="line">|</li>
-                    <li class="text"><a href="">我要估值</a></li>
+                    <li class="text"><a href="/index.php?route=product/valuation">我要估值</a></li>
                     <li class="line">|</li>
-                    <li class="text"><a href="./forum">我要交流</a></li>
+                    <li class="text"><a href="/forum">我要交流</a></li>
                     <li class="line">|</li>
-                    <li class="text"><a href="">宝库自营</a></li>
+                    <li class="text"><a href="javascript:void(0)">宝库自营</a></li>
                     <li class="line">|</li>
-                    <li class="text"><a href="">限时特卖</a></li>
+                    <li class="text"><a href="javascript:void(0)">限时特卖</a></li>
                     <img src="/catalog/view/theme/default/image/baoku/qidai.png">
-
                 </ul>
             </div>
         </div>

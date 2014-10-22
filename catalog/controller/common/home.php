@@ -18,9 +18,7 @@ class ControllerCommonHome extends Controller {
         $this->data['categories'] = $categories;
         //var_dump($categories);
 
-        // 获取广告横图
-        $Helper = new Helper();
-        $banner_images = $Helper->http_post( HTTP_SERVER . '/admin/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'9' ));
+        /*
         if( $banner_images ) {
             // 字符串 - 数组 回转
             $split = '#split#';
@@ -38,6 +36,24 @@ class ControllerCommonHome extends Controller {
             }
             $this->data['banner_images'] = $images;
         }   //var_dump($images);
+        */
+
+        // 获取广告横图
+        $Helper = new Helper();
+        $banner_images = $Helper->http_post( HTTP_SERVER . '/admin/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'9' ));
+        $this->data['banner_images'] = $Helper->string_to_array($banner_images,'#split#','image','link');
+
+        // 获取宝贝推荐
+        $Helper = new Helper();
+        $recommend_images = $Helper->http_post( HTTP_SERVER . '/admin/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'10' ));
+        $this->data['recommend_images'] = $Helper->string_to_array($recommend_images,'#split#','image','link');
+        //var_dump($this->data['recommend_images']);
+
+        // 获取最热宝贝
+        $Helper = new Helper();
+        $hot_images = $Helper->http_post( HTTP_SERVER . '/admin/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'11' ));
+        $this->data['hot_images'] = $Helper->string_to_array($hot_images,'#split#','image','link');
+        //var_dump($this->data['hot_images']);
 
         // 获取某一级分类的相关商品数据
         $limit = 8;

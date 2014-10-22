@@ -43,6 +43,10 @@ class ControllerAccountRegister extends Controller {
 			// Register
 			$this->model_account_customer->addCustomer($this->request->post);
 
+            // 等待激活
+            $this->redirect($this->url->link('account/login/need_active'));
+
+            /*
 			// Login
 			$this->customer->login($this->request->post['email'], $this->request->post['password']);
 
@@ -62,6 +66,7 @@ class ControllerAccountRegister extends Controller {
 			}
 
 			$this->redirect($this->url->link('account/success'));
+            */
 		}
 
 
@@ -76,15 +81,9 @@ class ControllerAccountRegister extends Controller {
 		);
 
 		$this->data['breadcrumbs'][] = array(
-			'text'      => $this->language->get('text_account'),
-			'href'      => $this->url->link('account/account', '', 'SSL'),      	
-			'separator' => $this->language->get('text_separator')
-		);
-
-		$this->data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('text_register'),
 			'href'      => $this->url->link('account/register', '', 'SSL'),      	
-			'separator' => $this->language->get('text_separator')
+			'separator' => '&nbsp;>&nbsp;'
 		);
 
 		$this->data['heading_title'] = $this->language->get('heading_title');
@@ -372,15 +371,18 @@ class ControllerAccountRegister extends Controller {
 		}
 
 		$this->children = array(
-			'common/column_left',
-			'common/column_right',
-			'common/content_top',
-			'common/content_bottom',
+			//'common/column_left',
+			//'common/column_right',
+			//'common/content_top',
+			//'common/content_bottom',
 			'common/footer',
 			'common/header'	
 		);
-
-		$this->response->setOutput($this->render());	
+        // 文件加载
+        $styles = array(
+            '/catalog/view/theme/default/stylesheet/baoku/login.css'
+        );
+        $this->response->setOutput($this->render($styles));
 	}
 
 	protected function validate() {
@@ -394,12 +396,16 @@ class ControllerAccountRegister extends Controller {
 		}
         */
 
+        $this->data['error'] = array();
+
 		if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
 			$this->error['email'] = $this->language->get('error_email');
+            $this->data['error'][] = $this->error['email'];
 		}
 
 		if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
 			$this->error['warning'] = $this->language->get('error_exists');
+            $this->data['error'][] = $this->error['warning'];
 		}
 
         /*
@@ -466,10 +472,12 @@ class ControllerAccountRegister extends Controller {
 
 		if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
 			$this->error['password'] = $this->language->get('error_password');
+            $this->data['error'][] = $this->error['password'];
 		}
 
 		if ($this->request->post['confirm'] != $this->request->post['password']) {
 			$this->error['confirm'] = $this->language->get('error_confirm');
+            $this->data['error'][] = $this->error['confirm'];
 		}
 
         /*

@@ -9,7 +9,7 @@
         <?php foreach( $categories as $cat ) { ?>
         <div class="goods">
             <div class="goods_line">
-                <a href="index.php?route=product/category&path=<?php echo $cat['parent']['id']; ?>">
+                <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
                 <li><?php echo $cat['parent']['name']; ?></li></a>
             </div>
         </div>
@@ -19,10 +19,9 @@
         <div class="pic">
            <div id="slider" class="swipe">
                 <div class="swipe-wrap">
-                <?php if( isset($banner_images) ) {
-                            foreach( $banner_images as $image ) { ?>
+                <?php foreach( $banner_images as $image ) { ?>
                 <div><a href="<?php echo $image['link']; ?>"><img src="/image/<?php echo $image['image']; ?>"></a></div>
-                <?php }} ?>
+                <?php } ?>
                 </div>
            </div>
         </div>
@@ -39,62 +38,27 @@
                     <li><a href="javascript:void(0)" class="head2">最热宝贝</a></li>
                 </div>
             </div>
-
             <div class="s_content" id="s_content_1">
                 <div class="row">
-                    <div class="pics" id="pic1">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew1.png"></a>
+                    <?php foreach( $recommend_images as $key =>$image ) { ?>
+                    <div class="pics" id="pic<?php echo ($key+1);?>">
+                        <a href="<?php echo $image['link']; ?>"><img src="/image/<?php echo $image['image']; ?>"></a>
                     </div>
-                    <div class="pics" id="pic2">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew6.png">	</a>
-                    </div>
-                    <div class="pics" id="pic3">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew3.png">	</a>
-                    </div>
+                    <?php if($key==2) { ?>
+                    </div><div class="row">
+                    <?php }} ?>
                 </div>
-                <div class="row">
-                    <div class="pics" id="pic4">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew3.png"></a>
-                    </div>
-                    <div class="pics" id="pic5">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew4.png"></a>
-                    </div>
-                    <div class="pics" id="pic6">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew3.png"></a>
-                    </div>
-                    <div class="pics" id="pic7">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew5.png"></a>
-                    </div>
-                </div>
-
             </div>
             <div class="s_content" id="s_content_2" style="display:none">
                 <div class="row">
-                    <div class="pics" id="pic1">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew1.png"></a>
+                    <?php foreach( $hot_images as $key =>$image ) { ?>
+                    <div class="pics" id="pic<?php echo ($key+1);?>">
+                        <a href="<?php echo $image['link']; ?>"><img src="/image/<?php echo $image['image']; ?>"></a>
                     </div>
-                    <div class="pics" id="pic2">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew6.png">	</a>
-                    </div>
-                    <div class="pics" id="pic3">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew2.png">	</a>
-                    </div>
+                    <?php if($key==2) { ?>
+                </div><div class="row">
+                    <?php }} ?>
                 </div>
-                <div class="row">
-                    <div class="pics" id="pic4">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew3.png"></a>
-                    </div>
-                    <div class="pics" id="pic5">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew4.png"></a>
-                    </div>
-                    <div class="pics" id="pic6">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew3.png"></a>
-                    </div>
-                    <div class="pics" id="pic7">
-                        <a href=""><img src="catalog/view/theme/default/image/baoku/jew5.png"></a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </form>

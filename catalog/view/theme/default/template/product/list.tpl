@@ -16,14 +16,14 @@
     <div class="nav-category-group">
 
         <div class="nav-category selected">
-            <h4 title="已选择">已选择 <span>:</span></h4>
+            <h4 title="已选择">已选择 <span>：</span></h4>
             <div class="nav-category-wrap">
                 <span class="button-selected">古董古玩<a class="delete-select" href="#"> x </a></span>
             </div>
         </div>
 
         <div class="nav-category">
-            <h4 title="分类">分类<span>:</span></h4>
+            <h4 title="分类">分类<span>：</span></h4>
             <div class="nav-category-wrap">
                 <ul class="nav-category-content">
                 <?php foreach( $categories as $cat ) { ?>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="nav-category">
-            <h4 title="地区">地区<span>:</span></h4>
+            <h4 title="地区">地区<span>：</span></h4>
             <div class="nav-category-wrap">
                 <ul class="nav-category-content">
                 <?php foreach( $zones as $zone ) { ?>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="nav-category">
-            <h4 title="鉴定结果">鉴定结果<span>:</span></h4>
+            <h4 title="鉴定结果">鉴定结果<span>：</span></h4>
             <div class="nav-category-wrap">
                 <ul class="nav-category-content">
                     <li><a href="<?php echo $url['identify'].'&filter_identify=1'; ?>">已鉴定</a></li>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="nav-category lastline">
-            <h4 title="价格">价格<span>:</span></h4>
+            <h4 title="价格">价格<span>：</span></h4>
             <div class="nav-category-wrap">
                 <ul class="nav-category-content">
                 <?php foreach( $price as $k => $p ) { ?>

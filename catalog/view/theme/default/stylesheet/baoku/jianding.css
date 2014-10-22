@@ -1,0 +1,6 @@
+.shop-info-title{width: 100%;height: 44px;line-height: 44px;background-color: #72462c;color: #fff;padding-left: 22px;}
+.shop-info-title h4{font-size: 16px;}
+
+.shop-info{line-height: 44px;padding-left: 22px;border: 1px #72462c solid;padding-bottom: 20px;padding-top: 10px;margin-bottom: 20px;}
+.info-lable{width: 80px;float: left;}
+.row{overflow: hidden;}

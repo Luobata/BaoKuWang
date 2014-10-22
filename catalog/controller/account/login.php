@@ -2,6 +2,34 @@
 class ControllerAccountLogin extends Controller {
 	private $error = array();
 
+    public function need_active() {
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/need_active.tpl')) {
+            $this->template = $this->config->get('config_template') . '/template/account/need_active.tpl';
+        } else {
+            $this->template = 'default/template/account/need_active.tpl';
+        }
+        $this->children = array(
+            'common/footer',
+            'common/header'
+        );
+        $this->data['url'] = $this->url->link('common/home');
+        $this->response->setOutput($this->render());
+    }
+
+    public function active() {
+        if (!empty($this->request->get['active'])) {
+            $Helper = new Helper();
+            $cid = $Helper->active_decode($this->request->get['active']);
+            $this->load->model('account/customer');
+            if( $this->model_account_customer->activeCustomer($cid) ) {
+                $this->redirect($this->url->link('account/login').'&do=active');
+            } else {
+                $this->redirect($this->url->link('account/login').'&do=active_no');
+            }
+        }
+        $this->redirect($this->url->link('account/login'));
+    }
+
 	public function index() {
 		$this->load->model('account/customer');
 
@@ -101,7 +129,9 @@ class ControllerAccountLogin extends Controller {
 			// Added strpos check to pass McAfee PCI compliance test (http://forum.opencart.com/viewtopic.php?f=10&t=12043&p=151494#p151295)
 			if (isset($this->request->post['redirect']) && (strpos($this->request->post['redirect'], $this->config->get('config_url')) !== false || strpos($this->request->post['redirect'], $this->config->get('config_ssl')) !== false)) {
 				$this->redirect(str_replace('&amp;', '&', $this->request->post['redirect']));
-			} else {
+			} elseif( isset($_POST['do']) && $_POST['do']=='active' ) {
+                $this->redirect($this->url->link('account/edit', '', 'SSL'));
+            } else {
 				$this->redirect($this->url->link('account/account', '', 'SSL')); 
 			}
 		}
@@ -115,15 +145,9 @@ class ControllerAccountLogin extends Controller {
 		);
 
 		$this->data['breadcrumbs'][] = array(
-			'text'      => $this->language->get('text_account'),
-			'href'      => $this->url->link('account/account', '', 'SSL'),
-			'separator' => $this->language->get('text_separator')
-		);
-
-		$this->data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('text_login'),
 			'href'      => $this->url->link('account/login', '', 'SSL'),      	
-			'separator' => $this->language->get('text_separator')
+			'separator' => '&nbsp;>&nbsp;'
 		);
 
 		$this->data['heading_title'] = $this->language->get('heading_title');
@@ -189,22 +213,27 @@ class ControllerAccountLogin extends Controller {
 		}
 
 		$this->children = array(
-			'common/column_left',
-			'common/column_right',
-			'common/content_top',
-			'common/content_bottom',
+			//'common/column_left',
+			//'common/column_right',
+			//'common/content_top',
+			//'common/content_bottom',
 			'common/footer',
 			'common/header'	
 		);
 
-		$this->response->setOutput($this->render());
+        // 文件加载
+        $styles = array(
+            '/catalog/view/theme/default/stylesheet/baoku/login.css'
+        );
+
+		$this->response->setOutput($this->render($styles));
 	}
 
 	protected function validate() {
 
         // 商城登录
 		if (!$this->customer->login($this->request->post['email'], $this->request->post['password'])) {
-			$this->error['warning'] = $this->language->get('error_login');
+			$this->error['warning'] = '邮箱与密码不正确或账户未激活';
 		} else {
             // 模拟论坛登录
             $BBSUSER = $this->db->query("SELECT b.* FROM " . DB_PREFIX . "customer AS s
@@ -233,6 +262,8 @@ class ControllerAccountLogin extends Controller {
 		if ($customer_info && !$customer_info['approved']) {
 			$this->error['warning'] = $this->language->get('error_approved');
 		}
+
+        //var_dump($this->error);
 
 		if (!$this->error) {
 			return true;

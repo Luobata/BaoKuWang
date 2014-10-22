@@ -10,7 +10,25 @@ class ModelCatalogProduct extends Model {
 
         // 筛选
         if( isset($data['filter_category']) ) {
-            $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id WHERE p2c.category_id = " . (int)$data['filter_category'] . " AND p.status = 1");
+            // 获取父分类
+            $query = $this->db->query("SELECT parent_id FROM " . DB_PREFIX . "category WHERE category_id = " . (int)($data['filter_category']));
+            $parent_id = (int)$query->row['parent_id'];
+            if( $parent_id != 0 ) {
+                // 此为二级分类
+                $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id WHERE p2c.category_id = " . (int)$data['filter_category']);
+            } else {
+                // 此为一级分类
+                $query = $this->db->query("SELECT category_id FROM " . DB_PREFIX . "category WHERE parent_id = " . (int)($data['filter_category']));
+                    // 汇聚其旗下的所有子分类（含其本身）
+                    $cats = '';
+                    foreach( $query->rows as $child_category ){
+                        $cats .= $child_category['category_id'].',';
+                    }
+                    $cats .= $data['filter_category'];
+                // 条件
+                $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id WHERE p2c.category_id in (" . $cats . ")");
+            }
+            $sql .= " AND p.status = 1";
         } else {
             $sql .= " WHERE p.status = 1";
         }

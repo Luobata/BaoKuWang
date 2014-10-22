@@ -28,14 +28,7 @@
 				<td width="80" class="username fatie">发帖</td>
 				<td width="80" class="lastpost huitie">回帖</td>
 				<td width="80" class="views chakan" align="center">回复/查看</td>
-<<<<<<< Updated upstream
                 
-                
-                <td>
-                <?php } else { ?>
-=======
-                
->>>>>>> Stashed changes
                 
                 
                 <?php } else { ?>

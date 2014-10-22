@@ -16,6 +16,8 @@ transitionEnd: function(index, elem) {}
 // 	$('.pic_head .head2').attr('style', 'color:#fff');
 // }
 //var nextpics=function(){
+
+
 	$(".head2").bind("click",function(e){
    	$(this).attr('style', 'color:#fff');
    	var b=(this.parentElement.parentElement);
@@ -38,6 +40,9 @@ transitionEnd: function(index, elem) {}
    	$('.s_content').attr("style","display:none");
    	$('#s_content_1').attr("style","display:block");
 	})
+
+
+
 //};
 
 

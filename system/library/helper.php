@@ -79,4 +79,37 @@ class Helper {
         return $rand;
     }
 
+    // 注册激活链接制造
+
+    function active_encode( $cid ) {
+        for( $i=0 ; $i<8 ; $i++ ) {
+            $cid = base64_encode($cid);
+        }
+        return $cid;
+    }
+
+    function active_decode( $cid ) {
+        for( $i=0 ; $i<8 ; $i++ ) {
+            $cid = base64_decode($cid);
+        }
+        return $cid;
+    }
+
+
+    // 字符串 - 数组 回转
+    function string_to_array( $string , $split , $one , $two ) {
+        if( $string ) {
+            $string = (string)($string);
+            $string = explode($split,$string);
+            $result = array();
+            $count = count($string)/2;
+            foreach( $string as $key => $val ) {
+                if( $key < $count ) {
+                    $result[] = array( $one => $string[(2*$key)] ,
+                                       $two => $string[(2*$key+1)] );
+                }
+            }
+            return $result;
+        }
+    }
 }

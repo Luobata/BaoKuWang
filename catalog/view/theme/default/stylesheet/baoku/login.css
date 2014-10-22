@@ -5,5 +5,5 @@
 .name-input{margin-bottom: 30px;}
 .extra{width: 480px;margin-left: 40px;margin-top: 16px;}
 .remember{margin-left: 10px;color:#673413;}
-.submit{margin-left: 40px;background-color: #ad8140;color: #fff;margin-top: 16px;height: 36px;line-height: 36px;width: 260px;}
+.submit{cursor: pointer;margin-left: 40px;background-color: #ad8140;color: #fff;margin-top: 30px;height: 36px;line-height: 36px;width: 260px;}
 .right{float:right;width: 368px;padding-left: 28px;}
