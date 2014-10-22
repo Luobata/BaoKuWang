@@ -75,7 +75,7 @@ class ControllerAccountWishList extends Controller {
 		}
 
 		$this->data['products'] = array();
-		var_dump($this->session->data['wishlist']);
+		//var_dump($this->session->data['wishlist']);
 		foreach ($this->session->data['wishlist'] as $key => $product_id) {
 			$product_info = $this->model_catalog_product->getProduct($product_id);
 			//var_dump($product_info);
@@ -123,7 +123,7 @@ class ControllerAccountWishList extends Controller {
 				unset($this->session->data['wishlist'][$key]);
 			}
 		}
-		var_dump($this->data);	
+		//var_dump($this->data);	
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
 		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');
@@ -169,23 +169,108 @@ class ControllerAccountWishList extends Controller {
 		switch ($type) {
 			case '1':{
         		//已发布
-        		$product_info['identify']="已发布";
+        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+        			$product_info[$i]['identify']="已发布";
+        		}
+        		
         		break;}
         	case '2':{
         		//已下架
-        		$product_info['identify']="已下架";
+        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+        			$product_info[$i]['identify']="已下架";
+        		}
         		break;}
         	case '3':{
         		//已鉴定
-        		$product_info['identify']="已鉴定";
+        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+        			$product_info[$i]['identify']="已鉴定";
+        		}
         		break;}
-        	case '4 ':{
+        	case '4':{
         		//未鉴定
-        		$product_info['identify']="未鉴定";
+        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+        			$product_info[$i]['identify']="未鉴定";
+        		}
         		break;}
 		}
 		$this->data['product']=$product_info;
-		var_dump($this->data['product']);	
+		//var_dump($this->data['product']);	
+		//加载css
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
+		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');
+
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/wishlist.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/account/wishlist.tpl';
+		} else {
+			$this->template = 'default/template/account/wishlist.tpl';
+		}
+
+		$this->children = array(
+			'common/column_left',
+			'common/column_right',
+			'common/content_top',
+			'common/content_bottom',
+			'common/footer',
+			'common/header'	
+		);
+
+		$this->response->setOutput($this->render());
+		
+
+
+	}
+	public function changestatus(){
+		if (!$this->customer->isLogged()) {
+			$this->session->data['redirect'] = $this->url->link('account/wishlist', '', 'SSL');
+
+			$this->redirect($this->url->link('account/login', '', 'SSL'));
+		}
+
+		$this->language->load('account/wishlist');
+
+		$this->load->model('catalog/product');
+
+		$this->load->model('tool/image');
+		//var_dump($_SESSION);
+		$cid=$_SESSION['customer_id'];
+		//判断搜索类型
+		$type= $this->request->get['type'];
+		$product_id=$this->request->get['product_id'];
+
+		//改变status
+		$this->model_catalog_product->updateStatus($product_id,$type);
+		$product_info = $this->model_catalog_product->getProductsBycidnoli($cid,$type)->rows;
+		//var_dump($product_info);
+		$this->data['type']=$type;
+		switch ($type) {
+			case '1':{
+        		//已发布
+        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+        			$product_info[$i]['identify']="已发布";
+        		}
+        		
+        		break;}
+        	case '2':{
+        		//已下架
+        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+        			$product_info[$i]['identify']="已下架";
+        		}
+        		break;}
+        	case '3':{
+        		//已鉴定
+        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+        			$product_info[$i]['identify']="已鉴定";
+        		}
+        		break;}
+        	case '4':{
+        		//未鉴定
+        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+        			$product_info[$i]['identify']="未鉴定";
+        		}
+        		break;}
+		}
+		$this->data['product']=$product_info;
+		//var_dump($this->data['product']);	
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
 		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');

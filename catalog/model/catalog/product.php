@@ -3,7 +3,13 @@ class ModelCatalogProduct extends Model {
 	public function updateViewed($product_id) {
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET viewed = (viewed + 1) WHERE product_id = '" . (int)$product_id . "'");
 	}
-
+	public function updateStatus($product_id,$type){
+		if ($type==1) {
+		$this->db->query("UPDATE " . DB_PREFIX . "product SET status = '0' WHERE product_id = '" . (int)$product_id . "'");
+		}else if($type==2){
+			$this->db->query("UPDATE " . DB_PREFIX . "product SET status = '1' WHERE product_id = '" . (int)$product_id . "'");
+		}
+	}
     public function getProductMainInfo_List($data) {
 
         $sql = "SELECT p.product_id , p.image , p.title , p.price , p.identify FROM " . DB_PREFIX . "product AS p";
@@ -81,7 +87,7 @@ class ModelCatalogProduct extends Model {
         } else {
             $sql .= " WHERE p.cid=".$cid."  AND p.status = 1  ORDER BY p.date_added DESC LIMIT 0,3";
         }
-        echo $sql;
+        //echo $sql;
         $result = $this->db->query($sql);
         //$result->num_total = $result_nolimit->num_rows;
         return $result;
@@ -108,13 +114,12 @@ class ModelCatalogProduct extends Model {
         		//已鉴定
         		$sql.="AND p.identify=1";
         		break;}
-        	case '4 ':{
+        	case '4':{
         		//未鉴定
         		$sql.="AND p.identify=0";
         		break;}
-
         }
-        echo $sql;
+        //echo $sql;
         $result = $this->db->query($sql);
         //$result->num_total = $result_nolimit->num_rows;
         return $result;

@@ -311,6 +311,10 @@ class ControllerProductProduct extends Controller {
 			//var_dump($this->model_catalog_product->getLatestProducts(2));
 			//var_dump($product_late->rows);
 			//var_dump($this->model_catalog_product->getLatestProductsByCid($product_info['cid'],3));
+			//获取相关联的图片的信息
+			$this->data['product_images']=$this->model_catalog_product->getProductImages($product_id);
+			var_dump($this->data['product_images']);
+
 			if ($product_info['quantity'] <= 0) {
 				$this->data['stock'] = $product_info['stock_status'];
 			} elseif ($this->config->get('config_stock_display')) {

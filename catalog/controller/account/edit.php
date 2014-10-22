@@ -53,7 +53,7 @@ class ControllerAccountEdit extends Controller {
 		$this->data['entry_telephone'] = $this->language->get('entry_telephone');
 		$this->data['entry_fax'] = $this->language->get('entry_fax');
 		//$this->data['entry_name']=$this->language->get('entry_name');
-		var_dump($this->data);
+		//var_dump($this->data);
 		$this->data['button_continue'] = $this->language->get('button_continue');
 		$this->data['button_back'] = $this->language->get('button_back');
 
@@ -194,7 +194,7 @@ class ControllerAccountEdit extends Controller {
 		} else {
 			$this->data['zone'] = '省份';
 		}
-		var_dump($customer_info);
+		//var_dump($customer_info);
 		$this->data['back'] = $this->url->link('account/account', '', 'SSL');
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userinfo.css');
 
@@ -212,7 +212,7 @@ class ControllerAccountEdit extends Controller {
 			'common/footer',
 			'common/header'	
 		);
-var_dump($this->$error);
+	//var_dump($this->$error);
 		$this->response->setOutput($this->render());	
 	}
 
