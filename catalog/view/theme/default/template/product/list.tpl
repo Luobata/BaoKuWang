@@ -15,12 +15,16 @@
     <!--筛选条件-->
     <div class="nav-category-group">
 
+        <?php if( !empty($selected) ) { ?>
         <div class="nav-category selected">
             <h4 title="已选择">已选择 <span>：</span></h4>
             <div class="nav-category-wrap">
-                <span class="button-selected">古董古玩<a class="delete-select" href="#"> x </a></span>
+                <?php foreach( $selected as $key => $value ) { ?>
+                    <span class="button-selected"><?php echo $value; ?><a class="delete-select" href="<?php echo $url[$key]; ?>"> x </a></span>
+                <?php } ?>
             </div>
         </div>
+        <?php } ?>
 
         <div class="nav-category">
             <h4 title="分类">分类<span>：</span></h4>

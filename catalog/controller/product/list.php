@@ -81,6 +81,24 @@ class ControllerProductList extends Controller {
         $this->load->model('localisation/zone');
         $this->data['zones'] = $this->model_localisation_zone->getZonesByCountryId(44);
 
+        // 设置已选择
+        $this->data['selected'] = array();
+        if (isset($this->request->get['filter_category'])) {
+            $this->data['selected']['category'] = $this->model_catalog_category->getCategory($this->request->get['filter_category'])['name'];
+        }
+        if (isset($this->request->get['filter_place'])) {
+            $this->data['selected']['place'] = $this->request->get['filter_place'];
+        }
+        if (isset($this->request->get['filter_identify'])) {
+            $this->data['selected']['identify'] = ($this->request->get['filter_identify']==1)?'已鉴定':'未鉴定';
+        }
+        if (isset($this->request->get['filter_price'])) {
+            $price_low  = $this->data['price'][$this->request->get['filter_price']]['low'];
+            $price_high = $this->data['price'][$this->request->get['filter_price']]['high'];
+            $this->data['selected']['price'] = ($price_high!=false)?($price_low.'-'.$price_high.'元'):($price_low.'元以上');
+        }
+        //var_dump($this->data['selected']);
+
         // 标题
         $this->document->setTitle('我要寻宝');
 

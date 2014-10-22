@@ -27663,3 +27663,5 @@
 2014-10-22 9:46:11 - PHP Notice:  Undefined variable: products_page_number in D:\WampServer\www\catalog\view\theme\default\template\product\list.tpl on line 201
 2014-10-22 9:46:11 - PHP Notice:  Undefined variable: url in D:\WampServer\www\catalog\view\theme\default\template\product\list.tpl on line 207
 2014-10-22 11:47:20 - PHP Warning:  Invalid argument supplied for foreach() in D:\WampServer\www\catalog\view\theme\default\template\common\home.tpl on line 54
+2014-10-22 14:36:41 - PHP Notice:  Undefined index: filter_identify in D:\WampServer\www\catalog\controller\product\list.php on line 96
+2014-10-22 14:36:45 - PHP Notice:  Undefined index: filter_identify in D:\WampServer\www\catalog\controller\product\list.php on line 96
