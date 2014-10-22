@@ -1,9 +1,9 @@
 <?php echo $header; ?>
-<?php if ($success) { ?>
+<!--<?php if ($success) { ?>
 <div class="success"><?php echo $success; ?><img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>
 <?php } ?>
 <?php echo $column_left; ?><?php echo $column_right; ?>
-<!-- <div id="content"><?php echo $content_top; ?>
+<div id="content"><?php echo $content_top; ?>
   <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
@@ -63,17 +63,18 @@
        </ul>  
 
 
-       <div class="left">
+      <div class="left">
         <ul class="home-nav">
           <li id="user-name"><a href="userhome.html">于先生的宝贝</a></li>
-          <li><a href="">已发布的宝贝</a><span class="goods-num">5</span></li>
-          <li><a href="">已鉴定的宝贝</a></li>
-          <li><a href="">未鉴定的宝贝</a><span class="goods-num">20</span></li>
-          <li><a href="">已下架的宝贝</a><span class="goods-num">5</span></li>
-          <li ><a href="">收藏宝贝</a><span class="goods-num">5</span></li>
-          <li id="last" class="userinfo" style="height: 60px;line-height: 60px;"><a href="userinfo.html">编辑个人资料</a></li>
+          <li><a href="./index.php?route=account/wishlist/postgoods&type=1">已发布的宝贝</a><span class="goods-num"></span></li>
+          <li><a href="./index.php?route=account/wishlist/postgoods&type=2">已下架的宝贝</a></li>
+          <li><a href="./index.php?route=account/wishlist/postgoods&type=3">未鉴定的宝贝</a><span class="goods-num"></span></li>
+          <li><a href="./index.php?route=account/wishlist/postgoods&type=4">已鉴定的宝贝</a><span class="goods-num"></span></li>
+          <li ><a href="./index.php?route=account/wishlist">收藏宝贝</a><span class="goods-num"></span></li>
+          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/edit">编辑个人资料</a></li>
+          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/password">账户安全</a></li>
         </ul>
-       </div>
+ </div>
          
        <div class="goods-list right">
         <table>
@@ -130,8 +131,8 @@
                        </th>
 
                        <th>
-                        
-                        <?php echo$product[$i]['identify']==0?"未鉴定":"已鉴定";?>
+
+                        <?php echo$product[$i]['identify'];?>
                        </th>
 
                        <th>
@@ -139,7 +140,13 @@
                        </th>
 
                        <th>
-                         
+                         <?php if($type==4){;?>
+                         <a href="">鉴定</a>
+                       <?php }else if($type==2){;?>
+                          <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">上架</a>
+                          <?php }else if($type==1){;?>
+                          <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">下架</a>
+                          <?php };?>
                          <a href="<?php echo $product['remove']; ?>">删除</a>
                        </th>
                   </tr>

@@ -371,18 +371,22 @@
 
     <div class="d_first">
       <div class="f_pics">
+
         <div class="b_pic">
          <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a>
           <!-- <a href=""><img src="./catalog/view/theme/default/image/baoku/b_pic.png" class="b_img"></a> -->
         </div>
+        
+          
         <div class="s_pic">
           <ul class="s_pic_con">
-            <a href="#"><img src="./catalog/view/theme/default/image/baoku/s_pic1.png" class="mover"></a>
-            <a href=""><img src="./catalog/view/theme/default/image/baoku/s_pic2.png" class="mover"></a>
-            <a href=""><img src="./catalog/view/theme/default/image/baoku/s_pic3.png" class="mover"></a>
-            <a href=""><img src="./catalog/view/theme/default/image/baoku/s_pic4.png" class="mover"></a>
+            <?php for ($i=0; $i <sizeof($product_images) ; $i++) { ;?>
+            <a href="./image/<?php echo $product_images[$i]['image'];?>" class="colorbox cboxElment"><img src="./image/<?php echo $product_images[$i]['image'];?>" class="mover"></a>
+           
+            <?php } ;?>
           </ul>
         </div>
+        
       </div>
       <div class="f_texts">
         <div class="f_texts_title">
@@ -427,9 +431,9 @@
           <?php for ($i=0; $i <sizeof($product_late); $i++) { ;?>
             
           <div class="s_about_detail">
-            <a href="">
+            <a href="./index.php?route=product/product&path&product_id=<?php echo $product_late[$i]['product_id'];?>">
             <div class="s_about_pic">
-              <img src="<?php echo $product_late[$i]['image'];?>">
+              <img src="./image/<?php echo $product_late[$i]['image'];?>">
             </div>
             <p><span class="s_price">￥<?php echo $product_late[$i]['price'];?></span><!-- <span class="b_price">￥3780.00</span> --></p>
             <p>
