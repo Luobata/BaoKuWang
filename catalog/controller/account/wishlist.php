@@ -75,10 +75,10 @@ class ControllerAccountWishList extends Controller {
 		}
 
 		$this->data['products'] = array();
-
+		var_dump($this->session->data['wishlist']);
 		foreach ($this->session->data['wishlist'] as $key => $product_id) {
 			$product_info = $this->model_catalog_product->getProduct($product_id);
-
+			//var_dump($product_info);
 			if ($product_info) { 
 				if ($product_info['image']) {
 					$image = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_wishlist_width'), $this->config->get('config_image_wishlist_height'));
@@ -115,13 +115,17 @@ class ControllerAccountWishList extends Controller {
 					'price'      => $price,		
 					'special'    => $special,
 					'href'       => $this->url->link('product/product', 'product_id=' . $product_info['product_id']),
-					'remove'     => $this->url->link('account/wishlist', 'remove=' . $product_info['product_id'])
+					'remove'     => $this->url->link('account/wishlist', 'remove=' . $product_info['product_id']),
+					'date_added' => $product_info['date_added'],
+					'identify'   => $product_info['identify']==0?'未鉴定':'已鉴定'
 				);
 			} else {
 				unset($this->session->data['wishlist'][$key]);
 			}
-		}	
-
+		}
+		var_dump($this->data);	
+		//加载css
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
 		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/wishlist.tpl')) {
@@ -142,6 +146,70 @@ class ControllerAccountWishList extends Controller {
 		$this->response->setOutput($this->render());		
 	}
 
+	public function postgoods(){
+
+		if (!$this->customer->isLogged()) {
+			$this->session->data['redirect'] = $this->url->link('account/wishlist', '', 'SSL');
+
+			$this->redirect($this->url->link('account/login', '', 'SSL'));
+		}
+
+		$this->language->load('account/wishlist');
+
+		$this->load->model('catalog/product');
+
+		$this->load->model('tool/image');
+		var_dump($_SESSION);
+		$cid=$_SESSION['customer_id'];
+		//判断搜索类型
+		$type= $this->request->get['type'];
+		$product_info = $this->model_catalog_product->getProductsBycidnoli($cid,$type)->rows;
+		//var_dump($product_info);
+		$this->data['type']=$type;
+		switch ($type) {
+			case '1':{
+        		//已发布
+        		$product_info['identify']="已发布";
+        		break;}
+        	case '2':{
+        		//已下架
+        		$product_info['identify']="已下架";
+        		break;}
+        	case '3':{
+        		//已鉴定
+        		$product_info['identify']="已鉴定";
+        		break;}
+        	case '4 ':{
+        		//未鉴定
+        		$product_info['identify']="未鉴定";
+        		break;}
+		}
+		$this->data['product']=$product_info;
+		var_dump($this->data['product']);	
+		//加载css
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
+		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');
+
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/wishlist.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/account/wishlist.tpl';
+		} else {
+			$this->template = 'default/template/account/wishlist.tpl';
+		}
+
+		$this->children = array(
+			'common/column_left',
+			'common/column_right',
+			'common/content_top',
+			'common/content_bottom',
+			'common/footer',
+			'common/header'	
+		);
+
+		$this->response->setOutput($this->render());
+		
+
+
+	}
 	public function add() {
 		$this->language->load('account/wishlist');
 
@@ -177,5 +245,6 @@ class ControllerAccountWishList extends Controller {
 
 		$this->response->setOutput(json_encode($json));
 	}	
+
 }
 ?>

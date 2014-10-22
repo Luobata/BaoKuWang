@@ -196,6 +196,8 @@ top: 10%;
 	border-bottom-color: #eeeeee;
 }
 .s_about_pic{
+	text-align: center;
+	margin-top: 10px;
 	width: 130px;
 	height: 130px;
 	margin-left: auto;

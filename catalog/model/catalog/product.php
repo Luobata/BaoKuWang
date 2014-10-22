@@ -54,6 +54,53 @@ class ModelCatalogProduct extends Model {
         return $result;
     }
 
+    public function getProductsBycid($cid){
+    	$sql = "SELECT p.product_id , p.image , p.title , p.price , p.identify FROM " . DB_PREFIX . "product AS p";
+
+        // 筛选
+        if( isset($data['filter_category']) ) {
+            $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id WHERE p.cid=".$cid." AND p.status = 1");
+        } else {
+            $sql .= " WHERE p.cid=".$cid."  AND p.status = 1  ORDER BY p.date_added DESC LIMIT 0,3";
+        }
+        echo $sql;
+        $result = $this->db->query($sql);
+        //$result->num_total = $result_nolimit->num_rows;
+        return $result;
+    }
+    public function getProductsBycidnoli($cid,$type){
+    	$sql = "SELECT p.product_id , p.image ,p.status,p.title ,p.date_added, p.price , p.identify FROM " . DB_PREFIX . "product AS p";
+
+        // 筛选
+        if( isset($data['filter_category']) ) {
+            $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id WHERE p.cid=".$cid." AND p.status = 1");
+        } else {
+            $sql .= " WHERE p.cid=".$cid."  ";
+        }
+        switch ($type) {
+        	case '1':{
+        		//已发布
+        		$sql.="AND p.status=1";
+        		break;}
+        	case '2':{
+        		//已下架
+        		$sql.="AND p.status=0";
+        		break;}
+        	case '3':{
+        		//已鉴定
+        		$sql.="AND p.identify=1";
+        		break;}
+        	case '4 ':{
+        		//未鉴定
+        		$sql.="AND p.identify=0";
+        		break;}
+
+        }
+        echo $sql;
+        $result = $this->db->query($sql);
+        //$result->num_total = $result_nolimit->num_rows;
+        return $result;
+    }
     public function getProductMainInfo($product_id) {
         if ($this->customer->isLogged()) {
             $customer_group_id = $this->customer->getCustomerGroupId();
@@ -134,7 +181,9 @@ class ModelCatalogProduct extends Model {
 				'place'			   => $query->row['place'],
 				'qq'			   => $query->row['qq'],
 				'wechat'		   => $query->row['wechat'],
-				'detail'		   => $query->row['detail']
+				'detail'		   => $query->row['detail'],
+				'identify'		   => $query->row['identify'],
+				'title'            => $query->row['title']
 			);
 		} else {
 			return false;
@@ -363,7 +412,7 @@ class ModelCatalogProduct extends Model {
 		return $product_data;
 	}
 	//根据作者uid返回最新的三个相关商品
-	public function getLatestProductsByCid($cid,$limit){
+	public function getLatestProductsByid($cid,$limit) {
 		if ($this->customer->isLogged()) {
 			$customer_group_id = $this->customer->getCustomerGroupId();
 		} else {
@@ -373,7 +422,7 @@ class ModelCatalogProduct extends Model {
 		$product_data = $this->cache->get('product.latest.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $customer_group_id . '.' . (int)$limit);
 
 		if (!$product_data) { 
-			$query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.cid ='".(int)$cid."' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.date_added DESC LIMIT " . (int)$limit);
+			$query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.cid=1 AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.date_added DESC LIMIT " . (int)$limit);
 
 			foreach ($query->rows as $result) {
 				$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
