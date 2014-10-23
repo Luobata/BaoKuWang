@@ -1,9 +1,10 @@
-<?php echo $header; ?>      <?php echo $column_right; ?>
+<?php echo $header; ?>      
+<!-- <?php echo $column_right; ?>-->
 <?php if ($success) { ?>
 <div class="success"><?php echo $success; ?></div>
 <?php } ?>
 <?php echo $column_left; ?>
-<div id="content"><?php echo $content_top; ?>
+<!-- <div id="content"><?php echo $content_top; ?>
   <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
@@ -38,7 +39,7 @@
       <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>
     </ul>
   </div>
-  <?php echo $content_bottom; ?></div>
+  <?php echo $content_bottom; ?></div> -->
 
   <div class="content">
        <ul class="bread">
@@ -68,13 +69,14 @@
                    &nbsp;&nbsp;&nbsp;
                    <div class="input-title">用户名</div>
                    <input type="text" class="htitle input-content" value="余先生" style="color:#ccc"readonly>
-                
+                    
           </div>
           <div class="row">
              
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <div class="input-title">真实姓名</div>
+                   <?php echo$customer_info['name'] ;?>
                    <input type="text" class="price input-content">
                  
 
