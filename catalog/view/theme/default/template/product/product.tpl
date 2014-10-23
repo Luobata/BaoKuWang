@@ -240,7 +240,7 @@
           
           <!-- <div class="addthis_default_style"><a class="addthis_button_compact"><?php echo $text_share; ?></a> <a class="addthis_button_email"></a><a class="addthis_button_print"></a> <a class="addthis_button_facebook"></a> <a class="addthis_button_twitter"></a></div>
  -->
-          <script type="text/javascript" src="//s7.addthis.com/js/250/addthis_widget.js"></script> 
+           <!-- <script type="text/javascript" src="//s7.addthis.com/js/250/addthis_widget.js"></script>  -->
          
 
 
@@ -356,6 +356,219 @@
   <?php } ?>
   <?php echo $content_bottom; ?></div>
  -->
+<script src="catalog/view/javascript/baoku/Aui-core-1.42-min.js" language="javascript" type="text/javascript"></script>
+<script>
+Aui.ready( function()
+{
+  var oDemo = Aui( "#demo" );
+  var opt = {
+    
+    smallSrc : "<?php echo $thumb; ?>",
+    smallWidth : 350,
+    smallHeight : 350,
+    
+    bigSrc : "<?php echo $thumb; ?>",
+    bigWidth : 800,
+    bigHeight : 800
+  };
+  var oWin = Aui( window );
+  var owraper = Aui( "#wraper" )
+  var oSmall = Aui( "#small" );
+  var oBig = Aui( "#big" );
+  var obg = Aui( "#bg" );
+  var oMask = Aui( "#mask" );
+  
+  var oBigImg = null;
+  var oBigImgWidth = opt.bigWidth;
+  var oBigImgHeight = opt.bigHeight;
+  
+  var iBwidth = oBig.width();
+  var iBheight = oBig.height();
+  
+  oBig.setStyle( "display", "none" );
+
+  var iTop = owraper.top();
+  var iLeft = owraper.left();
+  var iWidth = owraper.width();
+  var iHeight = owraper.height();
+  var iSpeed = 200;
+  
+  var setOpa = function( o )
+  {
+    o.style.cssText = "opacity:0;filter:alpha(opacity:0);"
+    return o;
+  };
+
+  var imgs = function( opt )
+  {
+    if( Aui.typeOf( opt ) !== "object" ) return false;
+
+    var oBig = new Image();
+
+    oBig.src = opt.bigSrc;
+    oBig.width = opt.bigWidth;
+    oBig.height = opt.bigHeight;
+    
+    var oSmall = new Image();
+    oSmall.src = opt.smallSrc;
+    oSmall.width = opt.smallWidth;
+    oSmall.height = opt.smallHeight;
+    
+    oBigImg = Aui( oBig );
+    
+    return {
+      bigImg : setOpa( oBig ),
+      smallImg : setOpa( oSmall )
+    };
+  };
+  
+  var append = function( o, img )
+  {
+    o.append( img );
+    
+    Aui( img ).fx(
+    {
+      opacity : 1
+    }, iSpeed*2, null , function()
+    {
+      this.style.cssText = "";
+    });
+  };
+  
+  var eventMove = function( e )
+  {
+    var e = e || window.event;
+    
+    var w = oMask.width();
+    var h = oMask.height();
+    var x = e.clientX - iLeft + oWin.scrollLeft() - w/2;
+    var y = e.clientY - iTop + oWin.scrollTop() - h/2;
+
+    var l = iWidth - w - 10;
+    var t = iHeight - h - 10;
+
+    if( x < 0 )
+    {
+      x = 0;  
+    }
+    else if( x > l )
+    {
+      x = l;
+    };
+    
+    if( y < 0 )
+    {
+      y = 0;  
+    }
+    else if( y > t )
+    {
+      y = t;
+    };
+
+    oMask.setStyle(
+    {
+      left : x < 0 ? 0 : x > l ? l : x,
+      top : y < 0 ? 0 : y > t ? t : y
+    });
+    
+    var bigX = x / ( iWidth - w );
+    var bigY = y / ( iHeight - h );
+    
+    oBigImg.setStyle(
+    {
+      left : bigX * ( iBwidth - oBigImgWidth ),
+      top : bigY * ( iBheight - oBigImgHeight )
+    });
+
+    return false;
+  };
+  
+  var eventOver = function()
+  {
+    oMask.show();
+    obg.stop()
+      .fx(
+      {
+        opacity : .1
+      }, iSpeed );
+    oBig.show()
+      .stop()
+      .fx(
+      {
+        opacity : 1 
+      }, iSpeed/2 );
+    
+    return false;
+  };
+  
+  var eventOut = function()
+  {
+    oMask.hide();
+    obg.stop()
+      .fx(
+      {
+        opacity : 0
+      }, iSpeed/2);
+      
+    oBig.stop()
+      .fx(
+      {
+        opacity : 0
+      }, iSpeed, null, function()
+      {
+        Aui( this ).hide();
+      });
+    
+    return false;
+  };
+  
+  var _init = function( object, oB, oS, callback )
+  {
+    var num = 0;
+    
+    oBig.setStyle( "opacity",0 );
+    
+    append( oB, object.bigImg );
+    append( oS, object.smallImg );
+    
+    object.bigImg.onload = function()
+    {
+      num += 1;
+      
+      if( num === 2 )
+      { 
+        callback.call( object.smallImg );
+      };
+    };
+    
+    object.smallImg.onload = function()
+    {
+      num += 1;
+      
+      if( num === 2 )
+      { 
+        callback.call( object.smallImg );
+      };
+    };
+  };
+  
+  // 初始化  继续写
+  _init( imgs( opt ), oBig, oSmall, function()
+  {
+    //绑定事件
+    oWin.resize( function()
+    {
+      iTop = owraper.top();
+      iLeft = owraper.left();
+      iWidth = owraper.width();
+      iHeight = owraper.height();
+
+    });
+    oSmall.hover( eventOver, eventOut )
+        .mousemove( eventMove );
+  });
+});
+</script>
 <div class="content">
   <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -371,11 +584,27 @@
 
     <div class="d_first">
       <div class="f_pics">
-
-        <div class="b_pic">
-         <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a>
-          <!-- <a href=""><img src="./catalog/view/theme/default/image/baoku/b_pic.png" class="b_img"></a> -->
+        <div id="demo">
+  <div id="wraper">
+        <div id="small">
+          
+            <span id="mask">
+              <div></div>
+            </span>
+            
         </div>
+        <div id="big">
+        </div>
+    </div>
+</div>
+        <!-- <div class="b_pic">
+         <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox">
+
+          <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" />
+        </a>
+          <a href=""><img src="./catalog/view/theme/default/image/baoku/b_pic.png" class="b_img"></a>
+          
+        </div> -->
         
           
         <div class="s_pic">
@@ -490,6 +719,7 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript" src="catalog/view/javascript/baoku/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="catalog/view/javascript/baoku/detail.js"></script>
 <script type="text/javascript"><!--
 $(document).ready(function() {

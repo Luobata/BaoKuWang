@@ -32,6 +32,7 @@
     <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
     <script type="text/javascript" src="catalog/view/javascript/common.js"></script>
+    <script type="text/javascript" src="catalog/view/javascript/baoku/common.js"></script>
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
@@ -74,7 +75,12 @@
             <?php } ?>
 
             <div class="search">
-                <form>
+                <form action="./index.php?route=product/list&serch=">
+                    <select class="search_sel">
+                        <option>商城</option>
+                        <option>论坛</option>
+                        <option>序列号</option>
+                    </select>
                     <input type="text" class="text" name="search" value="<?php echo $search; ?>" />
                     <input type="button" class="button button-search" value="搜 索">
                 </form>
@@ -126,6 +132,8 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="catalog/view/javascript/baoku/common.js"></script>
 
     <!--
     <div class="links"><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></div>

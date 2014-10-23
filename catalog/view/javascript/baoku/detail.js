@@ -1,8 +1,10 @@
 //鼠标移动到图片上切换大图效果，先不需要
-// $('.mover').mouseover(function(e) {
-// 	var src=(this.src);
-// 	$('.b_img').attr('src', src);
-// });
+$('.mover').mouseover(function(e) {
+  var src=(this.src);
+  //alert(1);
+  $('#small img').attr('src', src);
+  $('#big img').attr('src', src);
+});
 //鼠标点击效果
 // $('.mover').bind("click", function(e) {
 // 	alert(1);

@@ -159,7 +159,7 @@ class ControllerAccountWishList extends Controller {
 		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image');
-		var_dump($_SESSION);
+		//var_dump($_SESSION);
 		$cid=$_SESSION['customer_id'];
 		//判断搜索类型
 		$type= $this->request->get['type'];

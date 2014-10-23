@@ -165,7 +165,7 @@ class ControllerProductProduct extends Controller {
 		//var_export($_SESSION);
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
-
+		var_dump($product_info);
 		
 		if ($product_info) {
 			$url = '';
@@ -232,7 +232,8 @@ class ControllerProductProduct extends Controller {
 			$this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
 			$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/detail.css');
-			//$this->document->addStyle('catalog/view/javascript/baoku/detail.js');
+			//$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/detail.css');
+			
 			//$this->data['heading_title'] = $product_info['name'];
 			//面包屑可能被修改了
 			$this->data['heading_title'] = $product_info['title'];
@@ -291,6 +292,8 @@ class ControllerProductProduct extends Controller {
 			$this->data['qq']=$product_info['qq'];
 			$this->data['wechat']=$product_info['wechat'];
 			$this->data['detail']=$product_info['detail'];
+			//判断是否坚定字段
+			$this->data['jianding']=$product_info['identify'];
 			//echo $product_info['cid'];
 			//需要获取customer的name
 			$this->load->model('account/customer');
