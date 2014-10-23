@@ -49,7 +49,7 @@
        </ul>  
        <div class="left">
         <ul class="home-nav">
-          <li id="user-name"><a href="userhome.html">于先生的宝贝</a></li>
+          <li id="user-name"><a>于先生的宝贝</a></li>
           <li><a href="">已发布的宝贝</a><span class="goods-num">5</span></li>
           <li><a href="">已鉴定的宝贝</a></li>
           <li><a href="">未鉴定的宝贝</a><span class="goods-num">20</span></li>
@@ -67,7 +67,7 @@
              
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
-                   <div class="input-title">用户名</div>
+                   <div class="input-title">用户名：</div>
                    <input type="text" class="htitle input-content" value="余先生" style="color:#ccc"readonly>
                     
           </div>
@@ -75,9 +75,9 @@
              
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
-                   <div class="input-title">真实姓名</div>
-                   <?php echo$customer_info['name'] ;?>
-                   <input type="text" class="price input-content">
+                   <div class="input-title">真实姓名：</div>
+                   <span class="customer_info"><?php echo $customer_info['name'] ;?></span>
+                   <!-- <input type="text" class="price input-content"> -->
                  
 
           </div>
@@ -86,9 +86,11 @@
              
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
-                   <span class="input-title">性别</span>  
-                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">男</input>
-                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">女</input>
+                   <span class="input-title">性别：</span>
+                   <span class="customer_info"><?php echo ($customer_info['sex']==1)?'男':'女'; ?></span>
+                   <!--<input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">男</input>
+                    <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">女</input>
+                   -->
                   </div>
 
 
@@ -97,12 +99,15 @@
                   <div class="row" style="margin-top:10px">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
-                       <span class="input-title">所在区域</span>
+                       <span class="input-title">所在区域：</span>
+                        <span class="customer_info"><?php echo $customer_info['zone'] ;?></span>
+                      <!--
                        <select class="input-content area-select">
                         <option>省份</option>
                         <option>北京</option>
                         <option>上海</option>
                        </select>
+                       -->
 
                        <!--  
                        <select class="input-content area-select">
@@ -122,37 +127,44 @@
                    <div class="row">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
-                       <span class="input-title">详细地址</span>
-                       <input type="text" class="input-content">
+                       <span class="input-title">详细地址：</span>
+                       <span class="customer_info"><?php echo $customer_info['place'] ;?></span>
+                       <!-- <input type="text" class="input-content"> -->
                      
                   </div>
                   <div class="row">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
-                       <span class="input-title">联系电话</span>
-                       <input type="text" class="input-content">
+                       <span class="input-title">联系电话：</span>
+                      <span class="customer_info"><?php echo $customer_info['telephone'] ;?></span>
+                      <!--
+                      <input type="text" class="input-content">
                        <span class="input-tip">* 请填写真实号码，以便买家联系您</span>
+                       -->
                   </div>
                    <div class="row">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
-                       <span class="input-title">QQ&nbsp;号码</span>
-                       <input type="text" class="input-content">
-                       <span class="input-tip">* 用于商品页面买家与您临时沟通</span>
+                       <span class="input-title">QQ&nbsp;号码：</span>
+                       <span class="customer_info"><?php echo $customer_info['qq'] ;?></span>
+                       <!--<input type="text" class="input-content">
+                       <span class="input-tip">* 用于商品页面买家与您临时沟通</span>-->
                   </div>
 
                   <div class="row">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
-                       <span class="input-title">微&nbsp;信&nbsp;&nbsp;号</span>
+                       <span class="input-title">微&nbsp;信&nbsp;&nbsp;号：</span>
+                      <span class="customer_info"><?php echo $customer_info['wechat'] ;?></span>
+                      <!--
                        <input type="text" class="input-content">
-                       <span class="input-tip">* 用于在商品页面显示，方便买家与您沟通</span>
+                       <span class="input-tip">* 用于在商品页面显示，方便买家与您沟通</span>-->
                   </div>
 
 
 
 
-                  <input type="submit" value="提交个人资料" class="submit-btn">
+                  <!-- <input type="submit" value="提交个人资料" class="submit-btn"> -->
 
 
           </div>

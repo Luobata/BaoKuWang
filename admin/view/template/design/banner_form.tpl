@@ -16,14 +16,15 @@
     <div class="content">
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
         <table class="form">
-          <tr>
+          <tr><span style="font-size: 16px;font-weight: bolder;position: relative;top: 5px;"><?php echo $name; ?></span></tr>
+          <tr style="display: none;">
             <td><span class="required">*</span> <?php echo $entry_name; ?></td>
             <td><input type="text" name="name" value="<?php echo $name; ?>" size="100" />
               <?php if ($error_name) { ?>
               <span class="error"><?php echo $error_name; ?></span>
               <?php } ?></td>
           </tr>
-          <tr>
+          <tr style="display: none;">
             <td><?php echo $entry_status; ?></td>
             <td><select name="status">
                 <?php if ($status) { ?>
@@ -36,43 +37,86 @@
               </select></td>
           </tr>
         </table>
-        <table id="images" class="list">
-          <thead>
-            <tr>
-              <td class="left"><?php echo $entry_title; ?></td>
-              <td class="left"><?php echo $entry_link; ?></td>
-              <td class="left"><?php echo $entry_image; ?></td>
-              <td></td>
-            </tr>
-          </thead>
-          <?php $image_row = 0; ?>
-          <?php foreach ($banner_images as $banner_image) { ?>
-          <tbody id="image-row<?php echo $image_row; ?>">
-            <tr>
-              <td class="left"><?php foreach ($languages as $language) { ?>
-                <input type="text" name="banner_image[<?php echo $image_row; ?>][banner_image_description][<?php echo $language['language_id']; ?>][title]" value="<?php echo isset($banner_image['banner_image_description'][$language['language_id']]) ? $banner_image['banner_image_description'][$language['language_id']]['title'] : ''; ?>" />
-                <img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /><br />
-                <?php if (isset($error_banner_image[$image_row][$language['language_id']])) { ?>
-                <span class="error"><?php echo $error_banner_image[$image_row][$language['language_id']]; ?></span>
+
+
+  <?php if( $banner_type ) {
+
+            if( $banner_type == 'lunbo' ) { ?>
+
+            <!-- 大图轮播 -->
+            <table id="images" class="list">
+              <thead>
+                <tr>
+                  <td class="left"><?php echo $entry_link; ?></td>
+                  <td class="left">图片（建议大小：800x405）</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <?php $image_row = 0; ?>
+              <?php foreach ($banner_images as $banner_image) { ?>
+              <tbody id="image-row<?php echo $image_row; ?>">
+                <tr>
+                  <td class="left"><input style="width:400px;" type="text" name="banner_image[<?php echo $image_row; ?>][link]" value="<?php echo $banner_image['link']; ?>" /></td>
+                  <td class="left"><div class="image"><img src="<?php echo $banner_image['thumb']; ?>" alt="" id="thumb<?php echo $image_row; ?>" />
+                      <input type="hidden" name="banner_image[<?php echo $image_row; ?>][image]" value="<?php echo $banner_image['image']; ?>" id="image<?php echo $image_row; ?>"  />
+                      <br />
+                      <a onclick="image_upload('image<?php echo $image_row; ?>', 'thumb<?php echo $image_row; ?>');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb<?php echo $image_row; ?>').attr('src', '<?php echo $no_image; ?>'); $('#image<?php echo $image_row; ?>').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+                  <td class="left"><a onclick="$('#image-row<?php echo $image_row; ?>').remove();" class="button"><?php echo $button_remove; ?></a></td>
+                </tr>
+                <?php foreach ($languages as $language) { ?>
+                    <input type="hidden" name="banner_image[<?php echo $image_row; ?>][banner_image_description][<?php echo $language['language_id']; ?>][title]" value="宝库网" />
                 <?php } ?>
-                <?php } ?></td>
-              <td class="left"><input type="text" name="banner_image[<?php echo $image_row; ?>][link]" value="<?php echo $banner_image['link']; ?>" /></td>
-              <td class="left"><div class="image"><img src="<?php echo $banner_image['thumb']; ?>" alt="" id="thumb<?php echo $image_row; ?>" />
-                  <input type="hidden" name="banner_image[<?php echo $image_row; ?>][image]" value="<?php echo $banner_image['image']; ?>" id="image<?php echo $image_row; ?>"  />
-                  <br />
-                  <a onclick="image_upload('image<?php echo $image_row; ?>', 'thumb<?php echo $image_row; ?>');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb<?php echo $image_row; ?>').attr('src', '<?php echo $no_image; ?>'); $('#image<?php echo $image_row; ?>').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
-              <td class="left"><a onclick="$('#image-row<?php echo $image_row; ?>').remove();" class="button"><?php echo $button_remove; ?></a></td>
-            </tr>
-          </tbody>
-          <?php $image_row++; ?>
-          <?php } ?>
-          <tfoot>
-            <tr>
-              <td colspan="3"></td>
-              <td class="left"><a onclick="addImage();" class="button"><?php echo $button_add_banner; ?></a></td>
-            </tr>
-          </tfoot>
-        </table>
+              </tbody>
+              <?php $image_row++; ?>
+              <?php } ?>
+              <tfoot>
+                <tr>
+                  <td colspan="2"></td>
+                  <td class="left"><a onclick="addImage();" class="button">添加</a></td>
+                </tr>
+              </tfoot>
+            </table>
+
+  <?php     } elseif ( $banner_type == 'tuijian' || $banner_type == 'remen' ) { ?>
+
+              <!-- 宝库推荐 -->
+              <table id="images" class="list">
+                  <thead>
+                  <tr>
+                      <td>顺序：</td><td>建议大小：</td>
+                      <td class="left"><?php echo $entry_link; ?></td>
+                      <td class="left"><?php echo $entry_image; ?></td>
+                  </tr>
+                  </thead>
+
+                  <?php $image_size = array('200x200','600x200','200x200','200x200','200x200','200x200','400x200'); ?>
+                  <?php $image_row = 0; ?>
+                  <?php $image_count = count($banner_images)-1; ?>
+                  <?php foreach ($banner_images as $banner_image) { ?>
+                  <tbody id="image-row<?php echo $image_row; ?>">
+                  <tr>
+                      <td class="left"><?php echo ($image_row+1);?></td>
+                      <td><?php echo $image_size[$image_row]; ?></td>
+                      <td class="left"><input style="width:400px;" type="text" name="banner_image[<?php echo ($image_count-$image_row); ?>][link]" value="<?php echo $banner_image['link']; ?>" /></td>
+                      <td class="left"><div class="image"><img src="<?php echo $banner_image['thumb']; ?>" alt="" id="thumb<?php echo $image_row; ?>" />
+                      <input type="hidden" name="banner_image[<?php echo ($image_count-$image_row); ?>][image]" value="<?php echo $banner_image['image']; ?>" id="image<?php echo $image_row; ?>"  />
+                      <br />
+                      <a onclick="image_upload('image<?php echo $image_row; ?>', 'thumb<?php echo $image_row; ?>');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb<?php echo $image_row; ?>').attr('src', '<?php echo $no_image; ?>'); $('#image<?php echo $image_row; ?>').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+                  </tr>
+                  <?php foreach ($languages as $language) { ?>
+                  <input type="hidden" name="banner_image[<?php echo $image_row; ?>][banner_image_description][<?php echo $language['language_id']; ?>][title]" value="宝库网" />
+                  <?php } ?>
+                  </tbody>
+                  <?php $image_row++; ?>
+                  <?php } ?>
+
+              </table>
+
+  <?php     } ?>
+
+  <?php } ?>
+
+
       </form>
     </div>
   </div>
@@ -83,19 +127,15 @@ var image_row = <?php echo $image_row; ?>;
 function addImage() {
     html  = '<tbody id="image-row' + image_row + '">';
 	html += '<tr>';
-    html += '<td class="left">';
 	<?php foreach ($languages as $language) { ?>
-	html += '<input type="text" name="banner_image[' + image_row + '][banner_image_description][<?php echo $language['language_id']; ?>][title]" value="" /> <img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /><br />';
-    <?php } ?>
-	html += '</td>';	
+    html += '<input type="hidden" name="banner_image[' + image_row + '][banner_image_description][<?php echo $language['language_id']; ?>][title]" value="宝库网" />';
+	<?php } ?>
 	html += '<td class="left"><input type="text" name="banner_image[' + image_row + '][link]" value="" /></td>';	
 	html += '<td class="left"><div class="image"><img src="<?php echo $no_image; ?>" alt="" id="thumb' + image_row + '" /><input type="hidden" name="banner_image[' + image_row + '][image]" value="" id="image' + image_row + '" /><br /><a onclick="image_upload(\'image' + image_row + '\', \'thumb' + image_row + '\');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$(\'#thumb' + image_row + '\').attr(\'src\', \'<?php echo $no_image; ?>\'); $(\'#image' + image_row + '\').attr(\'value\', \'\');"><?php echo $text_clear; ?></a></div></td>';
 	html += '<td class="left"><a onclick="$(\'#image-row' + image_row  + '\').remove();" class="button"><?php echo $button_remove; ?></a></td>';
 	html += '</tr>';
-	html += '</tbody>'; 
-	
+	html += '</tbody>';
 	$('#images tfoot').before(html);
-	
 	image_row++;
 }
 //--></script>

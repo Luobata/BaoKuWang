@@ -74,22 +74,27 @@
             <?php } ?>
 
             <div class="search">
-                <form>
-                    <input type="text" class="text" name="search" value="<?php echo $search; ?>" />
-                    <input type="button" class="button button-search" value="搜 索">
+                <form action="#" method="get" enctype="multipart/form-data">
+                    <input type="text" name="search" class="text" value="<?php echo $search; ?>" />
+                    <input type="submit" class="button button-search" value="搜 索">
+                    <input type="hidden" name="route" value="product/list"/>
                 </form>
                 <div class="hot">
-                    <p ><a href="">热门宝贝 :</a></p>
-                    <p ><a href="">字画</a></p>
-                    <p ><a href="">瓷器</a></p>
-                    <p ><a href="">玛瑙</a></p>
+                    <p><a>热门宝贝&nbsp;:</a></p>
+                    <p><a href="/index.php?route=product/list&search=钻石">钻石</a></p>
+                    <p><a href="/index.php?route=product/list&search=字画">字画</a></p>
+                    <p><a href="/index.php?route=product/list&search=瓷器">瓷器</a></p>
+                    <p><a href="/index.php?route=product/list&search=玛瑙">玛瑙</a></p>
+                    <p><a href="/index.php?route=product/list&search=珍珠">珍珠</a></p>
                 </div>
             </div>
 
-            <div class="login">
+
                 <?php if (!$logged) { ?>
+            <div class="login">
                 <?php echo $text_welcome; ?>
                 <?php } else { ?>
+            <div class="login" style="margin-left: 15px;">
                 <?php echo $text_logged; ?>
                 <?php } ?>
             </div>

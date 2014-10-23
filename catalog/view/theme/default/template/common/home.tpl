@@ -89,7 +89,7 @@
                                 }
                               }   ?>
 
-                        <li class="text" id="more"><a href="/index.php?route=product/category&path=63" target="_blank">更多></a></li>
+                        <li class="text" id="more"><a href="/index.php?route=product/list&filter_category=63" target="_blank">更多></a></li>
                     </ul>
                 </div>
             </div>

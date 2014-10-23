@@ -47,7 +47,7 @@ class ControllerCommonHome extends Controller {
         $Helper = new Helper();
         $recommend_images = $Helper->http_post( HTTP_SERVER . '/admin/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'10' ));
         $this->data['recommend_images'] = $Helper->string_to_array($recommend_images,'#split#','image','link');
-        //var_dump($this->data['recommend_images']);
+        //var_dump($recommend_images,$this->data['recommend_images']);
 
         // 获取最热宝贝
         $Helper = new Helper();

@@ -123,7 +123,9 @@ class ControllerAccountWishList extends Controller {
 				unset($this->session->data['wishlist'][$key]);
 			}
 		}
-		//var_dump($this->data);	
+
+		//var_dump($this->data);
+
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
 		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');
@@ -159,7 +161,7 @@ class ControllerAccountWishList extends Controller {
 		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image');
-		var_dump($_SESSION);
+		//var_dump($_SESSION);
 		$cid=$_SESSION['customer_id'];
 		//判断搜索类型
 		$type= $this->request->get['type'];
@@ -270,7 +272,7 @@ class ControllerAccountWishList extends Controller {
         		break;}
 		}
 		$this->data['product']=$product_info;
-		//var_dump($this->data['product']);	
+		//var_dump($this->data['product']);
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
 		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');

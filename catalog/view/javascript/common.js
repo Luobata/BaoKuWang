@@ -1,7 +1,9 @@
 $(document).ready(function() {
 	/* Search */
-	$('.button-search').bind('click', function() {
-		url = $('base').attr('href') + 'index.php?route=product/search';
+
+    /*
+    $('.button-search').bind('click', function() {
+		url = $('base').attr('href') + 'index.php?route=product/list';
 				 
 		var search = $('input[name=\'search\']').attr('value');
 		
@@ -14,7 +16,7 @@ $(document).ready(function() {
 	
 	$('#header input[name=\'search\']').bind('keydown', function(e) {
 		if (e.keyCode == 13) {
-			url = $('base').attr('href') + 'index.php?route=product/search';
+			url = $('base').attr('href') + 'index.php?route=product/list';
 			 
 			var search = $('input[name=\'search\']').attr('value');
 			
@@ -25,6 +27,7 @@ $(document).ready(function() {
 			location = url;
 		}
 	});
+	*/
 	
 	/* Ajax Cart */
 	$('#cart > .heading a').live('click', function() {

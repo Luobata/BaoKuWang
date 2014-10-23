@@ -267,16 +267,17 @@ class ControllerSaleCustomer extends Controller {
 	} 
 
 	protected function getList() {
-		if (isset($this->request->get['filter_name'])) {
+
+        if (isset($this->request->get['filter_email'])) {
+            $filter_email = $this->request->get['filter_email'];
+        } else {
+            $filter_email = null;
+        }
+
+        if (isset($this->request->get['filter_name'])) {
 			$filter_name = $this->request->get['filter_name'];
 		} else {
 			$filter_name = null;
-		}
-
-		if (isset($this->request->get['filter_email'])) {
-			$filter_email = $this->request->get['filter_email'];
-		} else {
-			$filter_email = null;
 		}
 
 		if (isset($this->request->get['filter_customer_group_id'])) {

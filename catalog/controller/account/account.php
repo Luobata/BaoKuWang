@@ -35,7 +35,7 @@ class ControllerAccountAccount extends Controller {
 		$this->load->model('account/customer');
 		$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 		$this->data['customer_info']=$customer_info;
-		var_dump($customer_info);
+		//var_dump($customer_info);
 		$this->data['heading_title'] = $this->language->get('heading_title');
 
 		$this->data['text_my_account'] = $this->language->get('text_my_account');

@@ -47,6 +47,9 @@ class ModelCatalogProduct extends Model {
         if( isset($data['filter_price_2']) ) {
             $sql .= " AND p.price >= " . (int)$data['filter_price_2']['low'] . " AND p.price < " . (int)$data['filter_price_2']['high'];
         }
+        if( isset($data['search']) ) {
+            $sql .= " AND CONCAT( p.title , p.detail ) LIKE '%" . $this->db->escape($data['search']) . "%'";
+        }
 
         // 排序
         if( isset($data['order']) ) {
