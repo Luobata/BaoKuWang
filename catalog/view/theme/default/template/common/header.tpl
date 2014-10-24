@@ -32,6 +32,7 @@
     <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
     <script type="text/javascript" src="catalog/view/javascript/common.js"></script>
+    <script type="text/javascript" src="catalog/view/javascript/baoku/common.js"></script>
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
@@ -62,6 +63,44 @@
 
 <body>
     <header>
+        <script type="text/javascript"> 
+     window.onload = function(){
+           ScrollImgLeft();
+        }
+    function ScrollImgLeft(){ 
+    var speed=50; 
+    var scroll_begin = document.getElementById("scroll_begin"); 
+    var scroll_end = document.getElementById("scroll_end"); 
+    var scroll_div = document.getElementById("scroll_div"); 
+    if(scroll_div.offsetWidth>scroll_begin.offsetWidth){
+        var tempString = scroll_begin.innerHTML;
+        for(var i=0;i<(scroll_div.offsetWidth/scroll_begin.offsetWidth+3);i++){
+              scroll_begin.innerHTML += tempString;
+            }
+    }
+    scroll_end.innerHTML=scroll_begin.innerHTML; 
+    function Marquee(){ 
+    if(scroll_end.offsetWidth-scroll_div.scrollLeft<=0) 
+    scroll_div.scrollLeft-=scroll_begin.offsetWidth; 
+    else 
+    scroll_div.scrollLeft++; 
+    } 
+    var MyMar=setInterval(Marquee,speed); 
+    scroll_div.onmouseover=function() {clearInterval(MyMar);} 
+    scroll_div.onmouseout=function() {MyMar=setInterval(Marquee,speed);} 
+
+    } 
+
+</script> 
+<div id="gongao"> 
+<div style="width:100%;height:30px;margin:0 auto;white-space: nowrap;overflow:hidden;left: 10px;
+position: relative;" id="scroll_div" class="scroll_div"> 
+<div id="scroll_begin"> 
+眯眼工作室眯眼工作室眯眼工作室眯眼工作室眯眼工作室眯眼工作室眯眼工作室眯眼工作室
+</div> 
+<div id="scroll_end"></div> 
+</div> 
+</div> 
         <div class="head">
 
             <?php if ($logo) { ?>
@@ -74,10 +113,18 @@
             <?php } ?>
 
             <div class="search">
-                <form action="#" method="get" enctype="multipart/form-data">
+
+                <form action="/" method="get" enctype="multipart/form-data">
+                    <select class="search_sel">
+                        <option>商城</option>
+                        <option>论坛</option>
+                        <option>序列号</option>
+                    </select>
+                    <input type="hidden" name="route" class="route" value="product/list"/>
                     <input type="text" name="search" class="text" value="<?php echo $search; ?>" />
                     <input type="submit" class="button button-search" value="搜 索">
-                    <input type="hidden" name="route" value="product/list"/>
+                    
+
                 </form>
                 <div class="hot">
                     <p><a>热门宝贝&nbsp;:</a></p>
@@ -111,7 +158,7 @@
             </div>
             <div class="others">
                 <ul class="nav">
-                    <li class="text"><a href="">首页</a></li>
+                    <li class="text"><a href="/index.php?route=common/home">首页</a></li>
                     <li class="line">|</li>
                     <li class="text"><a href="/index.php?route=product/list">我要寻宝</a></li>
                     <li class="line">|</li>
@@ -131,6 +178,10 @@
             </div>
         </div>
     </div>
+
+
+
+    <script type="text/javascript" src="catalog/view/javascript/baoku/common.js"></script>
 
     <!--
     <div class="links"><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></div>

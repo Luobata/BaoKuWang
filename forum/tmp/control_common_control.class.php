@@ -19,6 +19,8 @@ class common_control extends base_control {
 	public $_seo_keywords = '';	// header.htm keywords
 	public $_seo_description = '';	// header.htm description
 	public $_checked = array();	// 选中状态
+	//logo地址
+	public $logo;
 	
 	// 计划任务
 	protected $_cron_1_run = 0;	// 计划任务1 是否被激活, 15 分钟执行一次
@@ -43,6 +45,7 @@ class common_control extends base_control {
 		$this->check_domain();
 		$this->init_cron();
 		$this->init_online();
+		//$this->init_logo();
 		
 
 	}
@@ -63,7 +66,9 @@ class common_control extends base_control {
 			log::trace_save();
 		}
 	}
-	
+	// private function init_logo(){
+
+	// }
 	private function init_conf() {
 		$runtime = $this->runtime->xget();
 		$this->conf += $runtime; // view_path 占位，保留了 conf.view_path
@@ -75,7 +80,8 @@ class common_control extends base_control {
 		isset($runtime['view_convert_button']) && $this->conf['view_convert_button'] = $runtime['view_convert_button'];
 		
 		!isset($this->conf['logo_url']) && $this->conf['logo_url'] = $this->conf['app_url']; // 兼容 2.0.3
-		
+		//TODO从商城的数据库表中读取logourl
+
 
 	}
 	

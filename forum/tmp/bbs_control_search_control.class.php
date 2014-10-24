@@ -5,7 +5,7 @@
  */
 
 !defined('FRAMEWORK_PATH') && exit('FRAMEWORK_PATH not defined.');
-	include 'D:/WampServer/www/forum/tmp/control_common_control.class.php';
+	include 'C:/Users/yaogou/Documents/SoftWare/wamp/wamp/www/forum/tmp/control_common_control.class.php';
 
 class search_control extends common_control {
 	
@@ -133,7 +133,7 @@ class search_control extends common_control {
 	}
 	
 	private function get_list_by_sphinx($keyword, $fid, $daterange, $orderby, $page, $pagesize) {
-	include 'D:/WampServer/www/forum/tmp/control_sphinxapi.class.php';
+	include 'C:/Users/yaogou/Documents/SoftWare/wamp/wamp/www/forum/tmp/control_sphinxapi.class.php';
                 
                 $cl = new SphinxClient();
                 $cl->SetServer($this->conf['sphinx_host'], $this->conf['sphinx_port']);

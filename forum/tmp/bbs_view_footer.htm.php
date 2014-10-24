@@ -85,7 +85,7 @@
 <?php } else { ?>
 <script src="http://localhost/forum/view/js/jquery-1.4.min.js" type="text/javascript" ></script>
 <?php } ?>
-
+<script src="http://localhost/forum/view/js/baoku/common.js" type="text/javascript"></script>
 <script src="http://localhost/forum/view/js/common.js" type="text/javascript"></script>
 
 <script src="http://localhost/forum/view/js/dialog.js" type="text/javascript"></script>

@@ -17,10 +17,10 @@
 		</tr>
 	</table>
 	
-	<div style="padding: 8px;">
+	<!-- <div style="padding: 8px;">
 		<input type="text" id="srchkeyword" name="keyword" value="<?php echo isset($keyword) ? $keyword : '';?>" x-webkit-speech lang="zh-CN" style="width: 328px; height: 18px;" />
 		<a type="button" class="button smallblue" value="搜索" id="srchsubmit" href="javascript:void(0)" role="button"><span>搜索</span></a>
-	</div>
+	</div> -->
 	
 <?php if($keyword) { ?>
 	<table width="100%">

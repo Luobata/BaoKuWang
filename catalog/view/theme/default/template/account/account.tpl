@@ -49,16 +49,16 @@
        </ul>  
        <div class="left">
         <ul class="home-nav">
-          <li id="user-name"><a>于先生的宝贝</a></li>
-          <li><a href="">已发布的宝贝</a><span class="goods-num">5</span></li>
-          <li><a href="">已鉴定的宝贝</a></li>
-          <li><a href="">未鉴定的宝贝</a><span class="goods-num">20</span></li>
-          <li><a href="">已下架的宝贝</a><span class="goods-num">5</span></li>
-          <li ><a href="<?php echo $wishlist; ?>">收藏宝贝</a><span class="goods-num">5</span></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="<?php echo $edit; ?>">编辑个人资料</a></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="<?php echo $password; ?>">账户安全</a></li>
+          <li id="user-name"><a href="./index.php?route=account/account">个人中心</a></li>
+          <li><a href="./index.php?route=account/wishlist/postgoods&type=1">已发布的宝贝</a><span class="goods-num"></span></li>
+          <li><a href="./index.php?route=account/wishlist/postgoods&type=2">已下架的宝贝</a></li>
+          <li><a href="./index.php?route=account/wishlist/postgoods&type=3">未鉴定的宝贝</a><span class="goods-num"></span></li>
+          <li><a href="./index.php?route=account/wishlist/postgoods&type=4">已鉴定的宝贝</a><span class="goods-num"></span></li>
+          <li ><a href="./index.php?route=account/wishlist">收藏宝贝</a><span class="goods-num"></span></li>
+          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/edit">编辑个人资料</a></li>
+          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/password">账户安全</a></li>
         </ul>
- </div> 
+ </div>
 
        <form>
           <div class="form-content">
@@ -68,7 +68,7 @@
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <div class="input-title">用户名：</div>
-                   <input type="text" class="htitle input-content" value="余先生" style="color:#ccc"readonly>
+                   <input type="text" class="htitle input-content" value="<?php echo $customer_info['email'];?>" style="color:#ccc"readonly>
                     
           </div>
           <div class="row">
