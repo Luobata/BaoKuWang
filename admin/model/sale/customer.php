@@ -1,7 +1,17 @@
 <?php
 class ModelSaleCustomer extends Model {
 	public function addCustomer($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', newsletter = '" . (int)$data['newsletter'] . "', customer_group_id = '" . (int)$data['customer_group_id'] . "', salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', status = '" . (int)$data['status'] . "', date_added = NOW()");
+
+        //$this->db->query("INSERT INTO " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', newsletter = '" . (int)$data['newsletter'] . "', customer_group_id = '" . (int)$data['customer_group_id'] . "', salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', status = '" . (int)$data['status'] . "', date_added = NOW()");
+
+        $salt = substr(md5(uniqid(rand(), true)), 0, 9);
+        $password = sha1($salt . sha1($salt . sha1($data['password'])));
+        $sql = "INSERT INTO " . DB_PREFIX . "customer SET email = '" . $this->db->escape($data['email']) . "', salt = '" . $this->db->escape($salt) . "', password = '" . $this->db->escape($password) . "', name = '" . $this->db->escape($data['name']) . "', sex = '" . (int)$data['sex'] . "', zone = '" . $this->db->escape($data['zone']) . "', place = '" . $this->db->escape($data['place']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', qq = '" . $this->db->escape($data['qq']) . "', wechat = '" . $this->db->escape($data['wechat']) . "', status = '" . (($data['status'])?((int)($data['status'])):'1') . "', approved = '1'";
+
+        //echo $sql.'aa'.$password;
+        //exit();
+
+        $this->db->query($sql);
 
 		$customer_id = $this->db->getLastId();
 
@@ -19,9 +29,13 @@ class ModelSaleCustomer extends Model {
 	}
 
 	public function editCustomer($customer_id, $data) {
-		$this->db->query("UPDATE " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', newsletter = '" . (int)$data['newsletter'] . "', customer_group_id = '" . (int)$data['customer_group_id'] . "', status = '" . (int)$data['status'] . "' WHERE customer_id = '" . (int)$customer_id . "'");
+		//$this->db->query("UPDATE " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', newsletter = '" . (int)$data['newsletter'] . "', customer_group_id = '" . (int)$data['customer_group_id'] . "', status = '" . (int)$data['status'] . "' WHERE customer_id = '" . (int)$customer_id . "'");
+        if($data['password'])
+            $this->db->query("UPDATE " . DB_PREFIX . "customer SET email = '" . $this->db->escape($data['email']) . "', salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', name = '" . $this->db->escape($data['name']) . "', sex = '" . (int)$data['sex'] . "', zone = '" . $this->db->escape($data['zone']) . "', place = '" . $this->db->escape($data['place']) . "', telephone = '" . (int)($data['telephone']) . "', qq = '" . (int)($data['qq']) . "', wechat = '" . $this->db->escape($data['wechat']) . "', status = '" . (($data['status'])?((int)($data['status'])):'1') . "' WHERE customer_id = '" . (int)$customer_id . "'");
+        else
+            $this->db->query("UPDATE " . DB_PREFIX . "customer SET email = '" . $this->db->escape($data['email']) . "', name = '" . $this->db->escape($data['name']) . "', sex = '" . (int)$data['sex'] . "', zone = '" . $this->db->escape($data['zone']) . "', place = '" . $this->db->escape($data['place']) . "', telephone = '" . (int)($data['telephone']) . "', qq = '" . (int)($data['qq']) . "', wechat = '" . $this->db->escape($data['wechat']) . "', status = '" . (($data['status'])?((int)($data['status'])):'1') . "' WHERE customer_id = '" . (int)$customer_id . "'");
 
-		if ($data['password']) {
+        if ($data['password']) {
 			$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "' WHERE customer_id = '" . (int)$customer_id . "'");
 		}
 
@@ -65,17 +79,49 @@ class ModelSaleCustomer extends Model {
 	}
 
 	public function getCustomers($data = array()) {
-		$sql = "SELECT *, CONCAT(c.firstname, ' ', c.lastname) AS name1, cgd.name AS customer_group FROM " . DB_PREFIX . "customer c LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id) WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+		//$sql = "SELECT *, CONCAT(c.firstname, ' ', c.lastname) AS name1, cgd.name AS customer_group FROM " . DB_PREFIX . "customer c LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id) WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+        $sql = "SELECT * FROM " . DB_PREFIX . "customer";
 
 		$implode = array();
 
+        if (!empty($data['filter_email'])) {
+            $implode[] = "email LIKE '" . $this->db->escape($data['filter_email']) . "%'";
+        }
+
 		if (!empty($data['filter_name'])) {
-			$implode[] = "CONCAT(c.firstname, ' ', c.lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%'";
+			$implode[] = "name LIKE '%" . $this->db->escape($data['filter_name']) . "%'";
 		}
 
-		if (!empty($data['filter_email'])) {
-			$implode[] = "c.email LIKE '" . $this->db->escape($data['filter_email']) . "%'";
-		}
+        if (!empty($data['filter_sex'])) {
+            $implode[] = "sex = '" . (int)($data['filter_sex']) . "'";
+        }
+
+        if (!empty($data['filter_zone'])) {
+            $implode[] = "zone LIKE '%" . $this->db->escape($data['filter_zone']) . "%'";
+        }
+
+        if (!empty($data['filter_place'])) {
+            $implode[] = "place LIKE '%" . $this->db->escape($data['filter_place']) . "%'";
+        }
+
+        if (!empty($data['filter_telephone'])) {
+            $implode[] = "telephone LIKE '" . (int)($data['filter_telephone']) . "%'";
+        }
+
+        if (!empty($data['filter_qq'])) {
+            $implode[] = "qq LIKE '" . (int)($data['filter_qq']) . "%'";
+        }
+
+        if (!empty($data['filter_wechat'])) {
+            $implode[] = "wechat LIKE '%" . $this->db->escape($data['filter_wechat']) . "%'";
+        }
+
+        if (!empty($data['filter_status'])) {
+            $implode[] = "status = '" . (int)($data['filter_status']) . "'";
+        }
+
+
+        /*
 
 		if (isset($data['filter_newsletter']) && !is_null($data['filter_newsletter'])) {
 			$implode[] = "c.newsletter = '" . (int)$data['filter_newsletter'] . "'";
@@ -101,11 +147,15 @@ class ModelSaleCustomer extends Model {
 			$implode[] = "DATE(c.date_added) = DATE('" . $this->db->escape($data['filter_date_added']) . "')";
 		}
 
+        */
+
 		if ($implode) {
-			$sql .= " AND " . implode(" AND ", $implode);
+			$sql .= ' WHERE ' . implode(" AND ", $implode);
 		}
 
-		$sort_data = array(
+        /*
+
+        $sort_data = array(
 			'name',
 			'c.email',
 			'customer_group',
@@ -115,7 +165,6 @@ class ModelSaleCustomer extends Model {
 			'c.date_added'
 		);	
 
-        /*
 		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
 			$sql .= " ORDER BY " . $data['sort'];
 		} else {

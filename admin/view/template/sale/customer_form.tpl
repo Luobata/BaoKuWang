@@ -1,26 +1,34 @@
 <?php echo $header; ?>
 <div id="content">
+
   <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
     <?php } ?>
   </div>
+
   <?php if ($error_warning) { ?>
   <div class="warning"><?php echo $error_warning; ?></div>
   <?php } ?>
+
   <div class="box">
     <div class="heading">
       <h1><img src="view/image/customer.png" alt="" /> <?php echo $heading_title; ?></h1>
       <div class="buttons"><a onclick="$('#form').submit();" class="button"><?php echo $button_save; ?></a><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a></div>
     </div>
+
     <div class="content">
+      <!--
       <div id="htabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a>
         <?php if ($customer_id) { ?>
         <a href="#tab-history"><?php echo $tab_history; ?></a><a href="#tab-transaction"><?php echo $tab_transaction; ?></a><a href="#tab-reward"><?php echo $tab_reward; ?></a>
         <?php } ?>
         <a href="#tab-ip"><?php echo $tab_ip; ?></a></div>
+      -->
+
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
         <div id="tab-general">
+          <!--
           <div id="vtabs" class="vtabs"><a href="#tab-customer"><?php echo $tab_general; ?></a>
             <?php $address_row = 1; ?>
             <?php foreach ($addresses as $address) { ?>
@@ -28,22 +36,81 @@
             <?php $address_row++; ?>
             <?php } ?>
             <span id="address-add"><?php echo $button_add_address; ?>&nbsp;<img src="view/image/add.png" alt="" onclick="addAddress();" /></span></div>
-          <div id="tab-customer" class="vtabs-content">
+          -->
+
+          <div id="tab-customer" class="vtabs-content" style="margin-left: 0;">
             <table class="form">
+
               <tr>
-                <td><span class="required">*</span> <?php echo $entry_firstname; ?></td>
-                <td><input type="text" name="firstname" value="<?php echo $firstname; ?>" />
-                  <?php if ($error_firstname) { ?>
-                  <span class="error"><?php echo $error_firstname; ?></span>
+                <td><span class="required">*</span>&nbsp;邮箱</td>
+                <td><input type="text" name="email" value="<?php echo $email; ?>" />
+                  <?php if ($error_email) { ?>
+                  <span class="error"><?php echo $error_email; ?></span>
                   <?php } ?></td>
               </tr>
+
+                <tr>
+                    <?php if($password_access=='insert'){ ?><td><span class="required">*</span>&nbsp;设置密码</td><?php } elseif ($password_access=='update') { ?><td>重置密码（留空则不重置）</td><?php } ?>
+
+                    <td><input type="password" name="password" value="<?php echo $password; ?>"/>
+                        <?php if ($error_password) { ?>
+                        <span class="error"><?php echo $error_password; ?></span>
+                        <?php } ?></td>
+                </tr>
+
               <tr>
-                <td><span class="required">*</span> <?php echo $entry_lastname; ?></td>
-                <td><input type="text" name="lastname" value="<?php echo $lastname; ?>" />
-                  <?php if ($error_lastname) { ?>
-                  <span class="error"><?php echo $error_lastname; ?></span>
+                <td><span class="required">*</span>&nbsp;姓名</td>
+                <td><input type="text" name="name" value="<?php echo $name; ?>" />
+                  <?php if ($error_name) { ?>
+                  <span class="error"><?php echo $error_name; ?></span>
                   <?php } ?></td>
               </tr>
+
+                <tr>
+                    <td>性别（1为男，0为女，默认为0）</td>
+                    <td><input type="text" name="sex" value="<?php echo $sex; ?>" />
+                        <?php if ($error_sex) { ?>
+                        <span class="error"><?php echo $error_sex; ?></span>
+                        <?php } ?></td>
+                </tr>
+
+                <tr>
+                    <td>地区</td>
+                    <td><input type="text" name="zone" value="<?php echo $zone; ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td>详细地址</td>
+                    <td><input type="text" name="place" value="<?php echo $place; ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td>联系电话</td>
+                    <td><input type="text" name="telephone" value="<?php echo $telephone; ?>" />
+                        <?php if ($error_telephone) { ?>
+                        <span class="error"><?php echo $error_telephone; ?></span>
+                        <?php } ?></td>
+                </tr>
+
+                <tr>
+                    <td>QQ号码</td>
+                    <td><input type="text" name="qq" value="<?php echo $qq; ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td>微信号</td>
+                    <td><input type="text" name="wechat" value="<?php echo $wechat; ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td>状态（1为激活，0为未激活，默认为1）</td>
+                    <td><input type="text" name="status" value="<?php echo $status; ?>" />
+                        <?php if ($error_status) { ?>
+                        <span class="error"><?php echo $error_status; ?></span>
+                        <?php } ?></td>
+                </tr>
+
+                <!--
               <tr>
                 <td><span class="required">*</span> <?php echo $entry_email; ?></td>
                 <td><input type="text" name="email" value="<?php echo $email; ?>" />
@@ -112,8 +179,11 @@
                     <?php } ?>
                   </select></td>
               </tr>
+              -->
             </table>
           </div>
+
+          <!--
           <?php $address_row = 1; ?>
           <?php foreach ($addresses as $address) { ?>
           <div id="tab-address-<?php echo $address_row; ?>" class="vtabs-content">
@@ -207,7 +277,10 @@
           </div>
           <?php $address_row++; ?>
           <?php } ?>
+        -->
         </div>
+
+        <!--
         <?php if ($customer_id) { ?>
         <div id="tab-history">
           <div id="history"></div>
@@ -254,6 +327,7 @@
           <div id="reward"></div>
         </div>
         <?php } ?>
+
         <div id="tab-ip">
           <table class="list">
             <thead>
@@ -285,7 +359,7 @@
               <?php } ?>
             </tbody>
           </table>
-        </div>
+        </div>-->
       </form>
     </div>
   </div>

@@ -348,6 +348,7 @@
 <?php exit;?>	2014-10-23 17:16	127.0.0.1	/forum/?hot-listbyId-uid-0.htm	cron_1_next_time:2014-10-23 17:21	
 <?php exit;?>	2014-10-23 17:16	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-23 17:21	
 <?php exit;?>	2014-10-23 20:46	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-23 20:51	
+<<<<<<< Updated upstream
 =======
 =======
 =======
@@ -907,3 +908,8 @@
 <?php exit;?>	2014-10-24 19:57	::1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-24 20:02	
 <?php exit;?>	2014-10-24 20:04	::1	/forum/	cron_1_next_time:2014-10-24 20:09	
 <?php exit;?>	2014-10-24 20:09	::1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-24 20:14	
+=======
+<?php exit;?>	2014-10-24 20:09	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-24 20:14	
+<?php exit;?>	2014-10-24 20:09	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_2_next_time:2014-10-25 00:00	
+<?php exit;?>	2014-10-24 20:16	127.0.0.1	/forum/	cron_1_next_time:2014-10-24 20:21	
+>>>>>>> Stashed changes

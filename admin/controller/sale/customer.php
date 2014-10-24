@@ -19,6 +19,8 @@ class ControllerSaleCustomer extends Controller {
 
 		$this->load->model('sale/customer');
 
+        $this->data['password_access'] = 'insert';
+
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 			$this->model_sale_customer->addCustomer($this->request->post);
 
@@ -78,6 +80,8 @@ class ControllerSaleCustomer extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('sale/customer');
+
+        $this->data['password_access'] = 'update';
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 			$this->model_sale_customer->editCustomer($this->request->get['customer_id'], $this->request->post);
@@ -270,15 +274,83 @@ class ControllerSaleCustomer extends Controller {
 
         if (isset($this->request->get['filter_email'])) {
             $filter_email = $this->request->get['filter_email'];
+            $this->data['filter_email'] = $filter_email;
         } else {
             $filter_email = null;
+            $this->data['filter_email'] = '';
         }
 
         if (isset($this->request->get['filter_name'])) {
 			$filter_name = $this->request->get['filter_name'];
+            $this->data['filter_name'] = $filter_name;
 		} else {
 			$filter_name = null;
+            $this->data['filter_name'] = '';
 		}
+
+        if (isset($this->request->get['filter_sex'])) {
+            $filter_sex = $this->request->get['filter_sex'];
+            $this->data['filter_sex'] = $filter_sex;
+        } else {
+            $filter_sex = null;
+            $this->data['filter_sex'] = '';
+        }
+
+        if (isset($this->request->get['filter_zone'])) {
+            $filter_zone = $this->request->get['filter_zone'];
+            $this->data['filter_zone'] = $filter_zone;
+        } else {
+            $filter_zone = null;
+            $this->data['filter_zone'] = '';
+        }
+
+        if (isset($this->request->get['filter_place'])) {
+            $filter_place = $this->request->get['filter_place'];
+            $this->data['filter_place'] = $filter_place;
+        } else {
+            $filter_place = null;
+            $this->data['filter_place'] = '';
+        }
+
+        if (isset($this->request->get['filter_telephone'])) {
+            $filter_telephone = $this->request->get['filter_telephone'];
+            $this->data['filter_telephone'] = $filter_telephone;
+        } else {
+            $filter_telephone = null;
+            $this->data['filter_telephone'] = '';
+        }
+
+        if (isset($this->request->get['filter_qq'])) {
+            $filter_qq = $this->request->get['filter_qq'];
+            $this->data['filter_qq'] = $filter_qq;
+        } else {
+            $filter_qq = null;
+            $this->data['filter_qq'] = '';
+        }
+
+        if (isset($this->request->get['filter_wechat'])) {
+            $filter_wechat = $this->request->get['filter_wechat'];
+            $this->data['filter_wechat'] = $filter_wechat;
+        } else {
+            $filter_wechat = null;
+            $this->data['filter_wechat'] = '';
+        }
+
+        if (isset($this->request->get['filter_status'])) {
+            $filter_status = $this->request->get['filter_status'];
+            $this->data['filter_status'] = $filter_status;
+        } else {
+            $filter_status = null;
+            $this->data['filter_status'] = '';
+        }
+
+        if (isset($this->request->get['page'])) {
+            $page = $this->request->get['page'];
+        } else {
+            $page = 1;
+        }
+
+        /*
 
 		if (isset($this->request->get['filter_customer_group_id'])) {
 			$filter_customer_group_id = $this->request->get['filter_customer_group_id'];
@@ -308,7 +380,7 @@ class ControllerSaleCustomer extends Controller {
 			$filter_date_added = $this->request->get['filter_date_added'];
 		} else {
 			$filter_date_added = null;
-		}		
+		}
 
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
@@ -321,12 +393,8 @@ class ControllerSaleCustomer extends Controller {
 		} else {
 			$order = 'ASC';
 		}
+        */
 
-		if (isset($this->request->get['page'])) {
-			$page = $this->request->get['page'];
-		} else {
-			$page = 1;
-		}
 
 		$url = '';
 
@@ -388,20 +456,29 @@ class ControllerSaleCustomer extends Controller {
 		$this->data['insert'] = $this->url->link('sale/customer/insert', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		$this->data['delete'] = $this->url->link('sale/customer/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
+
+
+        // 获取用户数据
+
 		$this->data['customers'] = array();
 
 		$data = array(
-			'filter_name'              => $filter_name, 
-			'filter_email'             => $filter_email, 
-			'filter_customer_group_id' => $filter_customer_group_id, 
-			'filter_status'            => $filter_status, 
-			'filter_approved'          => $filter_approved, 
-			'filter_date_added'        => $filter_date_added,
-			'filter_ip'                => $filter_ip,
-			'sort'                     => $sort,
-			'order'                    => $order,
-			'start'                    => ($page - 1) * $this->config->get('config_admin_limit'),
-			'limit'                    => $this->config->get('config_admin_limit')
+            'filter_email'             => $filter_email,
+            'filter_name'              => $filter_name,
+            'filter_sex'               => $filter_sex,
+            'filter_zone'              => $filter_zone,
+            'filter_place'             => $filter_place,
+            'filter_telephone'         => $filter_telephone,
+            'filter_qq'                => $filter_qq,
+            'filter_wechat'            => $filter_wechat,
+			'filter_status'            => $filter_status,
+            'start'                    => ($page - 1) * $this->config->get('config_admin_limit'),
+            'limit'                    => $this->config->get('config_admin_limit')
+			//'filter_approved'          => $filter_approved,
+			//'filter_date_added'        => $filter_date_added,
+			//'filter_ip'                => $filter_ip,
+			//'sort'                     => $sort,
+			//'order'                    => $order,
 		);
 
 		$customer_total = $this->model_sale_customer->getTotalCustomers($data);
@@ -418,20 +495,26 @@ class ControllerSaleCustomer extends Controller {
 
 			$this->data['customers'][] = array(
 				'customer_id'    => $result['customer_id'],
+                'email'          => $result['email'],
 				'name'           => $result['name'],
-				'email'          => $result['email'],
-				'customer_group' => $result['customer_group'],
-				'status'         => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
-				'approved'       => ($result['approved'] ? $this->language->get('text_yes') : $this->language->get('text_no')),
-				'ip'             => $result['ip'],
-				'date_added'     => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'selected'       => isset($this->request->post['selected']) && in_array($result['customer_id'], $this->request->post['selected']),
-				'action'         => $action
+                'sex'            => $result['sex'],
+                'zone'           => $result['zone'],
+                'place'          => $result['place'],
+                'telephone'      => $result['telephone'],
+                'qq'             => $result['qq'],
+                'wechat'         => $result['wechat'],
+                'status'         => ($result['status']==1)?'已激活':'未激活',
+                'selected'       => isset($this->request->post['selected']) && in_array($result['customer_id'], $this->request->post['selected']),
+                'action'         => $action
+				//'customer_group' => $result['customer_group'],
+				//'status'         => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
+				//'approved'       => ($result['approved'] ? $this->language->get('text_yes') : $this->language->get('text_no')),
+				//'ip'             => $result['ip'],
+				//'date_added'     => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 			);
 		}	
 
 		$this->data['heading_title'] = $this->language->get('heading_title');
-
 		$this->data['text_enabled'] = $this->language->get('text_enabled');
 		$this->data['text_disabled'] = $this->language->get('text_disabled');
 		$this->data['text_yes'] = $this->language->get('text_yes');
@@ -439,7 +522,6 @@ class ControllerSaleCustomer extends Controller {
 		$this->data['text_select'] = $this->language->get('text_select');	
 		$this->data['text_default'] = $this->language->get('text_default');		
 		$this->data['text_no_results'] = $this->language->get('text_no_results');
-
 		$this->data['column_name'] = $this->language->get('column_name');
 		$this->data['column_email'] = $this->language->get('column_email');
 		$this->data['column_customer_group'] = $this->language->get('column_customer_group');
@@ -448,8 +530,7 @@ class ControllerSaleCustomer extends Controller {
 		$this->data['column_ip'] = $this->language->get('column_ip');
 		$this->data['column_date_added'] = $this->language->get('column_date_added');
 		$this->data['column_login'] = $this->language->get('column_login');
-		$this->data['column_action'] = $this->language->get('column_action');		
-
+		$this->data['column_action'] = $this->language->get('column_action');
 		$this->data['button_approve'] = $this->language->get('button_approve');
 		$this->data['button_insert'] = $this->language->get('button_insert');
 		$this->data['button_delete'] = $this->language->get('button_delete');
@@ -471,23 +552,30 @@ class ControllerSaleCustomer extends Controller {
 			$this->data['success'] = '';
 		}
 
+
+
 		$url = '';
+
+        if (isset($this->request->get['filter_email'])) {
+            $url .= '&filter_email=' . urlencode(html_entity_decode($this->request->get['filter_email'], ENT_QUOTES, 'UTF-8'));
+        }
 
 		if (isset($this->request->get['filter_name'])) {
 			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
 		}
 
-		if (isset($this->request->get['filter_email'])) {
-			$url .= '&filter_email=' . urlencode(html_entity_decode($this->request->get['filter_email'], ENT_QUOTES, 'UTF-8'));
-		}
-
-		if (isset($this->request->get['filter_customer_group_id'])) {
-			$url .= '&filter_customer_group_id=' . $this->request->get['filter_customer_group_id'];
-		}
-
 		if (isset($this->request->get['filter_status'])) {
 			$url .= '&filter_status=' . $this->request->get['filter_status'];
 		}
+
+        if (isset($this->request->get['page'])) {
+            $url .= '&page=' . $this->request->get['page'];
+        }
+
+        /*
+        if (isset($this->request->get['filter_customer_group_id'])) {
+            $url .= '&filter_customer_group_id=' . $this->request->get['filter_customer_group_id'];
+        }
 
 		if (isset($this->request->get['filter_approved'])) {
 			$url .= '&filter_approved=' . $this->request->get['filter_approved'];
@@ -506,10 +594,7 @@ class ControllerSaleCustomer extends Controller {
 		} else {
 			$url .= '&order=ASC';
 		}
-
-		if (isset($this->request->get['page'])) {
-			$url .= '&page=' . $this->request->get['page'];
-		}
+        */
 
 		$this->data['sort_name'] = $this->url->link('sale/customer', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
 		$this->data['sort_email'] = $this->url->link('sale/customer', 'token=' . $this->session->data['token'] . '&sort=c.email' . $url, 'SSL');
@@ -519,22 +604,50 @@ class ControllerSaleCustomer extends Controller {
 		$this->data['sort_ip'] = $this->url->link('sale/customer', 'token=' . $this->session->data['token'] . '&sort=c.ip' . $url, 'SSL');
 		$this->data['sort_date_added'] = $this->url->link('sale/customer', 'token=' . $this->session->data['token'] . '&sort=c.date_added' . $url, 'SSL');
 
+
+
+
 		$url = '';
+
+        if (isset($this->request->get['filter_email'])) {
+            $url .= '&filter_email=' . urlencode(html_entity_decode($this->request->get['filter_email'], ENT_QUOTES, 'UTF-8'));
+        }
 
 		if (isset($this->request->get['filter_name'])) {
 			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
 		}
 
-		if (isset($this->request->get['filter_email'])) {
-			$url .= '&filter_email=' . urlencode(html_entity_decode($this->request->get['filter_email'], ENT_QUOTES, 'UTF-8'));
-		}
+        if (isset($this->request->get['filter_sex'])) {
+            $url .= '&filter_sex=' . (int)$this->request->get['filter_sex'];
+        }
 
+        if (isset($this->request->get['filter_zone'])) {
+            $url .= '&filter_zone=' . urlencode(html_entity_decode($this->request->get['filter_zone'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_place'])) {
+            $url .= '&filter_place=' . urlencode(html_entity_decode($this->request->get['filter_place'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_telephone'])) {
+            $url .= '&filter_telephone=' . urlencode(html_entity_decode($this->request->get['filter_telephone'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_qq'])) {
+            $url .= '&filter_qq=' . urlencode(html_entity_decode($this->request->get['filter_qq'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_wechat'])) {
+            $url .= '&filter_wechat=' . urlencode(html_entity_decode($this->request->get['filter_wechat'], ENT_QUOTES, 'UTF-8'));
+        }
+
+        if (isset($this->request->get['filter_status'])) {
+            $url .= '&filter_status=' . (int)$this->request->get['filter_status'];
+        }
+
+        /*
 		if (isset($this->request->get['filter_customer_group_id'])) {
 			$url .= '&filter_customer_group_id=' . $this->request->get['filter_customer_group_id'];
-		}
-
-		if (isset($this->request->get['filter_status'])) {
-			$url .= '&filter_status=' . $this->request->get['filter_status'];
 		}
 
 		if (isset($this->request->get['filter_approved'])) {
@@ -556,6 +669,7 @@ class ControllerSaleCustomer extends Controller {
 		if (isset($this->request->get['order'])) {
 			$url .= '&order=' . $this->request->get['order'];
 		}
+        */
 
 		$pagination = new Pagination();
 		$pagination->total = $customer_total;
@@ -566,13 +680,11 @@ class ControllerSaleCustomer extends Controller {
 
 		$this->data['pagination'] = $pagination->render();
 
-		$this->data['filter_name'] = $filter_name;
-		$this->data['filter_email'] = $filter_email;
-		$this->data['filter_customer_group_id'] = $filter_customer_group_id;
-		$this->data['filter_status'] = $filter_status;
-		$this->data['filter_approved'] = $filter_approved;
-		$this->data['filter_ip'] = $filter_ip;
-		$this->data['filter_date_added'] = $filter_date_added;
+		//$this->data['filter_customer_group_id'] = $filter_customer_group_id;
+		//$this->data['filter_status'] = $filter_status;
+		//$this->data['filter_approved'] = $filter_approved;
+		//$this->data['filter_ip'] = $filter_ip;
+		//$this->data['filter_date_added'] = $filter_date_added;
 
 		$this->load->model('sale/customer_group');
 
@@ -582,8 +694,8 @@ class ControllerSaleCustomer extends Controller {
 
 		$this->data['stores'] = $this->model_setting_store->getStores();
 
-		$this->data['sort'] = $sort;
-		$this->data['order'] = $order;
+		//$this->data['sort'] = $sort;
+		//$this->data['order'] = $order;
 
 		$this->template = 'sale/customer_list.tpl';
 		$this->children = array(
@@ -653,16 +765,57 @@ class ControllerSaleCustomer extends Controller {
 
 		$this->data['token'] = $this->session->data['token'];
 
+
+        // 设置错误提示信息
+
+        if (isset($this->error['email'])) {
+            $this->data['error_email'] = $this->error['email'];
+        } else {
+            $this->data['error_email'] = '';
+        }
+
+        if (isset($this->error['name'])) {
+            $this->data['error_name'] = $this->error['name'];
+        } else {
+            $this->data['error_name'] = '';
+        }
+
+        if (isset($this->error['password'])) {
+            $this->data['error_password'] = $this->error['password'];
+        } else {
+            $this->data['error_password'] = '';
+        }
+
+        if (isset($this->error['sex'])) {
+            $this->data['error_sex'] = $this->error['sex'];
+        } else {
+            $this->data['error_sex'] = '';
+        }
+
+        if (isset($this->error['telephone'])) {
+            $this->data['error_telephone'] = $this->error['telephone'];
+        } else {
+            $this->data['error_telephone'] = '';
+        }
+
+        if (isset($this->error['status'])) {
+            $this->data['error_status'] = $this->error['status'];
+        } else {
+            $this->data['error_status'] = '';
+        }
+
+        if (isset($this->error['warning'])) {
+            $this->data['error_warning'] = $this->error['warning'];
+        } else {
+            $this->data['error_warning'] = '';
+        }
+
+        /*
+
 		if (isset($this->request->get['customer_id'])) {
 			$this->data['customer_id'] = $this->request->get['customer_id'];
 		} else {
 			$this->data['customer_id'] = 0;
-		}
-
-		if (isset($this->error['warning'])) {
-			$this->data['error_warning'] = $this->error['warning'];
-		} else {
-			$this->data['error_warning'] = '';
 		}
 
 		if (isset($this->error['firstname'])) {
@@ -675,12 +828,6 @@ class ControllerSaleCustomer extends Controller {
 			$this->data['error_lastname'] = $this->error['lastname'];
 		} else {
 			$this->data['error_lastname'] = '';
-		}
-
-		if (isset($this->error['email'])) {
-			$this->data['error_email'] = $this->error['email'];
-		} else {
-			$this->data['error_email'] = '';
 		}
 
 		if (isset($this->error['telephone'])) {
@@ -749,6 +896,8 @@ class ControllerSaleCustomer extends Controller {
 			$this->data['error_address_zone'] = '';
 		}
 
+        */
+
 		$url = '';
 
 		if (isset($this->request->get['filter_name'])) {
@@ -809,9 +958,96 @@ class ControllerSaleCustomer extends Controller {
 
 		$this->data['cancel'] = $this->url->link('sale/customer', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
+
+
+        // 预先填充数据
+
 		if (isset($this->request->get['customer_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$customer_info = $this->model_sale_customer->getCustomer($this->request->get['customer_id']);
 		}
+
+        if (isset($this->request->post['email'])) {
+            $this->data['email'] = $this->request->post['email'];
+        } elseif (!empty($customer_info)) {
+            $this->data['email'] = $customer_info['email'];
+        } else {
+            $this->data['email'] = '';
+        }
+
+        if (isset($this->request->post['name'])) {
+            $this->data['name'] = $this->request->post['name'];
+        } elseif (!empty($customer_info)) {
+            $this->data['name'] = $customer_info['name'];
+        } else {
+            $this->data['name'] = '';
+        }
+
+        if (isset($this->request->post['sex'])) {
+            $this->data['sex'] = $this->request->post['sex'];
+        } elseif (!empty($customer_info)) {
+            $this->data['sex'] = $customer_info['sex'];
+        } else {
+            $this->data['sex'] = '';
+        }
+
+        if (isset($this->request->post['zone'])) {
+            $this->data['zone'] = $this->request->post['zone'];
+        } elseif (!empty($customer_info)) {
+            $this->data['zone'] = $customer_info['zone'];
+        } else {
+            $this->data['zone'] = '';
+        }
+
+        if (isset($this->request->post['place'])) {
+            $this->data['place'] = $this->request->post['place'];
+        } elseif (!empty($customer_info)) {
+            $this->data['place'] = $customer_info['place'];
+        } else {
+            $this->data['place'] = '';
+        }
+
+        if (isset($this->request->post['telephone'])) {
+            $this->data['telephone'] = $this->request->post['telephone'];
+        } elseif (!empty($customer_info)) {
+            $this->data['telephone'] = $customer_info['telephone'];
+        } else {
+            $this->data['telephone'] = '';
+        }
+
+        if (isset($this->request->post['qq'])) {
+            $this->data['qq'] = $this->request->post['qq'];
+        } elseif (!empty($customer_info)) {
+            $this->data['qq'] = $customer_info['qq'];
+        } else {
+            $this->data['qq'] = '';
+        }
+
+        if (isset($this->request->post['wechat'])) {
+            $this->data['wechat'] = $this->request->post['wechat'];
+        } elseif (!empty($customer_info)) {
+            $this->data['wechat'] = $customer_info['wechat'];
+        } else {
+            $this->data['wechat'] = '';
+        }
+
+        if (isset($this->request->post['status'])) {
+            $this->data['status'] = $this->request->post['status'];
+        } elseif (!empty($customer_info)) {
+            $this->data['status'] = $customer_info['status'];
+        } else {
+            $this->data['status'] = '';
+        }
+
+        if (isset($this->request->post['password'])) {
+            $this->data['password'] = $this->request->post['password'];
+        } else {
+            $this->data['password'] = '';
+        }
+
+
+        //var_dump($this->data);
+
+        /*
 
 		if (isset($this->request->post['firstname'])) {
 			$this->data['firstname'] = $this->request->post['firstname'];
@@ -861,6 +1097,8 @@ class ControllerSaleCustomer extends Controller {
 			$this->data['newsletter'] = '';
 		}
 
+        */
+
 		$this->load->model('sale/customer_group');
 
 		$this->data['customer_groups'] = $this->model_sale_customer_group->getCustomerGroups();
@@ -873,13 +1111,16 @@ class ControllerSaleCustomer extends Controller {
 			$this->data['customer_group_id'] = $this->config->get('config_customer_group_id');
 		}
 
+
+        /*
 		if (isset($this->request->post['status'])) {
 			$this->data['status'] = $this->request->post['status'];
 		} elseif (!empty($customer_info)) {
 			$this->data['status'] = $customer_info['status'];
 		} else {
-			$this->data['status'] = 1;
+			$this->data['status'] = '';
 		}
+
 
 		if (isset($this->request->post['password'])) {
 			$this->data['password'] = $this->request->post['password'];
@@ -892,6 +1133,7 @@ class ControllerSaleCustomer extends Controller {
 		} else {
 			$this->data['confirm'] = '';
 		}
+        */
 
 		$this->load->model('localisation/country');
 
@@ -945,6 +1187,44 @@ class ControllerSaleCustomer extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
+        if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
+            $this->error['email'] = $this->language->get('error_email');
+        }
+
+        if ((utf8_strlen($this->request->post['name']) < 1) || (utf8_strlen($this->request->post['name']) > 40)) {
+            $this->error['name'] = '姓名不能为空且最长为40个字符';
+        }
+
+        if( $this->request->post['sex'] ) {
+            if ((utf8_strlen($this->request->post['sex']) != 0) && (utf8_strlen($this->request->post['sex']) !=1 )) {
+                $this->error['sex'] = '性别必须是1或0';
+            }
+        }
+
+        if( $this->request->post['status'] ) {
+            if ((utf8_strlen($this->request->post['status']) != 0) && (utf8_strlen($this->request->post['status']) !=1 )) {
+                $this->error['status'] = '状态必须是1或0';
+            }
+        }
+
+        if( $this->request->post['telephone'] ) {
+            if (utf8_strlen($this->request->post['telephone']) != 11) {
+                $this->error['telephone'] = '手机号必须为11位';
+            }
+        }
+
+        if ( $this->data['password_access'] == 'insert' ) {
+            if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20) ) {
+                $this->error['password'] ='密码必须是4到20位';
+            }
+        } elseif ( $this->data['password_access'] == 'update' ) {
+            if ( (utf8_strlen($this->request->post['password']) > 0) &&
+                 ( (utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20) ) ) {
+                $this->error['password'] ='重置的密码必须是4到20位';
+            }
+        }
+
+        /*
 		if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}
@@ -953,9 +1233,7 @@ class ControllerSaleCustomer extends Controller {
 			$this->error['lastname'] = $this->language->get('error_lastname');
 		}
 
-		if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
-			$this->error['email'] = $this->language->get('error_email');
-		}
+
 
 		$customer_info = $this->model_sale_customer->getCustomerByEmail($this->request->post['email']);
 
@@ -1027,6 +1305,7 @@ class ControllerSaleCustomer extends Controller {
 				}	
 			}
 		}
+        */
 
 		if ($this->error && !isset($this->error['warning'])) {
 			$this->error['warning'] = $this->language->get('error_warning');

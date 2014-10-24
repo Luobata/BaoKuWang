@@ -76,15 +76,15 @@
           <tbody>
             <tr class="filter">
                 <td></td>
-                <td><input type="text" name="filter_email" value="<?php echo $filter_email; ?>" /></td>
-                <td><input type="text" name="filter_name" value="<?php echo $filter_name; ?>" /></td>
-                <td><input type="text" name="filter_sex" value="<?php echo $filter_sex; ?>" /></td>
-                <td><input type="text" name="filter_zone" value="<?php echo $filter_zone; ?>" /></td>
+                <td><input type="text" style="width:160px;" name="filter_email" value="<?php echo $filter_email; ?>" /></td>
+                <td><input type="text" style="width:70px;" name="filter_name" value="<?php echo $filter_name; ?>" /></td>
+                <td><input type="text" style="width:35px;" name="filter_sex" value="<?php echo $filter_sex; ?>" /></td>
+                <td><input type="text" style="width:60px;" name="filter_zone" value="<?php echo $filter_zone; ?>" /></td>
                 <td><input type="text" name="filter_place" value="<?php echo $filter_place; ?>" /></td>
-                <td><input type="text" name="filter_telephone" value="<?php echo $filter_telephone; ?>" /></td>
-                <td><input type="text" name="filter_qq" value="<?php echo $filter_qq; ?>" /></td>
-                <td><input type="text" name="filter_wechat" value="<?php echo $filter_wechat; ?>" /></td>
-                <td><input type="text" name="filter_status" value="<?php echo $filter_status; ?>" /></td>
+                <td><input type="text" style="width:110px;" name="filter_telephone" value="<?php echo $filter_telephone; ?>" /></td>
+                <td><input type="text" style="width:130px;" name="filter_qq" value="<?php echo $filter_qq; ?>" /></td>
+                <td><input type="text" style="width:100px;" name="filter_wechat" value="<?php echo $filter_wechat; ?>" /></td>
+                <td><input type="text" style="width:35px;" name="filter_status" value="<?php echo $filter_status; ?>" /></td>
                 <td align="right"><a onclick="filter();" class="button"><?php echo $button_filter; ?></a></td>
 
               <!--
@@ -169,7 +169,7 @@
             <?php } ?>
             <?php } else { ?>
             <tr>
-              <td class="center" colspan="10"><?php echo $text_no_results; ?></td>
+              <td class="center" colspan="11"><?php echo $text_no_results; ?></td>
             </tr>
             <?php } ?>
           </tbody>
@@ -184,31 +184,68 @@
 <script type="text/javascript"><!--
 function filter() {
 	url = 'index.php?route=sale/customer&token=<?php echo $token; ?>';
-	
+
+    var filter_email = $('input[name=\'filter_email\']').attr('value');
+
+    if (filter_email) {
+        url += '&filter_email=' + encodeURIComponent(filter_email);
+    }
+
 	var filter_name = $('input[name=\'filter_name\']').attr('value');
 	
 	if (filter_name) {
 		url += '&filter_name=' + encodeURIComponent(filter_name);
 	}
-	
-	var filter_email = $('input[name=\'filter_email\']').attr('value');
-	
-	if (filter_email) {
-		url += '&filter_email=' + encodeURIComponent(filter_email);
-	}
-	
+
+    var filter_sex = $('input[name=\'filter_sex\']').attr('value');
+
+    if (filter_sex) {
+        url += '&filter_sex=' + encodeURIComponent(filter_sex);
+    }
+
+    var filter_zone = $('input[name=\'filter_zone\']').attr('value');
+
+    if (filter_zone) {
+        url += '&filter_zone=' + encodeURIComponent(filter_zone);
+    }
+
+    var filter_place = $('input[name=\'filter_place\']').attr('value');
+
+    if (filter_place) {
+        url += '&filter_place=' + encodeURIComponent(filter_place);
+    }
+
+    var filter_telephone = $('input[name=\'filter_telephone\']').attr('value');
+
+    if (filter_telephone) {
+        url += '&filter_telephone=' + encodeURIComponent(filter_telephone);
+    }
+
+    var filter_qq = $('input[name=\'filter_qq\']').attr('value');
+
+    if (filter_qq) {
+        url += '&filter_qq=' + encodeURIComponent(filter_qq);
+    }
+
+    var filter_wechat = $('input[name=\'filter_wechat\']').attr('value');
+
+    if (filter_wechat) {
+        url += '&filter_wechat=' + encodeURIComponent(filter_wechat);
+    }
+
+    var filter_status = $('input[name=\'filter_status\']').attr('value');
+
+    if (filter_status) {
+        url += '&filter_status=' + encodeURIComponent(filter_status);
+    }
+
+    /*
 	var filter_customer_group_id = $('select[name=\'filter_customer_group_id\']').attr('value');
 	
 	if (filter_customer_group_id != '*') {
 		url += '&filter_customer_group_id=' + encodeURIComponent(filter_customer_group_id);
 	}	
-	
-	var filter_status = $('select[name=\'filter_status\']').attr('value');
-	
-	if (filter_status != '*') {
-		url += '&filter_status=' + encodeURIComponent(filter_status); 
-	}	
-	
+
 	var filter_approved = $('select[name=\'filter_approved\']').attr('value');
 	
 	if (filter_approved != '*') {
@@ -226,6 +263,7 @@ function filter() {
 	if (filter_date_added) {
 		url += '&filter_date_added=' + encodeURIComponent(filter_date_added);
 	}
+	*/
 	
 	location = url;
 }
