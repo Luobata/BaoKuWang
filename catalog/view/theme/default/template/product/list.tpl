@@ -111,7 +111,11 @@
         <div class="row">
             <?php foreach( $products as $key => $product ) { ?>
             <div class="col<?php if((($key+1)%4)==0){ ?> col-last<?php } ?>">
-                <div class="col_img"><a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>">
+                <div class="col_img">
+                  <?php if($product['identify']==1){;?>
+                  <div class="jian">鉴</div>
+                  <?php };?>
+                  <a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>">
                 <img src="/image/<?php echo $product['image'];?>"></img></a></div>
                 <h3 class="item-title"><a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>"><?php echo $product['title'];?></a></h3>
                 <div class="price-info"><span class="price"><b>￥<?php echo $product['price'];?></b></span></div>

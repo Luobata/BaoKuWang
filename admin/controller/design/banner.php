@@ -7,6 +7,7 @@ class ControllerDesignBanner extends Controller {
             $banner_id = $_POST['bid'];
             $this->load->model('design/banner');
             $images = $this->model_design_banner->getBannerImages($banner_id);
+            //var_dump($images);
             // 数组 - 字符串 转换
             $post_split = '#split#';
             $echo = '';
@@ -78,7 +79,11 @@ class ControllerDesignBanner extends Controller {
 		$this->load->model('design/banner');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_design_banner->editBanner($this->request->get['banner_id'], $this->request->post);
+			if( $this->request->get['banner_id']==9 ) {
+                $this->model_design_banner->editBanner($this->request->get['banner_id'], $this->request->post);
+            } elseif( $this->request->get['banner_id']==10 || $this->request->get['banner_id']==11 ) {
+                $this->model_design_banner->editBanner_other($this->request->get['banner_id'], $this->request->post);
+            }
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -423,7 +428,21 @@ class ControllerDesignBanner extends Controller {
 			'common/footer'
 		);
 
-		$this->response->setOutput($this->render());
+        // 设置几类图片不同的显示方式
+        $this->data['banner_type'] = '';
+        if (isset($this->request->get['banner_id'])) {
+            if( $this->request->get['banner_id']==9 ) {
+                $this->data['banner_type'] = 'lunbo';
+            }
+            if( $this->request->get['banner_id']==10 ) {
+                $this->data['banner_type'] = 'tuijian';
+            }
+            if( $this->request->get['banner_id']==11 ) {
+                $this->data['banner_type'] = 'remen';
+            }
+        }
+
+        $this->response->setOutput($this->render());
 	}
 
 	protected function validateForm() {

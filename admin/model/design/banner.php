@@ -24,6 +24,9 @@ class ModelDesignBanner extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "banner_image WHERE banner_id = '" . (int)$banner_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "banner_image_description WHERE banner_id = '" . (int)$banner_id . "'");
 
+        //var_dump($data['banner_image']);
+        //exit();
+
 		if (isset($data['banner_image'])) {
 			foreach ($data['banner_image'] as $banner_image) {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "banner_image SET banner_id = '" . (int)$banner_id . "', link = '" .  $this->db->escape($banner_image['link']) . "', image = '" .  $this->db->escape($banner_image['image']) . "'");
@@ -36,6 +39,28 @@ class ModelDesignBanner extends Model {
 			}
 		}			
 	}
+
+    public function editBanner_other($banner_id, $data) {
+        $this->db->query("UPDATE " . DB_PREFIX . "banner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "' WHERE banner_id = '" . (int)$banner_id . "'");
+
+        $this->db->query("DELETE FROM " . DB_PREFIX . "banner_image WHERE banner_id = '" . (int)$banner_id . "'");
+        $this->db->query("DELETE FROM " . DB_PREFIX . "banner_image_description WHERE banner_id = '" . (int)$banner_id . "'");
+
+        //var_dump($data['banner_image']);
+        //exit();
+
+        if (isset($data['banner_image'])) {
+
+            $count = count($data['banner_image']);
+            for( $i=0 ; $i<$count ; $i++ ) {
+                $this->db->query("INSERT INTO " . DB_PREFIX . "banner_image SET banner_id = '" . (int)$banner_id . "', link = '" .  $this->db->escape($data['banner_image'][$i]['link']) . "', image = '" .  $this->db->escape($data['banner_image'][$i]['image']) . "'");
+                $banner_image_id = $this->db->getLastId();
+                foreach ($data['banner_image'][$i]['banner_image_description'] as $language_id => $banner_image_description) {
+                    $this->db->query("INSERT INTO " . DB_PREFIX . "banner_image_description SET banner_image_id = '" . (int)$banner_image_id . "', language_id = '" . (int)$language_id . "', banner_id = '" . (int)$banner_id . "', title = '" .  $this->db->escape($banner_image_description['title']) . "'");
+                }
+            }
+        }
+    }
 
 	public function deleteBanner($banner_id) {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "banner WHERE banner_id = '" . (int)$banner_id . "'");

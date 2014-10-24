@@ -47,7 +47,12 @@ class ModelCatalogProduct extends Model {
         if( isset($data['filter_price_2']) ) {
             $sql .= " AND p.price >= " . (int)$data['filter_price_2']['low'] . " AND p.price < " . (int)$data['filter_price_2']['high'];
         }
-
+        if( isset($data['search']) ) {
+            $sql .= " AND CONCAT( p.title , p.detail ) LIKE '%" . $this->db->escape($data['search']) . "%'";
+        }
+        if( isset($data['series'])){
+            $sql.=" AND p.serial = '".$data['series']."' ";
+        }
         // 排序
         if( isset($data['order']) ) {
             $order = $this->db->escape($data['order']);
@@ -111,12 +116,12 @@ class ModelCatalogProduct extends Model {
         		$sql.="AND p.status=0";
         		break;}
         	case '3':{
-        		//已鉴定
-        		$sql.="AND p.identify=1";
-        		break;}
-        	case '4':{
         		//未鉴定
         		$sql.="AND p.identify=0";
+        		break;}
+        	case '4':{
+        		//已鉴定
+        		$sql.="AND p.identify=1";
         		break;}
         }
         //echo $sql;

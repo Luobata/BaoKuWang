@@ -186,3 +186,48 @@ Array
     [bbs_lastonlineupdate] => 1413830269
 )
  - 1.885
+
+
+---------------------------------------------------------------------------------
+<?php exit;?>
+---------------------------------------------------------------------------------
+/forum/?ueditor-uploadimage-ajax-1.htm
+POST:Array
+(
+    [dir] => 1
+    [fileName] => jew1.png
+    [Filename] => jew1.png
+    [pictitle] => jew1.png
+    [param2] => value2
+    [param1] => value1
+    [Upload] => Submit Query
+)
+
+SQL:Array
+(
+    [0] => SELECT * FROM bbs_runtime WHERE k='runtime' LIMIT 1
+    [1] => SELECT * FROM bbs_group WHERE groupid='1' LIMIT 1
+    [2] => SELECT * FROM bbs_user WHERE uid='1' LIMIT 1
+    [3] => SELECT maxid FROM bbs_framework_maxid WHERE name='attach'
+    [4] => UPDATE bbs_framework_maxid SET maxid=maxid+'1' WHERE name='attach' LIMIT 1
+    [5] => SELECT count FROM bbs_framework_count WHERE name='attach'
+    [6] => UPDATE bbs_framework_count SET count='3' WHERE name='attach' LIMIT 1
+    [7] => SELECT * FROM bbs_attach WHERE fid='0' AND aid='5' LIMIT 1
+    [8] => INSERT INTO bbs_attach SET fid='0',tid='0',pid='0',filesize='0',width='0',height='0',filename='',orgfilename='jew1.png',filetype='image',dateline='1413979965',comment='',downloads='0',isimage='1',golds='0',uid='1',aid='5'
+    [9] => UPDATE bbs_attach SET fid='0',tid='0',pid='0',filesize='11503',width='200',height='200',filename='000/000/15eb8eecfb67b7a4f6c8e6b0a87696a8.jpg',orgfilename='jew1.png',filetype='image',dateline='1413979965',comment='',downloads='0',isimage='1',golds='0',uid='1',aid='5' WHERE fid='0' AND aid='5' LIMIT 1
+)
+
+Array
+(
+    [timeoffset] => +08
+    [bbs_sid] => 69c9da69e25418c3
+    [bbs_lastday] => 1413896164
+    [bbs_page] => 1
+    [CKFinder_Path] => Images:/:1
+    [PHPSESSID] => glplmt47d96psfmu2vm0uiqkm4
+    [bbs_auth] => 7t1o5NiTv1UffeYFOUJ4Py4c6EBghipZSin2ZDtVM2D30lwtigDYOQ%3D%3D
+    [__atuvc] => 298|43
+    [bbs_lastonlineupdate] => 1413979805
+    [bbs_admin_auth] => 5taxAkRay3DDtkFZn4kVAhz18a8%3D
+)
+ - 1.522

@@ -41,9 +41,11 @@
             <td><?php echo $entry_email; ?></td>
             <td><input type="text" name="email" value="<?php echo $email; ?>" /></td>
           </tr>
-          <tr>
+          <tr style="display: none;">
             <td><?php echo $entry_user_group; ?></td>
             <td><select name="user_group_id">
+                <option value="1" selected="selected"></option>
+                <!--
                 <?php foreach ($user_groups as $user_group) { ?>
                 <?php if ($user_group['user_group_id'] == $user_group_id) { ?>
                 <option value="<?php echo $user_group['user_group_id']; ?>" selected="selected"><?php echo $user_group['name']; ?></option>
@@ -51,6 +53,7 @@
                 <option value="<?php echo $user_group['user_group_id']; ?>"><?php echo $user_group['name']; ?></option>
                 <?php } ?>
                 <?php } ?>
+                -->
               </select></td>
           </tr>
           <tr>
@@ -67,9 +70,12 @@
               <span class="error"><?php echo $error_confirm; ?></span>
               <?php  } ?></td>
           </tr>
-          <tr>
+          <tr style="display: none;">
             <td><?php echo $entry_status; ?></td>
             <td><select name="status">
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <!--
                 <?php if ($status) { ?>
                 <option value="0"><?php echo $text_disabled; ?></option>
                 <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
@@ -77,6 +83,7 @@
                 <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
                 <option value="1"><?php echo $text_enabled; ?></option>
                 <?php } ?>
+                -->
               </select></td>
           </tr>
         </table>

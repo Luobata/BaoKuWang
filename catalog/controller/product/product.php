@@ -10,7 +10,12 @@ class ControllerProductProduct extends Controller {
 		$this->data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('text_home'),
 			'href'      => $this->url->link('common/home'),
-			'separator' => false
+			'separator' => true
+		);
+		$this->data['breadcrumbs'][] = array(
+			'text'      => '我要寻宝',
+			'href'      => $this->url->link('product/list'),
+			'separator' => true
 		);
 
 		$this->load->model('catalog/category');
@@ -165,8 +170,14 @@ class ControllerProductProduct extends Controller {
 		//var_export($_SESSION);
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
-		var_dump($product_info);
-		
+		//var_dump($product_info);
+		//尝试根据电话号码生成图片
+		//加入面包屑
+		// $this->data['breadcrumbs'][] = array(
+		// 	'text'      => $product_info['title'],
+		// 	'href'      => false,
+		// 	'separator' => false
+		// );
 		if ($product_info) {
 			$url = '';
 
@@ -219,9 +230,9 @@ class ControllerProductProduct extends Controller {
 			}
 
 			$this->data['breadcrumbs'][] = array(
-				'text'      => $product_info['name'],
+				'text'      => $product_info['title'],
 				'href'      => $this->url->link('product/product', $url . '&product_id=' . $this->request->get['product_id']),
-				'separator' => $this->language->get('text_separator')
+				'separator' => false
 			);
 
 			$this->document->setTitle($product_info['name']);
@@ -288,7 +299,10 @@ class ControllerProductProduct extends Controller {
 			//加入cid
 			$this->data['cid']=$product_info['cid'];
 			$this->data['place']=$product_info['place'];
-			$this->data['mobile']=$product_info['mobile'];
+			$this->data['mobile']=base64_encode($product_info['mobile']);
+			$this->data['viewed']=$product_info['viewed'];
+			//echo(base64_encode($product_info['mobile']));
+			//echo(base64_decode(base64_encode($product_info['mobile'])));
 			$this->data['qq']=$product_info['qq'];
 			$this->data['wechat']=$product_info['wechat'];
 			$this->data['detail']=$product_info['detail'];
@@ -316,7 +330,7 @@ class ControllerProductProduct extends Controller {
 			//var_dump($this->model_catalog_product->getLatestProductsByCid($product_info['cid'],3));
 			//获取相关联的图片的信息
 			$this->data['product_images']=$this->model_catalog_product->getProductImages($product_id);
-			var_dump($this->data['product_images']);
+			//var_dump($this->data['product_images']);
 
 			if ($product_info['quantity'] <= 0) {
 				$this->data['stock'] = $product_info['stock_status'];

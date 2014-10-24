@@ -123,7 +123,9 @@ class ControllerAccountWishList extends Controller {
 				unset($this->session->data['wishlist'][$key]);
 			}
 		}
-		//var_dump($this->data);	
+
+		//var_dump($this->data);
+
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
 		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');
@@ -183,13 +185,13 @@ class ControllerAccountWishList extends Controller {
         	case '3':{
         		//已鉴定
         		for ($i=0; $i <sizeof($product_info) ; $i++) { 
-        			$product_info[$i]['identify']="已鉴定";
+        			$product_info[$i]['identify']="未鉴定";
         		}
         		break;}
         	case '4':{
         		//未鉴定
         		for ($i=0; $i <sizeof($product_info) ; $i++) { 
-        			$product_info[$i]['identify']="未鉴定";
+        			$product_info[$i]['identify']="已鉴定";
         		}
         		break;}
 		}
@@ -270,7 +272,7 @@ class ControllerAccountWishList extends Controller {
         		break;}
 		}
 		$this->data['product']=$product_info;
-		//var_dump($this->data['product']);	
+		//var_dump($this->data['product']);
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
 		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');

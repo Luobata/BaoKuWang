@@ -27,11 +27,12 @@
                 <?php } else { ?>
                 <a href="<?php echo $sort_username; ?>"><?php echo $column_username; ?></a>
                 <?php } ?></td>
+              <!--
               <td class="left"><?php if ($sort == 'status') { ?>
                 <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
                 <?php } else { ?>
                 <a href="<?php echo $sort_status; ?>"><?php echo $column_status; ?></a>
-                <?php } ?></td>
+                <?php } ?></td>-->
               <td class="left"><?php if ($sort == 'date_added') { ?>
                 <a href="<?php echo $sort_date_added; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_date_added; ?></a>
                 <?php } else { ?>
@@ -50,7 +51,7 @@
                 <input type="checkbox" name="selected[]" value="<?php echo $user['user_id']; ?>" />
                 <?php } ?></td>
               <td class="left"><?php echo $user['username']; ?></td>
-              <td class="left"><?php echo $user['status']; ?></td>
+              <!--<td class="left"><?php echo $user['status']; ?></td>-->
               <td class="left"><?php echo $user['date_added']; ?></td>
               <td class="right"><?php foreach ($user['action'] as $action) { ?>
                 [ <a href="<?php echo $action['href']; ?>"><?php echo $action['text']; ?></a> ]

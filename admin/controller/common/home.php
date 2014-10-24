@@ -199,6 +199,8 @@ class ControllerCommonHome extends Controller {
 			'common/footer'
 		);
 
+        $this->redirect(HTTP_SERVER . 'index.php?route=catalog/product&token=' . $this->data['token'] );
+
 		$this->response->setOutput($this->render());
 	}
 

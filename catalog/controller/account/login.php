@@ -132,7 +132,7 @@ class ControllerAccountLogin extends Controller {
 			} elseif( isset($_POST['do']) && $_POST['do']=='active' ) {
                 $this->redirect($this->url->link('account/edit', '', 'SSL'));
             } else {
-				$this->redirect($this->url->link('account/account', '', 'SSL')); 
+				$this->redirect($this->url->link('account/account', '', 'SSL'));
 			}
 		}
 

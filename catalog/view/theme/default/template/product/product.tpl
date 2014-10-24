@@ -570,17 +570,26 @@ Aui.ready( function()
 });
 </script>
 <div class="content">
-  <div class="breadcrumb">
+  <!-- <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
     <?php } ?>
-  </div>
-    <ul class="c_head">
+  </div>  -->
+  <ul class="c_head">  
+  <?php foreach ($breadcrumbs as $breadcrumb) { ?> 
+      <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+      <?php if($breadcrumb['separator']===true){?>
+      &nbsp;>&nbsp;
+      <?php };?>
+      </li>
+  <?php } ?>
+ </ul>
+    <!-- <ul class="c_head">
       <li><a href="">首页 >&nbsp</a></li>
       <li><a href="">古董古玩 >&nbsp</a></li>
       <li><a href="">戒指指环 >&nbsp</a></li>
       <li><a href="">Bvlgari(宝格丽)PARENTESI系列18K黄金窄版镂空戒指</a></li>
-    </ul>
+    </ul> -->
 
     <div class="d_first">
       <div class="f_pics">
@@ -627,13 +636,16 @@ Aui.ready( function()
           <li>卖&nbsp&nbsp&nbsp家 :<span>&nbsp&nbsp&nbsp;<?php echo$customer_name;?></span></li>
           <!-- <li>咨&nbsp&nbsp&nbsp询 :<span>&nbsp&nbsp&nbsp</span><a href="javascript:show()"><img src="./catalog/view/theme/default/image/baoku/liuyan.png"></a>
           </li> -->
+
           <li>联&nbsp&nbsp&nbsp系 :
             <span class="show" >&nbsp;
+              <img class="show_mobile"src="./catalog/view/theme/default/template/product/image.php?id=<?php echo $mobile;?>">
               <a  href="javascript:show()"> <img src="./catalog/view/theme/default/image/baoku/lianxi.png"></a></span></li>
           <li>QQ&nbsp号 :<span>&nbsp&nbsp&nbsp;<?php echo$qq;?>&nbsp
             
            <!-- <img src="./catalog/view/theme/default/image/baoku/linshi.png"> --></span></li>
           <li>微信号 :<span>&nbsp&nbsp&nbsp;<?php echo$wechat;?></span></li>
+          <li>浏览数 :<span>&nbsp&nbsp&nbsp;<?php echo$viewed;?></span></li>
         </div>
         
         <div class="f_click">
@@ -751,7 +763,8 @@ $.ajax({
 });
  function show(){
     if("<?php echo isset($_SESSION['customer_id']);?>"){
-      $('.show').html("&nbsp&nbsp<?php echo$mobile;?>&nbsp&nbsp&nbsp");
+      //$('.show').html("&nbsp&nbsp<?php echo$mobile;?>&nbsp&nbsp&nbsp");
+      $('.show a').remove();
     }else{
       window.location.href="./index.php?route=account/login";
     }

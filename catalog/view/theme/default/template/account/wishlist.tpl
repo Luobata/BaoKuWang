@@ -65,7 +65,7 @@
 
       <div class="left">
         <ul class="home-nav">
-          <li id="user-name"><a href="userhome.html">于先生的宝贝</a></li>
+          <li id="user-name"><a href="./index.php?route=account/account">个人中心</a></li>
           <li><a href="./index.php?route=account/wishlist/postgoods&type=1">已发布的宝贝</a><span class="goods-num"></span></li>
           <li><a href="./index.php?route=account/wishlist/postgoods&type=2">已下架的宝贝</a></li>
           <li><a href="./index.php?route=account/wishlist/postgoods&type=3">未鉴定的宝贝</a><span class="goods-num"></span></li>
@@ -74,8 +74,7 @@
           <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/edit">编辑个人资料</a></li>
           <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/password">账户安全</a></li>
         </ul>
- </div>
-         
+ </div>         
        <div class="goods-list right">
         <table>
                  <thead>

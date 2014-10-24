@@ -31,7 +31,10 @@ class ControllerProductList extends Controller {
             }
             $this->data['order_default'] = false;
         }
-
+        //获取series
+        if(isset($this->request->get['series'])) {
+            $this->data['series']=$this->request->get['series'];
+        }
         // 获取过滤参数
         if (isset($this->request->get['filter_category'])) {
             $this->data['filter_category'] = $this->request->get['filter_category'];
@@ -70,7 +73,7 @@ class ControllerProductList extends Controller {
         $this->data['products'] = $products->rows;
         $this->data['products_page_number'] = (int)((($products->num_total)-1)/16)+1;
         //var_dump($this->data['products']);
-
+        //var_dump($products);
         // 获取分类数据
         $this->load->model('catalog/category');
         $categories = $this->model_catalog_category->getSuperCategories();
