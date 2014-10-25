@@ -55,15 +55,16 @@
     } 
 
 </script> 
-<div id="gongao"> 
-<div style="width:100%;height:30px;margin:0 auto;white-space: nowrap;overflow:hidden;left: 10px;
+<!-- <div id="gongao"> 
+<img src="/catalog/view/theme/default/image/baoku/sound.png">
+<div style="width:100%;height:30px;margin:0 auto;white-space: nowrap;overflow:hidden;left: 28px;
 position: relative;" id="scroll_div" class="scroll_div"> 
 <div id="scroll_begin"> 
-眯眼工作室眯眼工作室眯眼工作室眯眼工作室眯眼工作室眯眼工作室眯眼工作室眯眼工作室
+眯眼工作室
 </div> 
 <div id="scroll_end"></div> 
 </div> 
-</div> 
+</div>  -->
 		<div class="head">
 
 					
@@ -85,18 +86,17 @@ position: relative;" id="scroll_div" class="scroll_div">
     搜索
 </div>
 				</form> -->
-				<form action="/" method="get" enctype="multipart/form-data" id="s_search">
+				<form action="/forum/" method="get" enctype="multipart/form-data" id="s_search">
                     <select class="search_sel">
-                        <option>商城</option>
                         <option>论坛</option>
+                        <option>商城</option>
                         <option>序列号</option>
                     </select>
+
                     <input type="hidden" name="route" class="route" value="product/list"/>
                     <input type="text" name="search" class="text" value="<?php echo isset($keyword) ? $keyword : '';?>" />
-                    <a type="submit" class="button button-search" value="搜 索" style="display:none;" href="javascript:void(0)" role="button"><span>搜 索</span></a>
-                    <div class="buttons" onclick="submit">
-					    搜索
-					</div>
+                    <a type="submit" class="button button-search" value="搜索" style="display:none;" href="javascript:void(0)" role="button"><span>搜索</span></a>
+                    <div class="buttons" onclick="submit">搜&nbsp;索</div>
 
                 </form>
 				<div class="hot">
@@ -109,16 +109,19 @@ position: relative;" id="scroll_div" class="scroll_div">
                 </div>
 			</div>
 
-			<div class="login">
-				<?php if(($_user['uid']==0)) { ?>
-				<p><a href="/index.php?route=account/login">登陆</a></p>
 
-				<p><a href="/index.php?route=account/register">注册</a></p>
-				<?php } else { ?>
-				<p><a href="/index.php?route=account/account">个人中心</a></p>
-				<p><a href="/index.php?route=account/logout">退出</a></p>
-				<?php } ?>
-			</div>
+            <?php if(($_user['uid']==0)) { ?>
+                <div class="login">
+                    <p><a href="/index.php?route=account/login">登录</a></p>
+                    <p><a href="/index.php?route=account/register">注册</a></p>
+                </div>
+            <?php } else { ?>
+                <div class="login" style="margin-left: 15px;">
+                    <p><a href="/index.php?route=account/account">个人中心</a></p>
+                    <p><a href="/index.php?route=account/logout">退出</a></p>
+                </div>
+            <?php } ?>
+
 
 			<div class="qbcode">
 				

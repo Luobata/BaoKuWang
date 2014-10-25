@@ -1,5 +1,10 @@
 <?php
 class ModelCatalogProduct extends Model {
+
+    public function updateDetail($detail,$product_id) {
+        $this->db->query("UPDATE " . DB_PREFIX . "product SET detail = '" . $this->db->escape($detail) . "' WHERE product_id = '" . (int)$product_id . "'");
+    }
+
 	public function updateViewed($product_id) {
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET viewed = (viewed + 1) WHERE product_id = '" . (int)$product_id . "'");
 	}

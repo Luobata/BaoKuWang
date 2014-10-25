@@ -236,10 +236,8 @@ top: 10%;
 }
 .s_right_desc{
 	width: 670px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 30px auto;
 	overflow: hidden;
-	margin-bottom: 60px;
 }
 .jian{
 	position: relative;

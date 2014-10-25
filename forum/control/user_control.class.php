@@ -94,11 +94,12 @@ class user_control extends common_control {
 			$cookie_name = $this->conf['cookie_pre'].'auth';
 			$xn_auth = $this->user->get_xn_auth($userdb);
 			echo $cookie_name.'/'.$xn_auth.'/'.$uid;
+            exit();
 			
 			//return array('status'=>'success','uid'=>$uid);
 		}
 
-		echo FALSE;
+        echo false;
 	}
 
 

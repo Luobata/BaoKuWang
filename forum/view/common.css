@@ -291,7 +291,7 @@ span.nopic {width: 54px; height: 54px; background: url(image/nopic.gif) no-repea
        //background: url(image/body_bg.jpg); 
        background-color: #fff;
        overflow: hidden; padding-top: 8px; padding-bottom: 8px;}
-	#nav {width: 100%; margin: auto; height: 18px; text-shadow: 1px 1px 0 #FFFFFF; }
+	#nav {width: 100%; margin: auto; height: 40px; text-shadow: 1px 1px 0 #FFFFFF; }
 	#nav td{}
 	#nav td.left {width: 0px; background-position: 0px 0px;}
 	#nav td.center span.sep {width: 10px; height: 18px; line-height: 18px; background: url(image/nav.gif) -10px -8px; display: inline-block; overflow: hidden; vertical-align:middle; margin-top:-1px\9; margin-top:-0px\0; *margin-top: -2px; _margin-top: -2px; margin-right: 4px;}

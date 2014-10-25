@@ -41,11 +41,11 @@ header{
 	float: left;
 }
 .head .text {
-	width:425px;
-	//margin-left: 46px;	
+	width:359px;
+	/* margin-left: 46px; */
 }
 .head .buttons{
-	width: 85px;
+	width: 83px;
 	background-color: #a37b52;
 	color: #fff;
                     font-size: 14px;
@@ -78,7 +78,7 @@ header{
 }
 .search .hot{
     margin-left: 46px;
-    margin-top: 68px;
+    margin-top: 60px;
     
 }
 .search a{
@@ -95,13 +95,14 @@ header{
 .login{
 	float: left;
 	overflow: hidden;
-	margin-left: 12px;
+	margin-left: 35px;
 	margin-top: 40px;
 } 
 .login a{
 	color:#8e6e58;
 	text-decoration:none;
 	float: left;
+    margin-left: 20px;
 }
 .login p{
 	float: left;

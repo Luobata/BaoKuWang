@@ -715,19 +715,8 @@ Aui.ready( function()
         </div>
       </div>
       <div class="s_right">
-        <div class="s_right_title">
-            物品详情
-          </div>
-        <div class="s_right_pic">
-          <img src="./catalog/view/theme/default/image/baoku/d_r_pic1.png">
-          <img src="./catalog/view/theme/default/image/baoku/d_r_pic2.png">
-        </div>
-        
-        <div class="s_right_desc">
-          <?php echo$detail;?>
-
-
-        </div>
+          <div class="s_right_title">物品详情</div>
+          <div class="s_right_desc"><?php echo $detail; //var_dump($detail);?></div>
       </div>
     </div>
   </div>

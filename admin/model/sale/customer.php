@@ -7,13 +7,27 @@ class ModelSaleCustomer extends Model {
         $salt = substr(md5(uniqid(rand(), true)), 0, 9);
         $password = sha1($salt . sha1($salt . sha1($data['password'])));
         $sql = "INSERT INTO " . DB_PREFIX . "customer SET email = '" . $this->db->escape($data['email']) . "', salt = '" . $this->db->escape($salt) . "', password = '" . $this->db->escape($password) . "', name = '" . $this->db->escape($data['name']) . "', sex = '" . (int)$data['sex'] . "', zone = '" . $this->db->escape($data['zone']) . "', place = '" . $this->db->escape($data['place']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', qq = '" . $this->db->escape($data['qq']) . "', wechat = '" . $this->db->escape($data['wechat']) . "', status = '" . (($data['status'])?((int)($data['status'])):'1') . "', approved = '1'";
-
-        //echo $sql.'aa'.$password;
-        //exit();
-
         $this->db->query($sql);
 
-		$customer_id = $this->db->getLastId();
+        $customer_id = $this->db->getLastId();
+
+        // 论坛注册
+        $Helper = new Helper();
+        $AuthCookie = $Helper->http_post( HTTP_CATALOG . 'forum/?user-create.htm' , array( 'email' => $this->db->escape($data['email']) ) );
+        if( $AuthCookie ) {
+            $AuthCookie = explode('/',$AuthCookie);
+            // 模拟登录
+            //$Helper->setcookie($AuthCookie[0], $AuthCookie[1], time()+86400, '/', '', TRUE);  //24小时
+            // 创建关联
+            $this->db->query("INSERT INTO " . DB_PREFIX . "bbs_user ( shop_cid , bbs_uid ) VALUES (" . (int)$customer_id . "," . (int)$AuthCookie[2] . ")");
+        }
+
+        //echo 'cookie';
+        //var_dump($this->db->escape($data['email']),'a',$AuthCookie,$Helper,HTTP_SERVER . 'forum/?user-create.htm');
+        //exit();
+
+
+        // After
 
 		if (isset($data['address'])) {
 			foreach ($data['address'] as $address) {
