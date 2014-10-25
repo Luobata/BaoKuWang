@@ -913,3 +913,23 @@
 <?php exit;?>	2014-10-24 20:09	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_2_next_time:2014-10-25 00:00	
 <?php exit;?>	2014-10-24 20:16	127.0.0.1	/forum/	cron_1_next_time:2014-10-24 20:21	
 >>>>>>> Stashed changes
+<?php exit;?>	2014-10-24 22:44	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-24 22:49	
+<?php exit;?>	2014-10-24 23:12	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-24 23:17	
+<?php exit;?>	2014-10-24 23:12	127.0.0.1	/forum/?hot-listbyId-uid-19.htm	cron_1_next_time:2014-10-24 23:17	
+<?php exit;?>	2014-10-24 23:46	127.0.0.1	/forum/	cron_1_next_time:2014-10-24 23:51	
+<?php exit;?>	2014-10-24 23:51	127.0.0.1	/forum/?user-login-ajax-1.htm	cron_1_next_time:2014-10-24 23:56	
+<?php exit;?>	2014-10-25 11:33	127.0.0.1	/forum/	cron_1_next_time:2014-10-25 11:38	
+<?php exit;?>	2014-10-25 11:33	127.0.0.1	/forum/	cron_2_next_time:2014-10-26 00:00	
+<?php exit;?>	2014-10-25 11:39	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-25 11:44	
+<?php exit;?>	2014-10-25 11:45	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-25 11:50	
+<?php exit;?>	2014-10-25 11:52	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-25 11:57	
+<?php exit;?>	2014-10-25 11:57	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-25 12:02	
+<?php exit;?>	2014-10-25 12:08	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-25 12:13	
+<?php exit;?>	2014-10-25 13:22	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-25 13:27	
+<?php exit;?>	2014-10-25 13:55	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-25 14:00	
+<?php exit;?>	2014-10-25 14:33	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-25 14:38	
+<?php exit;?>	2014-10-25 15:15	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-25 15:20	
+<?php exit;?>	2014-10-25 15:24	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-25 15:29	
+<?php exit;?>	2014-10-25 15:24	127.0.0.1	/forum/?hot-listbyId-uid-19.htm	cron_1_next_time:2014-10-25 15:29	
+<?php exit;?>	2014-10-25 15:31	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-25 15:36	
+<?php exit;?>	2014-10-25 15:31	127.0.0.1	/forum/?hot-listbyId-uid-19.htm	cron_1_next_time:2014-10-25 15:36	

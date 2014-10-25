@@ -67,7 +67,9 @@ class ModelAccountCustomer extends Model {
         $active_code = $Helper->active_encode($customer_id);
         $message  = "\n";
         $html_msg = "<br/>欢迎并感谢您注册宝库网！<br/>" .
-                    "您的账户已成功创建，赶快 <a href=\"" . $this->url->link('account/login/active') . "&active=" . $active_code . "\">点击此处</a> 激活吧！";
+                    "您的账户已成功创建，赶快 <a href=\"" . $this->url->link('account/login/active') . "&active=" . $active_code . "\">点击此处</a> 激活吧！<br/>" .
+                    "如链接无法点击，请复制以下链接到浏览器地址栏进行访问：<br/>" .
+                    $this->url->link('account/login/active') . "&active=" . $active_code;
 
 		$mail = new Mail();
 		$mail->protocol = $this->config->get('config_mail_protocol');

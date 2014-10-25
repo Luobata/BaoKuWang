@@ -2,6 +2,8 @@
 class ModelCatalogProduct extends Model {
 	public function addProduct($data) {
 
+        ob_start();
+
         if ( isset($data['cid']) ) {
             $cid = $this->db->escape($data['cid']);
         }
@@ -10,7 +12,7 @@ class ModelCatalogProduct extends Model {
         $Helper = new Helper();
         do
         {   // 使序列号不重复
-            $serial = $Helper->generate_rand(32);
+            $serial = $Helper->generate_rand(12);
             $result = $this->db->query("SELECT serial FROM " . DB_PREFIX . "product WHERE serial = '" . $serial . "'");
         }
         while( $result->num_rows );
@@ -128,10 +130,14 @@ class ModelCatalogProduct extends Model {
 		}
 
 		if (isset($data['product_category'])) {
-			foreach ($data['product_category'] as $category_id) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_to_category SET product_id = '" . (int)$product_id . "', category_id = '" . (int)$category_id . "'");
-			}
+            foreach ($data['product_category'] as $category_id) {
+                $this->db->query("INSERT INTO " . DB_PREFIX . "product_to_category SET product_id = '" . (int)$product_id . "', category_id = '" . (int)$category_id . "'");
+            }
 		}
+
+        if (isset($data['category'])) {
+            $this->db->query("INSERT INTO " . DB_PREFIX . "product_to_category SET product_id = '" . (int)$product_id . "', category_id = '" . (int)$data['category'] . "'");
+        }
 
 		if (isset($data['product_filter'])) {
 			foreach ($data['product_filter'] as $filter_id) {
@@ -173,6 +179,10 @@ class ModelCatalogProduct extends Model {
 		} 
 
 		$this->cache->delete('product');
+
+        ob_end_clean();
+
+        return $product_id;
 	}
 
 	public function editProduct($product_id, $data) {

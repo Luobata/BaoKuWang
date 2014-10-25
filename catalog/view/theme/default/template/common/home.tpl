@@ -69,52 +69,64 @@
     var children_polular_product = <?php echo json_encode($children_polular_product); ?>;
     </script>
 
-    <form>
-        <div class="third">
-            <div class="t_head">
-                <div class="pic_head" id="head3">
-                <li><a href="javascript:void(0)" class="head3">珠宝玉器</a></li>
-                </div>
-                <div class="jew">
-                    <ul class="t_nav">
 
-                        <?php foreach( $categories as $cat ) {
-                                if( $cat['parent']['id'] == '63' ) {
-                                    foreach( $cat['children'] as $child ) { ?>
-                                    <li class="text" value="<?php echo $child['id']; ?>">
-                                        <a href="javascript:void(0)"><?php echo $child['name'];?></a>
-                                    </li>
-                                    <li class="line" >|</li>
-                        <?php       }
-                                }
-                              }   ?>
+    <?php foreach( $parent_category_id_list as $parent_category_id ) {
+              // 获取该父类的名称
+              foreach( $categories as $cat ) {
+                  if( $cat['parent']['id'] == $parent_category_id ) {
+                      $parent_category_name = $cat['parent']['name'];
+                  }
+              } ?>
 
-                        <li class="text" id="more"><a href="/index.php?route=product/list&filter_category=63" target="_blank">更多></a></li>
-                    </ul>
+        <form>
+            <div class="third">
+                <div class="t_head">
+                    <div class="pic_head head_category" id="head3">
+                        <li pid="<?php echo $parent_category_id;?>"><a href="javascript:void(0)" class="head3"><?php echo $parent_category_name; ?></a></li>
+                    </div>
+                    <div class="jew">
+                        <ul class="t_nav">
+
+                            <?php foreach( $categories as $cat ) {
+                                    if( $cat['parent']['id'] == $parent_category_id ) {
+                                        foreach( $cat['children'] as $child ) { ?>
+                            <li class="text" pid="<?php echo $parent_category_id;?>" value="<?php echo $child['id']; ?>">
+                                <a href="javascript:void(0)"><?php echo $child['name'];?></a>
+                            </li>
+                            <li class="line" >|</li>
+                            <?php       }
+                                    }
+                                  }   ?>
+
+                            <li class="text" id="more"><a href="/index.php?route=product/list&filter_category=63" target="_blank">更多></a></li>
+                        </ul>
+                    </div>
                 </div>
+
+                <table class="t_content">
+                    <tr class="t_row">
+                        <?php $count = 1; //var_dump($parent_polular_product[$parent_category_id]); ?>
+                        <?php foreach ( $parent_polular_product[$parent_category_id] as $id => $info ) { ?>
+                        <td><div class="t_row_jew" >
+                                <div class="t_row_pic" id="t_row_pic1">
+                                    <a id="url_<?php echo $count; ?>" href="/index.php?route=product/product&product_id=<?php echo $id;?>">
+                                        <img id="img_<?php echo $count; ?>" src="/image/<?php echo $info['image'];?>"></a></div>
+                                <li class="desc" id="text_<?php echo $count; ?>"><?php echo $info['title']?></li>
+                                <li class="savep">价格：<span class="savep-price" id="sprice_<?php echo $count; ?>"><?php echo $info['price']?></span>元</li>
+                                <!--<li class="farmp">市场价: <span id="bprice_1">12999</span>元</li>-->
+                            </div></td>
+                        <?php   if($count==4) { ?>
+                        </tr><tr class="t_row">
+                        <?php   }
+                              $count++;
+                              } ?>
+                    </tr>
+                </table>
             </div>
+        </form>
 
-            <table class="t_content">
-                <tr class="t_row">
-                    <?php $count = 1; ?>
-                    <?php foreach ( $parent_polular_product as $id => $info ) { ?>
-                    <td><div class="t_row_jew" >
-                        <div class="t_row_pic" id="t_row_pic1">
-                            <a id="url_<?php echo $count; ?>" href="/index.php?route=product/product&product_id=<?php echo $id;?>">
-                                <img id="img_<?php echo $count; ?>" src="/image/<?php echo $info['image'];?>"></a></div>
-                        <li class="desc" id="text_<?php echo $count; ?>"><?php echo $info['title']?></li>
-                        <li class="savep">价格：<span class="savep-price" id="sprice_<?php echo $count; ?>"><?php echo $info['price']?></span>元</li>
-                        <!--<li class="farmp">市场价: <span id="bprice_1">12999</span>元</li>-->
-                    </div></td>
-                    <?php   if($count==4) { ?>
-                            </tr><tr class="t_row">
-                    <?php   }
-                          $count++;
-                          } ?>
-                </tr>
-            </table>
-        </div>
-    </form>
+    <?php } ?>
+
 </div>
 
 <h1 style="display: none;"><?php //echo $heading_title; ?></h1>

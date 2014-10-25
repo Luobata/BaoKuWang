@@ -32,8 +32,12 @@
                     <span class="input-title">二级分类</span>
                     <select class="input-content" id="category_children" name="category">
                         <?php
-                            foreach( $categories[0]['children'] as $child ) {
-                                echo '<option value="' . $child['id'] . '">' . $child['name'] . '</option>';
+                            if(!empty($categories[0]['children'])) {
+                                foreach( $categories[0]['children'] as $child ) {
+                                    echo '<option value="' . $child['id'] . '">' . $child['name'] . '</option>';
+                                }
+                            } else {
+                                echo '<option value="' . $categories[0]['parent']['id'] . '" selected="selected">--无--</option>';
                             }
                         ?>
                     </select>
@@ -69,7 +73,7 @@
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 <input type="text" class="htitle input-content" name="title" id="product_title"/>
-                <a class="tip-btn" href="">免费鉴定</a>
+                <a class="tip-btn" target="_blank" href="/index.php?route=product/identify">免费鉴定</a>
                 <span id="error_title" class="error_prompt"></span>
             </div>
             <div class="row">
@@ -78,7 +82,7 @@
                 <span class="input-title">转让价格</span>
                 <input type="text" class="price input-content" name="price" id="product_price">
                 <span style="margin-left:16px;">元</span>
-                <a class="tip-btn" href="">免费估值</a>
+                <a class="tip-btn" target="_blank" href="/index.php?route=product/valuation">免费估值</a>
                 <span id="error_price" class="error_prompt"></span>
             </div>
 
@@ -223,8 +227,12 @@
                     <select class="input-content" name="place" id="product_place">
                         <?php
                             foreach( $zones as $zone ) {
-                                echo '<option value="' . $zone['name'] . '">' . $zone['name'] . '</option>';
-                        }
+                                if( $zone['name'] == '北京' ) {
+                                    echo '<option selected="selected" value="' . $zone['name'] . '">' . $zone['name'] . '</option>';
+                                } else {
+                                    echo '<option value="' . $zone['name'] . '">' . $zone['name'] . '</option>';
+                                }
+                            }
                         ?>
                     </select>
                 </div>
@@ -235,28 +243,28 @@
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">联&nbsp;系&nbsp;&nbsp;人</span>
-                <input type="text" class="input-content" name="owner" id="product_owner"/>
+                <input type="text" class="input-content" name="owner" id="product_owner" value="<?php echo $name; ?>"/>
                 <span id="error_owner" class="error_prompt"></span>
             </div>
             <div class="row">
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">手&nbsp;机&nbsp;&nbsp;号</span>
-                <input type="text" class="input-content" name="mobile" id="product_mobile"/>
+                <input type="text" class="input-content" name="mobile" id="product_mobile" value="<?php echo $telephone; ?>"/>
                 <span id="error_mobile" class="error_prompt"></span>
             </div>
             <div class="row">
                 <span class="nes-tip none">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">QQ&nbsp;号码</span>
-                <input type="text" class="input-content" name="qq"/>
+                <input type="text" class="input-content" name="qq" value="<?php echo $qq; ?>"/>
             </div>
 
             <div class="row">
                 <span class="nes-tip none">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">微&nbsp;信&nbsp;&nbsp;号</span>
-                <input type="text" class="input-content" name="wechat"/>
+                <input type="text" class="input-content" name="wechat" value="<?php echo $wechat; ?>"/>
             </div>
 
             <input type="submit" value="提交并发布" class="submit-btn">

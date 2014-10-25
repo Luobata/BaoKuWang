@@ -124,7 +124,7 @@ class ControllerAccountWishList extends Controller {
 			}
 		}
 
-		//var_dump($this->data);
+		//var_dump($this->data['products']);
 
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
@@ -195,7 +195,7 @@ class ControllerAccountWishList extends Controller {
         		}
         		break;}
 		}
-		$this->data['product']=$product_info;
+		$this->data['products']=$product_info;
 		//var_dump($this->data['product']);	
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');

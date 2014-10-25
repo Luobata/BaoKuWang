@@ -1,10 +1,15 @@
 <?php
 class Customer {
 	private $customer_id;
+    private $email;
+    private $name;
+    private $telephone;
+    private $zone;
+    private $qq;
+    private $wechat;
+
 	private $firstname;
 	private $lastname;
-	private $email;
-	private $telephone;
 	private $fax;
 	private $newsletter;
 	private $customer_group_id;
@@ -21,10 +26,15 @@ class Customer {
 
 			if ($customer_query->num_rows) {
 				$this->customer_id = $customer_query->row['customer_id'];
-				$this->firstname = $customer_query->row['firstname'];
+                $this->email = $customer_query->row['email'];
+                $this->telephone = $customer_query->row['telephone'];
+                $this->name = $customer_query->row['name'];
+                $this->zone = $customer_query->row['zone'];
+                $this->qq = $customer_query->row['qq'];
+                $this->wechat = $customer_query->row['wechat'];
+
+                $this->firstname = $customer_query->row['firstname'];
 				$this->lastname = $customer_query->row['lastname'];
-				$this->email = $customer_query->row['email'];
-				$this->telephone = $customer_query->row['telephone'];
 				$this->fax = $customer_query->row['fax'];
 				$this->newsletter = $customer_query->row['newsletter'];
 				$this->customer_group_id = $customer_query->row['customer_group_id'];
@@ -136,6 +146,22 @@ class Customer {
 	public function getTelephone() {
 		return $this->telephone;
 	}
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getZone() {
+        return $this->zone;
+    }
+
+    public function getQQ() {
+        return $this->qq;
+    }
+
+    public function getWechat() {
+        return $this->wechat;
+    }
 
 	public function getFax() {
 		return $this->fax;

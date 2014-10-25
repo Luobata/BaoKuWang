@@ -51,13 +51,13 @@ class ModelCatalogProduct extends Model {
             $sql .= " AND CONCAT( p.title , p.detail ) LIKE '%" . $this->db->escape($data['search']) . "%'";
         }
         if( isset($data['series'])){
-            $sql.=" AND p.serial = '".$data['series']."' ";
+            $sql.=" AND p.serial = '".$data['series']."'";
         }
         // 排序
         if( isset($data['order']) ) {
             $order = $this->db->escape($data['order']);
             if( $order == 'hot_desc' ) {
-                $sql .= " ORDER BY p.viewed , p.date_added DESC";
+                $sql .= " AND date_added >= DATE_ADD(NOW(),INTERVAL -30 DAY) ORDER BY p.viewed DESC";
             } elseif ( $order == 'price_esc' ) {
                 $sql .= " ORDER BY p.price";
             } elseif ( $order == 'price_desc' ) {

@@ -55,27 +55,31 @@ class ControllerCommonHome extends Controller {
         $this->data['hot_images'] = $Helper->string_to_array($hot_images,'#split#','image','link');
         //var_dump($this->data['hot_images']);
 
-        // 获取某一级分类的相关商品数据
-        $limit = 8;
-        $parent_category_id = 63;
+        // 获取按分类的商品展示数据
         $this->load->model('catalog/product');
-        // children
-        $children_category_id = $this->model_catalog_category->getCategoriesIdByParent($parent_category_id);
-        $children_polular_product = array();
-        foreach( $children_category_id as $child ) {
-            $children_polular_product[$child['id']] = $this->model_catalog_product->getPopularProducts($child['id'],$limit);
-        }
-        $this->data['children_polular_product'] = $children_polular_product;
-        // parent
-        //$parent_polular_product = $this->model_catalog_product->getPopularProducts($parent_category_id,$limit);
-        $parent_polular_product = array();
-        foreach( $children_polular_product as $child ) {
-            foreach( $child as $product_id => $product_info ) {
-                $parent_polular_product[$product_id] = $product_info;
+        $limit = 8;
+        $parent_category_id_list = array(63,59);
+        $this->data['parent_category_id_list'] = $parent_category_id_list;
+        $this->data['children_polular_product'] = array();
+        $this->data['parent_polular_product'] = array();
+        foreach( $parent_category_id_list as $parent_category_id ) {
+            // children
+            $children_category_id = $this->model_catalog_category->getCategoriesIdByParent($parent_category_id);
+            $children_polular_product = array();
+            foreach( $children_category_id as $child ) {
+                $children_polular_product[$child['id']] = $this->model_catalog_product->getPopularProducts($child['id'],$limit);
             }
+            $this->data['children_polular_product'][$parent_category_id] = $children_polular_product;
+            // parent
+            $parent_polular_product = array();
+            foreach( $children_polular_product as $child ) {
+                foreach( $child as $product_id => $product_info ) {
+                    $parent_polular_product[$product_id] = $product_info;
+                }
+            }
+            $this->data['parent_polular_product'][$parent_category_id] = $parent_polular_product;
         }
-        $this->data['parent_polular_product'] = $parent_polular_product;
-        //var_dump($parent_polular_product,$children_polular_product);
+        //var_dump($this->data['parent_polular_product']);
 
         // 子页面
 		$this->children = array(

@@ -84,14 +84,15 @@
                          <th style="width:140px;">发布时间</th>
                          <th style="width:174px;">操作</th>
                      </tr>
-                     <?php if(isset($products)) {;?>
+                     <?php //var_dump($products); ?>
+                     <?php if(isset($products)) { ?>
                      <?php foreach ($products as $product) { ?>
                 <tbody id="wishlist-row<?php echo $product['product_id']; ?>">
                   <tr class="item">
                        <th class="pic">
                         <?php if ($product['thumb']) { ?>
-            <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
-            <?php } ?>
+                        <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
+                        <?php } ?>
                         <div class="goods-info">
                           <div class="goods-title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
                           <div class="goods-price"><?php echo $product['price'];?></div>
@@ -113,8 +114,8 @@
                   </tr>
 
                 </tbody>
-              <?php } ?>
-               <?php }else{ ?>
+              <?php     } ?>
+              <?php }else{ ?>
                     <?php for ($i=0; $i <sizeof($product) ; $i++) { ;?>
                       <tbody id="wishlist-row<?php echo $product[$i]['product_id']; ?>">
                   <tr class="item">
@@ -131,21 +132,21 @@
 
                        <th>
 
-                        <?php echo$product[$i]['identify'];?>
+                        <?php echo $product[$i]['identify'];?>
                        </th>
 
                        <th>
-                        <?php echo$product[$i]['date_added'];?>
+                        <?php echo $product[$i]['date_added'];?>
                        </th>
 
                        <th>
-                         <?php if($type==4){;?>
-                         <a href="">鉴定</a>
-                       <?php }else if($type==2){;?>
-                          <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">上架</a>
-                          <?php }else if($type==1){;?>
-                          <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">下架</a>
-                          <?php };?>
+                             <?php if($type==4){ ?>
+                             <a href="">鉴定</a>
+                             <?php } elseif ($type==2) { ?>
+                             <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">上架</a>
+                             <?php } elseif ($type==1) { ?>
+                             <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">下架</a>
+                             <?php } ?>
                          <a href="<?php echo $product['remove']; ?>">删除</a>
                        </th>
                   </tr>

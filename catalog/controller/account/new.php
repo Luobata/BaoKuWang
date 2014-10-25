@@ -9,6 +9,13 @@ class ControllerAccountNew extends Controller {
             $this->redirect($this->url->link('account/login', '', 'SSL'));
         }
 
+        // 搜集用户信息
+        $this->data['name'] = $this->customer->getName();
+        $this->data['telephone'] = $this->customer->getTelephone();
+        //$this->data['zone'] = $this->customer->getZone();
+        $this->data['qq'] = $this->customer->getQQ();
+        $this->data['wechat'] = $this->customer->getWechat();
+
         // 标题
         $this->document->setTitle('我要寄卖');
 
@@ -90,13 +97,25 @@ class ControllerAccountNew extends Controller {
 
             // DO POST
             $Helper = new Helper();
-            $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
+            $product_id = $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
             //echo $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
             //exit();
         }
 
-        $this->redirect(HTTP_SERVER.'index.php?route=account/new');
+        if( $product_id )
+            $this->redirect(HTTP_SERVER.'index.php?route=product/product'.'&product_id='.$product_id);
+        else
+            $this->redirect(HTTP_SERVER.'index.php?route=account/new');
 
+    }
+
+    public function delete() {
+        if (($this->request->server['REQUEST_METHOD'] == 'GET')) {
+            // DO POST
+            $Helper = new Helper();
+            $data = array( 'product_id' => $_GET['product_id'] , 'secret' => SECRET );
+            $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/delete_customer',$data);
+        }
     }
 }
 ?>
