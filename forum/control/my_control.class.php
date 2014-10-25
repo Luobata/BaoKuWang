@@ -84,45 +84,45 @@ class my_control extends common_control {
 		$this->view->display('my_homepage.htm');
 	}
 	
-	public function on_password() {
-		$this->_checked['my_profile'] = 'class="checked"';
-		$this->_checked['password'] = 'class="checked"';
+	// public function on_password() {
+	// 	$this->_checked['my_profile'] = 'class="checked"';
+	// 	$this->_checked['password'] = 'class="checked"';
 		
-		$this->_title[] = '修改密码';
-		$this->_nav[] = '修改密码';
+	// 	$this->_title[] = '修改密码';
+	// 	$this->_nav[] = '修改密码';
 		
-		$_user = $this->_user;
-		$uid = $_user['uid'];
+	// 	$_user = $this->_user;
+	// 	$uid = $_user['uid'];
 		
-		$error = array();
-		if($this->form_submit()) {
-			$password = core::gpc('password', 'P');
-			$newpassword = core::gpc('newpassword', 'P');
-			$newpassword2 = core::gpc('newpassword2', 'P');
+	// 	$error = array();
+	// 	if($this->form_submit()) {
+	// 		$password = core::gpc('password', 'P');
+	// 		$newpassword = core::gpc('newpassword', 'P');
+	// 		$newpassword2 = core::gpc('newpassword2', 'P');
 			
-			// 检查原密码是否正确
-			$_user['password'] && $error['password'] = $this->user->verify_password($password, $_user['password'], $_user['salt']) ? '' : '旧密码错误';
-			$error['newpassword'] = $this->user->check_password($newpassword);
-			$error['newpassword2'] = $this->user->check_password2($newpassword, $newpassword2);
-			// hook my_password_before.php
+	// 		// 检查原密码是否正确
+	// 		$_user['password'] && $error['password'] = $this->user->verify_password($password, $_user['password'], $_user['salt']) ? '' : '旧密码错误';
+	// 		$error['newpassword'] = $this->user->check_password($newpassword);
+	// 		$error['newpassword2'] = $this->user->check_password2($newpassword, $newpassword2);
+	// 		// hook my_password_before.php
 			
-			if(!array_filter($error)) {
-				$user = $this->user->read($uid);
-				$user['password'] = $this->user->md5_md5($newpassword, $user['salt']);
-				$this->user->update($user);
-				$error = array();
+	// 		if(!array_filter($error)) {
+	// 			$user = $this->user->read($uid);
+	// 			$user['password'] = $this->user->md5_md5($newpassword, $user['salt']);
+	// 			$this->user->update($user);
+	// 			$error = array();
 				
-				// 重新设置 cookie
-				$this->user->set_login_cookie($user);
+	// 			// 重新设置 cookie
+	// 			$this->user->set_login_cookie($user);
 				
-				// hook my_password_submit.php
-			}
-		}
+	// 			// hook my_password_submit.php
+	// 		}
+	// 	}
 		
-		$this->view->assign('error', $error);
-		// hook my_password_after.php
-		$this->view->display('my_password.htm');
-	}
+	// 	$this->view->assign('error', $error);
+	// 	// hook my_password_after.php
+	// 	$this->view->display('my_password.htm');
+	// }
 	
 	public function on_avatar() {
 		$this->_checked['my_profile'] = 'class="checked"';
