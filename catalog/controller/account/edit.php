@@ -12,7 +12,9 @@ class ControllerAccountEdit extends Controller {
 		$this->language->load('account/edit');
 
 		$this->document->setTitle($this->language->get('编辑资料'));
-
+		$this->load->model('localisation/zone');
+		$this->data['zones']=$this->model_localisation_zone->getZonesByCountryId(44);
+		//var_dump($this->data['zones']);
 		$this->load->model('account/customer');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {

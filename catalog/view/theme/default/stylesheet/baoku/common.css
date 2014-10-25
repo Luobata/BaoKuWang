@@ -262,5 +262,18 @@ header{
 .bread a{
 
 }
-#gongao{width:100%;height:30px;overflow:hidden;line-height:30px;font-size:13px;font-family:'宋体';background:#e7dccb;color:#ad813f;font-weight:bold;} 
+#gongao{width:100%;height:30px;overflow:hidden;line-height:30px;font-size:13px;font-family:'宋体';background:#fff;color:#ad813f;font-weight:bold;} 
 #gongao #scroll_begin, #gongao #scroll_end{display:inline} 
+#gongao img{
+	position: absolute;
+	width: 22px;
+	top:4px;
+}
+.code{
+	width: 80px;
+	margin-left: 40px;
+	border: 1px #eadbc4 solid;
+	height: 44px;
+	line-height: 44px;
+	padding-left: 16px;
+}

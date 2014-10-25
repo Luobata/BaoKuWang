@@ -120,8 +120,11 @@
                        <span class="input-title">所在区域</span>
                        <select class="input-content area-select" name="zone">
                         <option><?php echo $zone;?></option>
-                        <option>北京</option>
-                        <option>上海</option>
+                     <!--    <option>北京</option>
+                        <option>上海</option> -->
+                        <?php foreach ($zones as $zone) {?>
+                          <option><?php echo$zone['name'];?></option>
+                       <?php  }?>
                        </select>
 
                        <!--  
