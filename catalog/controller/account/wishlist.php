@@ -202,9 +202,16 @@ class ControllerAccountWishList extends Controller {
 		// 	# code...
 		// }
 		// foreach ($product_info as $product) {
-		// 	$product['href']="/index.php?route=product/product&product_id=".$product['product_id'];
+			
+		// 	$product["href"]="/index.php?route=product/product&product_id=".$product['product_id'];
+		// 	;
 		// }
-		// var_dump($product_info[0]['href']);
+		// foreach ($product_info as $key => $value) {
+		// 	// var_dump($key);
+		// 	// var_dump($value);
+		// 	$product_info[$key]['href']="/index.php?route=product/product&product_id=".$value['product_id'];
+		// }
+		//echo($product_info[0]['href']);
 		$this->data['product']=$product_info;
 		//var_dump($this->data['product']);	
 		//加载css
