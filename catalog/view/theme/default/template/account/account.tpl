@@ -87,7 +87,7 @@
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <span class="input-title">性别：</span>
-                   <span class="customer_info"><?php echo ($customer_info['sex']==1)?'男':'女'; ?></span>
+                   <span class="customer_info"><?php echo ($customer_info['sex']==0)?'男':'女'; ?></span>
                    <!--<input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">男</input>
                     <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">女</input>
                    -->

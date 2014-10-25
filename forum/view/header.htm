@@ -55,7 +55,7 @@
     } 
 
 </script> 
-<div id="gongao"> 
+<!-- <div id="gongao"> 
 <img src="/catalog/view/theme/default/image/baoku/sound.png">
 <div style="width:100%;height:30px;margin:0 auto;white-space: nowrap;overflow:hidden;left: 28px;
 position: relative;" id="scroll_div" class="scroll_div"> 
@@ -64,7 +64,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 </div> 
 <div id="scroll_end"></div> 
 </div> 
-</div> 
+</div>  -->
 		<div class="head">
 
 					
@@ -86,14 +86,14 @@ position: relative;" id="scroll_div" class="scroll_div">
     搜索
 </div>
 				</form> -->
-				<form action="/" method="get" enctype="multipart/form-data" id="s_search">
+				<form action="/forum/" method="get" enctype="multipart/form-data" id="s_search">
                     <select class="search_sel">
-                        <option>商城</option>
                         <option>论坛</option>
+                        <option>商城</option>
                         <option>序列号</option>
                     </select>
-                    <input type="hidden" name="route" class="route" value="product/list"/>
-                    <input type="text" name="search" class="text" value="{$keyword}" />
+                    <input type="hidden" name="0" class="route" value="search"/>
+                    <input type="text" name="keyword" class="text" value="{$keyword}" />
                     <input type="submit" class="button button-search" value="搜 索" style="display:none;">
                     <div class="buttons" onclick="submit">
 					    搜索

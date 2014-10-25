@@ -131,9 +131,10 @@ class ControllerAccountEdit extends Controller {
 			$this->data['lastname'] = '';
 		}
 
-		if (isset($this->request->post['email'])) {
-			$this->data['email'] = $this->request->post['email'];
-		} elseif (isset($customer_info)) {
+		// if (isset($this->request->post['email'])) {
+		// 	$this->data['email'] = $this->request->post['email'];
+		// } else
+		if (isset($customer_info)) {
 			$this->data['email'] = $customer_info['email'];
 		} else {
 			$this->data['email'] = '';
