@@ -90,14 +90,14 @@
                 <tbody id="wishlist-row<?php echo $product['product_id']; ?>">
                   <tr class="item">
                        <th class="pic">
-                        <?php if ($product['thumb']) { ?>
-                        <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
-                        <?php } ?>
-                        <div class="goods-info">
-                          <div class="goods-title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
-                          <div class="goods-price"><?php echo $product['price'];?></div>
-                        </div>
-                       </th>
+                          <?php if ($product['thumb']) { ?>
+                          <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
+                          <?php } ?>
+                          <div class="goods-info">
+                            <div class="goods-title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+                            <div class="goods-price"><?php echo $product['price'];?></div>
+                          </div>
+                       </th> 
 
                        <th>
                         <?php echo$product['identify'];?>
@@ -116,18 +116,18 @@
                 </tbody>
               <?php     } ?>
               <?php }else{ ?>
+
+              <!--打印已上架 下架 鉴定 未鉴定等信息-->
                     <?php for ($i=0; $i <sizeof($product) ; $i++) { ;?>
                       <tbody id="wishlist-row<?php echo $product[$i]['product_id']; ?>">
                   <tr class="item">
                        <th class="pic">
-                        
-            <a href="./route"><img src="./image/<?php echo $product[$i]['image']; ?>" alt="<?php echo $product[$i]['title']; ?>" title="<?php echo $product[$i]['title']; ?>" /></a>
- 
-                        <div class="goods-info">
-                          <div class="goods-title"><a href="<?php echo "a" ;?>">
-                            <?php echo $product[$i]['title']; ?></a></div>
-                          <div class="goods-price"><?php echo $product[$i]['price'];?></div>
-                        </div>
+                         <a href="./index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>"><img src="./image/<?php echo $product[$i]['image']; ?>" alt="<?php echo $product[$i]['title']; ?>" title="<?php echo $product[$i]['title']; ?>" /></a>
+                          <div class="goods-info">
+                            <div class="goods-title"><a href="./index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>">
+                              <?php echo $product[$i]['title']; ?></a></div>
+                            <div class="goods-price"><?php echo $product[$i]['price'];?></div>
+                          </div>
                        </th>
 
                        <th>
@@ -141,13 +141,13 @@
 
                        <th>
                              <?php if($type==4){ ?>
-                             <a href="">鉴定</a>
+                             <a href="/index.php?route=product/identify">鉴定</a>
                              <?php } elseif ($type==2) { ?>
                              <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">上架</a>
                              <?php } elseif ($type==1) { ?>
                              <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">下架</a>
                              <?php } ?>
-                         <a href="<?php echo $product['remove']; ?>">删除</a>
+                         <a href="/index.php?route=account/new/delete&product_id=<?php echo $product[$i]['product_id']; ?>&type=<?php echo $type;?>">删除</a>
                        </th>
                   </tr>
 

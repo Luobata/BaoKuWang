@@ -92,7 +92,7 @@
     } 
 
 </script> 
-<div id="gongao"> 
+<!-- <div id="gongao"> 
     <img src="catalog/view/theme/default/image/baoku/sound.png">
 <div style="width:100%;height:30px;margin:0 auto;white-space: nowrap;overflow:hidden;left: 28px;
 position: relative;" id="scroll_div" class="scroll_div"> 
@@ -101,7 +101,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 </div> 
 <div id="scroll_end"></div> 
 </div> 
-</div> 
+</div>  -->
         <div class="head">
 
             <?php if ($logo) { ?>

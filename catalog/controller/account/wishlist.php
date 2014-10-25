@@ -109,7 +109,7 @@ class ControllerAccountWishList extends Controller {
 				$this->data['products'][] = array(
 					'product_id' => $product_info['product_id'],
 					'thumb'      => $image,
-					'name'       => $product_info['name'],
+					'name'       => $product_info['title'],
 					'model'      => $product_info['model'],
 					'stock'      => $stock,
 					'price'      => $price,		
@@ -168,34 +168,44 @@ class ControllerAccountWishList extends Controller {
 		$product_info = $this->model_catalog_product->getProductsBycidnoli($cid,$type)->rows;
 		//var_dump($product_info);
 		$this->data['type']=$type;
-		switch ($type) {
-			case '1':{
-        		//已发布
-        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
-        			$product_info[$i]['identify']="已发布";
-        		}
+		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+        			$product_info[$i]['identify']=($product_info[$i]['identify']==0)?'未鉴定':'已鉴定';
+        }
+		// switch ($type) {
+		// 	case '1':{
+  //       		//已发布
+  //       		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+  //       			$product_info[$i]['identify']="已发布";
+  //       		}
         		
-        		break;}
-        	case '2':{
-        		//已下架
-        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
-        			$product_info[$i]['identify']="已下架";
-        		}
-        		break;}
-        	case '3':{
-        		//已鉴定
-        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
-        			$product_info[$i]['identify']="未鉴定";
-        		}
-        		break;}
-        	case '4':{
-        		//未鉴定
-        		for ($i=0; $i <sizeof($product_info) ; $i++) { 
-        			$product_info[$i]['identify']="已鉴定";
-        		}
-        		break;}
-		}
-		$this->data['products']=$product_info;
+  //       		break;}
+  //       	case '2':{
+  //       		//已下架
+  //       		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+  //       			$product_info[$i]['identify']="已下架";
+  //       		}
+  //       		break;}
+  //       	case '3':{
+  //       		//已鉴定
+  //       		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+  //       			$product_info[$i]['identify']="未鉴定";
+  //       		}
+  //       		break;}
+  //       	case '4':{
+  //       		//未鉴定
+  //       		for ($i=0; $i <sizeof($product_info) ; $i++) { 
+  //       			$product_info[$i]['identify']="已鉴定";
+  //       		}
+  //       		break;}
+		// }
+		// foreach ($variable as $key => $value) {
+		// 	# code...
+		// }
+		// foreach ($product_info as $product) {
+		// 	$product['href']="/index.php?route=product/product&product_id=".$product['product_id'];
+		// }
+		// var_dump($product_info[0]['href']);
+		$this->data['product']=$product_info;
 		//var_dump($this->data['product']);	
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');

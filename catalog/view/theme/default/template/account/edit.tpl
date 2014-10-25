@@ -74,7 +74,7 @@
         </ul>
  </div>
 
-       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+       
           <div class="form-content">
 
           <div class="row">
@@ -85,6 +85,7 @@
                    <input type="text" class="htitle input-content" value="<?php echo$email;?>" style="color:#ccc"readonly>
                 
           </div>
+        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
           <div class="row">
              
                    <span class="nes-tip none">*</span>
