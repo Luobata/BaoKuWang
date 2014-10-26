@@ -76,8 +76,9 @@ class ControllerAccountNew extends Controller {
             $data['cid'] = $this->customer->getId();
             $data['secret'] = SECRET;
 
-            //var_dump($data);
+            //var_dump($data['detail'],htmlspecialchars_decode($data['detail']));
             //exit();
+            $data['detail'] = htmlspecialchars_decode($data['detail']);
 
             // POST 转换
             $post_split = '#split#';
@@ -102,8 +103,13 @@ class ControllerAccountNew extends Controller {
             //exit();
         }
 
-        if( $product_id )
+        if( $product_id ) {
+            //详细说明
+            $this->load->model('catalog/product');
+            $this->model_catalog_product->updateDetail($data['detail'],$product_id);
+            //跳转
             $this->redirect(HTTP_SERVER.'index.php?route=product/product'.'&product_id='.$product_id);
+        }
         else
             $this->redirect(HTTP_SERVER.'index.php?route=account/new');
 
@@ -115,6 +121,7 @@ class ControllerAccountNew extends Controller {
             $Helper = new Helper();
             $data = array( 'product_id' => $_GET['product_id'] , 'secret' => SECRET );
             $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/delete_customer',$data);
+            $this->redirect(HTTP_SERVER.'index.php?route=account/wishlist/postgoods&type='.$_GET['type'].'&action=success');
         }
     }
 }

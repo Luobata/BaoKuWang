@@ -14,6 +14,7 @@ class ControllerCatalogProduct extends Controller {
 
     public function insert_customer() {
         $this->load->model('catalog/product');
+        //var_dump($this->request->post);
         echo $this->model_catalog_product->addProduct($this->request->post);
     }
 

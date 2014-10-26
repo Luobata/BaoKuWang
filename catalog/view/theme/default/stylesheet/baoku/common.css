@@ -41,9 +41,8 @@ header{
 	float: left;
 }
 .head .text {
-	width:425px;
-	//margin-left: 46px;	
-	
+	width:359px;
+	/* margin-left: 46px; */
 }
 
 .head input,.search_sel{
@@ -95,7 +94,7 @@ header{
 	color:#8e6e58;
 	text-decoration:none;
 	float: left;
-    padding-left: 2px;
+    padding-left: 20px;
 }
 .login p{
 	float: left;

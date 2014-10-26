@@ -1,8 +1,10 @@
 <?php echo $header; ?>
 <?php //echo $column_left; ?><?php //echo $column_right; ?><?php //echo $content_top; ?>
 
+<!--隐藏input框判断是否为首页-->
+<input type="text" value="index" name="index" id="index"style="display:none">
 <div class="content">
-
+    
     <div class="first">
 
         <div class="content_head">

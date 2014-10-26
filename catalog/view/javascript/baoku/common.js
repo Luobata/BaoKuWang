@@ -29,7 +29,10 @@ $(".search_sel").change(function(){
 // if(a=='http://localhost')
 // 	{alert("相等了");}else{alert("不等了");}
 //是首页加入下面这些
-$('.all').hover(function() {
+$(document).ready(function() {
+    //alert($('#index').val());
+    if($('#index').val()!='index'){
+        $('.all').hover(function() {
     /* Stuff to do when the mouse enters the element */
      //var eq = $('.content_head > .goods').index(this),
      //h = $('.content_head').offset().top;  
@@ -45,6 +48,9 @@ $('.all').hover(function() {
    $('.content_head').css('display', 'none');
     //a.css('display','none');
 });
+    }
+});
+
 
 
 

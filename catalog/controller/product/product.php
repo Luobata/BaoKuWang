@@ -305,7 +305,9 @@ class ControllerProductProduct extends Controller {
 			//echo(base64_decode(base64_encode($product_info['mobile'])));
 			$this->data['qq']=$product_info['qq'];
 			$this->data['wechat']=$product_info['wechat'];
-			$this->data['detail']=$product_info['detail'];
+            $this->data['detail']=$product_info['detail'];
+			//$this->data['detail']=htmlspecialchars_decode($product_info['detail']);
+            //var_dump($this->data['detail'],$product_info['detail']);
 			//判断是否坚定字段
 			$this->data['jianding']=$product_info['identify'];
 			//echo $product_info['cid'];

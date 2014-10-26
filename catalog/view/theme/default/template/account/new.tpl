@@ -204,7 +204,8 @@
                     <textarea></textarea>
                 </div>
                 -->
-                <textarea id="product_description" name="detail"></textarea>
+                <textarea id="product_description"></textarea>
+                <input type="hidden" name="detail" id="product_description_data"/>
                 <script type="text/javascript" src="/admin/view/javascript/ckeditor/ckeditor.js"></script>
                 <script type="text/javascript">
                 CKEDITOR.replace('product_description', {
@@ -303,12 +304,18 @@
                 $('#error_image_main').html('');
             }
 
+            //console.log(CKEDITOR.instances.product_description.getData());
+            //return false;
+
             // 详细说明
             if( CKEDITOR.instances.product_description.getData().length == 0 ) {
                 $('#error_description').html('详细说明不能为空');
                 error = true;
             } else {
                 $('#error_description').html('');
+                $('#product_description_data').val(CKEDITOR.instances.product_description.getData());
+                //$('body').html(CKEDITOR.instances.product_description.getData());
+                //return false;
             }
 
             // 所在地

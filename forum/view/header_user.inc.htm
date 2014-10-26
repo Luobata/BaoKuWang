@@ -9,14 +9,17 @@
 
 				<!--{else}-->
 					
-					<a href="?my-profile.htm" title="$_user[groupname]"><span class="icon icon-user-user"></span> $_user[username]</a>
+					<a style="display: none;" href="?my-profile.htm" title="$_user[groupname]"><!--<span class="icon icon-user-user"></span>-->设置<!--$_user[username]--></a>
 					
 					<!--{if $_user['groupid'] == 6}-->
 					<a href="?user-reactive.htm">邮箱激活</a>
 					<!--{/if}-->
 					
 					<span id="pm">
-						<a href="?my-pm.htm" class="pm"><span class="icon icon-pm"></span> 消息</a><a href="?my-pm.htm" style="display: none;" aria-label="消息" class="newpm"><span class="icon icon-newpm"></span> 消息</a>
+                        <a href="?my-post.htm" class="pm"><!--<span class="icon icon-pm"></span>-->我的发帖</a>
+						<a href="?my-pm.htm" class="pm"><!--<span class="icon icon-pm"></span>-->联系人</a>
+                        <a href="?my-profile.htm" class="pm"><!--<span class="icon icon-pm"></span>-->设置</a>
+                        <a href="?my-pm.htm" style="display: none;" aria-label="消息" class="newpm"><span class="icon icon-newpm"></span> 消息</a>
 					</span>
 				
 					<!--{if $_user['groupid'] > 0 && $_user['groupid'] < 6}-->
