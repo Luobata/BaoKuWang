@@ -17,6 +17,11 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$this->data['error'] = '';
 		}
+		$this->load->model('catalog/category');
+        $category_head = $this->model_catalog_category->getSuperCategories();
+        $this->data['category_head'] = $category_head;
+        //$categories_second=$this->model_catalog_category->getCategories();
+        //var_dump($category_head);
 
 		$this->data['base'] = $server;
 		$this->data['description'] = $this->document->getDescription();

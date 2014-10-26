@@ -156,6 +156,27 @@ position: relative;" id="scroll_div" class="scroll_div">
         <div class="index">
             <div class="all">
                 <li><a href="">全部宝贝分类</a></li>
+                <div class="content_head" style="width:500px;position:absolute;z-index:100;display:none;">
+                    <?php foreach( $category_head as $cat ) { ?>
+                    <div class="goods">
+                        <div class="goods_line">
+                            <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
+                            <li><?php echo $cat['parent']['name']; ?></li></a>
+                        </div>
+                        <div class="item" id="item">
+                        <?php foreach( $category_head as $cat ) { ?>
+                        <div class="goods">
+                            <div class="goods_line">
+                                <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
+                                <li><?php echo $cat['parent']['name']; ?></li></a>
+                            </div>
+                        </div>    
+                        <?php } ?>
+                        </div>
+                    </div>
+                        
+                    <?php } ?>
+                </div>
             </div>
             <div class="others">
                 <ul class="nav">
