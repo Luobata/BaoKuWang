@@ -24,3 +24,41 @@ $(".search_sel").change(function(){
 	
 	
 });
+//需要判断是否为首页
+// var a = location.href;
+// if(a=='http://localhost')
+// 	{alert("相等了");}else{alert("不等了");}
+//是首页加入下面这些
+$('.all').hover(function() {
+    /* Stuff to do when the mouse enters the element */
+     //var eq = $('.content_head > .goods').index(this),
+     //h = $('.content_head').offset().top;  
+     //$('.goods').attr('style', 'background-color:#edeced');
+     //alert(1);
+     //$(this).attr('style', 'background-color:#fff');
+     $('.content_head').show();
+     //$('.item').css('display', 'none');    
+     //$(this).children('.item').show();
+}, function() {
+   //$('.goods').attr('style', 'background-color:#edeced');
+   //$(this).children('.item').css('display', 'none');
+   $('.content_head').css('display', 'none');
+    //a.css('display','none');
+});
+
+
+
+
+$('.content_head > .goods').hover(function() {
+    /* Stuff to do when the mouse enters the element */
+     var eq = $('.content_head > .goods').index(this),
+     h = $('.content_head').offset().top;  
+     //$('.goods').attr('style', 'background-color:#edeced');
+     $(this).attr('style', 'background-color:#fff');
+     $('.item').css('display', 'none');    
+     $(this).children('.item').show();
+}, function() {
+   $('.goods').attr('style', 'background-color:#edeced');
+   $(this).children('.item').css('display', 'none');
+    //a.css('display','none');
+});

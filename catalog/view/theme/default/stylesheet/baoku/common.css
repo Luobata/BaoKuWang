@@ -26,6 +26,7 @@ header{
 	
 }
 
+
 .logo{
 	width:185px;
 	height: 80px;
@@ -139,6 +140,7 @@ header{
 }
 .index li{
 	text-align: center;
+	color: #000;
 }
 .index .others{
 	float: left;
@@ -276,4 +278,39 @@ header{
 	height: 44px;
 	line-height: 44px;
 	padding-left: 16px;
+}
+.item{
+	width: 200px;
+	min-height: 45px;
+	overflow: hidden;
+	background-color: #edeced;
+	position: absolute;
+	margin-left: 200px;
+	margin-top: -45px;
+	z-index: 100;
+	display: none;
+}
+.content_head{
+	/*width: 200px;
+	overflow: hidden;
+	float: left;
+	//position: relative;*/
+
+
+}
+.content_head .goods{
+	width: 200px;
+	height: 45px;
+	text-align: center;
+	background-color: #edeced;
+	line-height: 45px;
+}
+.goods .goods_line{
+	width: 194px;
+	height:44px;
+	border-bottom-color: #c5bfbd;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	margin-right: auto;
+	margin-left: auto;
 }
