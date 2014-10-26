@@ -21,7 +21,8 @@ if(empty($conf['installed'])) {
     header('Location:install/');
     exit;
 }
-
+//包含helper
+require('/../system/library/helper.php');
 // 框架的物理路径
 define('FRAMEWORK_PATH', BBS_PATH.'xiunophp/');
 

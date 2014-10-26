@@ -157,5 +157,7 @@ class ControllerCommonHeader extends Controller {
         // 不输出内容的
 		$this->render();
 	} 	
+
+	
 }
 ?>

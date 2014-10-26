@@ -639,8 +639,8 @@ Aui.ready( function()
 
           <li>联&nbsp&nbsp&nbsp系 :
             <span class="show" >&nbsp;
-              <img class="show_mobile"src="./catalog/view/theme/default/template/product/image.php?id=<?php echo $mobile;?>">
-              <a  href="javascript:show()"> <img src="./catalog/view/theme/default/image/baoku/lianxi.png"></a></span></li>
+              <img class="show_mobile" style="width: 142px;" src="./catalog/view/theme/default/template/product/image.php?id=<?php echo $mobile;?>">
+              <a  href="javascript:show()"> <img  src="./catalog/view/theme/default/image/baoku/lianxi.png"></a></span></li>
           <li>QQ&nbsp号 :<span>&nbsp&nbsp&nbsp;<?php echo$qq;?>&nbsp
             
            <!-- <img src="./catalog/view/theme/default/image/baoku/linshi.png"> --></span></li>

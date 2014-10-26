@@ -81,7 +81,11 @@ class common_control extends base_control {
 		
 		!isset($this->conf['logo_url']) && $this->conf['logo_url'] = $this->conf['app_url']; // 兼容 2.0.3
 		//TODO从商城的数据库表中读取logourl
-
+		 $Helper = new Helper();
+         $data=array();
+         $product_id=$Helper->http_post('http://localhost/index.php?route=common/home/category');
+         var_dump(json_decode($product_id));
+         exit();
 		// hook common_control_init_runtime_after.php
 	}
 	

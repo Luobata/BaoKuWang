@@ -124,6 +124,25 @@ class ControllerAccountWishList extends Controller {
 			}
 		}
 
+		$cid=$_SESSION['customer_id'];
+		//获取已发布 已下架 未鉴定 已鉴定 收藏的数目
+		//收藏宝贝数
+		$postnum['wishlist']=count($this->data['products']);
+		//发布宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,1)->rows;
+		$postnum['up']=count($product_info_num);
+		//下架宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,2)->rows;
+		$postnum['down']=count($product_info_num);
+		//鉴定宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,4)->rows;
+		$postnum['iden']=count($product_info_num);
+		//未鉴定宝贝数量
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,3)->rows;
+		$postnum['uniden']=count($product_info_num);
+
+		$this->data['postnum']=$postnum;
+		//var_dump($postnum);
 		//var_dump($this->data['products']);
 
 		//加载css
@@ -155,6 +174,7 @@ class ControllerAccountWishList extends Controller {
 
 			$this->redirect($this->url->link('account/login', '', 'SSL'));
 		}
+
 
 		$this->language->load('account/wishlist');
 
@@ -217,6 +237,30 @@ class ControllerAccountWishList extends Controller {
 		//加载css
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/baoku/userhome.css');
 		$this->data['continue'] = $this->url->link('account/account', '', 'SSL');
+
+
+		//获取已发布 已下架 未鉴定 已鉴定 收藏的数目
+		//收藏宝贝数
+		$postnum['wishlist']=count($this->session->data['wishlist']);
+		//发布宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,1)->rows;
+		$postnum['up']=count($product_info_num);
+		//下架宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,2)->rows;
+		$postnum['down']=count($product_info_num);
+		//鉴定宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,4)->rows;
+		$postnum['iden']=count($product_info_num);
+		//未鉴定宝贝数量
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,3)->rows;
+		$postnum['uniden']=count($product_info_num);
+
+		$this->data['postnum']=$postnum;
+		//var_dump($postnum);
+
+
+
+
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/wishlist.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/account/wishlist.tpl';
@@ -299,6 +343,26 @@ class ControllerAccountWishList extends Controller {
 		} else {
 			$this->template = 'default/template/account/wishlist.tpl';
 		}
+
+		//获取已发布 已下架 未鉴定 已鉴定 收藏的数目
+		//收藏宝贝数
+		$postnum['wishlist']=count($this->session->data['wishlist']);
+		//发布宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,1)->rows;
+		$postnum['up']=count($product_info_num);
+		//下架宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,2)->rows;
+		$postnum['down']=count($product_info_num);
+		//鉴定宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,4)->rows;
+		$postnum['iden']=count($product_info_num);
+		//未鉴定宝贝数量
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,3)->rows;
+		$postnum['uniden']=count($product_info_num);
+
+		$this->data['postnum']=$postnum;
+
+
 
 		$this->children = array(
 			'common/column_left',
