@@ -11,6 +11,7 @@ include BBS_PATH.'admin/control/admin_control.class.php';
 class index_control extends admin_control {
 	
 	function __construct(&$conf) {
+        //setcookie("bbs_auth");
 		parent::__construct($conf);
 	}
 	

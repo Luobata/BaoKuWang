@@ -131,10 +131,9 @@ class ControllerAccountEdit extends Controller {
 			$this->data['lastname'] = '';
 		}
 
-		// if (isset($this->request->post['email'])) {
-		// 	$this->data['email'] = $this->request->post['email'];
-		// } else
-		if (isset($customer_info)) {
+		if (isset($this->request->post['email'])) {
+		 	$this->data['email'] = $this->request->post['email'];
+		} elseif (isset($customer_info)) {
 			$this->data['email'] = $customer_info['email'];
 		} else {
 			$this->data['email'] = '';
@@ -238,8 +237,8 @@ class ControllerAccountEdit extends Controller {
 		if ((utf8_strlen($this->request->post['wechat']) < 3) || (utf8_strlen($this->request->post['wechat']) > 20)) {
 			$this->error['wechat'] = '请检查 wechat 的输入是否有误，最长为10字';
 		}
-		if ((utf8_strlen($this->request->post['qq']) < 3) || (utf8_strlen($this->request->post['qq']) > 12)) {
-			$this->error['qq'] = '请检查 qq 的输入是否有误';
+		if ( preg_match('/^\d*$/',$this->request->post['mobile']) == 0 || (utf8_strlen($this->request->post['qq']) < 3) || (utf8_strlen($this->request->post['qq']) > 12)) {
+			$this->error['qq'] = '请检查 qq 的输入是否有误，必须为纯数字';
 		}
 		if ((utf8_strlen($this->request->post['name']) < 1) || (utf8_strlen($this->request->post['name']) > 20)) {
             $this->error['name'] = '请检查 真实姓名 的输入是否有误，最长为10字';
@@ -247,8 +246,8 @@ class ControllerAccountEdit extends Controller {
 		if ((utf8_strlen($this->request->post['place']) < 1) || (utf8_strlen($this->request->post['place']) > 40)) {
             $this->error['place'] = '请检查 所在地点 的输入是否有误，最长为20字';
         }
-		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
-			$this->error['telephone'] = $this->language->get('error_telephone');
+		if ( preg_match('/^\d*$/',$this->request->post['mobile']) == 0 || (utf8_strlen($this->request->post['mobile']) != 11) ) {
+			$this->error['telephone'] = '请检查 手机号码 的输入是否有误，必须为 11 位纯数组';
 		}
 
 		if (!$this->error) {

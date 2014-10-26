@@ -43,22 +43,22 @@
 
   <div class="content">
        <ul class="bread">
-      <li><a href="">首页 >&nbsp</a></li>
-      <li><a href="">个人中心 >&nbsp</a></li>
-      <li><a href="">编辑个人资料</a></li>
-       </ul>  
-       <div class="left">
-        <ul class="home-nav">
-          <li id="user-name"><a href="./index.php?route=account/account">个人中心</a></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=1">已发布的宝贝</a><span class="goods-num"></span></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=2">已下架的宝贝</a></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=3">未鉴定的宝贝</a><span class="goods-num"></span></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=4">已鉴定的宝贝</a><span class="goods-num"></span></li>
-          <li ><a href="./index.php?route=account/wishlist">收藏宝贝</a><span class="goods-num"></span></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/edit">编辑个人资料</a></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/password">账户安全</a></li>
-        </ul>
- </div>
+          <li><a href="/index.php?route=common/home">首页</a>&nbsp;>&nbsp;</li>
+          <li><a href="javascript:void(0)">个人中心</a></li>
+       </ul>
+
+      <div id="left-wrap">
+          <ul class="home-nav">
+              <a href="/index.php?route=account/account"><li class="userinfo-1 userinfo-choose">个人中心</li></a>
+              <a href="/index.php?route=account/wishlist/postgoods&type=1"><li class="userinfo-2">已发布的宝贝<span class="goods-num"></span></li></a>
+              <a href="/index.php?route=account/wishlist/postgoods&type=2"><li class="userinfo-2">已下架的宝贝</li></a>
+              <a href="/index.php?route=account/wishlist/postgoods&type=3"><li class="userinfo-2">未鉴定的宝贝<span class="goods-num"></span></li></a>
+              <a href="/index.php?route=account/wishlist/postgoods&type=4"><li class="userinfo-2">已鉴定的宝贝<span class="goods-num"></span></li></a>
+              <a href="/index.php?route=account/wishlist"><li class="userinfo-2">收藏宝贝<span class="goods-num"></span></li></a>
+              <a href="/index.php?route=account/edit"><li class="userinfo-1">编辑个人资料</li></a>
+              <a href="/index.php?route=account/password"><li class="userinfo-1">账户安全</li></a>
+          </ul>
+      </div>
 
        <form>
           <div class="form-content">
@@ -72,31 +72,20 @@
                     
           </div>
           <div class="row">
-             
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <div class="input-title">真实姓名：</div>
                    <span class="customer_info"><?php echo $customer_info['name'] ;?></span>
-                   <!-- <input type="text" class="price input-content"> -->
-                 
-
           </div>
 
                 <div class="row">
-             
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <span class="input-title">性别：</span>
-                   <span class="customer_info"><?php echo ($customer_info['sex']==0)?'男':'女'; ?></span>
-                   <!--<input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">男</input>
-                    <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex">女</input>
-                   -->
+                   <span class="customer_info"><?php echo ($customer_info['sex']==1)?'男':'女'; ?></span>
                   </div>
 
-
-                
-
-                  <div class="row" style="margin-top:10px">
+                  <div class="row">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
                        <span class="input-title">所在区域：</span>

@@ -103,33 +103,41 @@ class ModelCatalogProduct extends Model {
         return $result;
     }
     public function getProductsBycidnoli($cid,$type){
-    	$sql = "SELECT p.product_id , p.image ,p.status,p.title ,p.date_added, p.price , p.identify FROM " . DB_PREFIX . "product AS p";
+    	$sql = "SELECT p.product_id , p.image ,p.status,p.title ,p.date_added, p.price , p.identify FROM " . DB_PREFIX . "product AS p WHERE p.cid= '".$cid."' ";
 
+        /*
         // 筛选
         if( isset($data['filter_category']) ) {
             $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id WHERE p.cid=".$cid." AND p.status = 1");
         } else {
-            $sql .= " WHERE p.cid=".$cid."  ";
+            $sql .= "   ";
         }
+        */
+
         switch ($type) {
         	case '1':{
         		//已发布
-        		$sql.="AND p.status=1";
+        		$sql.="AND p.status = '1'";
         		break;}
         	case '2':{
         		//已下架
-        		$sql.="AND p.status=0";
+        		$sql.="AND p.status = '0'";
         		break;}
         	case '3':{
         		//未鉴定
-        		$sql.="AND p.identify=0";
+        		$sql.="AND p.identify = '0'";
         		break;}
         	case '4':{
         		//已鉴定
-        		$sql.="AND p.identify=1";
+        		$sql.="AND p.identify = '1'";
         		break;}
         }
+
+        $sql .= " ORDER BY p.date_added DESC";
+
         //echo $sql;
+        //exit();
+
         $result = $this->db->query($sql);
         //$result->num_total = $result_nolimit->num_rows;
         return $result;

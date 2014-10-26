@@ -24,46 +24,31 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="product.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/catalog/model/catalog/product.php">
+        <entry file="file://$PROJECT_DIR$/catalog/controller/product/product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="32" selection-start="69" selection-end="81" vertical-scroll-proportion="-0.0" vertical-offset="69" max-vertical-offset="18584">
+            <state line="317" column="38" selection-start="11475" selection-end="11488" vertical-scroll-proportion="80.649124" vertical-offset="11888" max-vertical-offset="19435">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/controller/catalog/product.php">
+      <file leaf-file-name="customer.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/catalog/model/account/customer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="10" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0" vertical-offset="74" max-vertical-offset="43654">
+            <state line="141" column="31" selection-start="7731" selection-end="7742" vertical-scroll-proportion="-3.0350878" vertical-offset="3070" max-vertical-offset="6003">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/model/catalog/product.php">
+      <file leaf-file-name="product.tpl" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/product/product.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="277" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0" vertical-offset="621" max-vertical-offset="19619">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/forum/view/header.htm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="21" selection-start="3346" selection-end="3347" vertical-scroll-proportion="-3.1052632" vertical-offset="2031" max-vertical-offset="4853">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common-us.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/forum/view/css/common-us.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="21" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.1687389" vertical-offset="2113" max-vertical-offset="6555">
-              <folding />
+            <state line="638" column="0" selection-start="23440" selection-end="23440" vertical-scroll-proportion="0.4653846" vertical-offset="14432" max-vertical-offset="21183">
+              <folding>
+                <marker date="1414307387101" expanded="false" signature="29356:29370" placeholder="..." />
+                <marker date="1414307387101" expanded="false" signature="30279:30297" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,22 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/admin/view/template/catalog/category_form.tpl" />
-        <option value="$PROJECT_DIR$/catalog/controller/product/category.php" />
-        <option value="$PROJECT_DIR$/catalog/controller/common/header.php" />
-        <option value="$PROJECT_DIR$/system/engine/controller.php" />
-        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/common/header.tpl" />
-        <option value="$PROJECT_DIR$/catalog/model/catalog/category.php" />
-        <option value="$PROJECT_DIR$/admin/view/template/common/filemanager.tpl" />
-        <option value="$PROJECT_DIR$/system/engine/front.php" />
-        <option value="$PROJECT_DIR$/admin/view/template/catalog/product_list.tpl" />
-        <option value="$PROJECT_DIR$/admin/index.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/image/ckfinder/config.php" />
-        <option value="$PROJECT_DIR$/admin/view/template/catalog/product_form.tpl" />
-        <option value="$PROJECT_DIR$/system/library/helper.php" />
-        <option value="$PROJECT_DIR$/admin/view/template/design/banner_list.tpl" />
-        <option value="$PROJECT_DIR$/admin/view/template/catalog/category_list.tpl" />
         <option value="$PROJECT_DIR$/admin/view/template/user/user_list.tpl" />
         <option value="$PROJECT_DIR$/admin/view/template/user/user_form.tpl" />
         <option value="$PROJECT_DIR$/admin/view/template/design/banner_form.tpl" />
@@ -107,28 +76,44 @@
         <option value="$PROJECT_DIR$/admin/controller/sale/customer.php" />
         <option value="$PROJECT_DIR$/catalog/model/account/customer.php" />
         <option value="$PROJECT_DIR$/system/library/customer.php" />
-        <option value="$PROJECT_DIR$/forum/conf/conf.php" />
         <option value="$PROJECT_DIR$/catalog/controller/account/login.php" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/template/common/home.tpl" />
         <option value="$PROJECT_DIR$/catalog/controller/common/home.php" />
         <option value="$PROJECT_DIR$/catalog/controller/account/wishlist.php" />
-        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/wishlist.tpl" />
         <option value="$PROJECT_DIR$/catalog/view/javascript/baoku/index.js" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/common.css" />
         <option value="$PROJECT_DIR$/forum/view/common.css" />
         <option value="$PROJECT_DIR$/forum/view/header_user.inc.htm" />
         <option value="$PROJECT_DIR$/forum/control/user_control.class.php" />
         <option value="$PROJECT_DIR$/admin/model/sale/customer.php" />
-        <option value="$PROJECT_DIR$/admin/model/catalog/product.php" />
-        <option value="$PROJECT_DIR$/admin/controller/catalog/product.php" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/detail.css" />
         <option value="$PROJECT_DIR$/catalog/controller/product/product.php" />
-        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/product/product.tpl" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/new.tpl" />
-        <option value="$PROJECT_DIR$/catalog/model/catalog/product.php" />
         <option value="$PROJECT_DIR$/catalog/controller/account/new.php" />
         <option value="$PROJECT_DIR$/forum/view/header.htm" />
         <option value="$PROJECT_DIR$/forum/view/css/common-us.css" />
+        <option value="$PROJECT_DIR$/admin/config.php" />
+        <option value="$PROJECT_DIR$/config.php" />
+        <option value="$PROJECT_DIR$/forum/conf/conf.php" />
+        <option value="$PROJECT_DIR$/forum/index.php" />
+        <option value="$PROJECT_DIR$/system/library/cache.php" />
+        <option value="$PROJECT_DIR$/forum/admin/control/index_control.class.php" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/login.tpl" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/register.tpl" />
+        <option value="$PROJECT_DIR$/catalog/view/javascript/common.js" />
+        <option value="$PROJECT_DIR$/system/helper/yanzhengma.php" />
+        <option value="$PROJECT_DIR$/catalog/controller/account/edit.php" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/edit.tpl" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/password.tpl" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/userinfo.css" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/account.tpl" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/userhome.css" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/wishlist.tpl" />
+        <option value="$PROJECT_DIR$/admin/view/template/catalog/product_form.tpl" />
+        <option value="$PROJECT_DIR$/admin/controller/catalog/product.php" />
+        <option value="$PROJECT_DIR$/catalog/model/catalog/product.php" />
+        <option value="$PROJECT_DIR$/admin/model/catalog/product.php" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/template/product/product.tpl" />
       </list>
     </option>
   </component>
@@ -186,21 +171,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="forum">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="www">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="forum">
+            <PATH_ELEMENT USER_OBJECT="catalog">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -208,25 +179,15 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
+            <PATH_ELEMENT USER_OBJECT="theme/default">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="www">
+            <PATH_ELEMENT USER_OBJECT="template">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="forum">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="view">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="css">
+            <PATH_ELEMENT USER_OBJECT="product">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -241,6 +202,290 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="theme/default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="template">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="theme/default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="template">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="common">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="theme/default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="template">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="account">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="theme/default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="stylesheet">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="theme/default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="stylesheet">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="baoku">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="theme/default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="account">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="controller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="product">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="www">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="catalog">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="controller">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -483,7 +728,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="更改" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -493,7 +738,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25755286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22583081" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -526,151 +771,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/catalog/model/catalog/category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="643" selection-end="643" vertical-scroll-proportion="0.22593321" vertical-offset="0" max-vertical-offset="2346" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/controller/common/filemanager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="5" selection-start="2377" selection-end="2377" vertical-scroll-proportion="0.519774" vertical-offset="1173" max-vertical-offset="11546" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/catalog/category_list.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="82" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.630713" vertical-offset="552" max-vertical-offset="1449" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/design/banner_list.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="75" selection-start="2659" selection-end="2659" vertical-scroll-proportion="0.5466179" vertical-offset="851" max-vertical-offset="1702" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/user/user_list.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="73" selection-start="2986" selection-end="2986" vertical-scroll-proportion="1.4716636" vertical-offset="414" max-vertical-offset="1794" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/user/user_form.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="28" selection-start="2854" selection-end="2854" vertical-scroll-proportion="0.8738574" vertical-offset="810" max-vertical-offset="2277" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/design/banner_form.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="98" selection-start="5663" selection-end="5663" vertical-scroll-proportion="-6.9" vertical-offset="2116" max-vertical-offset="4002" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/controller/design/banner.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="0" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.37678573" vertical-offset="1606" max-vertical-offset="11293" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/model/design/banner.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="43" selection-start="1640" selection-end="1640" vertical-scroll-proportion="-0.6398538" vertical-offset="1017" max-vertical-offset="3427" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/account/account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="10" selection-start="3794" selection-end="3794" vertical-scroll-proportion="0.53747714" vertical-offset="1684" max-vertical-offset="2231" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/common/home.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3749" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/controller/common/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="35" selection-start="6817" selection-end="6817" vertical-scroll-proportion="0.47884616" vertical-offset="4374" max-vertical-offset="9453" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/view/javascript/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.47833622" vertical-offset="276" max-vertical-offset="4370" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/sale/customer_list.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="9" selection-start="8771" selection-end="8771" vertical-scroll-proportion="1.0884615" vertical-offset="2815" max-vertical-offset="6463" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/stylesheet/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="388" column="13" selection-start="7338" selection-end="7338" vertical-scroll-proportion="0.36271188" vertical-offset="8710" max-vertical-offset="13018" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/sale/customer_form.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="71" selection-start="4365" selection-end="4365" vertical-scroll-proportion="0.50457036" vertical-offset="1794" max-vertical-offset="15939" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/library/customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="29" selection-start="5941" selection-end="5950" vertical-scroll-proportion="-7.6666665" vertical-offset="3197" max-vertical-offset="4577" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/library/helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.3267858" vertical-offset="1303" max-vertical-offset="2760">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forum/conf/conf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="4" selection-start="3906" selection-end="3906" vertical-scroll-proportion="0.6571429" vertical-offset="2783" max-vertical-offset="3818" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/module/account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1265" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/account/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="14" selection-start="10820" selection-end="10820" vertical-scroll-proportion="1.0840951" vertical-offset="5318" max-vertical-offset="6509" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/account/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="387" column="23" selection-start="12891" selection-end="12891" vertical-scroll-proportion="14.571428" vertical-offset="741" max-vertical-offset="12236" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/product/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="48" selection-start="826" selection-end="826" vertical-scroll-proportion="0.49285713" vertical-offset="276" max-vertical-offset="4945" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/common/home.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="79" selection-start="4438" selection-end="4473" vertical-scroll-proportion="1.5466179" vertical-offset="1615" max-vertical-offset="3197" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/common/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="10" selection-start="3927" selection-end="3927" vertical-scroll-proportion="1.0511883" vertical-offset="1288" max-vertical-offset="2507" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="20" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.5027726" vertical-offset="1913" max-vertical-offset="6509" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/javascript/baoku/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="106" column="5" selection-start="3785" selection-end="3785" vertical-scroll-proportion="4.2922535" vertical-offset="0" max-vertical-offset="2645" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/wishlist.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="12" selection-start="4851" selection-end="4851" vertical-scroll-proportion="3.868373" vertical-offset="0" max-vertical-offset="3887" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/account/wishlist.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="29" selection-start="6701" selection-end="6701" vertical-scroll-proportion="1.6197441" vertical-offset="3645" max-vertical-offset="7866" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/view/common.css">
@@ -691,8 +794,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="34" selection-start="718" selection-end="718" vertical-scroll-proportion="-0.0076190475" vertical-offset="395" max-vertical-offset="920">
           <folding>
-            <element signature="n#style#0;n#a#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#3;n#span#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#3;n#span#0;n#span#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -709,22 +812,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/control/index_control.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.297989" vertical-offset="2898" max-vertical-offset="4255" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/model/account/customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="8" selection-start="2653" selection-end="3202" vertical-scroll-proportion="0.50457036" vertical-offset="483" max-vertical-offset="6003" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forum/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1058" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="126" selection-end="138" vertical-scroll-proportion="0.2992565" vertical-offset="0" max-vertical-offset="897">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.297989" vertical-offset="2898" max-vertical-offset="4255">
           <folding />
         </state>
       </provider>
@@ -755,66 +843,328 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/product/product.php">
+    <entry file="file://$PROJECT_DIR$/forum/view/css/common-us.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="308" column="59" selection-start="11074" selection-end="11097" vertical-scroll-proportion="0.0" vertical-offset="6622" max-vertical-offset="19435">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/product/product.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="718" column="56" selection-start="26207" selection-end="26207" vertical-scroll-proportion="0.0" vertical-offset="16341" max-vertical-offset="21183">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/model/catalog/product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="277" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0" vertical-offset="621" max-vertical-offset="19619">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/new.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="316" column="16" selection-start="14980" selection-end="14980" vertical-scroll-proportion="0.0" vertical-offset="6955" max-vertical-offset="8303">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/controller/catalog/product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="10" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0" vertical-offset="74" max-vertical-offset="43654">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/account/new.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="9" selection-start="4698" selection-end="4698" vertical-scroll-proportion="0.78624535" vertical-offset="2429" max-vertical-offset="3059">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/model/catalog/product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="32" selection-start="69" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="18584">
+        <state line="96" column="21" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.1687389" vertical-offset="2113" max-vertical-offset="6555">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/view/header.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="21" selection-start="3346" selection-end="3347" vertical-scroll-proportion="-3.1052632" vertical-offset="2031" max-vertical-offset="4853">
+        <state line="96" column="21" selection-start="3346" selection-end="3347" vertical-scroll-proportion="0.33208254" vertical-offset="2031" max-vertical-offset="4853">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forum/view/css/common-us.css">
+    <entry file="file://$PROJECT_DIR$/forum/config.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="21" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.1687389" vertical-offset="2113" max-vertical-offset="6555">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="590">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/xiunophp/core/core.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="38" selection-start="1120" selection-end="1120" vertical-scroll-proportion="-29.150093" vertical-offset="16595" max-vertical-offset="18469">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/library/cache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="24" selection-start="398" selection-end="398" vertical-scroll-proportion="0.71480805" vertical-offset="0" max-vertical-offset="1288">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/admin/conf/conf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.35535714" vertical-offset="199" max-vertical-offset="759">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.93035716" vertical-offset="521" max-vertical-offset="1081">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/conf/conf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="35" selection-start="722" selection-end="722" vertical-scroll-proportion="-0.4315197" vertical-offset="552" max-vertical-offset="3818">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="730" selection-end="730" vertical-scroll-proportion="0.9035714" vertical-offset="0" max-vertical-offset="851">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="30" selection-start="934" selection-end="934" vertical-scroll-proportion="0.50714284" vertical-offset="337" max-vertical-offset="897">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/admin/control/user_control.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.5732143" vertical-offset="2001" max-vertical-offset="4232">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/admin/control/admin_control.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="9" selection-start="1021" selection-end="1021" vertical-scroll-proportion="-8.433333" vertical-offset="621" max-vertical-offset="2852">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/admin/control/index_control.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="8" selection-start="390" selection-end="390" vertical-scroll-proportion="0.46252286" vertical-offset="138" max-vertical-offset="3634">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/common/footer.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="22" selection-start="2982" selection-end="2983" vertical-scroll-proportion="0.6116323" vertical-offset="1790" max-vertical-offset="2323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/login.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="13" selection-start="343" selection-end="343" vertical-scroll-proportion="-3.6666667" vertical-offset="143" max-vertical-offset="1081">
+          <folding>
+            <element signature="n#style#0;n#input#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/javascript/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="285" column="28" selection-start="8659" selection-end="8659" vertical-scroll-proportion="0.0" vertical-offset="5633" max-vertical-offset="6762">
+          <folding>
+            <marker date="1414292171663" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1414292171663" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1414292171663" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/register.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="99" selection-start="428" selection-end="428" vertical-scroll-proportion="-5.2" vertical-offset="97" max-vertical-offset="966">
+          <folding>
+            <element signature="n#style#0;n#input#3;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/helper/yanzhengma.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="4" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.575" vertical-offset="713" max-vertical-offset="1449">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/product/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="9" selection-start="2794" selection-end="2794" vertical-scroll-proportion="0.16428572" vertical-offset="1449" max-vertical-offset="4945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/account/new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="11" selection-start="2107" selection-end="2108" vertical-scroll-proportion="1.2026266" vertical-offset="739" max-vertical-offset="3059">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/new.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-11.956124" vertical-offset="6540" max-vertical-offset="8303">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/account/account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="0" selection-start="3617" selection-end="3617" vertical-scroll-proportion="0.37842777" vertical-offset="1587" max-vertical-offset="2231">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/account/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="258" column="0" selection-start="9169" selection-end="9169" vertical-scroll-proportion="1.3020638" vertical-offset="5240" max-vertical-offset="6095">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/common/content_bottom.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/userinfo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="50" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/password.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="44" selection-start="3139" selection-end="3139" vertical-scroll-proportion="-3.6666667" vertical-offset="1362" max-vertical-offset="2116">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/account/wishlist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="166" column="13" selection-start="5782" selection-end="5786" vertical-scroll-proportion="0.33333334" vertical-offset="3652" max-vertical-offset="8257">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/view/template/catalog/profile_form.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.26285714" vertical-offset="138" max-vertical-offset="4347">
+          <folding>
+            <marker date="1412180605618" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1412180605618" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1412180605618" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1412180605618" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1412180605618" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1412180605618" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/edit.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="6" selection-start="2519" selection-end="2686" vertical-scroll-proportion="0.20109689" vertical-offset="1247" max-vertical-offset="4738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/account.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="34" selection-start="4110" selection-end="4110" vertical-scroll-proportion="0.12614259" vertical-offset="1932" max-vertical-offset="3864">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/wishlist.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="45" selection-start="4869" selection-end="4869" vertical-scroll-proportion="0.5576923" vertical-offset="1688" max-vertical-offset="3933">
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#tbody#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#tbody#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#tbody#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#tbody#1;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#1;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#tbody#1;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#tbody#1;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/userhome.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="104" selection-start="976" selection-end="976" vertical-scroll-proportion="0.48180243" vertical-offset="734" max-vertical-offset="1449">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/model/catalog/product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="197" column="91" selection-start="13079" selection-end="13079" vertical-scroll-proportion="0.58348966" vertical-offset="4220" max-vertical-offset="19665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/view/template/catalog/product_form.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="57" selection-start="4877" selection-end="4877" vertical-scroll-proportion="0.6727605" vertical-offset="1518" max-vertical-offset="35834">
+          <folding>
+            <marker date="1414306593788" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1414306593788" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/model/catalog/product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="10" selection-start="5547" selection-end="5547" vertical-scroll-proportion="0.37692308" vertical-offset="2978" max-vertical-offset="18768">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/controller/catalog/product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="37" selection-start="372" selection-end="373" vertical-scroll-proportion="0.3326923" vertical-offset="172" max-vertical-offset="43723">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/model/account/customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="31" selection-start="7731" selection-end="7742" vertical-scroll-proportion="-3.0350878" vertical-offset="3070" max-vertical-offset="6003">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/product/product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="317" column="38" selection-start="11475" selection-end="11488" vertical-scroll-proportion="80.649124" vertical-offset="11888" max-vertical-offset="19435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/product/product.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="638" column="0" selection-start="23440" selection-end="23440" vertical-scroll-proportion="0.4653846" vertical-offset="14432" max-vertical-offset="21183">
+          <folding>
+            <marker date="1414307387101" expanded="false" signature="29356:29370" placeholder="..." />
+            <marker date="1414307387101" expanded="false" signature="30279:30297" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -35,23 +35,24 @@
   <?php echo $content_bottom; ?></div> -->
 
   <div class="content">
-       <ul class="bread">
-      <li><a href="">首页 >&nbsp</a></li>
-      <li><a href="">个人中心 >&nbsp</a></li>
-      <li><a href="">编辑个人资料</a></li>
-       </ul>  
-<div class="left">
+
+    <ul class="bread">
+        <li><a href="/index.php?route=common/home">首页</a>&nbsp;>&nbsp;</li>
+        <li><a href="javascript:void(0)">账户安全</a></li>
+    </ul>
+
+    <div id="left-wrap">
         <ul class="home-nav">
-          <li id="user-name"><a href="userhome.html">于先生的宝贝</a></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=1">已发布的宝贝</a><span class="goods-num"></span></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=2">已下架的宝贝</a></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=3">未鉴定的宝贝</a><span class="goods-num"></span></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=4">已鉴定的宝贝</a><span class="goods-num"></span></li>
-          <li ><a href="./index.php?route=account/wishlist">收藏宝贝</a><span class="goods-num"></span></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/edit">编辑个人资料</a></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/password">账户安全</a></li>
+            <a href="/index.php?route=account/account"><li class="userinfo-1">个人中心</li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=1"><li class="userinfo-2">已发布的宝贝<span class="goods-num"></span></li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=2"><li class="userinfo-2">已下架的宝贝</li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=3"><li class="userinfo-2">未鉴定的宝贝<span class="goods-num"></span></li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=4"><li class="userinfo-2">已鉴定的宝贝<span class="goods-num"></span></li></a>
+            <a href="/index.php?route=account/wishlist"><li class="userinfo-2">收藏宝贝<span class="goods-num"></span></li></a>
+            <a href="/index.php?route=account/edit"><li class="userinfo-1">编辑个人资料</li></a>
+            <a href="/index.php?route=account/password"><li class="userinfo-1 userinfo-choose">账户安全</li></a>
         </ul>
- </div>
+    </div>
 
        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
           <div class="form-content">
@@ -61,7 +62,7 @@
              
                    <span class="nes-tip">*</span>
                    &nbsp;&nbsp;&nbsp;
-                   <div class="input-title">输入密码</div>
+                   <div class="input-title">新密码</div>
                    <input type="text" class="price input-content" name="password" value="<?php echo $password; ?>" >
                    <?php if ($error_password) { ?>
                     <span class="error"><?php echo $error_password; ?></span>
@@ -72,7 +73,7 @@
              
                    <span class="nes-tip">*</span>
                    &nbsp;&nbsp;&nbsp;
-                   <div class="input-title">确认密码</div>
+                   <div class="input-title">再次输入</div>
                    <input type="text" class="price input-content"  name="confirm" value="<?php echo $confirm; ?>">
                    <?php if ($error_confirm) { ?>
             <span class="error"><?php echo $error_confirm; ?></span>

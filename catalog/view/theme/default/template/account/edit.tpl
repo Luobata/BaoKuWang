@@ -56,36 +56,39 @@
     </div>
   </form> -->
   <div class="content">
-       <ul class="bread">
-      <li><a href="">首页 >&nbsp</a></li>
-      <li><a href="">个人中心 >&nbsp</a></li>
-      <li><a href="">编辑个人资料</a></li>
-       </ul>  
-     <div class="left">
-        <ul class="home-nav">
-          <li id="user-name"><a href="./index.php?route=account/account">个人中心</a></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=1">已发布的宝贝</a><span class="goods-num"></span></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=2">已下架的宝贝</a></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=3">未鉴定的宝贝</a><span class="goods-num"></span></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=4">已鉴定的宝贝</a><span class="goods-num"></span></li>
-          <li ><a href="./index.php?route=account/wishlist">收藏宝贝</a><span class="goods-num"></span></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/edit">编辑个人资料</a></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/password">账户安全</a></li>
-        </ul>
- </div>
 
-       
+      <ul class="bread">
+          <li><a href="/index.php?route=common/home">首页</a>&nbsp;>&nbsp;</li>
+          <li><a href="javascript:void(0)">编辑个人资料</a></li>
+      </ul>
+
+      <div id="left-wrap">
+          <ul class="home-nav">
+              <a href="/index.php?route=account/account"><li class="userinfo-1">个人中心</li></a>
+              <a href="/index.php?route=account/wishlist/postgoods&type=1"><li class="userinfo-2">已发布的宝贝<span class="goods-num"></span></li></a>
+              <a href="/index.php?route=account/wishlist/postgoods&type=2"><li class="userinfo-2">已下架的宝贝</li></a>
+              <a href="/index.php?route=account/wishlist/postgoods&type=3"><li class="userinfo-2">未鉴定的宝贝<span class="goods-num"></span></li></a>
+              <a href="/index.php?route=account/wishlist/postgoods&type=4"><li class="userinfo-2">已鉴定的宝贝<span class="goods-num"></span></li></a>
+              <a href="/index.php?route=account/wishlist"><li class="userinfo-2">收藏宝贝<span class="goods-num"></span></li></a>
+              <a href="/index.php?route=account/edit"><li class="userinfo-1 userinfo-choose">编辑个人资料</li></a>
+              <a href="/index.php?route=account/password"><li class="userinfo-1">账户安全</li></a>
+          </ul>
+      </div>
+
           <div class="form-content">
 
-          <div class="row">
-             
-                   <span class="nes-tip none">*</span>
-                   &nbsp;&nbsp;&nbsp;
-                   <div class="input-title">用户名</div>
-                   <input type="text" class="htitle input-content" value="<?php echo$email;?>" style="color:#ccc"readonly>
-                
-          </div>
+
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+
+            <div class="row">
+
+                <span class="nes-tip none">*</span>
+                &nbsp;&nbsp;&nbsp;
+                <div class="input-title">用户名</div>
+                <input type="text" name="email" class="htitle input-content" value="<?php echo$email;?>" style="color:#ccc"readonly>
+
+            </div>
+
           <div class="row">
              
                    <span class="nes-tip none">*</span>
@@ -104,11 +107,11 @@
                    &nbsp;&nbsp;&nbsp;
                    <span class="input-title">性别</span>  
                    <?php if($sex){;?>
-                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="0" >男</input>
-                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="1" checked>女</input>
+                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="1" checked>男</input>
+                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="0" >女</input>
                  <?php }else{ ;?>
-                 <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="0" checked>男</input>
-                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="1" >女</input>
+                 <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="1" >男</input>
+                   <input type="radio" style="margin-left: 20px;margin-right: 10px;"name="sex" value="0" checked>女</input>
                    <?php };?>
                   </div>
 

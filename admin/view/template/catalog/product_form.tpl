@@ -80,7 +80,7 @@
 <?php } ?>
 -->
 
-<input type="hidden" name="cid" value="0"/>
+<input type="hidden" name="cid" value="<?php echo $cid;?>"/>
 
 <tr>
     <td><span class="required">*</span>商品名称（标题）</td>

@@ -57,39 +57,41 @@
   </div>
   <?php } ?> -->
   <div class="content">
-       <ul class="bread">
-      <li><a href="">首页 >&nbsp;</a></li>
-      <li><a href="">个人中心</a></li>
-       </ul>  
+
+    <ul class="bread">
+        <li><a href="/index.php?route=common/home">首页</a>&nbsp;>&nbsp;</li>
+        <li><a href="javascript:void(0)">我的宝贝</a></li>
+    </ul>
 
 
-      <div class="left">
+    <div id="left-wrap">
         <ul class="home-nav">
-          <li id="user-name"><a href="./index.php?route=account/account">个人中心</a></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=1">已发布的宝贝</a><span class="goods-num"></span></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=2">已下架的宝贝</a></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=3">未鉴定的宝贝</a><span class="goods-num"></span></li>
-          <li><a href="./index.php?route=account/wishlist/postgoods&type=4">已鉴定的宝贝</a><span class="goods-num"></span></li>
-          <li ><a href="./index.php?route=account/wishlist">收藏宝贝</a><span class="goods-num"></span></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/edit">编辑个人资料</a></li>
-          <li class="userinfo" style="height: 60px;line-height: 60px;"><a href="./index.php?route=account/password">账户安全</a></li>
+            <a href="/index.php?route=account/account"><li class="userinfo-1">个人中心</li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=1"><li class="userinfo-2 <?php if($type==1) echo 'userinfo-choose'; ?>">已发布的宝贝<span class="goods-num"></span></li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=2"><li class="userinfo-2 <?php if($type==2) echo 'userinfo-choose'; ?>">已下架的宝贝</li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=3"><li class="userinfo-2 <?php if($type==3) echo 'userinfo-choose'; ?>">未鉴定的宝贝<span class="goods-num"></span></li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=4"><li class="userinfo-2 <?php if($type==4) echo 'userinfo-choose'; ?>">已鉴定的宝贝<span class="goods-num"></span></li></a>
+            <a href="/index.php?route=account/wishlist"><li class="userinfo-2 <?php if(!isset($type)) echo 'userinfo-choose'; ?>">收藏宝贝<span class="goods-num"></span></li></a>
+            <a href="/index.php?route=account/edit"><li class="userinfo-1">编辑个人资料</li></a>
+            <a href="/index.php?route=account/password"><li class="userinfo-1">账户安全</li></a>
         </ul>
- </div>         
+    </div>
+
        <div class="goods-list right">
         <table>
                  <thead>
                      <tr>
-                         <th style="width:320px;text-align:left;padding-left:10px">商品</th>
-                         <th style="width:140px;">状态</th>
-                         <th style="width:140px;">发布时间</th>
-                         <th style="width:174px;">操作</th>
+                         <th style="width:475px;text-align:left;padding-left:10px;border-right: 1px solid #ddd;">商品</th>
+                         <th style="width:69px;border-right: 1px solid #ddd;">状态</th>
+                         <th style="width:110px;border-right: 1px solid #ddd;">发布时间</th>
+                         <th style="width:107px;">操作</th>
                      </tr>
                      <?php //var_dump($products); ?>
                      <?php if(isset($products)) { ?>
                      <?php foreach ($products as $product) { ?>
                 <tbody id="wishlist-row<?php echo $product['product_id']; ?>">
                   <tr class="item">
-                       <th class="pic">
+                       <th class="pic" style="border-right: 1px solid #ddd;">
                           <?php if ($product['thumb']) { ?>
                           <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
                           <?php } ?>
@@ -99,15 +101,15 @@
                           </div>
                        </th> 
 
-                       <th>
+                       <th style="border-right: 1px solid #ddd;">
                         <?php echo$product['identify'];?>
                        </th>
 
-                       <th>
+                       <th style="border-right: 1px solid #ddd;">
                         <?php echo$product['date_added'];?>
                        </th>
 
-                       <th>
+                       <th style="border-right: 1px solid #ddd;">
                          
                          <a href="<?php echo $product['remove']; ?>">删除</a>
                        </th>
@@ -121,7 +123,7 @@
                     <?php for ($i=0; $i <sizeof($product) ; $i++) { ;?>
                       <tbody id="wishlist-row<?php echo $product[$i]['product_id']; ?>">
                   <tr class="item">
-                       <th class="pic">
+                       <th class="pic" style="border-right: 1px solid #ddd;">
                          <a href="./index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>"><img src="./image/<?php echo $product[$i]['image']; ?>" alt="<?php echo $product[$i]['title']; ?>" title="<?php echo $product[$i]['title']; ?>" /></a>
                           <div class="goods-info">
                             <div class="goods-title"><a href="./index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>">
@@ -130,16 +132,16 @@
                           </div>
                        </th>
 
-                       <th>
+                       <th style="border-right: 1px solid #ddd;">
 
                         <?php echo $product[$i]['identify'];?>
                        </th>
 
-                       <th>
+                       <th style="border-right: 1px solid #ddd;">
                         <?php echo $product[$i]['date_added'];?>
                        </th>
 
-                       <th>
+                       <th style="border-right: 1px solid #ddd;">
                              <?php if($type==4){ ?>
                              <a href="/index.php?route=product/identify">鉴定</a>
                              <?php } elseif ($type==2) { ?>

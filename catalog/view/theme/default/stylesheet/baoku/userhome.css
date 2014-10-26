@@ -9,23 +9,40 @@
 
 }
 
-
-.left{width: 200px;background-color: #ececec;overflow: hidden;margin-top: 16px;float: left;}
-.left li{
-		border-top-width: 0px;
-border-left-width: 0px;
-border-right-width: 0px;border-bottom: 1px;border-color: #ccc;border-style: solid;height: 40px;line-height: 40px;text-align: left;padding-left: 20px;}
-
 .goods-num{float: right;padding-right: 20px;color: #673414}
-#user-name a,.userinfo a{font-size: 20px;color: #673413;}
-#user-name{height: 60px;line-height: 60px;}
+
+
+#left-wrap{width: 200px;background-color: #eee;overflow: hidden;margin-top: 16px;float: left;}
+
+.userinfo-1,.userinfo-2{
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom: 1px;
+    border-color: #aaa;
+    border-style: solid;
+    text-align: left;
+    padding-left: 20px;
+    cursor: pointer;
+    color: #673413;
+}
+.userinfo-1{
+    height: 60px;line-height: 60px;background-color: #ddd;font-size: 20px;
+}
+.userinfo-2{
+    height: 40px;line-height: 40px;
+}
+
+#left-wrap li:hover , .userinfo-choose{
+    background-color: #bbb;
+}
 
 #last {border-bottom: 0px;}
 
 .goods-list{width: 774px;border:1px;border-style: solid;border-color: #e9dcc5;float: right;margin-top: 16px;}
 
 
-.goods-list thead {height: 40px;background-color: #ad813f;line-height: 40px;color: #fff;}
+.goods-list thead {height: 40px;background-color: #ad813f;line-height: 40px;color: #fff;cursor: default;}
 
 .goods-list table{border-spacing:0px; border:1px;border-collapse: collapse;}
 

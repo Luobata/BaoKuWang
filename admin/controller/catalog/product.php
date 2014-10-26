@@ -1033,6 +1033,9 @@ class ControllerCatalogProduct extends Controller {
 			$product_info = $this->model_catalog_product->getProduct($this->request->get['product_id']);
 		}
 
+        //var_dump($product_info);
+        //exit();
+
 		$this->data['token'] = $this->session->data['token'];
 
 		$this->load->model('localisation/language');
@@ -1591,7 +1594,7 @@ class ControllerCatalogProduct extends Controller {
         } elseif ( isset($product_info) ) {
             $this->data['cid'] = $product_info['cid'];
         } else {
-            $this->data['cid'] = '';
+            $this->data['cid'] = '0';
         }
 
         if (isset($this->request->post['price'])) {
