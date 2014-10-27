@@ -16,8 +16,7 @@ $('.mover').mouseover(function(e) {
       //data:{ randomid: Math.random() },
       dataType:"json",
       success:function(data){
-        //$.parseJSON('data');
-             //alert(1);
+          if(data.length!=0){
              for (var i = 0; i < data.length-1; i++) {
              	//$('.s_friends .tip_'+(i+1)+' a').html(data[i].subject);
              	$('.s_friends').append(" <div class='s_left_con tip_1'>"+
@@ -25,7 +24,11 @@ $('.mover').mouseover(function(e) {
              };
              $('.s_friends').append(" <div class='s_left_con tip_1' id='s_left_con'>"+
              		"<a href='./forum/?thread-index-fid-"+data[i].fid+"-tid-"+data[i].tid+".htm'>"+data[i].subject+"</a></div>");
-             //alert(data);
+          }else{
+            //没有数据返回
+            $('.s_friends').remove();
+          }
+
               }
         }); 
   	
@@ -71,7 +74,7 @@ $('.mover').mouseover(function(e) {
         });
         $("#mb_tit").css({ display: 'block', fontSize: '14px', color: '#444', padding: '10px 15px',
             backgroundColor: '#DDD', borderRadius: '15px 15px 0 0',
-            borderBottom: '3px solid #009BFE', fontWeight: 'bold'
+            borderBottom: '3px solid #AD813F', fontWeight: 'bold'
         });
         $("#mb_msg").css({ padding: '20px', lineHeight: '20px',
             borderBottom: '1px dashed #DDD', fontSize: '13px'
@@ -82,7 +85,7 @@ $('.mover').mouseover(function(e) {
         });
         $("#mb_btnbox").css({ margin: '15px 0 10px 0', textAlign: 'center' });
         $("#mb_btn_ok,#mb_btn_no").css({ width: '85px', height: '30px', color: 'white', border: 'none' });
-        $("#mb_btn_ok").css({ backgroundColor: '#168bbb' });
+        $("#mb_btn_ok").css({ backgroundColor: '#AD813F' });
         $("#mb_btn_no").css({ backgroundColor: 'gray', marginLeft: '20px' });
         //右上角关闭按钮hover样式
         $("#mb_ico").hover(function () {
@@ -95,9 +98,7 @@ $('.mover').mouseover(function(e) {
         var boxWidth = $("#mb_con").width();
         var boxHeight = $("#mb_con").height();
         //让提示框居中
-        alert(_height);
-        alert(boxHeight);
-        $("#mb_con").css({ top: (_height - boxHeight) / 2 + "px", left: (_widht - boxWidth) / 2 + "px" });
+        $("#mb_con").css({ top: (_height/4 - boxHeight) / 2 + "px", left: (_widht - boxWidth) / 2 + "px" });
     }
     //确定按钮事件
     var btnOk = function (callback) {

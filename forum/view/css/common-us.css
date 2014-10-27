@@ -30,7 +30,7 @@ header{
 	width:185px;
 	height: 80px;
 	position: relative;
-	top: 12%;
+	top: 2%;
 	background-repeat: no-repeat;
 	background-position: center;
 	//background-image:url('../image/logo.png');
@@ -232,14 +232,19 @@ header{
  #f_pic_5{
  	background-image:url('../image/foot5.png');
  }
- .footer_2 .num{
- 	width: 230px;
+  .footer_2 .num{
+ 	width: 250px;
  	height: 50px;
  	float: left;
- 	margin-right: 45px;
+ 	margin: 13px 30px 0 0;
  	background-position: center;
 	background-repeat: no-repeat;
-	background-image:url('../image/num.png');
+    color: #673413;
+    font-size: 20px;
+    font-weight: bolder;
+    word-break: break-all;
+
+	/* background-image:url('../../image/baoku/num.png'); */
  }
  .footer_2 .f2_texts li{
  	float: left;
@@ -277,4 +282,31 @@ header{
 	width: 22px;
 	top:4px;
 	position: absolute;
+}
+.item{
+	width: 200px;
+	min-height: 45px;
+	overflow: hidden;
+	background-color: #edeced;
+	position: absolute;
+	margin-left: 200px;
+	margin-top: -45px;
+	z-index: 100;
+	display: none;
+}
+.content_head .goods{
+	width: 200px;
+	height: 45px;
+	text-align: center;
+	background-color: #edeced;
+	line-height: 45px;
+}
+.goods .goods_line{
+	width: 194px;
+	height:44px;
+	border-bottom-color: #c5bfbd;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	margin-right: auto;
+	margin-left: auto;
 }

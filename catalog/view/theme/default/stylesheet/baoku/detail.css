@@ -121,8 +121,8 @@ top: 10%;
 	background-color: #673413;
 }
 .d_second{
-	margin-top: 36px;
-	min-height: 1340px;
+	margin-top: 36px;/*
+	min-height: 1340px;*/
 }
 .s_left,.s_right{
 	float: left;
@@ -130,7 +130,7 @@ top: 10%;
 }
 .s_left{
 	width: 200px;
-	min-height: 1340px;
+	/*min-height: 1340px;*/
 }
 .s_right{
 	margin-left:26px; 
@@ -151,16 +151,16 @@ top: 10%;
 	margin-top: 26px;
 }
 .s_about{
-	min-height: 645px;
+	/*min-height: 645px;*/
 }
 .s_goods{
-	min-height:200px;
+	/*min-height:200px;*/
 }
 .s_friends{
-	min-height: 240px;
+	/*min-height: 240px;*/
 }
 .s_solder{
-	min-height:164px;
+	/*min-height:164px;*/
 }
 .s_right_title,.s_left_title{
 	width: 100%;

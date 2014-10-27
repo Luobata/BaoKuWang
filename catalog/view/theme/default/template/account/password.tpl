@@ -88,9 +88,22 @@
             <span class="error"><?php echo $error_confirm; ?></span>
             <?php } ?></td>
           </div>
+          <div class="row">
+             
+                   <span class="nes-tip"></span>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <div class="input-title "><a href="javascript:passfor()">忘记密码</a></div>
+                   </td>
+          </div>
                   <input type="submit" value="提交修改" class="submit-btn">
           </div>
        </form>
 
     </div>  
+<script type="text/javascript">
+  function passfor(){
+    $.MsgBox.Alert("消息提醒","客服电话:xxxxxxxx");
+  }
+
+</script>
 <?php echo $footer; ?>

@@ -67,7 +67,7 @@
     <header>
         <script type="text/javascript"> 
      window.onload = function(){
-           ScrollImgLeft();
+           //ScrollImgLeft();
         }
     function ScrollImgLeft(){ 
     var speed=50; 
@@ -109,7 +109,7 @@ position: relative;" id="scroll_div" class="scroll_div">
             <?php if ($logo) { ?>
             <div class="logo">
                 <a href="<?php echo $home; ?>">
-                    <img style="width:100%;height:100%;border:0;"
+                    <img style="width:100%;<!-- height:100%; -->border:0;"
                          src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
                 </a>
             </div>

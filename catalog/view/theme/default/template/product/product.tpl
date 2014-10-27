@@ -662,6 +662,7 @@ Aui.ready( function()
 
     <div class="d_second">
       <div class="s_left">
+        <?php if(sizeof($product_late)!=0){ ?>
         <div class="s_about">
           <div class="s_left_title">
             相关物品
@@ -681,6 +682,7 @@ Aui.ready( function()
           </div>
           <?php };?>
         </div>
+        <?php }?>
           
         <div class="s_goods">
           <div class="s_left_title">
@@ -728,17 +730,17 @@ $.ajax({
       //data:{ randomid: Math.random() },
       dataType:"json",
       success:function(data){
-        //$.parseJSON('data');
-             //alert(1);
-
+        if(data.length!=0){
              for (var i = 0; i < data.length-1; i++) {
-              //$('.s_friends .tip_'+(i+1)+' a').html(data[i].subject);
+              
               $('.s_solder').append(" <div class='s_left_con'>"+
                 "<a href='./forum/?thread-index-fid-"+data[i].fid+"-tid-"+data[i].tid+".htm'>"+data[i].subject+"</a></div>");
              };
              $('.s_solder').append(" <div class='s_left_con' id='s_left_con'>"+
                 "<a href='./forum/?thread-index-fid-"+data[i].fid+"-tid-"+data[i].tid+".htm'>"+data[i].subject+"</a></div>");
-             //alert(data);
+          }else{
+            $('.s_solder').remove();
+          }
               }
         });   
 	$('.colorbox').colorbox({
