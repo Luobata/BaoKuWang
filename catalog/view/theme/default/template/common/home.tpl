@@ -30,13 +30,31 @@
         </div>
 
         <div class="pic">
-           <div id="slider" class="swipe">
+           <!-- <div id="slider" class="swipe">
                 <div class="swipe-wrap">
                 <?php foreach( $banner_images as $image ) { ?>
                 <div><a href="<?php echo $image['link']; ?>"><img src="/image/<?php echo $image['image']; ?>"></a></div>
                 <?php } ?>
                 </div>
-           </div>
+           </div> -->
+        <div class="scroll">
+           <div class="scrollDesc">
+            <ul>
+                <?php foreach( $banner_images as $image ) { ?>
+              <li><a href="<?php echo $image['link']; ?>"><img src="/image/<?php echo $image['image']; ?>"></a></li>
+              <?php } ?>
+            </ul>
+            </div>
+            <div class="scrollBar">
+                <ul>
+                    <li class="current">1</li>
+                    <?php for ($i=2; $i <= sizeof($banner_images); $i++) { ?>
+                     
+                    <li>$i</li>
+                    <?php }?>
+                </ul>
+            </div>
+        </div>
         </div>
 
     </div>
@@ -142,6 +160,8 @@
 
 </div>
 
+<script type="text/javascript" src="catalog/view/javascript/baoku/swipe.js"></script>
+<script type="text/javascript" src="catalog/view/javascript/baoku/tab.js"></script>
 <h1 style="display: none;"><?php //echo $heading_title; ?></h1>
 <?php //echo $content_bottom; ?>
 <?php echo $footer; ?>

@@ -170,3 +170,11 @@ border-color: #d3d3d3;
 .savep-price{color: red}
 
 .head3{font-size: 20px;}
+.weiduduan{ width:510px; margin:15px auto 0 auto;}
+.scroll,.move{position:relative;width:800px;height:405px; float:left; margin-right:20px; display:inline; overflow:hidden;}
+.scrollDesc ul,.moveDesc ul{width:800px;height:405px;position:absolute;}
+.scrollDesc li,.moveDesc li{float:left;}
+.scroll img,.move img{width:800px;height:405px;}
+.scrollBar,.moveBar{position:absolute;right:10px;bottom:15px;}
+.scrollBar li,.moveBar li{float:left;margin-right:8px;width:21px;height:21px;line-height:21px;font-size:13px;cursor:pointer;text-align:center;background:url(../images/btn02.png) no-repeat;}
+.scrollBar li.current,.moveBar li.current{color:#fff;width:21px;cursor:pointer;color:#fff;background:url(../images/btn01.png) no-repeat;}

@@ -31,23 +31,12 @@ $(".search_sel").change(function(){
 //是首页加入下面这些
 $(document).ready(function() {
     //alert($('#index').val());
-    if($('#index').val()!='index'){
-        $('.all').hover(function() {
-    /* Stuff to do when the mouse enters the element */
-     //var eq = $('.content_head > .goods').index(this),
-     //h = $('.content_head').offset().top;  
-     //$('.goods').attr('style', 'background-color:#edeced');
-     //alert(1);
-     //$(this).attr('style', 'background-color:#fff');
+if($('#index').val()!='index'){
+    $('.all').hover(function() {
      $('.content_head').show();
-     //$('.item').css('display', 'none');    
-     //$(this).children('.item').show();
-}, function() {
-   //$('.goods').attr('style', 'background-color:#edeced');
-   //$(this).children('.item').css('display', 'none');
-   $('.content_head').css('display', 'none');
-    //a.css('display','none');
-});
+    }, function() {
+     $('.content_head').css('display', 'none');
+    });
     }
 });
 
@@ -66,5 +55,6 @@ $('.content_head > .goods').hover(function() {
 }, function() {
    $('.goods').attr('style', 'background-color:#edeced');
    $(this).children('.item').css('display', 'none');
+   
     //a.css('display','none');
 });
