@@ -594,18 +594,16 @@ Aui.ready( function()
     <div class="d_first">
       <div class="f_pics">
         <div id="demo">
-  <div id="wraper">
-        <div id="small">
-          
-            <span id="mask">
-              <div></div>
-            </span>
-            
+          <div id="wraper">
+                <div id="small">
+                    <span id="mask">
+                      <div></div>
+                    </span>
+                </div>
+                <div id="big">
+                </div>
+            </div>
         </div>
-        <div id="big">
-        </div>
-    </div>
-</div>
         <!-- <div class="b_pic">
          <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox">
 
@@ -619,8 +617,7 @@ Aui.ready( function()
         <div class="s_pic">
           <ul class="s_pic_con">
             <?php for ($i=0; $i <sizeof($product_images) ; $i++) { ;?>
-            <a href="./image/<?php echo $product_images[$i]['image'];?>" class="colorbox cboxElment"><img src="./image/<?php echo $product_images[$i]['image'];?>" class="mover"></a>
-           
+            <img src="./image/<?php echo $product_images[$i]['image'];?>" class="mover" />
             <?php } ;?>
           </ul>
         </div>
@@ -669,7 +666,7 @@ Aui.ready( function()
           <div class="s_left_title">
             相关物品
           </div>
-          <?php for ($i=0; $i <sizeof($product_late); $i++) { ;?>
+          <?php for ($i=0;$i<count($product_late);$i++) { ;?>
             
           <div class="s_about_detail">
             <a href="./index.php?route=product/product&path&product_id=<?php echo $product_late[$i]['product_id'];?>">

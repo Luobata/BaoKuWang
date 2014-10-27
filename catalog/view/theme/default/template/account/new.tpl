@@ -12,8 +12,8 @@
 
         <div class="form-content">
 
+            <!-- 商品分类 -->
             <div class="row">
-
                 <div class="col">
                     <span class="nes-tip">*</span>
                     &nbsp;&nbsp;&nbsp;
@@ -65,9 +65,9 @@
                     });
                 });
                 </script>
-
             </div>
 
+            <!-- 标题 -->
             <div class="row">
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
@@ -76,6 +76,8 @@
                 <a class="tip-btn" target="_blank" href="/index.php?route=product/identify">免费鉴定</a>
                 <span id="error_title" class="error_prompt"></span>
             </div>
+
+            <!-- 转让价格 -->
             <div class="row">
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
@@ -86,9 +88,7 @@
                 <span id="error_price" class="error_prompt"></span>
             </div>
 
-            <!-- 图片 -->
-            <script type="text/javascript" src="/image/ckfinder/ckfinder.js"></script>
-
+            <!-- 商品主图 -->
             <div class="row" style="height: auto;">
                 <div>
                     <span class="nes-tip">*</span>
@@ -96,131 +96,62 @@
                     <span class="input-title">物品主图</span>
                 </div>
                 <div style="position: relative; top: -44px;">
+                    <!-- 为了布局 -->
                     <div style="display: inline-block; visibility: hidden;">
                         <span class="nes-tip">*</span>
                         &nbsp;&nbsp;&nbsp;
                         <span class="input-title">物品主图</span>
                     </div>
+                    <!-- 事件按钮 -->
                     <div style="display: inline-block;width:600px;">
                         <div id="product_image_main" class="product_image"></div>
-                        <input onclick="BrowseServer_main();" type="button" class="pic input-content" value="选择图片" />
+                        <input id="image_main_btn" type="button" class="pic input-content" value="选择图片" />
                         <span id="error_image_main" class="error_prompt"></span>
                     </div>
                 </div>
-
+                <!-- 隐藏域 -->
                 <input type="hidden" name="image" id="product_image" />
-
-                <script type="text/javascript">
-                    function BrowseServer_main()
-                    {
-                        var finder = new CKFinder();
-                        finder.basePath = '/image/ckfinder/';
-                        finder.selectActionFunction = SetFileField_main;
-                        finder.popup();
-                    }
-                    function SetFileField_main( fileUrl )
-                    {
-                        $('#product_image_main').html('<img src="' + fileUrl + '"/>');
-                        fileUrl = fileUrl.substr(fileUrl.indexOf('data/userfiles/'));
-                        document.getElementById('product_image').value = fileUrl;
-                    }
-                </script>
-
             </div>
 
-            <div class="row" style="height: auto;position: relative; top: -18px;">
-                <div>
-                    <span class="input-title">更多图片</span>
-                </div>
-
+            <!-- 更多图片 -->
+            <div class="row" style="height: auto;position: relative; top: -35px;">
+                <div><span class="input-title">更多图片</span></div>
                 <div style="position: relative; top: -44px;">
+                    <!-- 为了布局 -->
                     <div style="display: inline-block; visibility: hidden;">
                         <span class="nes-tip">*</span>
                         &nbsp;&nbsp;&nbsp;
                         <span class="input-title">更多图片</span>
                     </div>
+                    <!-- 按钮事件 -->
                     <div style="display: inline-block;">
-
-                        <div id="product_image_1" class="product_image"></div>
-                        <input onclick="BrowseServer('1');" type="button" class="pic input-content" value="选择第一张" /><br/>
-
-                        <div id="product_image_2" class="product_image"></div>
-                        <input onclick="BrowseServer('2');" type="button" class="pic input-content" value="选择第二张" /><br/>
-
-                        <div id="product_image_3" class="product_image"></div>
-                        <input onclick="BrowseServer('3');" type="button" class="pic input-content" value="选择第三张" /><br/>
-
-                        <div id="product_image_4" class="product_image"></div>
-                        <input onclick="BrowseServer('4');" type="button" class="pic input-content" value="选择第四张" /><br/>
-
+                        <div id="product_image_more" class="product_image"></div>
+                        <input id="image_more_btn" type="button" class="pic input-content" value="选择更多图片" />&nbsp;&nbsp;<span>（最多4张）</span>
                     </div>
                 </div>
-
-                <input type="hidden" name="product_image[0][image]" id="product_image_one" />
-                <input type="hidden" name="product_image[1][image]" id="product_image_two" />
-                <input type="hidden" name="product_image[2][image]" id="product_image_three" />
-                <input type="hidden" name="product_image[3][image]" id="product_image_four" />
-
+                <!-- 隐藏域 -->
+                <input type="hidden" name="product_image[0][image]" id="product_image_0" />
+                <input type="hidden" name="product_image[1][image]" id="product_image_1" />
+                <input type="hidden" name="product_image[2][image]" id="product_image_2" />
+                <input type="hidden" name="product_image[3][image]" id="product_image_3" />
                 <input type="hidden" name="product_image[0][sort_order]" value="1" />
                 <input type="hidden" name="product_image[1][sort_order]" value="2" />
                 <input type="hidden" name="product_image[2][sort_order]" value="3" />
                 <input type="hidden" name="product_image[3][sort_order]" value="4" />
-
-                <script type="text/javascript">
-                function BrowseServer( imageId )
-                {
-                    var finder = new CKFinder();
-                    finder.basePath = '/image/ckfinder/';
-                    finder.selectActionFunction = SetFileField;
-                    finder.selectActionData = imageId;
-                    finder.popup();
-                }
-                function SetFileField( fileUrl, data )
-                {
-                    var number  = new Array('one','two','three','four');
-                    var imageId = data["selectActionData"];
-                    $('#product_image_'+imageId).html('<img src="' + fileUrl + '"/>');
-                    fileUrl = fileUrl.substr(fileUrl.indexOf('data/userfiles/'));
-                    document.getElementById( 'product_image_'+number[imageId-1] ).value = fileUrl;
-                }
-                </script>
-
             </div>
 
-            <div class="row edit" style="position: relative; top: -33px;">
-
+            <!-- 详细说明 -->
+            <div class="row edit" style="position: relative; top: -50px;">
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">详细说明</span>
                 <span id="error_description" class="error_prompt"></span>
-                <!--
-                <div class="info-edit">
-                    <div class="edit-bar">
-                        <a href="#"><img src="image/bold.png"></img></a>
-                        <a href="#"><img src="image/underline.png"></img></a>
-                        <a href="#"><img src="image/left.png"></img></a>
-                        <a href="#"><img src="image/right.png"></img></a>
-                    </div>
-                    <textarea></textarea>
-                </div>
-                -->
-                <textarea id="product_description"></textarea>
-                <input type="hidden" name="detail" id="product_description_data"/>
-                <script type="text/javascript" src="/admin/view/javascript/ckeditor/ckeditor.js"></script>
-                <script type="text/javascript">
-                CKEDITOR.replace('product_description', {
-                    filebrowserBrowseUrl : '/image/ckfinder/ckfinder.html',
-                    filebrowserImageBrowseUrl : '/image/ckfinder/ckfinder.html?Type=Images',
-                    filebrowserflashBrowseUrl : '/image/ckfinder/ckfinder.html?Type=Flash',
-                    filebrowserUploadUrl : '/image/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-                    filebrowserImageUploadUrl : '/image/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-                    filebrowserFlashUploadUrl : '/image/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
-                });
-                </script>
+                <textarea name="detail_content"></textarea>
+                <input id="product_description_data" name="detail" type="hidden" />
             </div>
 
+            <!-- 所在地 -->
             <div class="row">
-
                 <div class="col">
                     <span class="nes-tip">*</span>
                     &nbsp;&nbsp;&nbsp;
@@ -240,6 +171,7 @@
                 <span id="error_place" class="error_prompt"></span>
             </div>
 
+            <!-- 联系人 -->
             <div class="row">
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
@@ -247,6 +179,8 @@
                 <input type="text" class="input-content" name="owner" id="product_owner" value="<?php echo $name; ?>"/>
                 <span id="error_owner" class="error_prompt"></span>
             </div>
+
+            <!-- 手机号码 -->
             <div class="row">
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
@@ -254,6 +188,8 @@
                 <input type="text" class="input-content" name="mobile" id="product_mobile" value="<?php echo $telephone; ?>"/>
                 <span id="error_mobile" class="error_prompt"></span>
             </div>
+
+            <!-- QQ号码 -->
             <div class="row">
                 <span class="nes-tip none">*</span>
                 &nbsp;&nbsp;&nbsp;
@@ -261,6 +197,7 @@
                 <input type="text" class="input-content" name="qq" value="<?php echo $qq; ?>"/>
             </div>
 
+            <!-- 微信号 -->
             <div class="row">
                 <span class="nes-tip none">*</span>
                 &nbsp;&nbsp;&nbsp;
@@ -273,7 +210,58 @@
         </div>
     </form>
 
+    <!-- kindEditor配置 -->
+    <script src="/image/kindeditor/kindeditor.js"></script>
+    <script src="/image/kindeditor/lang/zh_CN.js"></script>
     <script>
+        var editor;
+        KindEditor.ready(function (K) {
+            editor = K.create('textarea[name="detail_content"]', {
+                resizeType: 1,
+                allowImageUpload: true,
+                allowFileManager: true,
+                width: 910,
+                height: 360,
+                items: [ 'undo', 'redo', '|', 'copy', 'cut', 'paste', 'wordpaste', '|', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', 'selectall', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyfull', 'insertorderedlist', 'insertunorderedlist', '|', 'table', 'image', 'multiimage', 'insertfile', 'emoticons', 'link', 'unlink', '|', 'fullscreen' ]
+            });
+            // 商品主图事件
+            K('#image_main_btn').click(function () {
+                editor.loadPlugin('image', function () {
+                    editor.plugin.imageDialog({
+                        showRemote : false,
+                        imageUrl: K('#product_image').val(),
+                        clickFn: function (url) {
+                            K('#product_image').val(url);
+                            K('#product_image_main').html('<img src="' + url + '"/>');
+                            url = url.substr(url.indexOf('kindeditor'));
+                            document.getElementById('product_image').value = url;
+                            editor.hideDialog();
+                        }
+                    });
+                });
+            });
+            // 商品更多图片事件
+            K('#image_more_btn').click(function () {
+                editor.loadPlugin('multiimage', function () {
+                    editor.plugin.multiImageDialog({
+                        clickFn: function (urlList) {
+                            var product_image_more = K('#product_image_more');
+                            product_image_more.html('');
+                            K.each(urlList, function(i, data) {
+                                if(i>=4) return;
+                                //最多只能四张图
+                                product_image_more.append('<img src="' + data.url + '"/>');
+                                var url = data.url;
+                                url = url.substr(url.indexOf('kindeditor'));
+                                document.getElementById('product_image_'+i).value = url;
+                            });
+                            editor.hideDialog();
+                        }
+                    });
+                });
+            });
+        });
+
         // 表单验证
         function product_validate() {
 
@@ -304,18 +292,14 @@
                 $('#error_image_main').html('');
             }
 
-            //console.log(CKEDITOR.instances.product_description.getData());
-            //return false;
-
             // 详细说明
-            if( CKEDITOR.instances.product_description.getData().length == 0 ) {
+
+            if( editor.html().length == 0 ) {
                 $('#error_description').html('详细说明不能为空');
                 error = true;
             } else {
                 $('#error_description').html('');
-                $('#product_description_data').val(CKEDITOR.instances.product_description.getData());
-                //$('body').html(CKEDITOR.instances.product_description.getData());
-                //return false;
+                $('#product_description_data').val(editor.html());
             }
 
             // 所在地

@@ -31,11 +31,11 @@
             <div class="nav-category-wrap">
                 <ul class="nav-category-content">
                 <?php foreach( $categories as $cat ) { ?>
-                    <li><a href="<?php echo $url['category'].'&filter_category='.$cat['parent']['id']; ?>"><b><?php echo $cat['parent']['name']; ?></b></a></li>
+                    <li><a href="<?php echo $url['category'].'&filter_category='.$cat['parent']['id']; ?>"><?php echo $cat['parent']['name']; ?></a></li>
                 <?php   foreach( $cat['children'] as $child ) { ?>
                         <li><a href="<?php echo $url['category'].'&filter_category='.$child['id']; ?>"><?php echo $child['name']; ?></a></li>
-                <?php   }
-                      } ?>
+                <?php   } ?>
+                <?php } ?>
                 </ul>
             </div>
         </div>

@@ -29,7 +29,8 @@
 	width: 40%;
 }
 .f_texts{
-	width: 60%;
+	width: 58%;
+    margin-left: 2%;
 }
 .b_pic,.s_pic{
 	width: 100%;
@@ -72,16 +73,15 @@ top: 10%;
 .f_texts_title{
 	overflow: hidden;
 	font-size: 22px;	
-	margin-top: 40px;
-	min-height: 44px;
+	margin: 31px 25px 0 0;
+	height: 44px;
 	border-bottom-style: solid;
 	border-bottom-width:1px;
-	max-width: 550px; 
 }
 .f_texts_con{
 	overflow: hidden;
-	max-width: 550px;
 	height: 280px;
+    margin-top: 14px;
 }
 .f_texts_con li{
 	text-align: left;
@@ -103,7 +103,7 @@ top: 10%;
 }
 .f_buttons{
 	overflow: hidden;
-	margin-top: 22px;
+	margin-top: 25px;
 }
 .f_button{
 	width: 120px;
@@ -113,6 +113,9 @@ top: 10%;
 	background-color: #a37b52;
 	font-size: 18px;
 	color: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
 }
 #f_button{
 	background-color: #673413;
@@ -251,7 +254,7 @@ font-size: 18px;
 }
 #demo { margin:0 auto; width:350px; }
 
-#wraper { position:relative; width:350px; height:350px; background:#fff url(images/loading.gif) no-repeat center center; border:5px solid #fff; }
+#wraper { position:relative; width:350px; height:350px; background:#fff url(images/loading.gif) no-repeat center center; padding: 17px 0; }
 #small { width:350px; height:350px; overflow:hidden; }
 #mask { display:none; position:absolute; left:0; top:0; z-index:2; height:100px; overflow:hidden; width:100px; border:1px dashed #999; cursor:move; }
 #mask div { background:#fff; opacity:.4; filter:alpha(opacity:40); height:100px; }

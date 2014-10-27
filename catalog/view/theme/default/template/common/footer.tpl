@@ -69,7 +69,7 @@
 	</div>
 	<div class="footer_2">
 		<div class="f2_content">
-			<div class="num"></div>
+			<div class="num">服务热线：010-64814142</div>
 			<div class="f2_texts">
 					<ul class="nav">
 						<li class="f2_line">|</li>
@@ -90,6 +90,12 @@
 		</div>
 
 	</div>
+
+    <div style="width:150px;height:80px;position:fixed;top:230px;right:10px;border:1px solid #673413;">
+        <div style="height: 31px;padding:3px 0 0 8px;background-color:#673413;color: white;font-size:19px;font-weight: bolder;">服务热线</div>
+        <div style="padding:9px 0 0 4px;color:#673413;font-size:20px;font-weight:bolder;">010-64814142</div>
+    </div>
+
 <script type="text/javascript" src="catalog/view/javascript/baoku/swipe.js"></script>
 <script type="text/javascript" src="catalog/view/javascript/baoku/index.js"></script>
 

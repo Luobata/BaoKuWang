@@ -146,6 +146,9 @@ class ControllerCatalogCategory extends Controller {
 
 		$results = $this->model_catalog_category->getCategories($data);
 
+        //var_dump($results);
+        //exit();
+
 		foreach ($results as $result) {
 			$action = array();
 
@@ -156,6 +159,7 @@ class ControllerCatalogCategory extends Controller {
 
 			$this->data['categories'][] = array(
 				'category_id' => $result['category_id'],
+                'parent_id'   => $result['parent_id'],
 				'name'        => $result['name'],
 				'sort_order'  => $result['sort_order'],
 				'selected'    => isset($this->request->post['selected']) && in_array($result['category_id'], $this->request->post['selected']),

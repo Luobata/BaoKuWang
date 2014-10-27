@@ -8,6 +8,7 @@
     <div class="first">
 
         <div class="content_head">
+        <?php //var_dump($categories); ?>
         <?php foreach( $categories as $cat ) { ?>
         <div class="goods">
             <div class="goods_line">
@@ -50,7 +51,7 @@
                     <li class="current">1</li>
                     <?php for ($i=2; $i <= sizeof($banner_images); $i++) { ?>
                      
-                    <li>$i</li>
+                    <li><?php echo $i; ?></li>
                     <?php }?>
                 </ul>
             </div>

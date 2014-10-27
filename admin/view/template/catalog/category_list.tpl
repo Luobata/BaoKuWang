@@ -28,6 +28,7 @@
             </tr>
           </thead>
           <tbody>
+            <?php //var_dump($categories); ?>
             <?php if ($categories) { ?>
             <?php foreach ($categories as $category) { ?>
             <tr>

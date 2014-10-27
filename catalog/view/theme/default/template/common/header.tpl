@@ -18,6 +18,8 @@
     <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
     <?php } ?>
 
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
     <!-- CSS文件 -->
     <link rel="stylesheet" type="text/css" href="/catalog/view/theme/default/stylesheet/baoku/common.css" />
     <!--

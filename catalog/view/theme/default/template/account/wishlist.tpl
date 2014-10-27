@@ -92,7 +92,7 @@
 
                 <tbody id="wishlist-row<?php echo $product['product_id']; ?>">
                   <tr class="items">
-                       <th class="pic" style="border-right: 1px solid #ddd;">
+                       <td class="pic" style="border-right: 1px solid #ddd;">
                           <?php if ($product['thumb']) { ?>
                           <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
                           <?php } ?>
@@ -100,20 +100,20 @@
                             <div class="goods-title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
                             <div class="goods-price"><?php echo $product['price'];?></div>
                           </div>
-                       </th> 
+                       </td>
   
-                       <th style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;">
                         <?php echo$product['identify'];?>
-                       </th>
+                       </td>
 
-                       <th style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;">
                         <?php echo$product['date_added'];?>
-                       </th>
+                       </td>
 
-                       <th style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;">
                          
                          <a href="<?php echo $product['remove']; ?>">删除</a>
-                       </th>
+                       </td>
                   </tr>
 
                 </tbody>
@@ -131,18 +131,18 @@
                               <?php echo $product[$i]['title']; ?></a></div>
                             <div class="goods-price">￥<?php echo $product[$i]['price'];?></div>
                           </div>
-                       </th>
+                       </td>
 
-                       <th style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;">
 
                         <?php echo $product[$i]['identify'];?>
-                       </th>
+                       </td>
 
-                       <th style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;">
                         <?php echo $product[$i]['date_added'];?>
-                       </th>
+                       </td>
 
-                       <th style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;">
                              <?php if($type==4){ ?>
                              <a href="/index.php?route=product/identify">鉴定</a>
                              <?php } elseif ($type==2) { ?>
@@ -151,7 +151,7 @@
                              <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">下架</a>
                              <?php } ?>
                          <a href="/index.php?route=account/new/delete&product_id=<?php echo $product[$i]['product_id']; ?>&type=<?php echo $type;?>">删除</a>
-                       </th>
+                       </td>
                   </tr>
 
                 </tbody>

@@ -100,6 +100,7 @@ class ControllerCommonHome extends Controller {
 
         //var_dump($this->config->get('banner_module'));
 	}
+
     public function category(){
         $this->load->model('catalog/category');
         $category_head = $this->model_catalog_category->getSuperCategories();

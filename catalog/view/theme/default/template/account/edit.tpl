@@ -1,8 +1,10 @@
 <?php echo $header; ?>
+
+        <!--
 <?php if ($error_warning) { ?>
 <div class="warning"><?php echo $error_warning; ?></div>
 <?php } ?>
-<!--<?php echo $column_left; ?><?php echo $column_right; ?>
+<?php echo $column_left; ?><?php echo $column_right; ?>
  <div id="content"><?php echo $content_top; ?>
   <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -95,9 +97,9 @@
                    &nbsp;&nbsp;&nbsp;
                    <div class="input-title">真实姓名</div>
                    <input type="text" class="price input-content" name="name" value="<?php echo $name;?>">
-                    <?php if($error_name) {?>
-                        <span class="error"><?php echo $error_name; ?></span>
-                        <?php } ?></td>
+                    <?php if($error_name) { ?>
+                    <br/><div class="error"><?php echo $error_name; ?></div>
+                    <?php } ?>
 
           </div>
 
@@ -115,20 +117,14 @@
                    <?php };?>
                   </div>
 
-
-                
-
-                  <div class="row" style="margin-top:10px">
+                  <div class="row">
                              <span class="nes-tip none">*</span>
                         &nbsp;&nbsp;&nbsp;
                        <span class="input-title">所在区域</span>
                        <select class="input-content area-select" name="zone">
-                        <option><?php echo $zone;?></option>
-                     <!--    <option>北京</option>
-                        <option>上海</option> -->
-                        <?php foreach ($zones as $zone) {?>
-                          <option><?php echo$zone['name'];?></option>
-                       <?php  }?>
+                       <?php foreach ($zones as $zone) { ?>
+                       <option value="<?php echo $zone['name'];?>" <?php if($zone['name']=='北京') echo 'selected="selected"';?>><?php echo $zone['name'];?></option>
+                       <?php }?>
                        </select>
 
                        <!--  
@@ -151,9 +147,9 @@
                         &nbsp;&nbsp;&nbsp;
                        <span class="input-title">详细地址</span>
                        <input type="text" class="input-content" name="place"value="<?php echo $place; ?>">
-                      <?php if($error_place) {?>
-                        <span class="error"><?php echo $error_place; ?></span>
-                        <?php } ?></td>
+                      <?php if($error_place) { ?>
+                        <br/><div class="error"><?php echo $error_place; ?></div>
+                        <?php } ?>
                   </div>
                   <div class="row">
                              <span class="nes-tip none">*</span>
@@ -162,8 +158,8 @@
                        <input type="text" name="telephone" class="input-content" value="<?php echo $telephone; ?>" />
                        <span class="input-tip">* 请填写真实号码，以便买家联系您</span>
                         <?php if ($error_telephone) { ?>
-                        <span class="error"><?php echo $error_telephone; ?></span>
-                        <?php } ?></td>
+                      <br/><div class="error"><?php echo $error_telephone; ?></div>
+                        <?php } ?>
                   </div>
                    <div class="row">
                              <span class="nes-tip none">*</span>
@@ -171,9 +167,9 @@
                        <span class="input-title">QQ&nbsp;号码</span>
                        <input type="text" class="input-content" name="qq" value="<?php echo $qq; ?>">
                        <span class="input-tip">* 用于商品页面买家与您临时沟通</span>
-                       <?php if($error_qq) {?>
-                        <span class="error"><?php echo $error_qq; ?></span>
-                        <?php } ?></td>
+                       <?php if($error_qq) { ?>
+                       <br/><div class="error"><?php echo $error_qq; ?></div>
+                        <?php } ?>
                   </div>
 
                   <div class="row">
@@ -182,16 +178,12 @@
                        <span class="input-title">微&nbsp;信&nbsp;&nbsp;号</span>
                        <input type="text" class="input-content" name="wechat" value="<?php echo $wechat; ?>">
                        <span class="input-tip">* 用于在商品页面显示，方便买家沟通</span>
-                       <?php if($error_wechat) {?>
-                        <span class="error"><?php echo $error_wechat; ?></span>
-                        <?php } ?></td>
+                       <?php if($error_wechat) { ?>
+                       <br/><div class="error"><?php echo $error_wechat; ?></div>
+                        <?php } ?>
                   </div>
 
-
-
-
                   <input type="submit" value="提交个人资料" class="submit-btn">
-
 
           </div>
        </form>

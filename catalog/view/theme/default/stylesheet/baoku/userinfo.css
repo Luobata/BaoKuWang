@@ -1,7 +1,8 @@
 .form-content{border: 1px;border-style: solid;border-color: #eadbc4;margin-top: 16px;padding-bottom: 30px;padding-top: 24px;float: right;padding-right: 20px;color: #673414;width: 734px;}
-.row{padding-left: 40px;overflow: hidden;height: 40px;line-height: 50px;}
+.row{padding-left: 40px;overflow: hidden;line-height: 40px;}
 .nes-tip{color: red}
 .input-title{width: 70px;display: inline-block;}
+.error{ color:red; padding-left: 25px;height: 30px;position: relative;bottom: 10px;}
 
 .input-content{margin-left: 20px;width: 200px;height: 28px;padding-left: 10px}
 input{border:1px;border-style: solid;border-color: #e8dcc4;}

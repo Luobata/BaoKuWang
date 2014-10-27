@@ -49,7 +49,7 @@ $('.content_head > .goods').hover(function() {
      var eq = $('.content_head > .goods').index(this),
      h = $('.content_head').offset().top;  
      //$('.goods').attr('style', 'background-color:#edeced');
-     $(this).attr('style', 'background-color:#fff');
+     $(this).css('background-color','#bbb');
      $('.item').css('display', 'none');    
      $(this).children('.item').show();
 }, function() {

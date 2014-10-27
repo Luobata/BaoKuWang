@@ -1,8 +1,5 @@
 <?php echo $header; ?>      
 <!-- <?php echo $column_right; ?>-->
-<?php if ($success) { ?>
-<div class="success"><?php echo $success; ?></div>
-<?php } ?>
 <?php echo $column_left; ?>
 <!-- <div id="content"><?php echo $content_top; ?>
   <div class="breadcrumb">
@@ -62,6 +59,12 @@
 
        <form>
           <div class="form-content">
+
+          <?php if ($success) { ?>
+              <div class="row" style="color:red;position:relative;bottom:10px;padding-left:65px;">
+                <div class="success"><?php echo $success; ?></div>
+              </div>
+          <?php } ?>
 
           <div class="row">
              

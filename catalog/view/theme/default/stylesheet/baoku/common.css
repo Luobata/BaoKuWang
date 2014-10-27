@@ -226,13 +226,18 @@ header{
  	background-image:url('../../image/baoku/foot5.png');
  }
  .footer_2 .num{
- 	width: 230px;
+ 	width: 250px;
  	height: 50px;
  	float: left;
- 	margin-right: 45px;
+ 	margin: 13px 30px 0 0;
  	background-position: center;
 	background-repeat: no-repeat;
-	background-image:url('../../image/baoku/num.png');
+    color: #673413;
+    font-size: 20px;
+    font-weight: bolder;
+    word-break: break-all;
+
+	/* background-image:url('../../image/baoku/num.png'); */
  }
  .footer_2 .f2_texts li{
  	float: left;

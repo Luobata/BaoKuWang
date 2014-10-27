@@ -29,18 +29,21 @@
           <?php foreach ($languages as $language) { ?>
           <div id="language<?php echo $language['language_id']; ?>">
             <table class="form">
+
                 <tr>
-                    <td><span class="required">*</span> <?php echo $entry_name; ?></td>
+                    <td>所属的父级分类：</td>
+                    <td><input type="text" name="path" value="<?php echo $path; ?>" size="100" />
+                        <input type="hidden" name="parent_id" value="<?php echo $parent_id; ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td><span class="required">*</span>&nbsp;您要添加的分类名称</td>
                     <td><input type="text" name="category_description[<?php echo $language['language_id']; ?>][name]" size="100" value="<?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['name'] : ''; ?>" />
                         <?php if (isset($error_name[$language['language_id']])) { ?>
                         <span class="error"><?php echo $error_name[$language['language_id']]; ?></span>
                         <?php } ?></td>
                 </tr>
-                <tr>
-                    <td>父级分类：</td>
-                    <td><input type="text" name="path" value="<?php echo $path; ?>" size="100" />
-                        <input type="hidden" name="parent_id" value="<?php echo $parent_id; ?>" /></td>
-                </tr>
+
 
               <!--
               <tr>
