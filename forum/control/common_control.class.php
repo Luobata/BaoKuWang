@@ -21,6 +21,8 @@ class common_control extends base_control {
 	public $_checked = array();	// 选中状态
 	//logo地址
 	public $logo;
+	//category内容
+	public $product_id;
 	
 	// 计划任务
 	protected $_cron_1_run = 0;	// 计划任务1 是否被激活, 15 分钟执行一次
@@ -81,7 +83,14 @@ class common_control extends base_control {
 		
 		!isset($this->conf['logo_url']) && $this->conf['logo_url'] = $this->conf['app_url']; // 兼容 2.0.3
 		//TODO从商城的数据库表中读取logourl
-
+		 $Helper = new Helper();
+         //$data=array();
+         //echo HTTP_SERVER;
+         $product_id=$Helper->http_post('http://localhost/index.php?route=common/home/category');
+         //var_dump(json_decode($product_id));
+         $product_id=json_decode($product_id);
+         $this->view->assign('product_id',$product_id);
+         //exit();
 		// hook common_control_init_runtime_after.php
 	}
 	

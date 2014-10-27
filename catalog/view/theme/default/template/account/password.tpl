@@ -44,22 +44,31 @@
     <div id="left-wrap">
         <ul class="home-nav">
             <a href="/index.php?route=account/account"><li class="userinfo-1">个人中心</li></a>
-            <a href="/index.php?route=account/wishlist/postgoods&type=1"><li class="userinfo-2">已发布的宝贝<span class="goods-num"></span></li></a>
-            <a href="/index.php?route=account/wishlist/postgoods&type=2"><li class="userinfo-2">已下架的宝贝</li></a>
-            <a href="/index.php?route=account/wishlist/postgoods&type=3"><li class="userinfo-2">未鉴定的宝贝<span class="goods-num"></span></li></a>
-            <a href="/index.php?route=account/wishlist/postgoods&type=4"><li class="userinfo-2">已鉴定的宝贝<span class="goods-num"></span></li></a>
-            <a href="/index.php?route=account/wishlist"><li class="userinfo-2">收藏宝贝<span class="goods-num"></span></li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=1"><li class="userinfo-2 <?php if($type==1) echo 'userinfo-choose'; ?>">已发布的宝贝<span class="goods-num">(<?php echo$postnum['up'];?>)</span></li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=2"><li class="userinfo-2 <?php if($type==2) echo 'userinfo-choose'; ?>">已下架的宝贝<span class="goods-num">(<?php echo$postnum['down'];?>)</span></li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=3"><li class="userinfo-2 <?php if($type==3) echo 'userinfo-choose'; ?>">未鉴定的宝贝<span class="goods-num">(<?php echo$postnum['uniden'];?>)</span></li></a>
+            <a href="/index.php?route=account/wishlist/postgoods&type=4"><li class="userinfo-2 <?php if($type==4) echo 'userinfo-choose'; ?>">已鉴定的宝贝<span class="goods-num">(<?php echo$postnum['iden'];?>)</span></li></a>
+            <a href="/index.php?route=account/wishlist"><li class="userinfo-2 <?php if(!isset($type)) echo 'userinfo-choose'; ?>">收藏宝贝<span class="goods-num">(<?php echo$postnum['wishlist'];?>)</span></li></a>
             <a href="/index.php?route=account/edit"><li class="userinfo-1">编辑个人资料</li></a>
-            <a href="/index.php?route=account/password"><li class="userinfo-1 userinfo-choose">账户安全</li></a>
+            <a href="/index.php?route=account/password"><li class="userinfo-1">账户安全</li></a>
         </ul>
     </div>
 
        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
           <div class="form-content">
 
-         
-          <div class="row">
+         <div class="row">
              
+                   <span class="nes-tip">*</span>
+                   &nbsp;&nbsp;&nbsp;
+                   <div class="input-title">旧密码</div>
+                   <input type="text" class="price input-content" name="oldpassword" value="<?php echo $oldpassword; ?>" >
+                   <?php if ($error_oldpassword) { ?>
+                    <span class="error"><?php echo $error_oldpassword; ?></span>
+                  <?php } ?></td>
+
+          </div>   
+          <div class="row">         
                    <span class="nes-tip">*</span>
                    &nbsp;&nbsp;&nbsp;
                    <div class="input-title">新密码</div>

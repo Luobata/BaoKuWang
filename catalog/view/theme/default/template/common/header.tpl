@@ -156,7 +156,7 @@ position: relative;" id="scroll_div" class="scroll_div">
         <div class="index">
             <div class="all">
                 <li><a href="">全部宝贝分类</a></li>
-                <div class="content_head" style="width:500px;position:absolute;z-index:100;display:none;">
+                <div class="content_head" style="position:absolute;z-index:100;display:none;">
                     <?php foreach( $category_head as $cat ) { ?>
                     <div class="goods">
                         <div class="goods_line">

@@ -7,6 +7,25 @@ class ControllerAccountAccount extends Controller {
 			$this->redirect($this->url->link('account/login', '', 'SSL'));
 		}
 
+		$cid=$_SESSION['customer_id'];
+		$this->load->model('catalog/product');
+		//获取已发布 已下架 未鉴定 已鉴定 收藏的数目
+		//收藏宝贝数
+		$postnum['wishlist']=count($this->session->data['wishlist']);
+		//发布宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,1)->rows;
+		$postnum['up']=count($product_info_num);
+		//下架宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,2)->rows;
+		$postnum['down']=count($product_info_num);
+		//鉴定宝贝数
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,4)->rows;
+		$postnum['iden']=count($product_info_num);
+		//未鉴定宝贝数量
+		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,3)->rows;
+		$postnum['uniden']=count($product_info_num);
+		$this->data['postnum']=$postnum;
+		//var_dump($postnum);
 		$this->language->load('account/account');
 
 		$this->document->setTitle($this->language->get('heading_title'));
