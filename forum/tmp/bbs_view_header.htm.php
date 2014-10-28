@@ -1,26 +1,26 @@
-<!doctype html>
+<?php !defined('FRAMEWORK_PATH') && exit('Access Denied');?><!doctype html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="keywords" content="$_seo_keywords" />
-	<meta name="description" content="$_seo_description " />
+	<meta name="keywords" content="<?php echo isset($_seo_keywords) ? $_seo_keywords : '';?>" />
+	<meta name="description" content="<?php echo isset($_seo_description) ? $_seo_description : '';?> " />
 	<meta name="generator" content="Xiuno BBS" />
 	<meta name="author" content="Xiuno Team" />
 	<meta name="copyright" content="2008-2012 xiuno.com" />
 	<meta name="MSSmartTagsPreventParsing" content="True" />
 	<meta http-equiv="MSThemeCompatible" content="Yes" />
 	<!--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />-->
-	<!--{hook header_css_before.htm}-->
-	<link href="view/common.css" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" href="view/css/common-us.css"></link>
+	
+	<link href="http://localhost/forum/view/common.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://localhost/forum/view/css/common-us.css"></link>
     <link rel="stylesheet" type="text/css" href=".view/css/index.css"></link>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<!--{hook header_css_after.htm}-->
+	
 	<script type="text/javascript">
-	var cookie_pre = '$conf[cookie_pre]';
-	var g_uid = $_user[uid];
+	var cookie_pre = '<?php echo isset($conf['cookie_pre']) ? $conf['cookie_pre'] : '';?>';
+	var g_uid = <?php echo isset($_user['uid']) ? $_user['uid'] : '';?>;
 	</script>
-	<title><!--{loop $_title $title}-->$title <!--{/loop}--></title>
+	<title><?php if(!empty($_title)) { foreach($_title as &$title) {?><?php echo isset($title) ? $title : '';?> <?php }} ?></title>
 </head>
 <body>
 
@@ -66,13 +66,13 @@ position: relative;" id="scroll_div" class="scroll_div">
 </div> 
 </div>  -->
 
-<!-- {php var_dump($product_id);}-->
+<!-- <?php var_dump($product_id);?>-->
 		<div class="head">
 
 					
             <div class="logo">
-                <a href="{$home}">
-                    <img style="width:100%;<!-- height:100%; -->border:0;"src="{$conf['logo_url']}" title="{$name}" alt="{$name}" />
+                <a href="<?php echo isset($home) ? $home : '';?>">
+                    <img style="width:100%;<!-- height:100%; -->border:0;"src="<?php echo isset($conf['logo_url']) ? $conf['logo_url'] : '';?>" title="<?php echo isset($name) ? $name : '';?>" alt="<?php echo isset($name) ? $name : '';?>" />
                 </a>
             </div>
            
@@ -83,7 +83,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 			<div class="search">
 				<!-- <form>
 					<input type="text" class="text">
-					<input type="button" class="buttons" value="搜 索">
+					<a type="button" class="buttons" value="搜 索" href="javascript:void(0)" role="button"><span>搜 索</span></a>
 <div class="buttons">
     搜索
 </div>
@@ -96,8 +96,8 @@ position: relative;" id="scroll_div" class="scroll_div">
                     </select>
 
                     <input type="hidden" name="route" class="route" value="product/list"/>
-                    <input type="text" name="search" class="text" value="{$keyword}" />
-                    <input type="submit" class="button button-search" value="搜索" style="display:none;">
+                    <input type="text" name="search" class="text" value="<?php echo isset($keyword) ? $keyword : '';?>" />
+                    <a type="submit" class="button button-search" value="搜索" style="display:none;" href="javascript:void(0)" role="button"><span>搜索</span></a>
                     <div class="buttons" onclick="submit">搜&nbsp;索</div>
 
                 </form>
@@ -112,17 +112,17 @@ position: relative;" id="scroll_div" class="scroll_div">
 			</div>
 
 
-            {if ({$_user[uid]}==0)}
+            <?php if(($_user['uid']==0)) { ?>
                 <div class="login">
                     <p><a href="/index.php?route=account/login">登录</a></p>
                     <p><a href="/index.php?route=account/register">注册</a></p>
                 </div>
-            {else}
+            <?php } else { ?>
                 <div class="login" style="margin-left: 15px;">
                     <p><a href="/index.php?route=account/account">个人中心</a></p>
                     <p><a href="/index.php?route=account/logout">退出</a></p>
                 </div>
-            {/if}
+            <?php } ?>
 
 
 			<div class="qbcode">
@@ -139,27 +139,25 @@ position: relative;" id="scroll_div" class="scroll_div">
 				<div class="all">
 					<li><a href="">全部宝贝分类</a></li>
 					<div class="content_head" style="position:absolute;z-index:100;display:none;">
-                    {loop $product_id $cat}
+                    <?php if(!empty($product_id)) { foreach($product_id as &$cat) {?>
                     <div class="goods">
                         <div class="goods_line">
-                            <a href="index.php?route=product/list&filter_category={php echo $cat['parent']['id']; }">
-                            <li>{php echo $cat['parent']['name']; }</li></a>
+                            <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
+                            <li><?php echo $cat['parent']['name']; ?></li></a>
                         </div>
                         <div class="item" id="item">
-                        {if sizeof($cat['children']!=0)}
-                            {loop $cat['children'] $cats}
-                            <div class="goods">
-                                <div class="goods_line">
-                                    <a href="index.php?route=product/list&filter_category={php echo $cats['id']; }">
-                                    <li>{php echo $cats['name']; }</li></a>
-                                </div>
-                            </div>    
-                            {/loop}
-                        {/if}
+                        <?php if(!empty($product_id)) { foreach($product_id as &$cat) {?>
+                        <div class="goods">
+                            <div class="goods_line">
+                                <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
+                                <li><?php echo $cat['parent']['name']; ?></li></a>
+                            </div>
+                        </div>    
+                        <?php }} ?>
                         </div>
                     </div>
                         
-                    {/loop}
+                    <?php }} ?>
                 </div>
 					
 					
@@ -192,37 +190,37 @@ position: relative;" id="scroll_div" class="scroll_div">
 <!-- head--> 
         
         
-<!--{hook header_wrapper1_before.htm}-->
+
 <div id="wrapper1">
-	<!--{hook header_wrapper2_before.htm}-->
+	
 	<div id="wrapper2">
-		<!--{hook header_menu_before.htm}-->
+		
 <!--		<div id="menu" role="navigation">
 			<div class="width">
 				<table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
 					<tr>
 						<td class="left"></td>
-						<td class="logo"><a href="$conf[logo_url]" title="$conf[app_name]"><span id="logo"></span></a></td>
+						<td class="logo"><a href="<?php echo isset($conf['logo_url']) ? $conf['logo_url'] : '';?>" title="<?php echo isset($conf['app_name']) ? $conf['app_name'] : '';?>"><span id="logo"></span></a></td>
 						<td class="center">
-							{hook header_menu_start.htm}
+							
 							<span class="sep"></span>
-							<a href="./" $_checked[index]>首页</a>
-							{hook header_menu_middle.htm}
-							{loop $conf[forumarr] $_fid $_name}
+							<a href="./" <?php echo isset($_checked['index']) ? $_checked['index'] : '';?>>首页</a>
+							
+							<?php if(!empty($conf['forumarr'])) { foreach($conf['forumarr'] as $_fid=>&$_name) {?>
 							<span class="sep"></span>
-							<a href="?forum-index-fid-$_fid.htm" $_checked[forum_$_fid]>$_name</a>	
-							{/loop}
-							{hook header_menu_end.htm}
+							<a href="http://localhost/forum/?forum-index-fid-<?php echo isset($_fid) ? $_fid : '';?>.htm" <?php echo isset($_checked["forum_$_fid"]) ? $_checked["forum_$_fid"] : '';?>><?php echo isset($_name) ? $_name : '';?></a>	
+							<?php }}?>
+							
 						</td>
 						<td class="center2">
-							{hook header_menu_search_before.htm}
-							{if $conf[search_type]}
-							<form action="?search-index.htm" target="_blank" id="search_form" method="post">
+							
+							<?php if($conf['search_type']) { ?>
+							<form action="http://localhost/forum/?search-index.htm" target="_blank" id="search_form" method="post">
 								<div id="search"><input type="text" id="search_keyword" name="keyword" x-webkit-speech lang="zh-CN" /></div>
-								{hook header_menu_search_end.htm}
+								
 							</form>
-							{/if}
-							{hook header_menu_search_after.htm}
+							<?php } ?>
+							
 						</td>
 						<td class="right"></td>
 					</tr>
@@ -230,8 +228,8 @@ position: relative;" id="scroll_div" class="scroll_div">
 			</div>
 		</div>-->
 							
-		<!--{hook header_menu_after.htm}-->
+		
 		
 		<div id="body" role="main">
 		
-		<!--{hook header_body_start.htm}-->
+		

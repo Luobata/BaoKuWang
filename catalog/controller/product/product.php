@@ -315,8 +315,9 @@ class ControllerProductProduct extends Controller {
 			$this->load->model('account/customer');
 			$customer_info = $this->model_account_customer->getCustomer($product_info['cid']);
 			//传入name
-			$this->data['customer_name']=$customer_info['name'];
-
+            if($customer_info){
+                $this->data['customer_name'] = $customer_info['name'];
+            }
 
 			//var_dump($_SESSION);
 			//var_dump($customer_info);

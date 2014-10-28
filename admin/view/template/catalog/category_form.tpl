@@ -44,6 +44,23 @@
                         <?php } ?></td>
                 </tr>
 
+                <tr>
+                    <td>在首页展示</td>
+                    <td>
+                        <?php if($homeshow=='1') { ?>
+                        <input type="radio" name="homeshow" value="1" checked/>&nbsp;是&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="homeshow" value="0"/>&nbsp;否
+                        <?php } else { ?>
+                        <input type="radio" name="homeshow" value="1"/>&nbsp;是&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="homeshow" value="0" checked/>&nbsp;否
+                        <?php }?>
+
+                        <?php if ($error_homeshow) { ?>
+                        <span class="error"><?php echo $error_homeshow; ?></span>
+                        <?php } ?>
+                    </td>
+                </tr>
+
 
               <!--
               <tr>

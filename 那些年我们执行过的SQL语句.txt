@@ -1,12 +1,19 @@
 ﻿
-【姚成昊，2014-10-22,5:10】
+【陈雄威，2014-10-27,21:40】
 【增加个人基本信息字段】
 
-ALTER TABLE shop_customer ADD COLUMN  qq varchar(16) DEFAULT '未设置' NOT NULL;
-ALTER TABLE shop_customer ADD COLUMN  wechat varchar(60) DEFAULT '未设置' NOT NULL;
-ALTER TABLE shop_customer ADD COLUMN  zone varchar(40) DEFAULT '未设置' NOT NULL;
+ALTER TABLE shop_category ADD COLUMN homeshow varchar(1) DEFAULT '0' NOT NULL;
+
+
+【姚成昊，2014-10-22，17:10】
+【增加个人基本信息字段】
+
+ALTER TABLE shop_customer ADD COLUMN  qq varchar(16) DEFAULT '' NOT NULL;
+ALTER TABLE shop_customer ADD COLUMN  wechat varchar(60) DEFAULT '' NOT NULL;
+ALTER TABLE shop_customer ADD COLUMN  zone varchar(40) DEFAULT '' NOT NULL;
 ALTER TABLE shop_customer ADD COLUMN  sex tinyint(1) DEFAULT 0 NOT NULL;
-ALTER TABLE shop_customer ADD COLUMN  place varchar(100) DEFAULT '未设置' NOT NULL;
+ALTER TABLE shop_customer ADD COLUMN  place varchar(100) DEFAULT '' NOT NULL;
+
 
 【陈雄威，2014-10-22，02:45】
 【创建城市表】
@@ -20,7 +27,7 @@ CREATE TABLE shop_city
 
 【陈雄威，2014-10-19，21:00】
 【增加商品寄卖人字段】
-ALTER TABLE shop_product ADD COLUMN owner varchar(20) DEFAULT '未设置' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN owner varchar(20) DEFAULT '' NOT NULL;
 
 
 【陈雄威，2014-10-17，20:40】
@@ -38,21 +45,21 @@ ALTER TABLE shop_product MODIFY COLUMN price int(11);
 【陈雄威，2014-10-16，23:20】
 【增加商城用户信息字段】
 
-ALTER TABLE shop_customer ADD COLUMN name varchar(40) DEFAULT '未设置' NOT NULL;
+ALTER TABLE shop_customer ADD COLUMN name varchar(40) DEFAULT '' NOT NULL;
 
 
 【陈雄威，2014-10-16，20:40】
 【增加商品基本信息字段】
 
-ALTER TABLE shop_product ADD COLUMN title varchar(60) DEFAULT '未设置' NOT NULL;
-ALTER TABLE shop_product ADD COLUMN place varchar(40) DEFAULT '未知' NOT NULL;
-ALTER TABLE shop_product ADD COLUMN mobile varchar(11) DEFAULT '未知' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN title varchar(60) DEFAULT '' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN place varchar(40) DEFAULT '' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN mobile varchar(11) DEFAULT '' NOT NULL;
 ALTER TABLE shop_product ADD COLUMN cid int(11) DEFAULT 0 NOT NULL;
-ALTER TABLE shop_product ADD COLUMN qq varchar(16) DEFAULT '未设置' NOT NULL;
-ALTER TABLE shop_product ADD COLUMN wechat varchar(32) DEFAULT '未设置' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN qq varchar(16) DEFAULT '' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN wechat varchar(32) DEFAULT '' NOT NULL;
 ALTER TABLE shop_product ADD COLUMN sale tinyint(1) DEFAULT 0 NOT NULL;
 ALTER TABLE shop_product ADD COLUMN identify tinyint(1) DEFAULT 0 NOT NULL;
-ALTER TABLE shop_product ADD COLUMN serial varchar(32) DEFAULT '00000000000000000000000000000000' NOT NULL;
+ALTER TABLE shop_product ADD COLUMN serial varchar(32) DEFAULT '0' NOT NULL;
 
 
 【陈雄威，2014-10-14，20:30】

@@ -146,7 +146,7 @@
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">详细说明</span>
                 <span id="error_description" class="error_prompt"></span>
-                <textarea name="detail_content"></textarea>
+                <textarea name="detail_content">联系我时，请说明是在宝库网看到的。</textarea>
                 <input id="product_description_data" name="detail" type="hidden" />
             </div>
 
@@ -268,8 +268,9 @@
             var error = false;
 
             // 标题
-            if( document.getElementById('product_title').value.length == 0 ) {
-                $('#error_title').html('商品标题不能为空');
+            var titleLen = document.getElementById('product_title').value.length;
+            if( titleLen <= 0 || titleLen > 20 ) {
+                $('#error_title').html('商品标题不能为空且不大于20个字');
                 error = true;
             } else {
                 $('#error_title').html('');

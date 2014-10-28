@@ -58,7 +58,8 @@ class ControllerCommonHome extends Controller {
         // 获取按分类的商品展示数据
         $this->load->model('catalog/product');
         $limit = 8;
-        $parent_category_id_list = array(63,59);
+        $parent_category_id_list = $this->model_catalog_category->getCategory_homeshow();
+        foreach( $parent_category_id_list as &$cat ) { $cat = $cat['id']; }
         $this->data['parent_category_id_list'] = $parent_category_id_list;
         $this->data['children_polular_product'] = array();
         $this->data['parent_polular_product'] = array();
