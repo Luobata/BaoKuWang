@@ -1,5 +1,11 @@
 ﻿
-【姚成昊，2014-10-22,5:10】
+【陈雄威，2014-10-27,21:40】
+【增加个人基本信息字段】
+
+ALTER TABLE shop_category ADD COLUMN homeshow varchar(1) DEFAULT '0' NOT NULL;
+
+
+【姚成昊，2014-10-22，17:10】
 【增加个人基本信息字段】
 
 ALTER TABLE shop_customer ADD COLUMN  qq varchar(16) DEFAULT '未设置' NOT NULL;
@@ -7,6 +13,7 @@ ALTER TABLE shop_customer ADD COLUMN  wechat varchar(60) DEFAULT '未设置' NOT
 ALTER TABLE shop_customer ADD COLUMN  zone varchar(40) DEFAULT '未设置' NOT NULL;
 ALTER TABLE shop_customer ADD COLUMN  sex tinyint(1) DEFAULT 0 NOT NULL;
 ALTER TABLE shop_customer ADD COLUMN  place varchar(100) DEFAULT '未设置' NOT NULL;
+
 
 【陈雄威，2014-10-22，02:45】
 【创建城市表】

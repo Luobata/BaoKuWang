@@ -256,21 +256,21 @@ class ControllerAccountEdit extends Controller {
 		// 	$this->error['warning'] = $this->language->get('error_exists');
 		// }
 
-        if ((utf8_strlen($this->request->post['name']) < 1) || (utf8_strlen($this->request->post['name']) > 20)) {
-            $this->error['name'] = '姓名必须为1-10个字之间';
+        if ( (utf8_strlen($this->request->post['name']) > 20) ) {
+            $this->error['name'] = '姓名不能大于10个字';
         }
 
-        if ((utf8_strlen($this->request->post['wechat']) < 3) || (utf8_strlen($this->request->post['wechat']) > 20)) {
+        if ( ( utf8_strlen($this->request->post['wechat']) > 0 ) && ( (utf8_strlen($this->request->post['wechat']) < 3) || (utf8_strlen($this->request->post['wechat']) > 20) ) ) {
 			$this->error['wechat'] = '微信号必须为3-20个字符之间';
 		}
-		if ( preg_match('/^\d*$/',$this->request->post['qq']) == 0 || (utf8_strlen($this->request->post['qq']) < 5) || (utf8_strlen($this->request->post['qq']) > 18)) {
+		if ( (utf8_strlen($this->request->post['qq'])>0) && ( preg_match('/^\d*$/',$this->request->post['qq']) == 0 || (utf8_strlen($this->request->post['qq']) < 5) || (utf8_strlen($this->request->post['qq']) > 18) ) ) {
 			$this->error['qq'] = 'QQ号不是纯数字或长度不符合要求';
 		}
 
-		if ((utf8_strlen($this->request->post['place']) < 1) || (utf8_strlen($this->request->post['place']) > 40)) {
-            $this->error['place'] = '地址不能为空且不大于20个字';
+		if ( (utf8_strlen($this->request->post['place'])>0) && ((utf8_strlen($this->request->post['place']) < 1) || (utf8_strlen($this->request->post['place']) > 40)) ) {
+            $this->error['place'] = '地址不能大于20个字';
         }
-		if ( preg_match('/^\d*$/',$this->request->post['telephone']) == 0 || (utf8_strlen($this->request->post['telephone']) != 11) ) {
+		if ( (utf8_strlen($this->request->post['telephone'])>0) && (preg_match('/^\d*$/',$this->request->post['telephone']) == 0 || (utf8_strlen($this->request->post['telephone']) != 11)) ) {
 			$this->error['telephone'] = '手机号码必须为11位数字';
 		}
 

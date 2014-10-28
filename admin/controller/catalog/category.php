@@ -20,7 +20,10 @@ class ControllerCatalogCategory extends Controller {
 		$this->load->model('catalog/category');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_catalog_category->addCategory($this->request->post);
+			//var_dump($this->request->post);
+            //exit();
+
+            $this->model_catalog_category->addCategory($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -161,6 +164,7 @@ class ControllerCatalogCategory extends Controller {
 				'category_id' => $result['category_id'],
                 'parent_id'   => $result['parent_id'],
 				'name'        => $result['name'],
+                'homeshow'  => $result['homeshow'],
 				'sort_order'  => $result['sort_order'],
 				'selected'    => isset($this->request->post['selected']) && in_array($result['category_id'], $this->request->post['selected']),
 				'action'      => $action
@@ -258,6 +262,12 @@ class ControllerCatalogCategory extends Controller {
 			$this->data['error_name'] = array();
 		}
 
+        if (isset($this->error['homeshow'])) {
+            $this->data['error_homeshow'] = $this->error['homeshow'];
+        } else {
+            $this->data['error_homeshow'] = '';
+        }
+
 		$this->data['breadcrumbs'] = array();
 
 		$this->data['breadcrumbs'][] = array(
@@ -284,6 +294,9 @@ class ControllerCatalogCategory extends Controller {
 			$category_info = $this->model_catalog_category->getCategory($this->request->get['category_id']);
 		}
 
+        //var_dump($category_info);
+        //exit();
+
 		$this->data['token'] = $this->session->data['token'];
 
 		$this->load->model('localisation/language');
@@ -297,6 +310,14 @@ class ControllerCatalogCategory extends Controller {
 		} else {
 			$this->data['category_description'] = array();
 		}
+
+        if (isset($this->request->post['homeshow'])) {
+            $this->data['homeshow'] = $this->request->post['homeshow'];
+        } elseif (!empty($category_info)) {
+            $this->data['homeshow'] = $category_info['homeshow'];
+        } else {
+            $this->data['homeshow'] = '';
+        }
 
 		if (isset($this->request->post['path'])) {
 			$this->data['path'] = $this->request->post['path'];
@@ -440,6 +461,10 @@ class ControllerCatalogCategory extends Controller {
 				$this->error['name'][$language_id] = $this->language->get('error_name');
 			}
 		}
+
+        if ( $this->request->post['homeshow']=='1' && $this->request->post['parent_id']!=0 ) {
+            $this->error['homeshow'] = '二级分类不能在首页展示';
+        }
 
 		if ($this->error && !isset($this->error['warning'])) {
 			$this->error['warning'] = $this->language->get('error_warning');

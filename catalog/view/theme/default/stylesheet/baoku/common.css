@@ -1,10 +1,8 @@
 *{
 	padding:0px;
-	/* border: 0px; */
 	font-family: microsoft yahei;
 	margin: 0px;
 	font-size: 14px;
-	border:none;
 }
 a{
 	text-decoration:none;
@@ -113,6 +111,13 @@ header{
 	background-position: center;
 	background-image:url('../../image/baoku/qbcode.png');
 	float: left;
+}
+
+.nav li:hover{
+    background-color: #421;
+}
+.thispage{
+    background-color: #421;
 }
 
 .title{

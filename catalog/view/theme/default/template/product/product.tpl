@@ -653,8 +653,8 @@ Aui.ready( function()
             <input type="button" value="自由交易" class="f_button">
 
             <input type="button" value="担保交易" class="f_button" id="f_button">
-          </div>
 
+          </div>
         </div>
       </div>
       

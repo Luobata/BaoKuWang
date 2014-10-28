@@ -222,77 +222,9 @@
 <?php exit;?>	2014-10-14 19:53	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-14 19:58	
 <?php exit;?>	2014-10-14 19:58	127.0.0.1	/forum/	cron_1_next_time:2014-10-14 20:03	
 <?php exit;?>	2014-10-14 20:03	127.0.0.1	/forum/?my-pm.htm	cron_1_next_time:2014-10-14 20:08	
-<?php exit;?>	2014-10-14 20:08	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 20:13	
-<<<<<<< Updated upstream
-<?php exit;?>	2014-10-14 20:17	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 20:22	
-<?php exit;?>	2014-10-14 20:22	127.0.0.1	/forum/?my-profile.htm	cron_1_next_time:2014-10-14 20:27	
-<?php exit;?>	2014-10-14 20:28	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 20:33	
-<?php exit;?>	2014-10-14 20:33	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 20:38	
-<?php exit;?>	2014-10-14 20:44	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 20:49	
-<?php exit;?>	2014-10-14 21:05	127.0.0.1	/forum/?user-create.htm	cron_1_next_time:2014-10-14 21:10	
-<?php exit;?>	2014-10-14 21:10	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 21:15	
-<?php exit;?>	2014-10-14 21:18	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 21:23	
-<?php exit;?>	2014-10-14 21:29	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 21:34	
-<?php exit;?>	2014-10-14 21:45	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-14 21:50	
-<?php exit;?>	2014-10-14 21:57	127.0.0.1	/forum/?user-create.htm	cron_1_next_time:2014-10-14 22:02	
-<?php exit;?>	2014-10-14 22:02	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 22:07	
-<?php exit;?>	2014-10-14 22:08	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 22:13	
-<?php exit;?>	2014-10-14 22:16	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 22:21	
-<?php exit;?>	2014-10-14 22:27	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 22:32	
-<?php exit;?>	2014-10-15 14:41	127.0.0.1	/forum/	cron_1_next_time:2014-10-15 14:46	
-<?php exit;?>	2014-10-15 14:41	127.0.0.1	/forum/	cron_2_next_time:2014-10-16 00:00	
-<?php exit;?>	2014-10-15 14:47	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-15 14:52	
-<?php exit;?>	2014-10-15 14:52	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-15 14:57	
-<?php exit;?>	2014-10-15 20:50	127.0.0.1	/forum/	cron_1_next_time:2014-10-15 20:55	
-<?php exit;?>	2014-10-15 21:20	127.0.0.1	/forum/	cron_1_next_time:2014-10-15 21:25	
-<?php exit;?>	2014-10-15 22:48	127.0.0.1	/forum/admin/	cron_1_next_time:2014-10-15 22:53	
-<?php exit;?>	2014-10-17 15:03	127.0.0.1	/forum/	cron_1_next_time:2014-10-17 15:08	
-<?php exit;?>	2014-10-17 15:03	127.0.0.1	/forum/	cron_2_next_time:2014-10-18 00:00	
-<?php exit;?>	2014-10-17 19:32	127.0.0.1	/forum/	cron_1_next_time:2014-10-17 19:37	
-<?php exit;?>	2014-10-17 19:40	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 19:45	
-<?php exit;?>	2014-10-17 19:45	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 19:50	
-<?php exit;?>	2014-10-17 19:55	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 20:00	
-<?php exit;?>	2014-10-17 20:06	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 20:11	
-<?php exit;?>	2014-10-17 20:27	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 20:32	
-<?php exit;?>	2014-10-17 21:10	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 21:15	
-<?php exit;?>	2014-10-17 22:35	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-17 22:40	
-<?php exit;?>	2014-10-17 23:27	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-17 23:32	
-<?php exit;?>	2014-10-18 21:10	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-18 21:15	
-<?php exit;?>	2014-10-18 21:10	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_2_next_time:2014-10-19 00:00	
-<?php exit;?>	2014-10-18 23:34	127.0.0.1	/forum/	cron_1_next_time:2014-10-18 23:39	
-<?php exit;?>	2014-10-18 23:40	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-18 23:45	
-<?php exit;?>	2014-10-18 23:45	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-18 23:50	
-<?php exit;?>	2014-10-19 07:49	127.0.0.1	/forum/?post-thread-fid-1-typeid1--typeid2--typeid3--typeid4--ajax-1-ajax-1.htm	cron_1_next_time:2014-10-19 07:54	
-<?php exit;?>	2014-10-19 07:49	127.0.0.1	/forum/?post-thread-fid-1-typeid1--typeid2--typeid3--typeid4--ajax-1-ajax-1.htm	cron_2_next_time:2014-10-20 00:00	
-<?php exit;?>	2014-10-19 07:55	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 08:00	
-<?php exit;?>	2014-10-19 08:00	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 08:05	
-<?php exit;?>	2014-10-19 08:11	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 08:16	
-<?php exit;?>	2014-10-19 08:32	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 08:37	
-<?php exit;?>	2014-10-19 09:15	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 09:20	
-<?php exit;?>	2014-10-19 12:04	127.0.0.1	/forum/	cron_1_next_time:2014-10-19 12:09	
-<?php exit;?>	2014-10-19 12:10	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 12:15	
-<?php exit;?>	2014-10-19 12:15	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 12:20	
-<?php exit;?>	2014-10-19 12:21	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 12:26	
-<?php exit;?>	2014-10-19 12:26	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 12:31	
-<?php exit;?>	2014-10-19 12:32	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 12:37	
-<?php exit;?>	2014-10-19 12:44	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-19 12:49	
-<?php exit;?>	2014-10-19 12:54	127.0.0.1	/forum/	cron_1_next_time:2014-10-19 12:59	
-<?php exit;?>	2014-10-19 13:00	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 13:05	
-<?php exit;?>	2014-10-19 13:05	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 13:10	
-<?php exit;?>	2014-10-19 13:16	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 13:21	
-<?php exit;?>	2014-10-19 13:37	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-19 13:42	
-<?php exit;?>	2014-10-19 19:35	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-19 19:40	
-<?php exit;?>	2014-10-20 12:00	127.0.0.1	/forum/	cron_1_next_time:2014-10-20 12:05	
-<?php exit;?>	2014-10-20 12:00	127.0.0.1	/forum/	cron_2_next_time:2014-10-21 00:00	
-<?php exit;?>	2014-10-20 12:05	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-20 12:10	
-<?php exit;?>	2014-10-20 12:11	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-20 12:16	
-<?php exit;?>	2014-10-20 12:22	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-20 12:27	
-<?php exit;?>	2014-10-20 12:43	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-20 12:48	
-<?php exit;?>	2014-10-20 13:07	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-20 13:12	
-<<<<<<< Updated upstream
+<?php exit;?>	2014-10-14 20:08	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-14 20:13
 <?php exit;?>	2014-10-21 19:03	127.0.0.1	/forum/	cron_1_next_time:2014-10-21 19:08	
-<?php exit;?>	2014-10-21 19:03	127.0.0.1	/forum/	cron_2_next_time:2014-10-22 00:00	
-<<<<<<< Updated upstream
+<?php exit;?>	2014-10-21 19:03	127.0.0.1	/forum/	cron_2_next_time:2014-10-22 00:00
 <?php exit;?>	2014-10-21 23:10	127.0.0.1	/forum/	cron_1_next_time:2014-10-21 23:15	
 <?php exit;?>	2014-10-21 23:10	127.0.0.1	/forum/	cron_1_next_time:2014-10-21 23:15	
 <?php exit;?>	2014-10-22 00:44	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-22 00:49	
@@ -300,11 +232,7 @@
 <?php exit;?>	2014-10-22 02:04	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-22 02:09	
 <?php exit;?>	2014-10-22 02:04	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-22 02:09	
 <?php exit;?>	2014-10-22 04:27	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-22 04:32	
-<?php exit;?>	2014-10-22 04:27	127.0.0.1	/forum/?hot-listbyId-uid-2.htm	cron_1_next_time:2014-10-22 04:32	
-<<<<<<< Updated upstream
-<?php exit;?>	2014-10-22 07:29	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-22 07:34	
-<?php exit;?>	2014-10-22 07:29	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-22 07:34	
-<<<<<<< Updated upstream
+<?php exit;?>	2014-10-22 04:27	127.0.0.1	/forum/?hot-listbyId-uid-2.htm	cron_1_next_time:2014-10-22 04:32
 <?php exit;?>	2014-10-22 10:27	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-22 10:32	
 <?php exit;?>	2014-10-22 10:42	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-22 10:47	
 <?php exit;?>	2014-10-22 10:47	127.0.0.1	/forum/	cron_1_next_time:2014-10-22 10:52	
@@ -322,39 +250,7 @@
 <?php exit;?>	2014-10-22 15:24	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-22 15:29	
 <?php exit;?>	2014-10-22 15:54	127.0.0.1	/forum/	cron_1_next_time:2014-10-22 15:59	
 <?php exit;?>	2014-10-22 20:08	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-22 20:13	
-<?php exit;?>	2014-10-22 20:14	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-22 20:19	
-<<<<<<< Updated upstream
-<?php exit;?>	2014-10-22 20:53	127.0.0.1	/forum/	cron_1_next_time:2014-10-22 20:58	
-<?php exit;?>	2014-10-22 20:59	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-22 21:04	
-<?php exit;?>	2014-10-22 21:04	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-22 21:09	
-<?php exit;?>	2014-10-22 21:17	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-22 21:22	
-<?php exit;?>	2014-10-22 22:33	127.0.0.1	/forum/	cron_1_next_time:2014-10-22 22:38	
-<?php exit;?>	2014-10-22 22:51	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-22 22:56	
-<?php exit;?>	2014-10-22 22:56	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-22 23:01	
-<?php exit;?>	2014-10-23 13:51	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-23 13:56	
-<?php exit;?>	2014-10-23 13:51	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_2_next_time:2014-10-24 00:00	
-<?php exit;?>	2014-10-23 14:04	127.0.0.1	/forum/?user-logout.htm	cron_1_next_time:2014-10-23 14:09	
-<?php exit;?>	2014-10-23 14:27	127.0.0.1	/forum/?user-create.htm	cron_1_next_time:2014-10-23 14:32	
-<?php exit;?>	2014-10-23 14:40	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-23 14:45	
-<?php exit;?>	2014-10-23 14:40	127.0.0.1	/forum/?hot-listbyId-uid-14.htm	cron_1_next_time:2014-10-23 14:45	
-<?php exit;?>	2014-10-23 14:45	127.0.0.1	/forum/	cron_1_next_time:2014-10-23 14:50	
-<?php exit;?>	2014-10-23 14:51	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-23 14:56	
-<?php exit;?>	2014-10-23 14:56	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-23 15:01	
-<?php exit;?>	2014-10-23 15:05	127.0.0.1	/forum/	cron_1_next_time:2014-10-23 15:10	
-<?php exit;?>	2014-10-23 15:10	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-23 15:15	
-<?php exit;?>	2014-10-23 15:15	127.0.0.1	/forum/?hot-listbyId-uid-0.htm	cron_1_next_time:2014-10-23 15:20	
-<?php exit;?>	2014-10-23 16:41	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-23 16:46	
-<?php exit;?>	2014-10-23 16:41	127.0.0.1	/forum/?hot-listbyId-uid-0.htm	cron_1_next_time:2014-10-23 16:46	
-<?php exit;?>	2014-10-23 17:16	127.0.0.1	/forum/?hot-listbyId-uid-0.htm	cron_1_next_time:2014-10-23 17:21	
-<?php exit;?>	2014-10-23 17:16	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-23 17:21	
-<?php exit;?>	2014-10-23 20:46	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-23 20:51	
-<<<<<<< Updated upstream
-=======
-=======
-=======
-=======
-=======
-=======
+<?php exit;?>	2014-10-22 20:14	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-22 20:19
 <?php exit;?>	2014-10-14 21:20	::1	/BaoKuWang/forum/	cron_1_next_time:2014-10-14 21:25	
 <?php exit;?>	2014-10-14 21:20	::1	/BaoKuWang/forum/	cron_2_next_time:2014-10-15 00:00	
 <?php exit;?>	2014-10-14 21:30	::1	/BaoKuWang/forum/	cron_1_next_time:2014-10-14 21:35	
@@ -976,8 +872,7 @@
 <?php exit;?>	2014-10-26 15:34	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-26 15:39	
 <?php exit;?>	2014-10-26 15:34	127.0.0.1	/forum/?hot-listbyId-uid-30.htm	cron_1_next_time:2014-10-26 15:39	
 <?php exit;?>	2014-10-26 16:02	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-26 16:07	
-<?php exit;?>	2014-10-26 16:02	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-26 16:07	
-<<<<<<< Updated upstream
+<?php exit;?>	2014-10-26 16:02	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-26 16:07
 <?php exit;?>	2014-10-26 19:49	127.0.0.1	/forum/	cron_1_next_time:2014-10-26 19:54	
 <?php exit;?>	2014-10-26 19:55	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-26 20:00	
 <?php exit;?>	2014-10-26 20:00	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-26 20:05	
@@ -1014,8 +909,7 @@
 <?php exit;?>	2014-10-27 19:34	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-27 19:39	
 <?php exit;?>	2014-10-27 19:34	127.0.0.1	/forum/?hot-listbyId-uid-30.htm	cron_1_next_time:2014-10-27 19:39	
 <?php exit;?>	2014-10-27 19:50	127.0.0.1	/forum/?hot-listbyId-uid-30.htm	cron_1_next_time:2014-10-27 19:55	
-<?php exit;?>	2014-10-27 19:50	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-27 19:55	
-=======
+<?php exit;?>	2014-10-27 19:50	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-27 19:55
 <?php exit;?>	2014-10-26 19:21	::1	/forum/?hot-listbyId-uid-2.htm	cron_1_next_time:2014-10-26 19:26	
 <?php exit;?>	2014-10-26 19:21	::1	/forum/?hot-list.htm	cron_1_next_time:2014-10-26 19:26	
 <?php exit;?>	2014-10-26 19:37	::1	/forum/?hot-list.htm	cron_1_next_time:2014-10-26 19:42	
@@ -1073,3 +967,13 @@
 <?php exit;?>	2014-10-27 23:04	::1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-27 23:09	
 <?php exit;?>	2014-10-27 23:09	::1	/forum/	cron_1_next_time:2014-10-27 23:14	
 <?php exit;?>	2014-10-27 23:14	::1	/forum/	cron_1_next_time:2014-10-27 23:19	
+=======
+<?php exit;?>	2014-10-27 20:51	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-27 20:56	
+<?php exit;?>	2014-10-27 20:51	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-27 20:56	
+<?php exit;?>	2014-10-27 21:16	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-27 21:21	
+<?php exit;?>	2014-10-27 21:16	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-27 21:21	
+<?php exit;?>	2014-10-27 23:00	127.0.0.1	/forum/	cron_1_next_time:2014-10-27 23:05	
+<?php exit;?>	2014-10-27 23:08	127.0.0.1	/forum/	cron_1_next_time:2014-10-27 23:13	
+<?php exit;?>	2014-10-27 23:14	127.0.0.1	/forum/	cron_1_next_time:2014-10-27 23:19	
+<?php exit;?>	2014-10-27 23:19	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-27 23:24	
+>>>>>>> Stashed changes

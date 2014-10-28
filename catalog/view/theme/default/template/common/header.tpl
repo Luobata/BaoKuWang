@@ -182,16 +182,16 @@ position: relative;" id="scroll_div" class="scroll_div">
             </div>
             <div class="others">
                 <ul class="nav">
-                    <li class="text"><a href="/index.php?route=common/home">首页</a></li>
-                    <li class="line">|</li>
-                    <li class="text"><a href="/index.php?route=product/list">我要寻宝</a></li>
-                    <li class="line">|</li>
-                    <li class="text"><a href="/index.php?route=account/new">我要寄卖</a></li>
-                    <li class="line">|</li>
-                    <li class="text"><a href="/index.php?route=product/identify">我要鉴定</a></li>
-                    <li class="line">|</li>
-                    <li class="text"><a href="/index.php?route=product/valuation">我要估值</a></li>
-                    <li class="line">|</li>
+                    <li class="text <?php if((!$_GET['route'])||($_GET['route']=='common/home')){ echo 'thispage'; } ?>"><a href="/index.php?route=common/home">首页</a></li>
+                    <?php if(($_GET['route'])&&($_GET['route']!='common/home')&&($_GET['route']!='product/list')){ ?> <li class="line">|</li> <?php } ?>
+                    <li class="text <?php if($_GET['route']=='product/list'){ echo 'thispage'; } ?>"><a href="/index.php?route=product/list">我要寻宝</a></li>
+                    <?php if(($_GET['route'])&&($_GET['route']!='product/list')&&($_GET['route']!='account/new')){ ?> <li class="line">|</li> <?php } ?>
+                    <li class="text <?php if($_GET['route']=='account/new'){ echo 'thispage'; } ?>"><a href="/index.php?route=account/new">我要寄卖</a></li>
+                    <?php if(($_GET['route'])&&($_GET['route']!='account/new')&&($_GET['route']!='product/identify')){ ?> <li class="line">|</li> <?php } ?>
+                    <li class="text <?php if($_GET['route']=='product/identify'){ echo 'thispage'; } ?>"><a href="/index.php?route=product/identify">我要鉴定</a></li>
+                    <?php if(($_GET['route'])&&($_GET['route']!='product/identify')&&($_GET['route']!='product/valuation')){ ?> <li class="line">|</li> <?php } ?>
+                    <li class="text <?php if($_GET['route']=='product/valuation'){ echo 'thispage'; } ?>"><a href="/index.php?route=product/valuation">我要估值</a></li>
+                    <?php if(($_GET['route'])&&($_GET['route']!='product/valuation')){ ?> <li class="line">|</li> <?php } ?>
                     <li class="text"><a href="/forum">我要交流</a></li>
                     <li class="line">|</li>
                     <li class="text"><a href="javascript:void(0)">宝库自营</a></li>
