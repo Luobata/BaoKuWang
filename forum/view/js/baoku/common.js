@@ -29,3 +29,23 @@ $(".search_sel").change(function(){
 	
 	
 });
+$('.all').hover(function() {
+     $('.content_head').show();
+    }, function() {
+     $('.content_head').css('display', 'none');
+ });
+
+ $('.content_head > .goods').hover(function() {
+    /* Stuff to do when the mouse enters the element */
+     var eq = $('.content_head > .goods').index(this),
+     h = $('.content_head').offset().top;  
+     //$('.goods').attr('style', 'background-color:#edeced');
+     $(this).css('background-color','#bbb');
+     $('.item').css('display', 'none');    
+     $(this).children('.item').show();
+}, function() {
+   $('.goods').attr('style', 'background-color:#edeced');
+   $(this).children('.item').css('display', 'none');
+   
+    //a.css('display','none');
+});

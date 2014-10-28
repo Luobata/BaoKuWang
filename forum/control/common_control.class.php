@@ -89,6 +89,8 @@ class common_control extends base_control {
          $product_id=$Helper->http_post('http://localhost/index.php?route=common/home/category');
          //var_dump(json_decode($product_id));
          $product_id=json_decode($product_id);
+         $product_id=objtoarr($product_id);
+         //var_dump(objtoarr($product_id));
          $this->view->assign('product_id',$product_id);
          //exit();
 		// hook common_control_init_runtime_after.php
@@ -621,6 +623,18 @@ class common_control extends base_control {
 		}
 		closedir($dh);
 	}
+}
+function objtoarr($obj){
+	$ret = array();
+	foreach($obj as $key =>$value){
+		if(gettype($value) == 'array' || gettype($value) == 'object'){
+			$ret[$key] = objtoarr($value);
+		}
+		else{
+			$ret[$key] = $value;
+		}
+	}
+	return $ret;
 }
 
 // hook common_control_after.php

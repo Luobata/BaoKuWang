@@ -47,23 +47,23 @@
 		<div class="f_content">
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_1"></div>
-				<li><a href="">正品保证</a></li>
+				<li><a href="/index.php?route=about/zheng/">正品保证</a></li>
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_2"></div>
-				<li><a href="">专家评估</a></li>
+				<li><a href="/index.php?route=about/zheng/zhuanjia">专家评估</a></li>
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_3"></div>
-				<li><a href="">权威保证</a></li>
+				<li><a href="/index.php?route=about/zheng/quanwei">权威保证</a></li>
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_4"></div>
-				<li><a href="">7天退货</a></li>
+				<li><a href="/index.php?route=about/zheng/qitian">7天退货</a></li>
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_5"></div>
-				<li><a href="">五星物流服务</a></li>
+				<li><a href="/index.php?route=about/zheng/wuxing">五星物流服务</a></li>
 			</div>
 		</div>
 	</div>
@@ -73,17 +73,17 @@
 			<div class="f2_texts">
 					<ul class="nav">
 						<li class="f2_line">|</li>
-						<li class="f2_text"><a href="">购物流程</a></li>
+						<li class="f2_text"><a href="/index.php?route=about/zheng/gouwu">购物流程</a></li>
 						<li class="f2_line">|</li>
-						<li class="f2_text"><a href="">常见问题</a></li>
+						<li class="f2_text"><a href="/index.php?route=about/zheng/changjian">常见问题</a></li>
 						<li class="f2_line">|</li>
-						<li class="f2_text"><a href="">连锁查询</a></li>
+						<li class="f2_text"><a href="/index.php?route=about/zheng/liansuo">连锁查询</a></li>
 						<li class="f2_line">|</li>
-						<li class="f2_text"><a href="">免责声明</a></li>
+						<li class="f2_text"><a href="/index.php?route=about/zheng/mianze">免责声明</a></li>
 						<li class="f2_line">|</li>
-						<li class="f2_text"><a href="">退货说明</a></li>
+						<li class="f2_text"><a href="/index.php?route=about/zheng/tuihuo">退货说明</a></li>
 						<li class="f2_line">|</li>
-						<li class="f2_text"><a href="">关于我们</a></li>
+						<li class="f2_text"><a href="/index.php?route=about/zheng/guanyu">关于我们</a></li>
 						
 					</ul>
 				</div>

@@ -157,9 +157,9 @@ function addToWishList(product_id) {
 				$('#wishlist-total').html(json['total']);
 				
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
-				alert("收藏成功！");
+				$.MsgBox.Alert("消息提示","收藏成功！");
 			}else{
-				alert("收藏失败！");
+				$.MsgBox.Alert("消息提示","收藏失败！");
 			}
 		}
 	});
@@ -225,7 +225,7 @@ function addToCompare(product_id) {
         });
         $("#mb_tit").css({ display: 'block', fontSize: '14px', color: '#444', padding: '10px 15px',
             backgroundColor: '#DDD', borderRadius: '15px 15px 0 0',
-            borderBottom: '3px solid #009BFE', fontWeight: 'bold'
+            borderBottom: '3px solid #AD813F', fontWeight: 'bold'
         });
         $("#mb_msg").css({ padding: '20px', lineHeight: '20px',
             borderBottom: '1px dashed #DDD', fontSize: '13px'
@@ -236,7 +236,7 @@ function addToCompare(product_id) {
         });
         $("#mb_btnbox").css({ margin: '15px 0 10px 0', textAlign: 'center' });
         $("#mb_btn_ok,#mb_btn_no").css({ width: '85px', height: '30px', color: 'white', border: 'none' });
-        $("#mb_btn_ok").css({ backgroundColor: '#168bbb' });
+        $("#mb_btn_ok").css({ backgroundColor: '#AD813F' });
         $("#mb_btn_no").css({ backgroundColor: 'gray', marginLeft: '20px' });
         //右上角关闭按钮hover样式
         $("#mb_ico").hover(function () {
@@ -249,7 +249,7 @@ function addToCompare(product_id) {
         var boxWidth = $("#mb_con").width();
         var boxHeight = $("#mb_con").height();
         //让提示框居中
-        $("#mb_con").css({ top: (_height - boxHeight) / 2 + "px", left: (_widht - boxWidth) / 2 + "px" });
+        $("#mb_con").css({ top: (_height/4 - boxHeight) / 2 + "px", left: (_widht - boxWidth) / 2 + "px" });
     }
     //确定按钮事件
     var btnOk = function (callback) {
@@ -275,7 +275,7 @@ function validate () {
 
     var yanzhengma = $("#yanzhengma").val();
     if(!yanzhengma){
-        alert("请填写验证码！");
+        $.MsgBox.Alert("消息提示","请填写验证码！");
         return;
     }
 
@@ -283,7 +283,7 @@ function validate () {
         if(msg==1){
             $('#account_form').attr('onsubmit','validate();').submit();
         }else{
-            alert("验证码错误！");
+            $.MsgBox.Alert("消息提示","验证码错误！");
         }
     });
 }

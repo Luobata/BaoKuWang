@@ -3,7 +3,7 @@
 //sae_xhprof_start();
 
 // 调试模式: 0:关闭; 1: 线上调试模式; 2: 本地开发详细调试模式;
-define('DEBUG', 0);
+define('DEBUG', 2);
 
 // 有些环境关闭了错误显示
 DEBUG && function_exists('ini_set') && @ini_set('display_errors', 'On');
@@ -11,7 +11,7 @@ DEBUG && function_exists('ini_set') && @ini_set('display_errors', 'On');
 // 站点根目录，在单元测试时候，此文件可能被包含
 define('BBS_PATH', str_replace('\\', '/', dirname(__FILE__)).'/');
 //echo BBS_PATH;
-
+define('HTTP_SEVER','http://localhost/');
 // 加载应用的配置文件，唯一的全局变量 $conf
 if(!($conf = include BBS_PATH.'conf/conf.php')) {
     header('Location:install/');
