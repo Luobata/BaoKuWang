@@ -49,3 +49,13 @@ $('.all').hover(function() {
    
     //a.css('display','none');
 });
+$('.item > .goods').hover(function() {
+    /* Stuff to do when the mouse enters the element */
+     var eq = $('.item > .goods').index(this),
+     h = $('.item').offset().top;  
+     $('.item .goods').css('background-color', '#edeced');
+     $(this).css('background-color', '#bbb');
+     $(this).attr('style', 'background-color:#bbb');
+}, function() {
+    
+});

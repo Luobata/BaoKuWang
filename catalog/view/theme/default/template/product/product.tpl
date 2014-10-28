@@ -616,6 +616,7 @@ Aui.ready( function()
           
         <div class="s_pic">
           <ul class="s_pic_con">
+            <img src="<?php echo $thumb; ?>" class="mover"/>
             <?php for ($i=0; $i <sizeof($product_images) ; $i++) { ;?>
             <img src="./image/<?php echo $product_images[$i]['image'];?>" class="mover" />
             <?php } ;?>

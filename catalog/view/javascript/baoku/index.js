@@ -114,14 +114,26 @@ $('.content_head > .goods').hover(function() {
      var eq = $('.content_head > .goods').index(this),
      h = $('.content_head').offset().top;  
      //$('.goods').attr('style', 'background-color:#edeced');
-     $(this).attr('style', 'background-color:#fff');
+     $(this).attr('style', 'background-color:#bbb');
      $('.item').css('display', 'none');    
      $(this).children('.item').show();
 }, function() {
    $('.goods').attr('style', 'background-color:#edeced');
    $(this).children('.item').css('display', 'none');
-    //a.css('display','none');
+    
 });
+$('.item > .goods').hover(function() {
+    /* Stuff to do when the mouse enters the element */
+     var eq = $('.item > .goods').index(this),
+     h = $('.item').offset().top;  
+     $('.item .goods').css('background-color', '#edeced');
+     $(this).css('background-color', '#bbb');
+     $(this).attr('style', 'background-color:#bbb');
+}, function() {
+    
+});
+
+
 $('.all-sort-list > .item').hover(function(){
             var eq = $('.all-sort-list > .item').index(this),               //获取当前滑过是第几个元素
                 h = $('.all-sort-list').offset().top,                       //获取当前下拉菜单距离窗口多少像素
