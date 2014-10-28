@@ -1073,3 +1073,27 @@
 <?php exit;?>	2014-10-27 23:04	::1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-27 23:09	
 <?php exit;?>	2014-10-27 23:09	::1	/forum/	cron_1_next_time:2014-10-27 23:14	
 <?php exit;?>	2014-10-27 23:14	::1	/forum/	cron_1_next_time:2014-10-27 23:19	
+<<<<<<< Updated upstream
+=======
+=======
+<?php exit;?>	2014-10-27 20:51	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-27 20:56	
+<?php exit;?>	2014-10-27 20:51	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-27 20:56	
+<?php exit;?>	2014-10-27 21:16	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-27 21:21	
+<?php exit;?>	2014-10-27 21:16	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-27 21:21	
+<?php exit;?>	2014-10-27 23:00	127.0.0.1	/forum/	cron_1_next_time:2014-10-27 23:05	
+<?php exit;?>	2014-10-27 23:08	127.0.0.1	/forum/	cron_1_next_time:2014-10-27 23:13	
+<?php exit;?>	2014-10-27 23:14	127.0.0.1	/forum/	cron_1_next_time:2014-10-27 23:19	
+<?php exit;?>	2014-10-27 23:19	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-27 23:24	
+>>>>>>> Stashed changes
+<?php exit;?>	2014-10-28 09:56	127.0.0.1	/forum/	cron_1_next_time:2014-10-28 10:01	
+<?php exit;?>	2014-10-28 09:56	127.0.0.1	/forum/	cron_2_next_time:2014-10-29 00:00	
+<?php exit;?>	2014-10-28 10:17	127.0.0.1	/forum/?hot-listbyId-uid-30.htm	cron_1_next_time:2014-10-28 10:22	
+<?php exit;?>	2014-10-28 10:22	127.0.0.1	/forum/?hot-listbyId-uid-30.htm	cron_1_next_time:2014-10-28 10:27	
+<?php exit;?>	2014-10-28 10:28	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-28 10:33	
+<?php exit;?>	2014-10-28 10:28	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-28 10:33	
+<?php exit;?>	2014-10-28 10:33	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-28 10:38	
+<?php exit;?>	2014-10-28 10:38	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-28 10:43	
+<?php exit;?>	2014-10-28 10:44	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-28 10:49	
+<?php exit;?>	2014-10-28 11:07	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-28 11:12	
+<?php exit;?>	2014-10-28 11:21	127.0.0.1	/forum/	cron_1_next_time:2014-10-28 11:26	
+>>>>>>> Stashed changes

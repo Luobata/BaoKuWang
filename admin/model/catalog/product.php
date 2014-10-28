@@ -20,8 +20,8 @@ class ModelCatalogProduct extends Model {
         //var_dump($data);
         //exit();
 
-        $qq = $data['qq']!='' ? $this->db->escape($data['qq']) : '未设置';
-        $wechat = $data['wechat']!='' ? $this->db->escape($data['wechat']) : '未设置';
+        $qq = $data['qq']!='' ? $this->db->escape($data['qq']) : '';
+        $wechat = $data['wechat']!='' ? $this->db->escape($data['wechat']) : '';
         $sale = $data['sale']!='' ? $this->db->escape($data['sale']) : '0';
         $identify = $data['identify']!='' ? $this->db->escape($data['identify']) : '0';
 
@@ -190,8 +190,8 @@ class ModelCatalogProduct extends Model {
         //var_dump($data);
         //exit();
 
-        $qq = $data['qq']!='' ? $this->db->escape($data['qq']) : '未设置';
-        $wechat = $data['wechat']!='' ? $this->db->escape($data['wechat']) : '未设置';
+        $qq = $data['qq']!='' ? $this->db->escape($data['qq']) : '';
+        $wechat = $data['wechat']!='' ? $this->db->escape($data['wechat']) : '';
         $sale = $data['sale']!='' ? $this->db->escape($data['sale']) : '0';
         $identify = $data['identify']!='' ? $this->db->escape($data['identify']) : '0';
 
