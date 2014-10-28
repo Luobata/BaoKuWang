@@ -141,11 +141,11 @@ position: relative;" id="scroll_div" class="scroll_div">
 
 
                 <?php if (!$logged) { ?>
-            <div class="login">
+                <div class="login" style="margin-left: 35px; margin-top: 39px;">
                 <?php echo $text_welcome; ?>
                 <?php } else { ?>
-            <div class="login" style="margin-left: 15px;">
-                <?php echo $text_logged; ?>
+                <div class="login" style="margin-left: 15px; margin-top: 30px;">
+                <?php echo '<a href="javascript:void(0)" style="position:relative;bottom:5px;">你好！'.$name.'</a><br/>'.$text_logged; ?>
                 <?php } ?>
             </div>
 
@@ -196,7 +196,7 @@ position: relative;" id="scroll_div" class="scroll_div">
                     <?php if(isset($_GET['route'])&&($_GET['route']!='product/identify')&&($_GET['route']!='product/valuation')){ ?> <li class="line">|</li> <?php } ?>
                     <li class="text <?php if(isset($_GET['route'])&&($_GET['route']=='product/valuation')){ echo 'thispage'; } ?>"><a href="/index.php?route=product/valuation">我要估值</a></li>
                     <?php if(isset($_GET['route'])&&($_GET['route']!='product/valuation')){ ?> <li class="line">|</li> <?php } ?>
-                    <li class="text"><a href="/forum">我要交流</a></li>
+                    <li class="text"><a href="/forum">宝库社区</a></li>
                     <li class="line">|</li>
                     <li class="text"><a href="javascript:void(0)">宝库自营</a></li>
                     <li class="line">|</li>

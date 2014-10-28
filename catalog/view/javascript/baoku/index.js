@@ -18,7 +18,7 @@ transitionEnd: function(index, elem) {}
 //var nextpics=function(){
 
 
-	$(".head2").bind("click",function(e){
+	$(".head2").bind("mouseover",function(e){
         $(this).attr('style', 'color:#fff');
         var b=(this.parentElement.parentElement);
         $(b).attr('style', 'background-color:#673413');
@@ -29,7 +29,7 @@ transitionEnd: function(index, elem) {}
         $('#s_content_2').attr("style","display:block");
 	});
 
-	$(".head1").bind("click",function(e){
+	$(".head1").bind("mouseover",function(e){
         $(this).attr('style', 'color:#fff');
         var b=(this.parentElement.parentElement);
         $(b).attr('style', 'background-color:#673413');
