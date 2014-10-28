@@ -98,7 +98,7 @@ $('.mover').mouseover(function(e) {
         var boxWidth = $("#mb_con").width();
         var boxHeight = $("#mb_con").height();
         //让提示框居中
-        $("#mb_con").css({ top: (_height/4 - boxHeight) / 2 + "px", left: (_widht - boxWidth) / 2 + "px" });
+        $("#mb_con").css({ top: (_height - boxHeight) / 2 + "px", left: (_widht - boxWidth) / 2 + "px" });
     }
     //确定按钮事件
     var btnOk = function (callback) {
