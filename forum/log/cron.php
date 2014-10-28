@@ -977,3 +977,5 @@
 <?php exit;?>	2014-10-27 23:14	127.0.0.1	/forum/	cron_1_next_time:2014-10-27 23:19	
 <?php exit;?>	2014-10-27 23:19	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-27 23:24	
 >>>>>>> Stashed changes
+<?php exit;?>	2014-10-28 09:56	127.0.0.1	/forum/	cron_1_next_time:2014-10-28 10:01	
+<?php exit;?>	2014-10-28 09:56	127.0.0.1	/forum/	cron_2_next_time:2014-10-29 00:00	

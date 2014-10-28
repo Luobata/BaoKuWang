@@ -89,20 +89,18 @@
             <?php } ?></td>
           </div>
           <div class="row">
-             
-                   <span class="nes-tip"></span>
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <div class="input-title "><a href="javascript:passfor()">忘记密码</a></div>
-                   </td>
+               <span class="nes-tip"></span>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <div class="input-title"><a href="javascript:passfor()" style="text-decoration: underline;">忘记密码？</a></div>
           </div>
-                  <input type="submit" value="提交修改" class="submit-btn">
+            <input type="submit" value="提交修改" class="submit-btn">
           </div>
        </form>
 
     </div>  
 <script type="text/javascript">
   function passfor(){
-    $.MsgBox.Alert("消息提醒","客服电话:xxxxxxxx");
+    $.MsgBox.Alert("消息提醒","忘记密码了？不要担心！<br/>赶紧联系我们为您解决：010-64814142");
   }
 
 </script>

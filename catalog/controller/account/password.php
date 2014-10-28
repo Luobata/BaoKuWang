@@ -140,8 +140,8 @@ class ControllerAccountPassword extends Controller {
 		$this->load->model('account/customer');
 		$op=$this->model_account_customer->getCustomerByEmail($this->customer->getEmail())['password'];
 		$salt=$this->model_account_customer->getCustomerByEmail($this->customer->getEmail())['salt'];
-		echo($op);
-		echo(sha1($salt . sha1($salt . sha1($this->request->post['oldpassword']))));
+		//echo($op);
+		//echo(sha1($salt . sha1($salt . sha1($this->request->post['oldpassword']))));
 		if (sha1($salt . sha1($salt . sha1($this->request->post['oldpassword'])))!=$op) {
 			$this->error['oldpassword'] = '旧密码不正确';
 		}
