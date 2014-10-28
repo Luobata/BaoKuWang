@@ -979,3 +979,10 @@
 >>>>>>> Stashed changes
 <?php exit;?>	2014-10-28 09:56	127.0.0.1	/forum/	cron_1_next_time:2014-10-28 10:01	
 <?php exit;?>	2014-10-28 09:56	127.0.0.1	/forum/	cron_2_next_time:2014-10-29 00:00	
+<?php exit;?>	2014-10-28 10:17	127.0.0.1	/forum/?hot-listbyId-uid-30.htm	cron_1_next_time:2014-10-28 10:22	
+<?php exit;?>	2014-10-28 10:22	127.0.0.1	/forum/?hot-listbyId-uid-30.htm	cron_1_next_time:2014-10-28 10:27	
+<?php exit;?>	2014-10-28 10:28	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-28 10:33	
+<?php exit;?>	2014-10-28 10:28	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-28 10:33	
+<?php exit;?>	2014-10-28 10:33	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-28 10:38	
+<?php exit;?>	2014-10-28 10:38	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-28 10:43	
+<?php exit;?>	2014-10-28 10:44	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	cron_1_next_time:2014-10-28 10:49	

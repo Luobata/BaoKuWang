@@ -628,7 +628,7 @@ Aui.ready( function()
           <?php echo $heading_title; ?>
         </div>
         <div class="f_texts_con">
-          <li>价&nbsp&nbsp&nbsp格 :<span>&nbsp&nbsp&nbsp;<?php echo$price;?> 元</span></li>
+          <li>价&nbsp&nbsp&nbsp格 :<span style="color: red;font-weight: bolder;">&nbsp&nbsp&nbsp;<?php echo $price;?> 元</span></li>
           <li>所在地 :<span>&nbsp&nbsp&nbsp;<?php echo$place;?></span></li>
           <li>卖&nbsp&nbsp&nbsp家 :<span>&nbsp&nbsp&nbsp;<?php //echo$customer_name;?></span></li>
           <!-- <li>咨&nbsp&nbsp&nbsp询 :<span>&nbsp&nbsp&nbsp</span><a href="javascript:show()"><img src="./catalog/view/theme/default/image/baoku/liuyan.png"></a>
@@ -636,8 +636,8 @@ Aui.ready( function()
 
           <li>联&nbsp&nbsp&nbsp系 :
             <span class="show" >&nbsp;
-              <img class="show_mobile" style="width: 142px;" src="./catalog/view/theme/default/template/product/image.php?id=<?php echo $mobile;?>">
-              <a  href="javascript:show()"> <img  src="./catalog/view/theme/default/image/baoku/lianxi.png"></a></span></li>
+              <img class="show_mobile" style="width: 160px;" src="./catalog/view/theme/default/template/product/image.php?id=<?php echo $mobile;?>">
+              <a  href="javascript:show()"> <img style="width: 140px;height: 26px;" src="./catalog/view/theme/default/image/baoku/lianxi.png"></a></span></li>
           <li>QQ&nbsp号 :<span>&nbsp&nbsp&nbsp;<?php echo$qq;?>&nbsp
             
            <!-- <img src="./catalog/view/theme/default/image/baoku/linshi.png"> --></span></li>

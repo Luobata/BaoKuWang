@@ -117,8 +117,14 @@ top: 10%;
     outline: none;
     cursor: pointer;
 }
+.f_button:hover{
+    background-color: #b86;
+}
 #f_button{
 	background-color: #673413;
+}
+#f_button:hover{
+    background-color: #753;
 }
 .d_second{
 	margin-top: 36px;/*
@@ -249,9 +255,7 @@ right: 72px;
 top: 20px;
 font-size: 18px;
 }
-.show_mobile{
-	margin-top: 5px;
-}
+
 #demo { margin:0 auto; width:350px; }
 
 #wraper { position:relative; width:350px; height:350px; background:#fff url(images/loading.gif) no-repeat center center; padding: 17px 0; }
