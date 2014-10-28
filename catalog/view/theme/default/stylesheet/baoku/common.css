@@ -285,7 +285,7 @@ header{
 	padding-left: 16px;
 }
 .item{
-	width: 200px;
+	/*width: 200px;*/
 	min-height: 45px;
 	overflow: hidden;
 	background-color: #edeced;

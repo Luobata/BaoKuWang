@@ -16,14 +16,16 @@
                 <li><?php echo $cat['parent']['name']; ?></li></a>
             </div>
             <div class="item" id="item">
-            <?php foreach( $categories as $cat ) { ?>
-            <div class="goods">
-                <div class="goods_line">
-                    <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
-                    <li><?php echo $cat['parent']['name']; ?></li></a>
-                </div>
-            </div>    
-            <?php } ?>
+             <?php if((sizeof($cat['children'])!=0)){ ?>
+                 <?php foreach( $cat['children'] as $cats ) { ?>
+                <div class="goods">
+                    <div class="goods_line">
+                        <a href="index.php?route=product/list&filter_category=<?php echo $cats['id']; ?>">
+                        <li><?php echo $cats['name']; ?></li></a>
+                    </div>
+                </div>    
+                <?php } ?>
+             <?php } ?>
             </div>
         </div>
             

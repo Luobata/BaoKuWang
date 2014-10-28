@@ -148,6 +148,7 @@ header{
 }
 .index li{
 	text-align: center;
+	color: #000;
 }
 .index .others{
 	float: left;
@@ -284,7 +285,7 @@ header{
 	position: absolute;
 }
 .item{
-	width: 200px;
+	/*width: 200px;*/
 	min-height: 45px;
 	overflow: hidden;
 	background-color: #edeced;

@@ -64,7 +64,7 @@ top: 10%;
 	border-color: #b94976;
 }
 .s_pic_con{
-	width: 306px;
+	/*width: 306px;*/
 	height: 70px;
 	overflow: hidden;
 	margin-right: auto;
