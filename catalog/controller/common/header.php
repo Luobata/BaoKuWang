@@ -142,6 +142,8 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
+        $this->data['name'] = $this->customer->getName() ? $this->customer->getName() : '';
+
 		$this->children = array(
 			'module/language',
 			'module/currency',

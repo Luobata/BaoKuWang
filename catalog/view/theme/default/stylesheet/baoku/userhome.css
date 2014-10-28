@@ -51,8 +51,8 @@
 .pic img{float: left;max-width: 80px;
 max-height: 80px;}
 
-.goods-info{float: left;padding-top: 15px;}
-.goods-title{max-width: 203px;}
-.goods-price{color: #673413;margin-top: 5px;}
+.goods-info{float: left;padding: 14px 0 0 15px;}
+.goods-title{max-width: 300px;}
+.goods-price{color: #673413;margin-top: 12px;}
 
 .items{height: 130px;border-bottom:1px;border-style: solid;border-color: #e9dcc5;border-top: 0px;border-right: 0px;border-left: 0px;}

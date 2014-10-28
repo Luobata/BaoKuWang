@@ -630,8 +630,8 @@ Aui.ready( function()
         </div>
         <div class="f_texts_con">
           <li>价&nbsp&nbsp&nbsp格 :<span style="color: red;font-weight: bolder;">&nbsp&nbsp&nbsp;<?php echo $price;?> 元</span></li>
-          <li>所在地 :<span>&nbsp&nbsp&nbsp;<?php echo$place;?></span></li>
-          <li>卖&nbsp&nbsp&nbsp家 :<span>&nbsp&nbsp&nbsp;<?php //echo$customer_name;?></span></li>
+          <li>所在地 :<span>&nbsp&nbsp&nbsp;<?php echo $place;?></span></li>
+          <li>卖&nbsp&nbsp&nbsp家 :<span>&nbsp;&nbsp;&nbsp;<?php echo $customer_name;?></span></li>
           <!-- <li>咨&nbsp&nbsp&nbsp询 :<span>&nbsp&nbsp&nbsp</span><a href="javascript:show()"><img src="./catalog/view/theme/default/image/baoku/liuyan.png"></a>
           </li> -->
 
@@ -639,21 +639,21 @@ Aui.ready( function()
             <span class="show" >&nbsp;
               <img class="show_mobile" style="width: 160px;" src="./catalog/view/theme/default/template/product/image.php?id=<?php echo $mobile;?>">
               <a  href="javascript:show()"> <img style="width: 140px;height: 26px;" src="./catalog/view/theme/default/image/baoku/lianxi.png"></a></span></li>
-          <li>QQ&nbsp号 :<span>&nbsp&nbsp&nbsp;<?php echo$qq;?>&nbsp
+          <li>QQ&nbsp;号 :<span>&nbsp;&nbsp;&nbsp;<?php echo ($qq)?$qq:'-';?>&nbsp;
             
            <!-- <img src="./catalog/view/theme/default/image/baoku/linshi.png"> --></span></li>
-          <li>微信号 :<span>&nbsp&nbsp&nbsp;<?php echo$wechat;?></span></li>
-          <li>浏览数 :<span>&nbsp&nbsp&nbsp;<?php echo$viewed;?></span></li>
+          <li>微信号 :<span>&nbsp;&nbsp;&nbsp;<?php echo ($wechat)?$wechat:'-';?></span></li>
+          <li>浏览数 :<span>&nbsp;&nbsp;&nbsp;<?php echo $viewed;?></span></li>
         </div>
         
         <div class="f_click">
           <div class="f_buttons">
 
-            <input type="button" value="收藏" class="f_button" onclick="addToWishList('<?php echo $product_id; ?>');">
+            <input type="button" value="收藏" class="f_button" onclick="addToWishList('<?php echo $product_id; ?>');" />
 
-            <input type="button" value="自由交易" class="f_button">
+            <input type="button" value="自由交易" class="f_button" />
 
-            <input type="button" value="担保交易" class="f_button" id="f_button">
+            <input type="button" value="担保交易" class="f_button" id="f_button" />
 
           </div>
         </div>
@@ -751,12 +751,12 @@ $.ajax({
 	});
 });
  function show(){
-    if("<?php echo isset($_SESSION['customer_id']);?>"){
+    //if("<?php echo isset($_SESSION['customer_id']);?>"){
       //$('.show').html("&nbsp&nbsp<?php echo$mobile;?>&nbsp&nbsp&nbsp");
       $('.show a').remove();
-    }else{
-      window.location.href="./index.php?route=account/login";
-    }
+    //}else{
+    //  window.location.href="./index.php?route=account/login";
+    //}
  }
 //--></script> 
 <script type="text/javascript"><!--

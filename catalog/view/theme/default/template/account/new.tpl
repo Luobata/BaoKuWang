@@ -222,7 +222,7 @@
                 allowFileManager: true,
                 width: 910,
                 height: 360,
-                items: [ 'undo', 'redo', '|', 'copy', 'cut', 'paste', 'wordpaste', '|', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', 'selectall', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyfull', 'insertorderedlist', 'insertunorderedlist', '|', 'table', 'image', 'multiimage', 'insertfile', 'emoticons', 'link', 'unlink', '|', 'fullscreen' ]
+                items: [ 'undo', 'redo', '|', 'copy', 'cut', 'paste', 'wordpaste', '|', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', 'selectall', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyfull', 'insertorderedlist', 'insertunorderedlist', '|', 'table', 'multiimage', 'insertfile', 'emoticons', 'link', 'unlink', '|', 'fullscreen' ]
             });
             // 商品主图事件
             K('#image_main_btn').click(function () {
@@ -277,9 +277,10 @@
             }
 
             // 价格
-            if( (document.getElementById('product_price').value.length == 0) ||
+            if( (document.getElementById('product_price').value.length <= 0) ||
+                (document.getElementById('product_price').value.length >  9) ||
                 isNaN(document.getElementById('product_price').value) ) {
-                $('#error_price').html('价格必须是整数数字');
+                $('#error_price').html('价格必须是1-9位整数数字');
                 error = true;
             } else {
                 $('#error_price').html('');

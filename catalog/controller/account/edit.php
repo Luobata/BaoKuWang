@@ -256,8 +256,8 @@ class ControllerAccountEdit extends Controller {
 		// 	$this->error['warning'] = $this->language->get('error_exists');
 		// }
 
-        if ( (utf8_strlen($this->request->post['name']) > 20) ) {
-            $this->error['name'] = '姓名不能大于10个字';
+        if ( (utf8_strlen($this->request->post['name']) > 4) ) {
+            $this->error['name'] = '姓名不能大于4个字';
         }
 
         if ( ( utf8_strlen($this->request->post['wechat']) > 0 ) && ( (utf8_strlen($this->request->post['wechat']) < 3) || (utf8_strlen($this->request->post['wechat']) > 20) ) ) {

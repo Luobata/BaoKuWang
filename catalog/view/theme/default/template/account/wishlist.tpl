@@ -102,15 +102,15 @@
                           </div>
                        </td>
   
-                       <td style="border-right: 1px solid #ddd;">
-                        <?php echo$product['identify'];?>
+                       <td style="border-right: 1px solid #ddd;text-align: center;">
+                        <?php echo $product['identify'];?>
                        </td>
 
-                       <td style="border-right: 1px solid #ddd;">
-                        <?php echo$product['date_added'];?>
+                       <td style="border-right: 1px solid #ddd;text-align: center;">
+                        <?php echo $product['date_added'];?>
                        </td>
 
-                       <td style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;text-align: center;">
                          
                          <a href="<?php echo $product['remove']; ?>">删除</a>
                        </td>
@@ -124,7 +124,7 @@
                     <?php for ($i=0; $i <sizeof($product) ; $i++) { ;?>
                       <tbody id="wishlist-row<?php echo $product[$i]['product_id']; ?>">
                   <tr class="items">
-                       <th class="pic" style="border-right: 1px solid #ddd;">
+                       <td class="pic" style="border-right: 1px solid #ddd;">
                          <a href="./index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>"><img src="./image/<?php echo $product[$i]['image']; ?>" alt="<?php echo $product[$i]['title']; ?>" title="<?php echo $product[$i]['title']; ?>" /></a>
                           <div class="goods-info">
                             <div class="goods-title"><a href="./index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>">
@@ -133,22 +133,22 @@
                           </div>
                        </td>
 
-                       <td style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;text-align: center;">
 
                         <?php echo $product[$i]['identify'];?>
                        </td>
 
-                       <td style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;text-align: center;">
                         <?php echo $product[$i]['date_added'];?>
                        </td>
 
-                       <td style="border-right: 1px solid #ddd;">
+                       <td style="border-right: 1px solid #ddd;text-align: center;">
                              <?php if($type==4){ ?>
-                             <a href="/index.php?route=product/identify">鉴定</a>
+                             <a href="/index.php?route=product/identify">鉴定</a>&nbsp;&nbsp;
                              <?php } elseif ($type==2) { ?>
-                             <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">上架</a>
+                             <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">上架</a>&nbsp;&nbsp;
                              <?php } elseif ($type==1) { ?>
-                             <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">下架</a>
+                             <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">下架</a>&nbsp;&nbsp;
                              <?php } ?>
                          <a href="/index.php?route=account/new/delete&product_id=<?php echo $product[$i]['product_id']; ?>&type=<?php echo $type;?>">删除</a>
                        </td>

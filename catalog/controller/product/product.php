@@ -3,8 +3,20 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('product/product');
 
+        $this->load->model('catalog/product');
+
+        // 浏览量限制
+        $cookie_name = 'bc_p'.(int)$this->request->get['product_id'].'_viewed';
+        if(!isset($_COOKIE[$cookie_name])) {
+            // 浏览量 +1
+            $this->model_catalog_product->updateViewed($this->request->get['product_id']);
+            // 设置 cookie
+            $Helper = new Helper();
+            $Helper->setcookie($cookie_name,'1',time()+1800,'/','',TRUE);
+        }
+
+		$this->language->load('product/product');
 		$this->data['breadcrumbs'] = array();
 
 		$this->data['breadcrumbs'][] = array(
@@ -165,7 +177,6 @@ class ControllerProductProduct extends Controller {
 			$product_id = 0;
 		}
 
-		$this->load->model('catalog/product');
 		//var_dump(session);
 		//var_export($_SESSION);
 
@@ -315,9 +326,8 @@ class ControllerProductProduct extends Controller {
 			$this->load->model('account/customer');
 			$customer_info = $this->model_account_customer->getCustomer($product_info['cid']);
 			//传入name
-            if($customer_info){
-                $this->data['customer_name'] = $customer_info['name'];
-            }
+
+            $this->data['customer_name'] = $customer_info ? $customer_info['name'] : '-';
 
 			//var_dump($_SESSION);
 			//var_dump($customer_info);
@@ -510,8 +520,6 @@ class ControllerProductProduct extends Controller {
 
 			$this->data['text_payment_profile'] = $this->language->get('text_payment_profile');
 			$this->data['profiles'] = $this->model_catalog_product->getProfiles($product_info['product_id']);
-
-			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/product.tpl')) {
 				$this->template = $this->config->get('config_template') . '/template/product/product.tpl';

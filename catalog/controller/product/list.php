@@ -88,6 +88,7 @@ class ControllerProductList extends Controller {
         $this->data['selected'] = array();
         if (isset($this->request->get['filter_category'])) {
             $this->data['selected']['category'] = $this->model_catalog_category->getCategory($this->request->get['filter_category'])['name'];
+            //var_dump($this->model_catalog_category->getCategory($this->request->get['filter_category']));
         }
         if (isset($this->request->get['filter_place'])) {
             $this->data['selected']['place'] = $this->request->get['filter_place'];
