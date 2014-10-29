@@ -336,11 +336,17 @@ class ControllerProductProduct extends Controller {
 			//根据cid获取最近的三个发布商品
 
 
+            // 相关物品
+
             $category_id = $this->model_catalog_product->getCategories($product_id);
             $category_id = $category_id[0]['category_id'];
-            $product_late = $this->model_catalog_product->getProducts_late($category_id);
-            var_dump($product_late);
-			$this->data['product_late']=$product_late->rows;
+            $product_late = $this->model_catalog_product->getProducts_late($product_id,$category_id);
+            //var_dump($product_late);
+			$this->data['product_late']=$product_late;
+
+            // 物品百科：需要获取到该商品对应的商城分类名称
+            $category_info = $this->model_catalog_category->getCategory($category_id);
+            $this->data['category_name'] = $category_info['name'];
 
 
 			//var_dump($product_late);

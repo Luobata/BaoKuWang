@@ -684,10 +684,12 @@ class ModelCatalogProduct extends Model {
 		return $query->rows;
 	}
 
-    public function getProducts_late($category_id) {
+    public function getProducts_late($product_id,$category_id) {
         $query = $this->db->query("SELECT p.* FROM " . DB_PREFIX . "product AS p
                                    LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id
                                    WHERE p2c.category_id = '" . (int)$category_id . "'
+                                   AND p.product_id != '" . $product_id . "'
+                                   ORDER BY p.date_added DESC
                                    LIMIT 3");
         return $query->rows;
     }

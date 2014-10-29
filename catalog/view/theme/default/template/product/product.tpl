@@ -675,10 +675,8 @@ Aui.ready( function()
             <div class="s_about_pic">
               <img src="./image/<?php echo $product_late[$i]['image'];?>">
             </div>
-            <p><span class="s_price">￥<?php echo $product_late[$i]['price'];?></span><!-- <span class="b_price">￥3780.00</span> --></p>
-            <p>
-              <?php echo $product_late[$i]['title'];?>
-            </p>
+                <p><?php echo (utf8_strlen($product_late[$i]['title'])>13) ? (mb_substr($product_late[$i]['title'],0,13).'&nbsp;...') : ($product_late[$i]['title']); ?></p>
+                <p><span class="s_price">￥<?php echo $product_late[$i]['price'];?></span><!-- <span class="b_price">￥3780.00</span> --></p>
             </a>
           </div>
           <?php };?>
@@ -706,7 +704,6 @@ Aui.ready( function()
           <div class="s_left_title">
             宝友会热帖
           </div>
-        
         </div>
         <div class="s_solder">
           <div class="s_left_title">

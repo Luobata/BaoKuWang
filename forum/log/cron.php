@@ -1214,3 +1214,9 @@
 <?php exit;?>	2014-10-30 00:21	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 00:26	
 <?php exit;?>	2014-10-30 00:27	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 00:32	
 <?php exit;?>	2014-10-30 00:46	127.0.0.1	/forum/	cron_1_next_time:2014-10-30 00:51	
+<?php exit;?>	2014-10-30 00:54	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-30 00:59	
+<?php exit;?>	2014-10-30 00:54	127.0.0.1	/forum/?hot-listbyId-uid-30.htm	cron_1_next_time:2014-10-30 00:59	
+<?php exit;?>	2014-10-30 01:00	127.0.0.1	/forum/	cron_1_next_time:2014-10-30 01:05	
+<?php exit;?>	2014-10-30 01:05	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 01:10	
+<?php exit;?>	2014-10-30 01:10	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 01:15	
+<?php exit;?>	2014-10-30 01:21	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 01:26	
