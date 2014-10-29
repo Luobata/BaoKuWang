@@ -125,7 +125,7 @@
                                     if( $cat['parent']['id'] == $parent_category_id ) {
                                         foreach( $cat['children'] as $child ) { ?>
                             <li class="text" pid="<?php echo $parent_category_id;?>" value="<?php echo $child['id']; ?>">
-                                <a href="javascript:void(0)"><?php echo $child['name'];?></a>
+                                <a href="/index.php?route=product/list&filter_category=<?php echo $child['id']; ?>"><?php echo $child['name'];?></a>
                             </li>
                             <li class="line" >|</li>
                             <?php       }
@@ -142,18 +142,18 @@
                         <?php $count = 1; //var_dump($parent_polular_product[$parent_category_id]); ?>
                         <?php foreach ( $parent_polular_product[$parent_category_id] as $id => $info ) { ?>
                         <td><div class="t_row_jew" >
-                                <div class="t_row_pic" id="t_row_pic1">
+                                <div class="t_row_pic background-cover-base" id="t_row_pic1">
                                     <a id="url_<?php echo $count; ?>" href="/index.php?route=product/product&product_id=<?php echo $id;?>">
-                                    <img id="img_<?php echo $count; ?>" src="/image/<?php echo $info['image'];?>"></a>
+                                    <img id="img_<?php echo $count; ?>" src="/image/<?php echo $info['image'];?>" class="background-cover"></a>
                                 </div>
                                 <div class="simple">
-                                    <li class="desc" id="text_<?php echo $count; ?>"><?php echo (utf8_strlen($info['title'])>13) ? (mb_substr($info['title'],0,13).'&nbsp;...') : ($info['title']); ?></li>
+                                    <li class="desc" id="text_<?php echo $count; ?>"><?php echo $info['title']; ?></li>
                                     <li class="savep"><span class="savep-price" id="sprice_<?php echo $count; ?>"><b>￥<?php echo $info['price'];?>&nbsp;元</b></span></li>
                                 </div>
-                                <div class="detail">
+                                <!--div class="detail">
                                     <p><?php echo $info['title']; ?></p>
                                     <p class="price"><b>￥<?php echo $info['price']; ?>&nbsp;元</b></p>
-                                </div>
+                                </div-->
                                 <!--<li class="farmp">市场价: <span id="bprice_1">12999</span>元</li>-->
                             </div></td>
                         <?php   if($count==4) { ?>

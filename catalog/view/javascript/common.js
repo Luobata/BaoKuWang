@@ -159,7 +159,7 @@ function addToWishList(product_id) {
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
 				$.MsgBox.Alert("消息提示","收藏成功！");
 			}else{
-				$.MsgBox.Alert("消息提示","收藏失败！");
+				$.MsgBox.Alert("消息提示","收藏失败！请先登录。");
 			}
 		}
 	});

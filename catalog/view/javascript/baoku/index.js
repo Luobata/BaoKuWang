@@ -44,7 +44,7 @@ $(".head1").bind("mouseover",function(e){
 
 //};
 
-
+/*
 function product_detail_bind() {
     $('.t_row_jew').hover(function(event) {
         //var offset = $(event.currentTarget).offset();
@@ -144,6 +144,10 @@ $('.t_nav .text').bind("mouseover",function(){
     product_detail_bind();
 });
 
+
+*/
+
+
 $('.content_head > .goods').hover(function() {
     /* Stuff to do when the mouse enters the element */
      var eq = $('.content_head > .goods').index(this),
@@ -206,3 +210,29 @@ $('.all-sort-list > .item').hover(function(){
             $(this).parent().parent().removeClass('hover');
             $(this).parent().hide();
         });
+
+
+$('img.background-cover').each(function () {
+    $(this).load(function () {
+        var $img = $(this).css('position', 'absolute')
+        var $parent = $img.parents('.background-cover-base').css('position', 'relative')
+        var img_size = [$img.width(), $img.height()]
+        var parent_size = [$parent.width(), $parent.height()]
+
+        img_size[2] = img_size[0] / img_size[1]
+        parent_size[2] = parent_size[0] / parent_size[1]
+
+        if (img_size[2] > parent_size[2]) {
+            var new_width = img_size[0] * parent_size[1] / img_size[1]
+            $img.height(parent_size[1])
+            $img.width(new_width)
+            $img.css('left', (parent_size[0] - new_width) / 2)
+        } else {
+            var new_height = img_size[1] * parent_size[0] / img_size[0]
+            $img.height(parent_size[0])
+            $img.width(new_height)
+            $img.css('top', (parent_size[1] - new_height) / 2)
+        }
+
+    })
+})

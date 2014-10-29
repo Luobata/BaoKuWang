@@ -145,7 +145,7 @@ position: relative;" id="scroll_div" class="scroll_div">
                 <?php echo $text_welcome; ?>
                 <?php } else { ?>
                 <div class="login" style="margin-left: 15px; margin-top: 30px;">
-                <?php echo '<a href="javascript:void(0)" style="position:relative;bottom:5px;">你好！'.$nickname.'</a><br/>'.$text_logged; ?>
+                <?php echo '<a href="javascript:void(0)">你好！'.$nickname.'</a><br/>'.$text_logged; ?>
                 <?php } ?>
             </div>
 
@@ -198,10 +198,12 @@ position: relative;" id="scroll_div" class="scroll_div">
                     <?php if(isset($_GET['route'])&&($_GET['route']!='product/valuation')){ ?> <li class="line">|</li> <?php } ?>
                     <li class="text"><a href="/forum">宝库社区</a></li>
                     <li class="line">|</li>
+                    <!-- 去掉之前的tab宽度为 90px
                     <li class="text"><a href="javascript:void(0)">宝库自营</a></li>
                     <li class="line">|</li>
+                    -->
                     <li class="text"><a href="javascript:void(0)">限时特卖</a></li>
-                    <img src="/catalog/view/theme/default/image/baoku/qidai.png">
+                    <img src="/catalog/view/theme/default/image/baoku/qidai.png" />
                 </ul>
             </div>
         </div>
@@ -247,3 +249,4 @@ position: relative;" id="scroll_div" class="scroll_div">
 
     <?php } ?>
     -->
+<div class="content-wrapper">

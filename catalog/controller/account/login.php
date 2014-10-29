@@ -12,7 +12,7 @@ class ControllerAccountLogin extends Controller {
             'common/footer',
             'common/header'
         );
-        $this->data['url'] = $this->url->link('common/home');
+        $this->data['url'] = $this->url->link('account/login');
         $this->response->setOutput($this->render());
     }
 
@@ -131,6 +131,8 @@ class ControllerAccountLogin extends Controller {
 				$this->redirect(str_replace('&amp;', '&', $this->request->post['redirect']));
 			} elseif( isset($_POST['do']) && $_POST['do']=='active' ) {
                 $this->redirect($this->url->link('account/edit', '', 'SSL'));
+            } elseif( isset($_POST['aim']) && $_POST['aim']!='' ) {
+                $this->redirect(base64_decode($_POST['aim']), '', 'SSL');
             } else {
 				$this->redirect($this->url->link('account/account', '', 'SSL'));
 			}
@@ -205,6 +207,12 @@ class ControllerAccountLogin extends Controller {
 		} else {
 			$this->data['password'] = '';
 		}
+
+        if (isset($this->request->get['aim'])) {
+            $this->data['aim'] = $this->request->get['aim'];
+        } else {
+            $this->data['aim'] = '';
+        }
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/login.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/account/login.tpl';

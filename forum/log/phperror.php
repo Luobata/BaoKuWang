@@ -584,3 +584,22 @@
 <?php exit;?>	2014-10-29 00:08	127.0.0.1	/forum/	[Notice] : Undefined index: nickname in File D:\WampServer\www\forum\tmp\bbs_view_index_index.htm.php, Line: 122	
 <?php exit;?>	2014-10-29 00:08	127.0.0.1	/forum/	[Notice] : Undefined index: nickname in File D:\WampServer\www\forum\tmp\bbs_view_index_index.htm.php, Line: 122	
 <?php exit;?>	14-10-29 16:37	127.0.0.1	/forum/?hot-listbyId-uid-321.htm	[Warning] : file_put_contents(D:/WampServer/www/forum/tmp/control_common_control.class.php): failed to open stream: Invalid argument in File D:\WampServer\www\forum\tmp\_runtime.php, Line: 2	
+<?php exit;?>	14-10-29 22:03	::1	/forum/	[Notice] : Use of undefined constant HTTP_SERVER - assumed 'HTTP_SERVER' in File C:\Users\yaogou\Documents\SoftWare\wamp\wamp\www\forum\tmp\control_common_control.class.php, Line: 88	
+<?php exit;?>	14-10-29 22:05	::1	/forum/	[Notice] : Use of undefined constant HTTP_SERVER - assumed 'HTTP_SERVER' in File C:\Users\yaogou\Documents\SoftWare\wamp\wamp\www\forum\tmp\control_common_control.class.php, Line: 88	
+<?php exit;?>	14-10-29 22:10	::1	/forum/	[Notice] : Use of undefined constant HTTP_SERVER - assumed 'HTTP_SERVER' in File C:\Users\yaogou\Documents\SoftWare\wamp\wamp\www\forum\tmp\control_common_control.class.php, Line: 90	
+<?php exit;?>	14-10-29 22:10	::1	/forum/	[Warning] : Invalid argument supplied for foreach() in File C:\Users\yaogou\Documents\SoftWare\wamp\wamp\www\forum\tmp\control_common_control.class.php, Line: 630	
+<?php exit;?>	14-10-29 22:10	::1	/forum/	[Notice] : Use of undefined constant HTTP_SERVER - assumed 'HTTP_SERVER' in File C:\Users\yaogou\Documents\SoftWare\wamp\wamp\www\forum\tmp\control_common_control.class.php, Line: 90	
+<?php exit;?>	14-10-29 22:10	::1	/forum/	[Warning] : Invalid argument supplied for foreach() in File C:\Users\yaogou\Documents\SoftWare\wamp\wamp\www\forum\tmp\control_common_control.class.php, Line: 630	
+<?php exit;?>	14-10-29 22:15	::1	/forum/	[Notice] : Use of undefined constant HTTP_SERVER - assumed 'HTTP_SERVER' in File C:\Users\yaogou\Documents\SoftWare\wamp\wamp\www\forum\tmp\control_common_control.class.php, Line: 91	
+<?php exit;?>	14-10-29 22:15	::1	/forum/	[Warning] : Invalid argument supplied for foreach() in File C:\Users\yaogou\Documents\SoftWare\wamp\wamp\www\forum\tmp\control_common_control.class.php, Line: 631	
+<?php exit;?>	14-10-29 22:20	127.0.0.1	/forum/	[Warning] : include(C:/Users/yaogou/Documents/SoftWare/wamp/wamp/www/forum/tmp/control_common_control.class.php): failed to open stream: No such file or directory in File D:\WampServer\www\forum\tmp\bbs_control_index_control.class.php, Line: 8	
+<?php exit;?>	14-10-29 22:20	127.0.0.1	/forum/	[Warning] : include(): Failed opening 'C:/Users/yaogou/Documents/SoftWare/wamp/wamp/www/forum/tmp/control_common_control.class.php' for inclusion (include_path='.;C:\php\pear') in File D:\WampServer\www\forum\tmp\bbs_control_index_control.class.php, Line: 8	
+<?php exit;?>	14-10-29 22:20	127.0.0.1	/forum/	class common_control does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	14-10-29 22:22	192.168.3.208	/forum/?hot-list.htm	[Warning] : file_put_contents(D:/WampServer/www/forum/tmp/control_common_control.class.php): failed to open stream: Invalid argument in File D:\WampServer\www\forum\tmp\_runtime.php, Line: 2	
+<?php exit;?>	14-10-30 00:02	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
