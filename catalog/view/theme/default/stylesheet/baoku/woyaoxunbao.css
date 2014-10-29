@@ -37,7 +37,7 @@
 
 .item-content{margin-top: 16px;}
 .row{overflow: hidden;margin-bottom: 4px;}
-.col{border: 1px;border-style: solid;border-color: #ccc;width: 245px;height:248px;float: left;margin-right: 4px;}
+.col{position: relative;border: 1px;border-style: solid;border-color: #ccc;width: 245px;height:248px;float: left;margin-right: 4px;}
 .col_img{width: 100%; height: 180px;position: relative;}
 .col img{width: 100%; height: 100%;}
 .col-last{margin-right: 0px;}
@@ -75,4 +75,15 @@ background-color: #ad813f;
 overflow: hidden;
 color: #fff;
 font-size: 20px;
+}
+.detail{
+	position: absolute;
+width: 246px;
+height: 50px;
+/*height: auto!important;*/
+/*bottom: -426px;*/
+background: #edeceb;
+z-index: 50;
+/*display: none;*/
+
 }
