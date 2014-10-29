@@ -675,10 +675,8 @@ Aui.ready( function()
             <div class="s_about_pic">
               <img src="./image/<?php echo $product_late[$i]['image'];?>">
             </div>
-            <p><span class="s_price">￥<?php echo $product_late[$i]['price'];?></span><!-- <span class="b_price">￥3780.00</span> --></p>
-            <p>
-              <?php echo $product_late[$i]['title'];?>
-            </p>
+                <p><?php echo (utf8_strlen($product_late[$i]['title'])>13) ? (mb_substr($product_late[$i]['title'],0,13).'&nbsp;...') : ($product_late[$i]['title']); ?></p>
+                <p><span class="s_price">￥<?php echo $product_late[$i]['price'];?></span><!-- <span class="b_price">￥3780.00</span> --></p>
             </a>
           </div>
           <?php };?>
@@ -689,24 +687,12 @@ Aui.ready( function()
           <div class="s_left_title">
             物品百科
           </div>
-          <div class="s_left_con">
-            <a href="">宝格丽戒指好不好</a>
-          </div>
-          <div class="s_left_con">
-            <a href="">宝格丽戒指好不好</a>
-          </div>
-          <div class="s_left_con">
-            <a href="">宝格丽戒指好不好</a>
-          </div>
-          <div class="s_left_con" id="s_left_con">
-            <a href="">宝格丽戒指好不好</a>
-          </div>
+         
         </div>
         <div class="s_friends">
           <div class="s_left_title">
             宝友会热帖
           </div>
-        
         </div>
         <div class="s_solder">
           <div class="s_left_title">
@@ -743,7 +729,31 @@ $.ajax({
             $('.s_solder').remove();
           }
               }
-        });   
+        }); 
+//获取物品百科
+var cname="<?php echo $category_name ?>"
+//var cname='adas'
+  $.ajax({
+      //alert(1);
+      url:"./forum/?hot-baike-cname-"+cname+".htm",
+      //data:{ randomid: Math.random() },
+      dataType:"json",
+      success:function(data){
+          if(data.length!=0){
+             for (var i = 0; i < data.length-1; i++) {
+              //$('.s_friends .tip_'+(i+1)+' a').html(data[i].subject);
+              $('.s_goods').append(" <div class='s_left_con '>"+
+                "<a href='./forum/?thread-index-fid-"+data[i].fid+"-tid-"+data[i].tid+".htm'>"+data[i].subject+"</a></div>");
+             };
+             $('.s_goods').append(" <div class='s_left_con' id='s_left_con'>"+
+                "<a href='./forum/?thread-index-fid-"+data[i].fid+"-tid-"+data[i].tid+".htm'>"+data[i].subject+"</a></div>");
+          }else{
+            //没有数据返回
+            $('.s_goods').remove();
+          }
+
+              }
+        });  
 	$('.colorbox').colorbox({
 		overlayClose: true,
 		opacity: 0.5,

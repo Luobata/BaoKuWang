@@ -334,8 +334,23 @@ class ControllerProductProduct extends Controller {
 			//var_dump($product_info);
 			//var_dump($this->model_catalog_product->getLatestProductsByCid($product_info['cid'],3));
 			//根据cid获取最近的三个发布商品
-			$product_late=$this->model_catalog_product->getProductsBycid($product_info['cid']);
-			$this->data['product_late']=$product_late->rows;
+
+
+            // 相关物品
+
+            $category_id = $this->model_catalog_product->getCategories($product_id);
+            $category_id = $category_id[0]['category_id'];
+            $product_late = $this->model_catalog_product->getProducts_late($product_id,$category_id);
+            //var_dump($product_late);
+			$this->data['product_late']=$product_late;
+
+            // 物品百科：需要获取到该商品对应的商城分类名称
+            $category_info = $this->model_catalog_category->getCategory($category_id);
+            $this->data['category_name'] = $category_info['name'];
+
+            var_dump($category_info['name']);
+
+
 			//var_dump($product_late);
 			//var_dump($this->model_catalog_product->getLatestProducts(1));
 			//var_dump($this->model_catalog_product->getLatestProducts(2));
