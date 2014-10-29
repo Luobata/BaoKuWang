@@ -113,14 +113,15 @@ position: relative;" id="scroll_div" class="scroll_div">
 
 
             <?php if(($_user['uid']==0)) { ?>
-                <div class="login">
-                    <p><a href="/index.php?route=account/login">登录</a></p>
-                    <p><a href="/index.php?route=account/register">注册</a></p>
+                <div class="login" style="margin-left: 35px; margin-top: 40px;">
+                    <a href="/index.php?route=account/login">登录</a>
+                    <a href="/index.php?route=account/register">注册</a>
                 </div>
             <?php } else { ?>
-                <div class="login" style="margin-left: 15px;">
-                    <p><a href="/index.php?route=account/account">个人中心</a></p>
-                    <p><a href="/index.php?route=account/logout">退出</a></p>
+                <div class="login" style="margin-left: 15px; margin-top: 33px;">
+                    <a href="javascript:void(0)" style="position:relative;bottom:7px;">你好！<?php echo $_user['username'];?></a><br/>
+                    <a href="/index.php?route=account/account">个人中心</a>
+                    <a href="/index.php?route=account/logout">退出</a>
                 </div>
             <?php } ?>
 
@@ -352,7 +353,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 					</span>
 					<?php } ?>
 				<?php } else { ?>
-					宝库论坛
+					宝库社区
 				<?php } ?>
 					
 				</td>
@@ -369,7 +370,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 				<td>
 				<span class="grey today">今日：</span><span class="todayposts "><?php echo isset($conf['todayposts']) ? $conf['todayposts'] : '';?></span>
                                                                        
-				<span class="grey today">主题：</span><span class="todayposts"><?php echo isset($conf['threads']) ? $conf['threads'] : '';?></span>
+				<span class="grey today">&nbsp;&nbsp;&nbsp;&nbsp;主题：</span><span class="todayposts"><?php echo isset($conf['threads']) ? $conf['threads'] : '';?></span>
 				
                  </td>
                  <?php } ?>                                                 
@@ -751,7 +752,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 		<a href="http://localhost/forum/?post-thread-fid-<?php echo isset($fid) ? $fid : '';?>-typeid1-<?php echo isset($thread['typeid1']) ? $thread['typeid1'] : '';?>-typeid2-<?php echo isset($thread['typeid2']) ? $thread['typeid2'] : '';?>-typeid3-<?php echo isset($thread['typeid3']) ? $thread['typeid3'] : '';?>-typeid4-<?php echo isset($thread['typeid4']) ? $thread['typeid4'] : '';?>-ajax-1.htm" target="_blank" onclick="return false;" id="create_thread" rel="nofollow">
 			<?php } ?>
 		<div class="newt">
-			发布新话题
+			发布新帖
 		</div>
 		</a>
 		<div class="recommand">

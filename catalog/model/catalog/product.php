@@ -501,9 +501,34 @@ class ModelCatalogProduct extends Model {
 	}
 
 	public function getPopularProducts($category_id,$limit) {
+
+        $sql = "SELECT p.product_id FROM " . DB_PREFIX . "product p";
+
+        // 获取父分类
+        $query = $this->db->query("SELECT parent_id FROM " . DB_PREFIX . "category WHERE category_id = " . (int)($category_id));
+        $parent_id = (int)$query->row['parent_id'];
+
+        if( $parent_id != 0 ) {
+            // 此为二级分类
+            $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id WHERE p2c.category_id = " . (int)($category_id));
+        } else {
+            // 此为一级分类
+            $query = $this->db->query("SELECT category_id FROM " . DB_PREFIX . "category WHERE parent_id = " . (int)($category_id));
+            // 汇聚其旗下的所有子分类（含其本身）
+            $cats = '';
+            foreach( $query->rows as $child_category ){
+                $cats .= $child_category['category_id'].',';
+            }
+            $cats .= (int)($category_id);
+            // 条件
+            $sql .= (" LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id WHERE p2c.category_id in (" . $cats . ")");
+        }
+
+        $sql .= " AND p.status = 1 ORDER BY p.viewed, p.date_added DESC LIMIT " . (int)$limit;
+
 		$product_data = array();
 
-		$query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_category p2c ON (p.product_id = p2c.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND p2c.category_id = '" . $category_id . "' ORDER BY p.viewed, p.date_added DESC LIMIT " . (int)$limit);
+		$query = $this->db->query($sql);
 
 		foreach ($query->rows as $result) { 		
 			$product_data[$result['product_id']] = $this->getProductMainInfo($result['product_id']);

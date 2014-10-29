@@ -81,6 +81,13 @@
                    <span class="customer_info"><?php echo $customer_info['name'] ;?></span>
           </div>
 
+              <div class="row">
+                  <span class="nes-tip none">*</span>
+                  &nbsp;&nbsp;&nbsp;
+                  <div class="input-title">宝友昵称：</div>
+                  <span class="customer_info"><?php echo $customer_info['nickname'] ;?></span>
+              </div>
+
                 <div class="row">
                    <span class="nes-tip none">*</span>
                    &nbsp;&nbsp;&nbsp;

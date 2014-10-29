@@ -113,14 +113,15 @@ position: relative;" id="scroll_div" class="scroll_div">
 
 
             <?php if(($_user['uid']==0)) { ?>
-                <div class="login">
-                    <p><a href="/index.php?route=account/login">登录</a></p>
-                    <p><a href="/index.php?route=account/register">注册</a></p>
+                <div class="login" style="margin-left: 35px; margin-top: 40px;">
+                    <a href="/index.php?route=account/login">登录</a>
+                    <a href="/index.php?route=account/register">注册</a>
                 </div>
             <?php } else { ?>
-                <div class="login" style="margin-left: 15px;">
-                    <p><a href="/index.php?route=account/account">个人中心</a></p>
-                    <p><a href="/index.php?route=account/logout">退出</a></p>
+                <div class="login" style="margin-left: 15px; margin-top: 33px;">
+                    <a href="javascript:void(0)" style="position:relative;bottom:7px;">你好！<?php echo $_user['username'];?></a><br/>
+                    <a href="/index.php?route=account/account">个人中心</a>
+                    <a href="/index.php?route=account/logout">退出</a>
                 </div>
             <?php } ?>
 

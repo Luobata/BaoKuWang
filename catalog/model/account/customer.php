@@ -120,15 +120,23 @@ class ModelAccountCustomer extends Model {
 	}
 
 	public function editCustomer($data) {
-		$this->db->query("UPDATE " . DB_PREFIX . "customer SET 
-			qq = '" . $this->db->escape($data['qq']) . "', 
-			wechat = '" . $this->db->escape($data['wechat']) . "', 
-			place = '" . $this->db->escape($data['place']) . "', 
-			telephone = '" . $this->db->escape($data['telephone']) . "', 
-			name = '" . $this->db->escape($data['name']) . "',
-			zone = '" . $this->db->escape($data['zone']) . "',
-			sex = '" . $this->db->escape($data['sex']) . "'
-			WHERE customer_id = '" . (int)$this->customer->getId() . "'");
+		$this->db->query(  "UPDATE " . DB_PREFIX . "customer SET
+                            qq = '" . $this->db->escape($data['qq']) . "',
+                            wechat = '" . $this->db->escape($data['wechat']) . "',
+                            place = '" . $this->db->escape($data['place']) . "',
+                            telephone = '" . $this->db->escape($data['telephone']) . "',
+                            name = '" . $this->db->escape($data['name']) . "',
+                            nickname = '" . $this->db->escape($data['nickname']) . "',
+                            zone = '" . $this->db->escape($data['zone']) . "',
+                            sex = '" . $this->db->escape($data['sex']) . "'
+                            WHERE customer_id = '" . (int)$this->customer->getId() . "'");
+        // 同步论坛昵称
+        $sql = "UPDATE bbs_user SET username = '" . $this->db->escape($data['nickname']) . "'
+                WHERE uid = ( SELECT bbs_uid FROM " . DB_PREFIX . "bbs_user
+                              WHERE shop_cid = '" . (int)$this->customer->getId() . "' )";
+        $this->db->query($sql);
+        //echo $sql;
+        //exit();
 	}
 
 	public function editPassword($email, $password) {

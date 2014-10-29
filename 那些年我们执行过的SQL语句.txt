@@ -1,6 +1,12 @@
 ﻿
-【陈雄威，2014-10-27,21:40】
-【增加个人基本信息字段】
+【陈雄威，2014-10-28，23:30】
+【增加用户昵称字段】
+
+ALTER TABLE shop_customer ADD COLUMN nickname varchar(16) DEFAULT '' NOT NULL;
+
+
+【陈雄威，2014-10-27，21:40】
+【增加分类首页展示字段】
 
 ALTER TABLE shop_category ADD COLUMN homeshow varchar(1) DEFAULT '0' NOT NULL;
 

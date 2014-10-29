@@ -112,23 +112,24 @@
             <?php foreach( $products as $key => $product ) { ?>
             <div class="col<?php if((($key+1)%4)==0){ ?> col-last<?php } ?>">
                 <div class="col_img">
-                  <?php if($product['identify']==1){;?>
-                  <div class="jian">鉴</div>
-                  <?php };?>
-                  <a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>">
-                <img src="/image/<?php echo $product['image'];?>"></img></a></div>
-                <h3 class="item-title"><a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>"><?php echo $product['title'];?></a></h3>
-                <div class="price-info"><span class="price"><b>￥<?php echo $product['price'];?></b></span></div>
+                <?php if($product['identify']==1){ ?>
+                <div class="jian">鉴</div>
+                <?php } ?>
+                <a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>"><img src="/image/<?php echo $product['image'];?>"/></a></div>
+                <div class="simple">
+                    <h3 class="item-title"><a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>"><?php echo (utf8_strlen($product['title'])>13) ? (mb_substr($product['title'],0,13).'&nbsp;...') : ($product['title']); ?></a></h3>
+                    <div class="price-info"><span class="price"><b>￥<?php echo $product['price'];?></b></span></div>
+                </div>
                 <div class="detail">
                   <p><?php echo $product['title'];?></p>
-                  
-                  <p>￥<?php echo $product['price'];?></p>
+                  <p class="price"><b>￥<?php echo $product['price'];?>&nbsp;元</b></p>
                 </div>
             </div>
             <?php if( (($key+1)%4) == 0 && ($key+1) != count($products) ) { ?> </div><div class="row"> <?php } ?>  
             <?php } ?>
         </div>
     </div>
+
 
     <!--分页按钮-->
     <div class="goods-page">
@@ -231,17 +232,21 @@
   //         $(detail).show(500);  
   //         //$(".detail").css({ top: offset.top + $(event.target).height() + "px", left: offset.left }); 
   // });
-var detail;
-  $('.col').hover(function(event) {
-    var offset = $(event.currentTarget).offset();
-         detail=$(this).children('.detail')[0]; 
-          //$(detail).css({ top: offset.top + $('.col').height() + "px", left: offset.left });   
-          //$(detail).show(500);  
-          $(detail).animate({marginTop:"-"+ $(detail).height()+"px"}, 1000);
-  }, function() {
-    //$(detail).hide(500); 
-    $(detail).animate({marginTop:"0px"}, 1000); 
-  });
+
+$('.col').hover(function(event) {
+    //var offset = $(event.currentTarget).offset();
+    var detail = $(this).children('.detail')[0];
+    //$(detail).css({ top: offset.top + $('.col').height() + "px", left: offset.left });
+    //$(detail).show(500);
+    $(detail).prev('.simple').css('visibility','hidden');
+    $(detail).animate({marginTop:"-"+ $(detail).height()+"px"}, 200);
+}, function() {
+    //$(detail).hide(500);
+    var detail = $(this).children('.detail')[0];
+    $(detail).animate({marginTop:"0px"}, 200,'swing',function(){
+        $(detail).prev('.simple').css('visibility','');
+    });
+});
 
 </script>
 <?php echo $footer;?>

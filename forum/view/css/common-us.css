@@ -94,23 +94,14 @@ header{
 }
 .login{
 	float: left;
-	overflow: hidden;
-	margin-left: 32px;
-	margin-top: 40px;
+    height: 50px;
 } 
 .login a{
 	color:#8e6e58;
 	text-decoration:none;
-	float: left;
-    margin-left: 17px;
+    margin-left: 15px;
 }
-.login p{
-	float: left;
-	overflow: hidden;
-	margin-right: 2px;
-                   margin-top: 0px;
 
-}
 .qbcode{
 	width:95px;
 	height: 95px;

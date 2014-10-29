@@ -144,9 +144,16 @@
                         <td><div class="t_row_jew" >
                                 <div class="t_row_pic" id="t_row_pic1">
                                     <a id="url_<?php echo $count; ?>" href="/index.php?route=product/product&product_id=<?php echo $id;?>">
-                                        <img id="img_<?php echo $count; ?>" src="/image/<?php echo $info['image'];?>"></a></div>
-                                <li class="desc" id="text_<?php echo $count; ?>"><?php echo $info['title']?></li>
-                                <li class="savep">价格：<span class="savep-price" id="sprice_<?php echo $count; ?>"><?php echo $info['price']?></span>元</li>
+                                    <img id="img_<?php echo $count; ?>" src="/image/<?php echo $info['image'];?>"></a>
+                                </div>
+                                <div class="simple">
+                                    <li class="desc" id="text_<?php echo $count; ?>"><?php echo (utf8_strlen($info['title'])>13) ? (mb_substr($info['title'],0,13).'&nbsp;...') : ($info['title']); ?></li>
+                                    <li class="savep"><span class="savep-price" id="sprice_<?php echo $count; ?>"><b>￥<?php echo $info['price'];?>&nbsp;元</b></span></li>
+                                </div>
+                                <div class="detail">
+                                    <p><?php echo $info['title']; ?></p>
+                                    <p class="price"><b>￥<?php echo $info['price']; ?>&nbsp;元</b></p>
+                                </div>
                                 <!--<li class="farmp">市场价: <span id="bprice_1">12999</span>元</li>-->
                             </div></td>
                         <?php   if($count==4) { ?>

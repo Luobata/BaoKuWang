@@ -97,6 +97,6 @@
     </div>
 
 <script type="text/javascript" src="catalog/view/javascript/baoku/swipe.js"></script>
-<script type="text/javascript" src="catalog/view/javascript/baoku/index.js"></script>
+<script type="text/javascript" src="catalog/view/javascript/baoku/index.js" charset="utf-8"></script>
 
 </body></html>

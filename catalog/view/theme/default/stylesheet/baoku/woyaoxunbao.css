@@ -41,7 +41,7 @@
 .col_img{width: 100%; height: 180px;position: relative;}
 .col img{width: 100%; height: 100%;}
 .col-last{margin-right: 0px;}
-.price-info{padding-left: 10px;padding-bottom: 24px}
+.price-info{padding:3px 0 20px 10px;}
 .item-title{padding-left: 10px;margin-top: 16px;}
 .price-info .delete{text-decoration: line-through;color: #ccc}
 .price{color: #a80f0a}
@@ -63,7 +63,7 @@
 .page-sel-btn{width: 60px;height:24px;color: #fff;background-color: #a37b52;font-size: 12px;}
 
 .jian{
-	float: right;
+float: right;
 margin-left: 10px;
 position: absolute;
 right: 0px;
@@ -76,14 +76,25 @@ overflow: hidden;
 color: #fff;
 font-size: 20px;
 }
+
 .detail{
-	position: absolute;
-width: 246px;
-height: 50px;
+position: absolute;
+width: 226px;
+height: 90px;
+color: white;
+background: black;
+z-index: 50;
+padding: 8px 10px;
+filter:alpha(opacity=70);
+-moz-opacity:0.7;
+-khtml-opacity: 0.7;
+opacity: 0.7;
+
 /*height: auto!important;*/
 /*bottom: -426px;*/
-background: #edeceb;
-z-index: 50;
 /*display: none;*/
-
+}
+.detail .price{
+padding-top: 5px;
+color: yellow;
 }

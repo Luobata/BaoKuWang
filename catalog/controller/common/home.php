@@ -58,11 +58,13 @@ class ControllerCommonHome extends Controller {
         // 获取按分类的商品展示数据
         $this->load->model('catalog/product');
         $limit = 8;
+            // 获取需要展示的父级分类ID
         $parent_category_id_list = $this->model_catalog_category->getCategory_homeshow();
         foreach( $parent_category_id_list as &$cat ) { $cat = $cat['id']; }
         $this->data['parent_category_id_list'] = $parent_category_id_list;
-        $this->data['children_polular_product'] = array();
+            // 开始获取商品数据
         $this->data['parent_polular_product'] = array();
+        $this->data['children_polular_product'] = array();
         foreach( $parent_category_id_list as $parent_category_id ) {
             // children
             $children_category_id = $this->model_catalog_category->getCategoriesIdByParent($parent_category_id);
@@ -72,14 +74,10 @@ class ControllerCommonHome extends Controller {
             }
             $this->data['children_polular_product'][$parent_category_id] = $children_polular_product;
             // parent
-            $parent_polular_product = array();
-            foreach( $children_polular_product as $child ) {
-                foreach( $child as $product_id => $product_info ) {
-                    $parent_polular_product[$product_id] = $product_info;
-                }
-            }
-            $this->data['parent_polular_product'][$parent_category_id] = $parent_polular_product;
+            $this->data['parent_polular_product'][$parent_category_id] = $this->model_catalog_product->getPopularProducts($parent_category_id,$limit);
         }
+        //var_dump($this->data['children_polular_product']);
+        //echo  '<br/><br/><br/>';
         //var_dump($this->data['parent_polular_product']);
 
         // 子页面

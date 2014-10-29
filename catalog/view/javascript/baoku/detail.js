@@ -35,6 +35,12 @@ $('.mover').mouseover(function(e) {
    
  });
 
+
+
+
+// 弹框事件
+
+
 (function () {
     $.MsgBox = {
         Alert: function (title, msg) {
@@ -117,7 +123,11 @@ $('.mover').mouseover(function(e) {
     }
 })();
 
+$('#free_button').bind('click', function() {
+    $.MsgBox.Confirm( "确认消息" , "点击查看联系方式后，即可进行线下的自由交易哦！<br/>服务热线：010-64814142");
+});
+
 $('#f_button').bind('click', function() {
-  $.MsgBox.Alert("确认消息","担保交易可以帮您xxxxxxxxx,点击确定XXXXXXXXX");
+  $.MsgBox.Confirm( "确认消息" , "我们提供担保交易服务哦！<br/>服务热线：010-64814142");
 });
 

@@ -18,36 +18,55 @@ transitionEnd: function(index, elem) {}
 //var nextpics=function(){
 
 
-	$(".head2").bind("mouseover",function(e){
-        $(this).attr('style', 'color:#fff');
-        var b=(this.parentElement.parentElement);
-        $(b).attr('style', 'background-color:#673413');
-        var a=(b.previousElementSibling);
-        $(a).attr('style', 'background-color:#fff');
-        $(a.firstElementChild.firstChild).attr('style', 'color:#000');
-        $('.s_content').attr("style","display:none");
-        $('#s_content_2').attr("style","display:block");
-	});
+$(".head2").bind("mouseover",function(e){
+    $(this).attr('style', 'color:#fff');
+    var b=(this.parentElement.parentElement);
+    $(b).attr('style', 'background-color:#673413');
+    var a=(b.previousElementSibling);
+    $(a).attr('style', 'background-color:#fff');
+    $(a.firstElementChild.firstChild).attr('style', 'color:#000');
+    $('.s_content').attr("style","display:none");
+    $('#s_content_2').attr("style","display:block");
+});
 
-	$(".head1").bind("mouseover",function(e){
-        $(this).attr('style', 'color:#fff');
-        var b=(this.parentElement.parentElement);
-        $(b).attr('style', 'background-color:#673413');
-        var a=(b.nextElementSibling);
-        $(a).attr('style', 'background-color:#fff');
-        $(a.firstElementChild.firstChild).attr('style', 'color:#000');
-        $('.s_content').attr("style","display:none");
-        $('#s_content_1').attr("style","display:block");
-	});
+$(".head1").bind("mouseover",function(e){
+    $(this).attr('style', 'color:#fff');
+    var b=(this.parentElement.parentElement);
+    $(b).attr('style', 'background-color:#673413');
+    var a=(b.nextElementSibling);
+    $(a).attr('style', 'background-color:#fff');
+    $(a.firstElementChild.firstChild).attr('style', 'color:#000');
+    $('.s_content').attr("style","display:none");
+    $('#s_content_1').attr("style","display:block");
+});
 
 
 
 //};
 
 
+function product_detail_bind() {
+    $('.t_row_jew').hover(function(event) {
+        //var offset = $(event.currentTarget).offset();
+        var detail = $(this).children('.detail')[0];
+        //$(detail).css({ top: offset.top + $('.col').height() + "px", left: offset.left });
+        //$(detail).show(500);
+        $(detail).prev('.simple').css('visibility','hidden');
+        $(detail).animate({top:"150px"}, 200);
+    }, function() {
+        //$(detail).hide(500);
+        var detail = $(this).children('.detail')[0];
+        $(detail).animate({top:"230px"}, 200, 'swing', function(){
+            $(detail).prev('.simple').css('visibility','');
+        });
+    });
+}
+
 // 点击按钮切换颜色，更改图片路径
 
-$('.head_category li').bind("click",function(){
+product_detail_bind();
+
+$('.head_category li').bind("mouseover",function(){
     // 改变颜色
     var wrap = $(this).parents('.third');
     wrap.find('.t_nav .text a').css('color','#999999');
@@ -66,8 +85,14 @@ $('.head_category li').bind("click",function(){
         content +=     '<a href="/index.php?route=product/product&product_id='+id+'">';
         content +=     '<img src="/image/' + products[id]['image'] + '"></a>';
         content +=     '</div>';
-        content +=     '<li class="desc">' + products[id]['title'] + '</li>';
+        content +=     '<div class="simple">';
+        content +=     '<li class="desc">' + ( (products[id]['title'].length>12) ? (products[id]['title'].substr(0,12)+'&nbsp;...') : products[id]['title'] ) + '</li>';
         content +=     '<li class="savep">价格：<span class="savep-price">' + products[id]['price'] + '</span>元</li>';
+        content +=     '</div>';
+        content +=     '<div class="detail">';
+        content +=     '<p>' + products[id]['title'] + '</p>';
+        content +=     '<p class="price"><b>￥' + products[id]['price'] + '&nbsp;元</b></p>';
+        content +=     '</div>';
         content += '</div></td>';
         if( i==4 ) {
             content += '</tr><tr class="t_row">';
@@ -76,9 +101,11 @@ $('.head_category li').bind("click",function(){
     }
     content += '</tr>';
     wrap.find('.t_content tbody').html(content);
+
+    product_detail_bind();
 });
 
-$('.t_nav .text').bind("click",function(){
+$('.t_nav .text').bind("mouseover",function(){
     // 改变颜色
     var wrap = $(this).parents('.third');
     wrap.find('.t_nav .text a').css('color','#999999');
@@ -97,8 +124,14 @@ $('.t_nav .text').bind("click",function(){
         content +=     '<a href="/index.php?route=product/product&product_id='+id+'">';
         content +=     '<img src="/image/' + products[id]['image'] + '"></a>';
         content +=     '</div>';
-        content +=     '<li class="desc">' + products[id]['title'] + '</li>';
+        content +=     '<div class="simple">';
+        content +=     '<li class="desc">' + ( (products[id]['title'].length>12) ? (products[id]['title'].substr(0,12)+'&nbsp;...') : products[id]['title'] ) + '</li>';
         content +=     '<li class="savep">价格：<span class="savep-price">' + products[id]['price'] + '</span>元</li>';
+        content +=     '</div>';
+        content +=     '<div class="detail">';
+        content +=     '<p>' + products[id]['title'] + '</p>';
+        content +=     '<p class="price"><b>￥' + products[id]['price'] + '&nbsp;元</b></p>';
+        content +=     '</div>';
         content += '</div></td>';
         if( i==4 ) {
             content += '</tr><tr class="t_row">';
@@ -107,6 +140,8 @@ $('.t_nav .text').bind("click",function(){
     }
     content += '</tr>';
     wrap.find('.t_content tbody').html(content);
+
+    product_detail_bind();
 });
 
 $('.content_head > .goods').hover(function() {

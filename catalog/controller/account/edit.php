@@ -124,6 +124,12 @@ class ControllerAccountEdit extends Controller {
 		} else {
 			$this->data['error_name'] = '';
 		}
+        if (isset($this->error['nickname'])) {
+            $this->data['error_nickname'] = $this->error['nickname'];
+        } else {
+            $this->data['error_nickname'] = '';
+        }
+
 		if (isset($this->error['place'])) {
 			$this->data['error_place'] = $this->error['place'];
 		} else {
@@ -182,6 +188,13 @@ class ControllerAccountEdit extends Controller {
 		} else {
 			$this->data['name'] = '';
 		}
+        if (isset($this->request->post['nickname'])) {
+            $this->data['nickname'] = $this->request->post['nickname'];
+        } elseif (isset($customer_info)) {
+            $this->data['nickname'] = $customer_info['nickname'];
+        } else {
+            $this->data['nickname'] = '';
+        }
 		if (isset($this->request->post['place'])) {
 			$this->data['place'] = $this->request->post['place'];
 		} elseif (isset($customer_info)) {
@@ -258,6 +271,10 @@ class ControllerAccountEdit extends Controller {
 
         if ( (utf8_strlen($this->request->post['name']) > 4) ) {
             $this->error['name'] = '姓名不能大于4个字';
+        }
+
+        if ( (utf8_strlen($this->request->post['nickname']) > 5) ) {
+            $this->error['nickname'] = '昵称不能大于5个字';
         }
 
         if ( ( utf8_strlen($this->request->post['wechat']) > 0 ) && ( (utf8_strlen($this->request->post['wechat']) < 3) || (utf8_strlen($this->request->post['wechat']) > 20) ) ) {

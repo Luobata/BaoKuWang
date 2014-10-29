@@ -92,16 +92,24 @@
             </div>
 
           <div class="row">
-             
-                   <span class="nes-tip none">*</span>
-                   &nbsp;&nbsp;&nbsp;
-                   <div class="input-title">真实姓名</div>
-                   <input type="text" class="price input-content" name="name" value="<?php echo $name;?>">
-                    <?php if($error_name) { ?>
-                    <br/><div class="error"><?php echo $error_name; ?></div>
-                    <?php } ?>
-
+               <span class="nes-tip none">*</span>
+               &nbsp;&nbsp;&nbsp;
+               <div class="input-title">真实姓名</div>
+               <input type="text" class="price input-content" name="name" value="<?php echo $name;?>" />
+                <?php if($error_name) { ?>
+                <br/><div class="error"><?php echo $error_name; ?></div>
+                <?php } ?>
           </div>
+
+            <div class="row">
+                <span class="nes-tip none">*</span>
+                &nbsp;&nbsp;&nbsp;
+                <div class="input-title">宝友昵称</div>
+                <input type="text" class="price input-content" name="nickname" value="<?php echo $nickname;?>" />
+                <?php if($error_nickname) { ?>
+                <br/><div class="error"><?php echo $error_nickname; ?></div>
+                <?php } ?>
+            </div>
 
                 <div class="row">
              

@@ -651,7 +651,7 @@ Aui.ready( function()
 
             <input type="button" value="收藏" class="f_button" onclick="addToWishList('<?php echo $product_id; ?>');" />
 
-            <input type="button" value="自由交易" class="f_button" />
+            <input type="button" value="自由交易" class="f_button" id="free_button"/>
 
             <input type="button" value="担保交易" class="f_button" id="f_button" />
 

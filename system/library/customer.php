@@ -3,6 +3,7 @@ class Customer {
 	private $customer_id;
     private $email;
     private $name;
+    private $nickname;
     private $telephone;
     private $zone;
     private $qq;
@@ -29,6 +30,7 @@ class Customer {
                 $this->email = $customer_query->row['email'];
                 $this->telephone = $customer_query->row['telephone'];
                 $this->name = $customer_query->row['name'];
+                $this->nickname = $customer_query->row['nickname'];
                 $this->zone = $customer_query->row['zone'];
                 $this->qq = $customer_query->row['qq'];
                 $this->wechat = $customer_query->row['wechat'];
@@ -115,6 +117,8 @@ class Customer {
 		$this->customer_id = '';
 		$this->firstname = '';
 		$this->lastname = '';
+        $this->name = '';
+        $this->nickname = '';
 		$this->email = '';
 		$this->telephone = '';
 		$this->fax = '';
@@ -149,6 +153,10 @@ class Customer {
 
     public function getName() {
         return $this->name;
+    }
+
+    public function getNickname() {
+        return $this->nickname;
     }
 
     public function getZone() {

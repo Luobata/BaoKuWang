@@ -1,5 +1,0 @@
-在catalog\view\javascript\baoku\detail.js的最后面
-$('#f_button').bind('click', function() {
-  $.MsgBox.Alert("确认消息","担保交易可以帮您xxxxxxxxx,点击确定XXXXXXXXX");
-});
-修改时请确认编辑器的编码方式以免浏览器呈现乱码

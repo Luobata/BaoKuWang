@@ -330,6 +330,7 @@
             }
 
             if ( error ) {
+                $('html, body').animate({ scrollTop: 200 }, 'slow');
                 return false;
             } else {
                 return true;

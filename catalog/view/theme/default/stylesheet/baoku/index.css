@@ -135,7 +135,8 @@ border-color: #d3d3d3;
 	width: 248px;
 	height: 230px;
 	float: left;
-
+    overflow: hidden;
+    position: relative;
 }
 .t_row_pic{
 	width: 240px;
@@ -178,3 +179,23 @@ border-color: #d3d3d3;
 .scrollBar,.moveBar{position:absolute;right:10px;bottom:15px;}
 .scrollBar li,.moveBar li{float:left;margin-right:8px;width:21px;height:21px;line-height:21px;font-size:13px;cursor:pointer;text-align:center;background:url(../../image/btn02.png) no-repeat;}
 .scrollBar li.current,.moveBar li.current{color:#fff;width:21px;cursor:pointer;color:#fff;background:url(../../image/btn01.png) no-repeat;}
+
+.simple{ padding: 2px 8px; }
+.simple li{ text-align: left; }
+.detail{
+    width: 230px;
+    height: 80px;
+    padding: 6px 10px;
+    position: absolute;
+    top: 230px;
+    color: #fff;
+    background-color: #000;
+    filter:alpha(opacity=70);
+    -moz-opacity:0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+}
+.detail .price{
+    padding-top: 5px;
+    color: yellow;
+}

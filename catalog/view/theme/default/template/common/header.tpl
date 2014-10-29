@@ -2,7 +2,7 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php echo $title; ?></title>
     <base href="<?php echo $base; ?>" />
     <?php if ($description) { ?>
@@ -145,7 +145,7 @@ position: relative;" id="scroll_div" class="scroll_div">
                 <?php echo $text_welcome; ?>
                 <?php } else { ?>
                 <div class="login" style="margin-left: 15px; margin-top: 30px;">
-                <?php echo '<a href="javascript:void(0)" style="position:relative;bottom:5px;">你好！'.$name.'</a><br/>'.$text_logged; ?>
+                <?php echo '<a href="javascript:void(0)" style="position:relative;bottom:5px;">你好！'.$nickname.'</a><br/>'.$text_logged; ?>
                 <?php } ?>
             </div>
 
