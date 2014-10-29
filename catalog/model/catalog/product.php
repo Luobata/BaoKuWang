@@ -102,6 +102,7 @@ class ModelCatalogProduct extends Model {
         //$result->num_total = $result_nolimit->num_rows;
         return $result;
     }
+
     public function getProductsBycidnoli($cid,$type){
     	$sql = "SELECT p.product_id , p.image ,p.status,p.title ,p.date_added, p.price , p.identify FROM " . DB_PREFIX . "product AS p WHERE p.cid= '".$cid."' ";
 
@@ -680,9 +681,16 @@ class ModelCatalogProduct extends Model {
 
 	public function getCategories($product_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_to_category WHERE product_id = '" . (int)$product_id . "'");
-
 		return $query->rows;
-	}	
+	}
+
+    public function getProducts_late($category_id) {
+        $query = $this->db->query("SELECT p.* FROM " . DB_PREFIX . "product AS p
+                                   LEFT JOIN " . DB_PREFIX . "product_to_category AS p2c ON p.product_id = p2c.product_id
+                                   WHERE p2c.category_id = '" . (int)$category_id . "'
+                                   LIMIT 3");
+        return $query->rows;
+    }
 
 	public function getTotalProducts($data = array()) {
 		if ($this->customer->isLogged()) {

@@ -1213,3 +1213,4 @@
 <?php exit;?>	2014-10-30 00:14	127.0.0.1	/forum/admin/?forum-update-fid-1.htm	cron_1_next_time:2014-10-30 00:19	
 <?php exit;?>	2014-10-30 00:21	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 00:26	
 <?php exit;?>	2014-10-30 00:27	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 00:32	
+<?php exit;?>	2014-10-30 00:46	127.0.0.1	/forum/	cron_1_next_time:2014-10-30 00:51	
