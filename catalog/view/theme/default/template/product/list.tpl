@@ -119,8 +119,13 @@
                 <img src="/image/<?php echo $product['image'];?>"></img></a></div>
                 <h3 class="item-title"><a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>"><?php echo $product['title'];?></a></h3>
                 <div class="price-info"><span class="price"><b>￥<?php echo $product['price'];?></b></span></div>
+                <div class="detail">
+                  <p><?php echo $product['title'];?></p>
+                  
+                  <p>￥<?php echo $product['price'];?></p>
+                </div>
             </div>
-            <?php if( (($key+1)%4) == 0 && ($key+1) != count($products) ) { ?> </div><div class="row"> <?php } ?>
+            <?php if( (($key+1)%4) == 0 && ($key+1) != count($products) ) { ?> </div><div class="row"> <?php } ?>  
             <?php } ?>
         </div>
     </div>
@@ -218,5 +223,25 @@
         </script>
     </div>
 </div>
+<script type="text/javascript">
+  // $('.col').mousemove(function(event) {
+  //        var offset = $(event.target).offset();
+  //        var detail=$(this).children('.detail')[0]; 
+  //         $(detail).css({ top: offset.top + $(event.target).height() + "px", left: offset.left });   
+  //         $(detail).show(500);  
+  //         //$(".detail").css({ top: offset.top + $(event.target).height() + "px", left: offset.left }); 
+  // });
+var detail;
+  $('.col').hover(function(event) {
+    var offset = $(event.currentTarget).offset();
+         detail=$(this).children('.detail')[0]; 
+          //$(detail).css({ top: offset.top + $('.col').height() + "px", left: offset.left });   
+          //$(detail).show(500);  
+          $(detail).animate({marginTop:"-"+ $(detail).height()+"px"}, 1000);
+  }, function() {
+    //$(detail).hide(500); 
+    $(detail).animate({marginTop:"0px"}, 1000); 
+  });
 
+</script>
 <?php echo $footer;?>

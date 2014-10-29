@@ -292,7 +292,7 @@ header{
 	/*width: 200px;*/
 	min-height: 45px;
 	overflow: hidden;
-	background-color: #edeced;
+	background-color: #8a775e;
 	position: absolute;
 	margin-left: 200px;
 	margin-top: -45px;
@@ -311,7 +311,7 @@ header{
 	width: 200px;
 	height: 45px;
 	text-align: center;
-	background-color: #edeced;
+	background-color: #8a775e;
 	line-height: 45px;
 }
 .goods .goods_line{
