@@ -56,7 +56,9 @@ class ControllerCommonHeader extends Controller {
 		$this->data['text_account'] = $this->language->get('text_account');
 		$this->data['text_checkout'] = $this->language->get('text_checkout');
 
-        $this->data['text_welcome'] = sprintf('<a href="%s">登录</a>&nbsp;<a href="%s">注册</a>', $this->url->link('account/login', '', 'SSL'), $this->url->link('account/register', '', 'SSL'));
+        $urlnow = base64_encode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+
+        $this->data['text_welcome'] = sprintf('<a href="%s">登录</a>&nbsp;<a href="%s">注册</a>', ($this->url->link('account/login', '', 'SSL').'&aim='.$urlnow), $this->url->link('account/register', '', 'SSL'));
         $this->data['text_logged'] = sprintf('<a href="%s">个人中心</a>&nbsp;<a href="%s">退出</a>', $this->url->link('account/edit', '', 'SSL'), $this->url->link('account/logout', '', 'SSL'));
 
         $this->data['home'] = $this->url->link('common/home');

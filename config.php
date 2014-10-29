@@ -4,10 +4,10 @@
 define('DIR_ROOT', dirname(__FILE__));
 
 // HTTP
-define('HTTP_SERVER', 'http://localhost/');
+define('HTTP_SERVER', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost/');
+define('HTTPS_SERVER', 'https://' . $_SERVER["HTTP_HOST"] . '/');
 
 // DIR
 define('DIR_APPLICATION', DIR_ROOT . '/catalog/');

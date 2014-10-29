@@ -26,15 +26,24 @@
                 <?php if( $error_warning ) { echo '<div style="height:18px;color:red;font-size:16px;margin-left:43px;padding-top:22px;">'.$error_warning.'</div>'; } ?>
                 <!-- 登录 -->
                 <br/><input type="submit" class="submit" value='登&nbsp;&nbsp;录' />
+                <input type="hidden" name="aim" value="<?php echo $aim; ?>"/>
                 <!-- 隐藏submit框通过js submit-->
                 <!-- <input type="submit" class="submit2"  value='登&nbsp;&nbsp;录'/>-->
                 <!-- 记住账号 <div class="extra"><input type="checkbox"><span class="remember">记住我</span></div>-->
             </div>
         </form>
         <div class="right">
-            <div style="color:#ad8140">还没有宝库账户?</div>
+            <div style="color:#ad8140">还没有宝库账户？</div>
             <div style="margin-top:14px;"><a style="color:#673413;text-decoration:underline" href="<?php echo $register; ?>">立即注册</a></div>
+            <div style="color:#ad8140;margin-top: 30px;">忘记密码了？</div>
+            <div style="margin-top:14px;"><a style="color:#673413;text-decoration:underline" href="javascript: findpassword();">找回密码</a></div>
         </div>
+        <script>
+            function findpassword() {
+                $.MsgBox.Confirm( "找回密码" , "忘记密码了？不要担心！<br/>赶紧联系我们：010-64814142");
+            }
+        </script>
+        <script type="text/javascript" src="/catalog/view/javascript/baoku/detail.js" charset="utf-8"></script>
     </div>
 
 </div>

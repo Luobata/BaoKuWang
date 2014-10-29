@@ -10,8 +10,7 @@ DEBUG && function_exists('ini_set') && @ini_set('display_errors', 'On');
 
 // 站点根目录，在单元测试时候，此文件可能被包含
 define('BBS_PATH', str_replace('\\', '/', dirname(__FILE__)).'/');
-//echo BBS_PATH;
-define('HTTP_SEVER','http://localhost/');
+
 // 加载应用的配置文件，唯一的全局变量 $conf
 if(!($conf = include BBS_PATH.'conf/conf.php')) {
     header('Location:install/');
@@ -21,8 +20,10 @@ if(empty($conf['installed'])) {
     header('Location:install/');
     exit;
 }
+
 //包含helper
-require('/../system/library/helper.php');
+require_once('../system/library/helper.php');
+
 // 框架的物理路径
 define('FRAMEWORK_PATH', BBS_PATH.'xiunophp/');
 

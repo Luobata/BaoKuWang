@@ -86,7 +86,9 @@ class common_control extends base_control {
 		 $Helper = new Helper();
          //$data=array();
          //echo HTTP_SERVER;
-         $product_id=$Helper->http_post('http://localhost/index.php?route=common/home/category');
+         //echo $this->conf['http_sever'];
+
+         $product_id=$Helper->http_post($this->conf['http_sever'].'index.php?route=common/home/category');
          //var_dump(json_decode($product_id));
          $product_id=json_decode($product_id);
          $product_id=objtoarr($product_id);

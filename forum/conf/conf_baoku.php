@@ -120,6 +120,9 @@ return array(
 	'upload_url' => 'http://www.baoroo.com/forum/upload/',
 	
 	'logo_url' => 'http://www.baoroo.com/image/data/logo.png',
+
+    //商城接口url
+    'http_sever' =>'http://www.baoroo.com/',
 	
 	// 日志目录，需要可写
 	'log_path' => BBS_PATH.'log/',

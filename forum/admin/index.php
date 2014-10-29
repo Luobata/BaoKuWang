@@ -14,6 +14,9 @@ $bbsconf = include BBS_PATH.'conf/conf.php';
 $adminconf = include BBS_PATH.'admin/conf/conf.php';
 $conf = array_merge($bbsconf, $adminconf);
 
+//包含helper
+require_once('../../system/library/helper.php');
+
 // 临时目录
 define('FRAMEWORK_TMP_PATH', $conf['tmp_path']);
 
