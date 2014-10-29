@@ -1177,3 +1177,4 @@
 <?php exit;?>	2014-10-29 18:56	127.0.0.1	/forum/	cron_1_next_time:2014-10-29 19:01	
 <?php exit;?>	2014-10-29 19:02	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-29 19:07	
 <?php exit;?>	2014-10-29 19:28	127.0.0.1	/forum/	cron_1_next_time:2014-10-29 19:33	
+<?php exit;?>	2014-10-29 19:34	127.0.0.1	/forum/	cron_1_next_time:2014-10-29 19:39	
