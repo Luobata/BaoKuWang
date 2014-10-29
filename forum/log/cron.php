@@ -1176,3 +1176,13 @@
 <?php exit;?>	2014-10-29 18:44	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-29 18:49	
 <?php exit;?>	2014-10-29 18:56	127.0.0.1	/forum/	cron_1_next_time:2014-10-29 19:01	
 <?php exit;?>	2014-10-29 19:02	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-29 19:07	
+<?php exit;?>	2014-10-29 19:27	::1	/forum/	cron_1_next_time:2014-10-29 19:32	
+<?php exit;?>	2014-10-29 19:34	::1	/forum/?hot-list.htm	cron_1_next_time:2014-10-29 19:39	
+<?php exit;?>	2014-10-29 19:34	::1	/forum/?hot-listbyId-uid-2.htm	cron_1_next_time:2014-10-29 19:39	
+<?php exit;?>	2014-10-29 19:39	::1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-29 19:44	
+<?php exit;?>	2014-10-29 19:44	::1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-29 19:49	
+<?php exit;?>	2014-10-29 19:49	::1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-29 19:54	
+<?php exit;?>	2014-10-29 19:54	::1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-29 19:59	
+<?php exit;?>	2014-10-29 20:37	::1	/forum/	cron_1_next_time:2014-10-29 20:42	
+<?php exit;?>	2014-10-29 20:43	::1	/forum/	cron_1_next_time:2014-10-29 20:48	
+<?php exit;?>	2014-10-29 21:56	::1	/forum/	cron_1_next_time:2014-10-29 22:01	
