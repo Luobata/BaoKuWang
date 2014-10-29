@@ -1174,3 +1174,5 @@
 <?php exit;?>	2014-10-29 17:23	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-29 17:28	
 <?php exit;?>	2014-10-29 18:39	127.0.0.1	/forum/	cron_1_next_time:2014-10-29 18:44	
 <?php exit;?>	2014-10-29 18:44	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-29 18:49	
+<?php exit;?>	2014-10-29 18:56	127.0.0.1	/forum/	cron_1_next_time:2014-10-29 19:01	
+<?php exit;?>	2014-10-29 19:02	127.0.0.1	/forum/?user-getLoginAuth.htm	cron_1_next_time:2014-10-29 19:07	

@@ -38,6 +38,9 @@ border-color: #d3d3d3;
 	margin-right: auto;
 	margin-left: auto;
 }
+.goods_line a{
+    color: white;
+}
 
 .pic{
 	width: 800px;
@@ -73,7 +76,7 @@ border-color: #d3d3d3;
 	background-color: #673413;
 }
 #head3{
-	background-color: #ad813f;
+	background-color: #8a775e;
 }
 .head1,.head3{
 	color: #fff;

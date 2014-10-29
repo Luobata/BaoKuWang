@@ -2,13 +2,9 @@
 class ControllerAccountLogout extends Controller {
 	public function index() {
 		if ($this->customer->isLogged()) {
-			$this->customer->logout();
-			$this->cart->clear();
 
-            // 论坛模拟退出
-            $Helper = new Helper();
-            $Helper->setcookie('bbs_auth', '', 0, '/', '', TRUE);
-            $Helper->http_post( HTTP_SERVER . 'forum/?user-logout.htm' );
+            $this->customer->logout();
+			$this->cart->clear();
 
             unset($this->session->data['wishlist']);
 			unset($this->session->data['shipping_address_id']);
@@ -25,12 +21,19 @@ class ControllerAccountLogout extends Controller {
 			unset($this->session->data['comment']);
 			unset($this->session->data['order_id']);
 			unset($this->session->data['coupon']);
-			unset($this->session->data['reward']);			
+			unset($this->session->data['reward']);
 			unset($this->session->data['voucher']);
 			unset($this->session->data['vouchers']);
 
-			$this->redirect($this->url->link('common/home', '', 'SSL'));
+            // 论坛模拟退出
+            $Helper = new Helper();
+            $Helper->setcookie('bbs_auth', '', 0, '/', '', TRUE);
+            $Helper->http_post( HTTP_SERVER . 'forum/?user-logout.htm' );
 		}
+
+        $this->redirect($this->url->link('common/home', '', 'SSL'));
+
+        /*
 
 		$this->language->load('account/logout');
 
@@ -64,10 +67,10 @@ class ControllerAccountLogout extends Controller {
 
 		$this->data['continue'] = $this->url->link('common/home');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/success.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/common/success.tpl';
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/home.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/common/home.tpl';
 		} else {
-			$this->template = 'default/template/common/success.tpl';
+			$this->template = 'default/template/common/home.tpl';
 		}
 
 		$this->children = array(
@@ -79,7 +82,8 @@ class ControllerAccountLogout extends Controller {
 			'common/header'	
 		);
 
-		$this->response->setOutput($this->render());	
+		$this->response->setOutput($this->render());
+        */
 	}
 }
 ?>
