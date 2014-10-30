@@ -75,11 +75,12 @@ header{
     height: 33px;
 }
 .search_sel{
-	//float: left;
+	
 	margin-left: 46px;
 	border-right-width: 0px;
 	height: 33px;
 	line-height: 33px;
+	padding: 2px 0;
 }
 .search .hot{
     margin-left: 46px;
