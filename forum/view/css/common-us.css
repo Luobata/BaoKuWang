@@ -79,6 +79,7 @@ header{
 .search .hot{
     margin-left: 46px;
     margin-top: 60px;
+    clear: both;
     
 }
 .search a{
