@@ -64,7 +64,7 @@
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_5"></div>
-				<li><a href="/index.php?route=about/zheng/wuxing">五星物流服务</a></li>
+				<li><a href="/index.php?route=about/zheng/wuxing">担保交易</a></li>
 			</div>
 		</div>
 	</div>
