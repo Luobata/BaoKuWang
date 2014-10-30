@@ -19,6 +19,7 @@ body {
 
 .content-wrapper {
 	background-color: white;
+    padding-bottom: 40px;
 }
 
 .background-cover-base {

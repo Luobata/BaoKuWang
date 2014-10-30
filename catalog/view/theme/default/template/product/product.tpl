@@ -675,7 +675,7 @@ Aui.ready( function()
             <div class="s_about_pic">
               <img src="./image/<?php echo $product_late[$i]['image'];?>">
             </div>
-                <p><?php echo (utf8_strlen($product_late[$i]['title'])>13) ? (mb_substr($product_late[$i]['title'],0,13).'&nbsp;...') : ($product_late[$i]['title']); ?></p>
+                <p><?php echo (utf8_strlen($product_late[$i]['title'])>7) ? (mb_substr($product_late[$i]['title'],0,7).'&nbsp;...') : ($product_late[$i]['title']); ?></p>
                 <p><span class="s_price">￥<?php echo $product_late[$i]['price'];?></span><!-- <span class="b_price">￥3780.00</span> --></p>
             </a>
           </div>

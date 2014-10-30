@@ -26,40 +26,46 @@
       <file leaf-file-name="product.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalog/controller/product/product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="349" column="0" selection-start="12708" selection-end="12708" vertical-scroll-proportion="-4.7894735" vertical-offset="7754" max-vertical-offset="19941">
+            <state line="310" column="28" selection-start="10990" selection-end="10999" vertical-scroll-proportion="0.0" vertical-offset="7130" max-vertical-offset="19987">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/catalog/model/catalog/category.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="31" selection-start="2698" selection-end="2709" vertical-scroll-proportion="-3.0350878" vertical-offset="862" max-vertical-offset="2783">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product.tpl" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="product.tpl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/product/product.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="685" column="29" selection-start="25684" selection-end="25684" vertical-scroll-proportion="0.2923077" vertical-offset="15603" max-vertical-offset="21114">
+            <state line="740" column="29" selection-start="27531" selection-end="27531" vertical-scroll-proportion="-6.133333" vertical-offset="16836" max-vertical-offset="21413">
               <folding>
-                <element signature="n#style#0;n#span#0;n#li#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#span#0;n#li#3;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#a#0;n#span#0;n#li#3;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1414603611588" expanded="true" signature="29629:29643" placeholder="..." />
-                <marker date="1414603611588" expanded="true" signature="30552:30570" placeholder="..." />
+                <marker date="1414627890466" expanded="false" signature="30198:30212" placeholder="..." />
+                <marker date="1414627890466" expanded="false" signature="31121:31139" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hot_control.class.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="detail.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/catalog/view/javascript/baoku/detail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="8" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="3220">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="16" selection-start="218" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="250" max-vertical-offset="8050">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hot_control.class.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/forum/control/hot_control.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="5" selection-start="830" selection-end="830" vertical-scroll-proportion="-13.192983" vertical-offset="53" max-vertical-offset="1012">
+            <state line="56" column="13" selection-start="1651" selection-end="1651" vertical-scroll-proportion="0.49285713" vertical-offset="966" max-vertical-offset="1679">
               <folding />
             </state>
           </provider>
@@ -75,7 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/admin/controller/catalog/category.php" />
         <option value="$PROJECT_DIR$/admin/view/template/catalog/category_form.tpl" />
         <option value="$PROJECT_DIR$/admin/model/catalog/category.php" />
         <option value="$PROJECT_DIR$/forum/log/cron.php" />
@@ -110,13 +115,11 @@
         <option value="$PROJECT_DIR$/forum/conf/conf.php" />
         <option value="$PROJECT_DIR$/forum/conf/conf_baoku.php" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/template/common/footer.tpl" />
-        <option value="$PROJECT_DIR$/catalog/view/javascript/baoku/detail.js" />
         <option value="$PROJECT_DIR$/catalog/controller/account/wishlist.php" />
         <option value="$PROJECT_DIR$/catalog/view/javascript/common.js" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/template/account/account.tpl" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/userinfo.css" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/template/common/header.tpl" />
-        <option value="$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/common.css" />
         <option value="$PROJECT_DIR$/forum/view/header.htm" />
         <option value="$PROJECT_DIR$/forum/view/css/common-us.css" />
         <option value="$PROJECT_DIR$/catalog/controller/common/header.php" />
@@ -125,6 +128,9 @@
         <option value="$PROJECT_DIR$/forum/admin/index.php" />
         <option value="$PROJECT_DIR$/catalog/model/catalog/product.php" />
         <option value="$PROJECT_DIR$/catalog/controller/product/product.php" />
+        <option value="$PROJECT_DIR$/catalog/view/javascript/baoku/detail.js" />
+        <option value="$PROJECT_DIR$/forum/control/hot_control.class.php" />
+        <option value="$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/common.css" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/template/product/product.tpl" />
       </list>
     </option>
@@ -365,7 +371,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="catalog">
+            <PATH_ELEMENT USER_OBJECT="forum">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -379,73 +385,11 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="catalog">
+            <PATH_ELEMENT USER_OBJECT="forum">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="model">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="www">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="catalog">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="model">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="catalog">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="www">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="catalog">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="controller">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="product">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="www">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="catalog">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="controller">
+            <PATH_ELEMENT USER_OBJECT="control">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -516,7 +460,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26435044" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26812688" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -544,15 +488,15 @@
       <window_info id="更改" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14262562" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27567977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -674,9 +618,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="78" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0779661" vertical-offset="0" max-vertical-offset="590">
-          <folding />
-        </state>
+        <state line="2" column="78" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0779661" vertical-offset="0" max-vertical-offset="590" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/control/common_control.class.php">
@@ -686,151 +628,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forum/conf/conf_baoku.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="44" selection-start="3427" selection-end="3427" vertical-scroll-proportion="0.46153846" vertical-offset="2376" max-vertical-offset="3887">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/javascript/baoku/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.052542374" vertical-offset="31" max-vertical-offset="1518">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.052542374" vertical-offset="31" max-vertical-offset="1518" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/javascript/baoku/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-7.459322" vertical-offset="4401" max-vertical-offset="4991">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-7.459322" vertical-offset="4401" max-vertical-offset="4991" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/common/footer.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="0" selection-start="3807" selection-end="3909" vertical-scroll-proportion="0.66361976" vertical-offset="1914" max-vertical-offset="2461">
-          <folding />
-        </state>
+        <state line="99" column="0" selection-start="3807" selection-end="3909" vertical-scroll-proportion="0.66361976" vertical-offset="1914" max-vertical-offset="2461" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/controller/account/wishlist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="385" column="37" selection-start="12718" selection-end="12718" vertical-scroll-proportion="7.017544" vertical-offset="9255" max-vertical-offset="9844">
-          <folding />
-        </state>
+        <state line="385" column="37" selection-start="12718" selection-end="12718" vertical-scroll-proportion="7.017544" vertical-offset="9255" max-vertical-offset="9844" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/javascript/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="160" column="18" selection-start="4141" selection-end="4141" vertical-scroll-proportion="-30.62963" vertical-offset="2853" max-vertical-offset="6762">
-          <folding>
-            <marker date="1414593871618" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1414593871618" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1414593871618" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/conf/conf.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.899628" vertical-offset="3174" max-vertical-offset="3910">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/view/javascript/baoku/detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="10" selection-start="283" selection-end="283" vertical-scroll-proportion="0.4972973" vertical-offset="0" max-vertical-offset="3197">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.899628" vertical-offset="3174" max-vertical-offset="3910" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/view/css/common-us.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="13" selection-start="2325" selection-end="2325" vertical-scroll-proportion="0.41385436" vertical-offset="3401" max-vertical-offset="7291">
-          <folding />
-        </state>
+        <state line="158" column="13" selection-start="2325" selection-end="2325" vertical-scroll-proportion="0.41385436" vertical-offset="3401" max-vertical-offset="7291" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/view/header.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="0" selection-start="7318" selection-end="7318" vertical-scroll-proportion="0.8214286" vertical-offset="3795" max-vertical-offset="5658">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="6" selection-start="951" selection-end="953" vertical-scroll-proportion="-6.9259257" vertical-offset="1377" max-vertical-offset="7935">
-          <folding />
-        </state>
+        <state line="185" column="0" selection-start="7318" selection-end="7318" vertical-scroll-proportion="0.8214286" vertical-offset="3795" max-vertical-offset="5658" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/wishlist.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.892139" vertical-offset="1035" max-vertical-offset="3956">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.892139" vertical-offset="1035" max-vertical-offset="3956" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/userinfo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.27902946" vertical-offset="0" max-vertical-offset="1242">
-          <folding />
-        </state>
+        <state line="7" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.27902946" vertical-offset="0" max-vertical-offset="1242" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/account.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.250457" vertical-offset="1231" max-vertical-offset="4140">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.250457" vertical-offset="1231" max-vertical-offset="4140" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/common/header.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state line="147" column="100" selection-start="6115" selection-end="6115" vertical-scroll-proportion="-9.2" vertical-offset="3105" max-vertical-offset="5911">
-          <folding>
-            <marker date="1414595129611" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1414595129611" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/need_active.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="590">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="590" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/controller/account/account.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="51" selection-start="254" selection-end="254" vertical-scroll-proportion="0.24642856" vertical-offset="0" max-vertical-offset="2668">
-          <folding />
-        </state>
+        <state line="6" column="51" selection-start="254" selection-end="254" vertical-scroll-proportion="0.24642856" vertical-offset="0" max-vertical-offset="2668" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/controller/account/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="60" selection-start="609" selection-end="609" vertical-scroll-proportion="0.46252286" vertical-offset="69" max-vertical-offset="6693">
-          <folding />
-        </state>
+        <state line="14" column="60" selection-start="609" selection-end="609" vertical-scroll-proportion="0.46252286" vertical-offset="69" max-vertical-offset="6693" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/login.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="66" selection-start="2208" selection-end="2208" vertical-scroll-proportion="1.1773309" vertical-offset="0" max-vertical-offset="1288">
-          <folding />
-        </state>
+        <state line="28" column="66" selection-start="2208" selection-end="2208" vertical-scroll-proportion="1.1773309" vertical-offset="0" max-vertical-offset="1288" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/controller/common/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="31" selection-start="2663" selection-end="2676" vertical-scroll-proportion="0.2943327" vertical-offset="1173" max-vertical-offset="4002">
-          <folding />
-        </state>
+        <state line="58" column="31" selection-start="2663" selection-end="2676" vertical-scroll-proportion="0.2943327" vertical-offset="1173" max-vertical-offset="4002" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/index.php">
@@ -849,56 +733,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/product/list.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="24" selection-start="5711" selection-end="5711" vertical-scroll-proportion="0.58348966" vertical-offset="2541" max-vertical-offset="5888">
-          <folding />
-        </state>
+        <state line="124" column="24" selection-start="5711" selection-end="5711" vertical-scroll-proportion="0.58348966" vertical-offset="2541" max-vertical-offset="5888" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/model/catalog/product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="680" column="0" selection-start="35944" selection-end="35944" vertical-scroll-proportion="0.28846154" vertical-offset="15490" max-vertical-offset="19665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forum/control/hot_control.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="5" selection-start="830" selection-end="830" vertical-scroll-proportion="-13.192983" vertical-offset="53" max-vertical-offset="1012">
-          <folding />
-        </state>
+        <state line="680" column="0" selection-start="35944" selection-end="35944" vertical-scroll-proportion="0.28846154" vertical-offset="15490" max-vertical-offset="19665" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/controller/product/category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="67" selection-start="2252" selection-end="2263" vertical-scroll-proportion="0.33208254" vertical-offset="1962" max-vertical-offset="11040">
-          <folding />
-        </state>
+        <state line="93" column="67" selection-start="2252" selection-end="2263" vertical-scroll-proportion="0.33208254" vertical-offset="1962" max-vertical-offset="11040" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/model/catalog/category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="31" selection-start="2698" selection-end="2709" vertical-scroll-proportion="-3.0350878" vertical-offset="862" max-vertical-offset="2783">
-          <folding />
-        </state>
+        <state line="45" column="31" selection-start="2698" selection-end="2709" vertical-scroll-proportion="0.3326923" vertical-offset="862" max-vertical-offset="2783" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/controller/product/product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="349" column="0" selection-start="12708" selection-end="12708" vertical-scroll-proportion="-4.7894735" vertical-offset="7754" max-vertical-offset="19941">
+        <state line="310" column="28" selection-start="10990" selection-end="10999" vertical-scroll-proportion="0.0" vertical-offset="7130" max-vertical-offset="19987">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/javascript/baoku/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="8" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="3220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/conf/conf_baoku.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="16" selection-start="3443" selection-end="3443" vertical-scroll-proportion="0.32857144" vertical-offset="2484" max-vertical-offset="3887" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/stylesheet/baoku/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="16" selection-start="218" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="250" max-vertical-offset="8050">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/product/product.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="685" column="29" selection-start="25684" selection-end="25684" vertical-scroll-proportion="0.2923077" vertical-offset="15603" max-vertical-offset="21114">
+        <state line="740" column="29" selection-start="27531" selection-end="27531" vertical-scroll-proportion="-6.133333" vertical-offset="16836" max-vertical-offset="21413">
           <folding>
-            <element signature="n#style#0;n#span#0;n#li#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#span#0;n#li#3;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#span#0;n#li#3;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1414603611588" expanded="true" signature="29629:29643" placeholder="..." />
-            <marker date="1414603611588" expanded="true" signature="30552:30570" placeholder="..." />
+            <marker date="1414627890466" expanded="false" signature="30198:30212" placeholder="..." />
+            <marker date="1414627890466" expanded="false" signature="31121:31139" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/control/hot_control.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="13" selection-start="1651" selection-end="1651" vertical-scroll-proportion="0.49285713" vertical-offset="966" max-vertical-offset="1679">
+          <folding />
         </state>
       </provider>
     </entry>

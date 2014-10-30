@@ -603,3 +603,4 @@
 <?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
 <?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
 <?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	2014-10-30 08:11	127.0.0.1	/forum/?hot-baike-cname-%E4%B9%A6%E6%B3%95%E7%BB%98%E7%94%BB.htm	您输入的URL 不合法，baike 方法未实现: File: D:\WampServer\www\forum\tmp\_runtime.php [2]	

@@ -21,7 +21,10 @@ class hot_control extends common_control{
 		return null;
 	}
 	public function on_list(){
-		$hot=$this->thread->index_fetch(array(),array('posts'=>-1),0,5);
+
+        $date_length = 86400*30;    // 30天
+
+		$hot=$this->thread->index_fetch(array('lastpost' => array('>' => ((int)(time())-$date_length))),array('posts'=>-1),0,5);
 		//var_dump(array_values($hot));		
 
 		echo  json_encode(array_values($hot));
