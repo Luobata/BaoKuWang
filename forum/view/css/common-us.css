@@ -14,7 +14,7 @@ li{
 	text-align: center;
 }
 header{
-	//background-repeat: no-repeat;
+	
 	background-position: center;
 	background-image:url('../image/title.png');
 }
@@ -71,10 +71,12 @@ header{
 	border-width: 1px;
 }
 .search_sel{
-	//float: left;
+	
 	margin-left: 46px;
 	border-right-width: 0px;
 	height: 33px;
+	line-height: 33px;
+	padding: 2px 0;
 }
 .search .hot{
     margin-left: 46px;
