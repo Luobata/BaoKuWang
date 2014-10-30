@@ -212,7 +212,7 @@ div.div {margin: auto; margin-bottom: 12px;
 div.div div.header {
         padding-left: 24px; 
         border-bottom: 1px solid #C8C8C8; font-weight: 800;
-        height: 60px; 
+        /*height: 60px;*/ 
         line-height: 60px; 
         overflow: hidden; text-shadow: 1px 1px 0 #FFFFFF; }
 div.div div.header span.left {}
@@ -333,7 +333,7 @@ span.nopic {width: 54px; height: 54px; background: url(image/nopic.gif) no-repea
 /* 主题列表页 */
 .threadlist td{white-space: nowrap; overflow: hidden;}
 .threadlist table .subject{font-size: 14px; padding-left: 8px;}
-#threadtype {margin-bottom: 2px; margin-top: 0px;}
+#threadtype {margin-bottom: 2px; margin-top: -15px;}
 #threadtype a{text-shadow: 0 1px #FFFFFF; padding-left: 0px; padding-right: 8px;}
 #threadtype div{ line-height: 20px; }
 #threadtype a.checked{font-weight: 100; color: #00BA53;}

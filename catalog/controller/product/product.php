@@ -348,6 +348,8 @@ class ControllerProductProduct extends Controller {
             $category_info = $this->model_catalog_category->getCategory($category_id);
             $this->data['category_name'] = $category_info['name'];
 
+            var_dump($category_info['name']);
+
 
 			//var_dump($product_late);
 			//var_dump($this->model_catalog_product->getLatestProducts(1));
