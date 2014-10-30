@@ -8,6 +8,9 @@ a{
 	text-decoration:none;
 	color: #000;
 }
+img{
+    border: 0;
+}
 li{
 	list-style: none;
 	text-align: center;
@@ -192,15 +195,21 @@ header{
  	overflow: hidden;
  }
  .footer{
- 	margin-top: 30px;
- 	border-bottom-style: solid;
- 	border-bottom-width: 1px;
- 	border-bottom-color: #e7dccb;
+ 	margin: 30px 0 15px;
  	height: 150px;
  }
  .footer_2{
  	height: 54px;
+    border-top: 1px solid #e7dccb;
  }
+ #company{
+     padding: 16px 0;
+ }
+ #company > a{
+     color: #673413;
+     padding: 0 20px;
+ }
+
  .footer .f_content,.f2_content{
  	width: 1000px;
  	overflow: hidden;

@@ -1233,3 +1233,12 @@
 >>>>>>> Stashed changes
 <?php exit;?>	2014-10-30 08:33	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-30 08:38	
 <?php exit;?>	2014-10-30 08:39	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 08:44	
+<?php exit;?>	2014-10-30 08:44	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 08:49	
+<?php exit;?>	2014-10-30 08:51	127.0.0.1	/forum/	cron_1_next_time:2014-10-30 08:56	
+<?php exit;?>	2014-10-30 09:36	127.0.0.1	/forum/	cron_1_next_time:2014-10-30 09:41	
+<?php exit;?>	2014-10-30 15:11	127.0.0.1	/forum/	cron_1_next_time:2014-10-30 15:16	
+<?php exit;?>	2014-10-30 15:17	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-30 15:22	
+<?php exit;?>	2014-10-30 15:37	127.0.0.1	/forum/	cron_1_next_time:2014-10-30 15:42	
+<?php exit;?>	2014-10-30 15:43	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 15:48	
+<?php exit;?>	2014-10-30 15:48	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 15:53	
+<?php exit;?>	2014-10-30 16:38	127.0.0.1	/forum/	cron_1_next_time:2014-10-30 16:43	

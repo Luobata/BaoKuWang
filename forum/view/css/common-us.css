@@ -177,16 +177,23 @@ header{
  	background-color:#f4f1ec;	
  	overflow: hidden;
  }
- .footer{
- 	margin-top: 30px;
- 	border-bottom-style: solid;
- 	border-bottom-width: 1px;
- 	border-bottom-color: #e7dccb;
- 	height: 150px;
+
+.footer{
+     margin: 30px 0 0;
+     height: 150px;
  }
  .footer_2{
- 	height: 54px;
+     height: 54px;
+     border-top: 1px solid #e7dccb;
  }
+#company{
+    padding: 17px 0;
+}
+#company > a{
+    color: #673413;
+    padding: 0 20px;
+}
+
  .footer .f_content,.f2_content{
  	width: 1000px;
  	overflow: hidden;

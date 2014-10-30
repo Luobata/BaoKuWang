@@ -249,7 +249,7 @@ class ControllerAccountEdit extends Controller {
 			'common/header'	
 		);
 	//var_dump($this->$error);
-		$this->response->setOutput($this->render());	
+		$this->response->setOutput($this->render());
 	}
 
 	protected function validate() {
@@ -273,8 +273,12 @@ class ControllerAccountEdit extends Controller {
             $this->error['name'] = '姓名不能大于4个字';
         }
 
-        if ( (utf8_strlen($this->request->post['nickname']) > 5) ) {
-            $this->error['nickname'] = '昵称不能大于5个字';
+        if ( utf8_strlen($this->request->post['nickname']) > 6 ) {
+            $this->error['nickname'] = '昵称不能大于6个字';
+        } else {
+            if( !empty($this->model_account_customer->getCustomerByNickname($this->request->post['nickname'])) ) {
+                $this->error['nickname'] = '此昵称已被使用';
+            }
         }
 
         if ( ( utf8_strlen($this->request->post['wechat']) > 0 ) && ( (utf8_strlen($this->request->post['wechat']) < 3) || (utf8_strlen($this->request->post['wechat']) > 20) ) ) {

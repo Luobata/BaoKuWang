@@ -68,6 +68,18 @@
 			</div>
 		</div>
 	</div>
+    <div class="footer_2">
+        <div class="f2_content" id="company">
+            <a href="javascript:void(0)" style="padding:0 5px 0 0;">合作伙伴</a>
+            <a href="javascript:void(0)">北京邮电大学</a>|
+            <a href="javascript:void(0)">零壹咖啡厅</a>|
+            <a href="javascript:void(0)">北京大学</a>|
+            <a href="javascript:void(0)">清华大学</a>|
+            <a href="javascript:void(0)">浙江大学</a>|
+            <a href="javascript:void(0)">复旦大学</a>|
+            <a href="javascript:void(0)">上海交通大学</a>
+        </div>
+    </div>
 	<div class="footer_2">
 		<div class="f2_content">
 			<div class="num">服务热线：010-64814142</div>
@@ -100,4 +112,5 @@
 <script type="text/javascript" src="/catalog/view/javascript/baoku/swipe.js"></script>
 <script type="text/javascript" src="/catalog/view/javascript/baoku/index.js" charset="utf-8"></script>
 
-</body></html>
+</body>
+</html>

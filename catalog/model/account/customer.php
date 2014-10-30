@@ -159,6 +159,12 @@ class ModelAccountCustomer extends Model {
 		return $query->row;
 	}
 
+    public function getCustomerByNickname($nickname) {
+        $query = $this->db->query("SELECT customer_id FROM " . DB_PREFIX . "customer WHERE nickname = '" . $this->db->escape($nickname) . "'");
+
+        return $query->row;
+    }
+
 	public function getCustomerByToken($token) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE token = '" . $this->db->escape($token) . "' AND token != ''");
 

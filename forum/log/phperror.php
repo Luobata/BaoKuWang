@@ -604,3 +604,7 @@
 <?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
 <?php exit;?>	14-10-30 00:03	127.0.0.1	/forum/admin/	class Helper does not exists. File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
 <?php exit;?>	2014-10-30 08:11	127.0.0.1	/forum/?hot-baike-cname-%E4%B9%A6%E6%B3%95%E7%BB%98%E7%94%BB.htm	您输入的URL 不合法，baike 方法未实现: File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	2014-10-30 08:44	127.0.0.1	/forum/?hot-baike-cname-.htm	您输入的URL 不合法，baike 方法未实现: File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	2014-10-30 08:47	127.0.0.1	/forum/?hot-baike-cname-123.htm	您输入的URL 不合法，baike 方法未实现: File: D:\WampServer\www\forum\tmp\_runtime.php [2]	
+<?php exit;?>	2014-10-30 15:41	127.0.0.1	/forum/?hot-baike-cname-%E4%B9%A6%E6%B3%95%E7%BB%98%E7%94%BB.htm	[Notice] : Undefined offset: 0 in File D:\WampServer\www\forum\tmp\bbs_control_hot_control.class.php, Line: 79	
+<?php exit;?>	2014-10-30 15:53	127.0.0.1	/forum/?hot-baike-cname-123.htm	[Notice] : Undefined offset: 0 in File D:\WampServer\www\forum\tmp\bbs_control_hot_control.class.php, Line: 79	

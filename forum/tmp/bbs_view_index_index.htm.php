@@ -118,8 +118,8 @@ position: relative;" id="scroll_div" class="scroll_div">
                     <a href="/index.php?route=account/register">注册</a>
                 </div>
             <?php } else { ?>
-                <div class="login" style="margin-left: 15px; margin-top: 33px;">
-                    <a href="javascript:void(0)" style="position:relative;bottom:7px;">你好！<?php echo $_user['username'];?></a><br/>
+                <div class="login" style="margin-left: 15px; margin-top: 30px;">
+                    <a href="javascript:void(0)" style="position:relative;bottom:2px;">你好！<?php echo $_user['username'];?></a><br/>
                     <a href="/index.php?route=account/account">个人中心</a>
                     <a href="/index.php?route=account/logout">退出</a>
                 </div>
@@ -176,16 +176,14 @@ position: relative;" id="scroll_div" class="scroll_div">
                     <li class="text"><a href="/index.php?route=product/identify">我要鉴定</a></li>
                     <li class="line">|</li>
                     <li class="text"><a href="/index.php?route=product/valuation">我要估值</a></li>
-
-                    <li class="text" style="background-color: #421;"><a href="/forum">宝库社区</a></li>
-
+                    <li class="line">|</li>
+                    <li class="text"><a href="javascript:void(0)">限时特卖</a></li>
+                    <img src="/catalog/view/theme/default/image/baoku/qidai.png">
                     <!--
                     <li class="text"><a href="javascript:void(0)">宝库自营</a></li>
                     <li class="line">|</li>
                     -->
-
-                    <li class="text"><a href="javascript:void(0)">限时特卖</a></li>
-                    <img src="/catalog/view/theme/default/image/baoku/qidai.png">
+                    <li class="text" style="background-color: #421;"><a href="/forum">宝库社区</a></li>
                 </ul>
             </div>
 						
@@ -322,7 +320,11 @@ position: relative;" id="scroll_div" class="scroll_div">
 <div class="div">
 	
 	<div class="header" style="font-weight: normal;">
-		<table width="100%" cellspacing="0" cellpadding="0" style="word-break: break-all" >
+		<?php if(!empty($forum['types'])) { ?>
+		<table width="100%" cellspacing="0" cellpadding="0" style="word-break: break-all;margin-top:-15px;"  >
+			<?php } else { ?>
+			<table width="100%" cellspacing="0" cellpadding="0" style="word-break: break-all;" >
+				<?php } ?>
 			<tr align="left">
 				<td valign="middle" class="subject indextitle">
 				<?php if(isset($keyword)?$fid||$keyword:$fid) { ?>
@@ -359,6 +361,33 @@ position: relative;" id="scroll_div" class="scroll_div">
 				
 			</tr>
 		</table>
+			<?php if(!empty($forum['types'])) { ?>
+	<div class="tab" id="threadtype">
+		<?php if(!empty($forum['types'])) { foreach($forum['types'] as $cateid=>&$types) {?>
+		<?php if($types) { ?>
+		<div>
+			<table>
+				<tr>
+					<td valign="top" style="white-space: nowrap"><?php if(!empty($forum["typecates"]["$cateid"])) { ?><span class="grey"><?php echo isset($forum["typecates"]["$cateid"]) ? $forum["typecates"]["$cateid"] : '';?>：</span><?php } ?></td>
+					<td>
+					<?php if($cateid == 1) { ?><a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>-typeid1-0-typeid2-<?php echo isset($typeid2) ? $typeid2 : '';?>-typeid3-<?php echo isset($typeid3) ? $typeid3 : '';?>-typeid4-<?php echo isset($typeid4) ? $typeid4 : '';?>.htm" <?php echo isset($_checked["typecates"]["$cateid"]) ? $_checked["typecates"]["$cateid"] : '';?> rel="nofollow" class="alls">全部</a><?php } ?>
+					<?php if($cateid == 2) { ?><a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>-typeid1-<?php echo isset($typeid1) ? $typeid1 : '';?>-typeid2-0-typeid3-<?php echo isset($typeid3) ? $typeid3 : '';?>-typeid4-<?php echo isset($typeid4) ? $typeid4 : '';?>.htm" <?php echo isset($_checked["typecates"]["$cateid"]) ? $_checked["typecates"]["$cateid"] : '';?> rel="nofollow" class="alls">全部</a><?php } ?>
+					<?php if($cateid == 3) { ?><a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>-typeid1-<?php echo isset($typeid1) ? $typeid1 : '';?>-typeid2-<?php echo isset($typeid2) ? $typeid2 : '';?>-typeid3-0-typeid4-<?php echo isset($typeid4) ? $typeid4 : '';?>.htm" <?php echo isset($_checked["typecates"]["$cateid"]) ? $_checked["typecates"]["$cateid"] : '';?> rel="nofollow" class="alls">全部</a><?php } ?>
+					<?php if($cateid == 4) { ?><a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>-typeid1-<?php echo isset($typeid1) ? $typeid1 : '';?>-typeid2-<?php echo isset($typeid2) ? $typeid2 : '';?>-typeid3-<?php echo isset($typeid3) ? $typeid3 : '';?>-typeid4-0.htm" <?php echo isset($_checked["typecates"]["$cateid"]) ? $_checked["typecates"]["$cateid"] : '';?> rel="nofollow" class="alls">全部</a><?php } ?>
+					<?php if(!empty($types)) { foreach($types as $typeid=>&$typename) {?>
+					<?php if($cateid == 1) { ?><a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>-typeid1-<?php echo isset($typeid) ? $typeid : '';?>-typeid2-<?php echo isset($typeid2) ? $typeid2 : '';?>-typeid3-<?php echo isset($typeid3) ? $typeid3 : '';?>-typeid4-<?php echo isset($typeid4) ? $typeid4 : '';?>.htm" rel="nofollow" <?php echo isset($_checked["types"]["$typeid"]) ? $_checked["types"]["$typeid"] : '';?>><?php echo isset($typename) ? $typename : '';?></a><?php } ?>
+					<?php if($cateid == 2) { ?><a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>-typeid1-<?php echo isset($typeid1) ? $typeid1 : '';?>-typeid2-<?php echo isset($typeid) ? $typeid : '';?>-typeid3-<?php echo isset($typeid3) ? $typeid3 : '';?>-typeid4-<?php echo isset($typeid4) ? $typeid4 : '';?>.htm" rel="nofollow" <?php echo isset($_checked["types"]["$typeid"]) ? $_checked["types"]["$typeid"] : '';?>><?php echo isset($typename) ? $typename : '';?></a><?php } ?>
+					<?php if($cateid == 3) { ?><a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>-typeid1-<?php echo isset($typeid1) ? $typeid1 : '';?>-typeid2-<?php echo isset($typeid2) ? $typeid2 : '';?>-typeid3-<?php echo isset($typeid) ? $typeid : '';?>-typeid4-<?php echo isset($typeid4) ? $typeid4 : '';?>.htm" rel="nofollow" <?php echo isset($_checked["types"]["$typeid"]) ? $_checked["types"]["$typeid"] : '';?>><?php echo isset($typename) ? $typename : '';?></a><?php } ?>
+					<?php if($cateid == 4) { ?><a href="http://localhost/forum/?forum-index-fid-<?php echo isset($fid) ? $fid : '';?>-typeid1-<?php echo isset($typeid1) ? $typeid1 : '';?>-typeid2-<?php echo isset($typeid2) ? $typeid2 : '';?>-typeid3-<?php echo isset($typeid3) ? $typeid3 : '';?>-typeid4-<?php echo isset($typeid) ? $typeid : '';?>.htm" rel="nofollow" <?php echo isset($_checked["types"]["$typeid"]) ? $_checked["types"]["$typeid"] : '';?>><?php echo isset($typename) ? $typename : '';?></a><?php } ?>
+					<?php }}?>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<?php } ?>
+		<?php }}?>
+	</div>
+	<?php } ?>
 	</div>
 	<div class="body threadlist" id="threadlist">
 	
@@ -872,6 +901,18 @@ position: relative;" id="scroll_div" class="scroll_div">
 			</div>
 		</div>
 	</div>
+    <div class="footer_2">
+        <div class="f2_content" id="company">
+            <a href="javascript:void(0)" style="padding:0 5px 0 0;">合作伙伴</a>
+            <a href="javascript:void(0)">北京邮电大学</a>|
+            <a href="javascript:void(0)">零壹咖啡厅</a>|
+            <a href="javascript:void(0)">北京大学</a>|
+            <a href="javascript:void(0)">清华大学</a>|
+            <a href="javascript:void(0)">浙江大学</a>|
+            <a href="javascript:void(0)">复旦大学</a>|
+            <a href="javascript:void(0)">上海交通大学</a>
+        </div>
+    </div>
 	<div class="footer_2">
 		<div class="f2_content">
 			<div class="num">服务热线：010-64814142</div>
@@ -896,9 +937,9 @@ position: relative;" id="scroll_div" class="scroll_div">
 
 	</div>
 
-<div style="width:150px;height:80px;position:fixed;top:230px;right:10px;border:1px solid #673413;">
-    <div style="height: 31px;padding:3px 0 0 8px;background-color:#673413;color: white;font-size:19px;font-weight: bolder;">服务热线</div>
-    <div style="padding:9px 0 0 4px;color:#673413;font-size:20px;font-weight:bolder;">010-64814142</div>
+<div style="position: fixed; top: 230px; right: 10px; border: 1px solid #673413;">
+    <div style="padding:3px 8px; background-color: #673413; color: white; font-size: 19px; font-weight: bolder;">服务热线</div>
+    <div style="padding:9px 4px;color:#673413;font-size:20px;font-weight:bolder; background-color:white;">010-64814142</div>
 </div>
 
 

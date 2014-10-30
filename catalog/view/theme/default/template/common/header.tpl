@@ -186,6 +186,25 @@ position: relative;" id="scroll_div" class="scroll_div">
             </div>
             <div class="others">
                 <ul class="nav">
+                    <?php if(!isset($_GET['route'])) { ?>
+
+                    <li class="text thispage"><a href="/index.php?route=common/home">首页</a></li>
+                    <li class="text"><a href="/index.php?route=product/list">我要寻宝</a></li>
+                    <li class="line">|</li>
+                    <li class="text"><a href="/index.php?route=account/new">我要寄卖</a></li>
+                    <li class="line">|</li>
+                    <li class="text"><a href="/index.php?route=product/identify">我要鉴定</a></li>
+                    <li class="line">|</li>
+                    <li class="text"><a href="/index.php?route=product/valuation">我要估值</a></li>
+                    <li class="line">|</li>
+                    <li class="text"><a href="javascript:void(0)">限时特卖</a></li>
+                    <img src="/catalog/view/theme/default/image/baoku/qidai.png">
+                    <li class="line">|</li>
+                    <li class="text"><a href="/forum">宝库社区</a></li>
+
+                    <?php } else { ?>
+
+
                     <li class="text <?php if(!isset($_GET['route'])||($_GET['route']=='common/home')){ echo 'thispage'; } ?>"><a href="/index.php?route=common/home">首页</a></li>
                     <?php if(isset($_GET['route'])&&($_GET['route']!='common/home')&&($_GET['route']!='product/list')){ ?> <li class="line">|</li> <?php } ?>
                     <li class="text <?php if(isset($_GET['route'])&&($_GET['route']=='product/list')){ echo 'thispage'; } ?>"><a href="/index.php?route=product/list">我要寻宝</a></li>
@@ -196,14 +215,16 @@ position: relative;" id="scroll_div" class="scroll_div">
                     <?php if(isset($_GET['route'])&&($_GET['route']!='product/identify')&&($_GET['route']!='product/valuation')){ ?> <li class="line">|</li> <?php } ?>
                     <li class="text <?php if(isset($_GET['route'])&&($_GET['route']=='product/valuation')){ echo 'thispage'; } ?>"><a href="/index.php?route=product/valuation">我要估值</a></li>
                     <?php if(isset($_GET['route'])&&($_GET['route']!='product/valuation')){ ?> <li class="line">|</li> <?php } ?>
-                    <li class="text"><a href="/forum">宝库社区</a></li>
+                    <li class="text"><a href="javascript:void(0)">限时特卖</a></li>
                     <li class="line">|</li>
+                    <img src="/catalog/view/theme/default/image/baoku/qidai.png" />
+                    <li class="text"><a href="/forum">宝库社区</a></li>
                     <!-- 去掉之前的tab宽度为 90px
                     <li class="text"><a href="javascript:void(0)">宝库自营</a></li>
                     <li class="line">|</li>
                     -->
-                    <li class="text"><a href="javascript:void(0)">限时特卖</a></li>
-                    <img src="/catalog/view/theme/default/image/baoku/qidai.png" />
+
+                    <?php } ?>
                 </ul>
             </div>
         </div>
