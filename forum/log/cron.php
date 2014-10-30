@@ -1231,3 +1231,5 @@
 <?php exit;?>	2014-10-30 08:08	127.0.0.1	/forum/?hot-listbyId-uid-30.htm	cron_1_next_time:2014-10-30 08:13	
 <?php exit;?>	2014-10-30 08:08	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-30 08:13	
 >>>>>>> Stashed changes
+<?php exit;?>	2014-10-30 08:33	127.0.0.1	/forum/?hot-list.htm	cron_1_next_time:2014-10-30 08:38	
+<?php exit;?>	2014-10-30 08:39	127.0.0.1	/forum/?pm-new-ajax-1.htm	cron_1_next_time:2014-10-30 08:44	

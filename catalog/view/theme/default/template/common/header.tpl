@@ -144,7 +144,7 @@ position: relative;" id="scroll_div" class="scroll_div">
                 <div class="login" style="margin-left: 35px; margin-top: 39px;">
                 <?php echo $text_welcome; ?>
                 <?php } else { ?>
-                <div class="login" style="margin-left: 15px; margin-top: 30px;">
+                <div class="login" style="margin-left: 15px; margin-top: 27px;">
                 <?php echo '<a href="javascript:void(0)">你好！'.$nickname.'</a><br/>'.$text_logged; ?>
                 <?php } ?>
             </div>
