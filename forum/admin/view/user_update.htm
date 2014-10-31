@@ -9,7 +9,7 @@
 			<div class="body">
 				<dl>
 					<dt><label for="email">Email：</label></dt>
-					<dd><input type="text" name="email" id="email" value="$user[email]" style="width: 250px;" /></dd>
+					<dd><input type="text" name="email" id="email" value="$user[email]"  readonly="" style="width: 250px;" /></dd>
 					
 					<dt><label for="uid">UID：</label></dt>
 					<dd>$user[uid]</dd>
@@ -18,7 +18,7 @@
 					<dd>$user[username]</dd>
 					
 					<dt><label for="password">密码：</label></dt>
-					<dd><input type="text" name="password" id="password" value="" style="width: 150px;" /> <span class="grey">不修改请留空</span></dd>
+					<dd><input type="text" name="password" id="password" value="" style="width: 150px; display:none;" /> <span class="grey">请在商城后台修改账户密码</span></dd>
 					
 					<dt><label for="groupid">用户组：</label></dt>
 					<dd>$input[groupid]</dd>
