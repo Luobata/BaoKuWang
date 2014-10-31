@@ -44,7 +44,7 @@
 }
 .blan_name li{
 	text-align: left;
-	margin-top: 5px;
+	margin-top: -1px;
 }
 .blan_name a{
 	font-size: 18px;
