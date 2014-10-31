@@ -98,7 +98,7 @@ class ControllerAccountNew extends Controller {
 
             // DO POST
             $Helper = new Helper();
-            $product_id = $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
+            $product_id = $Helper->http_post(HTTP_SERVER.'adminbaocoolove25/index.php?route=catalog/product/insert_customer',$data);
             //echo $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/insert_customer',$data);
             //exit();
         }
@@ -120,7 +120,7 @@ class ControllerAccountNew extends Controller {
             // DO POST
             $Helper = new Helper();
             $data = array( 'product_id' => $_GET['product_id'] , 'secret' => SECRET );
-            $Helper->http_post(HTTP_SERVER.'admin/index.php?route=catalog/product/delete_customer',$data);
+            $Helper->http_post(HTTP_SERVER.'adminbaocoolove25/index.php?route=catalog/product/delete_customer',$data);
             $this->redirect(HTTP_SERVER.'index.php?route=account/wishlist/postgoods&type='.$_GET['type'].'&action=success');
         }
     }

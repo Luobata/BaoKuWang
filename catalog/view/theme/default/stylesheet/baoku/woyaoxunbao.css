@@ -21,6 +21,9 @@
 	margin-right:30px;
 	float: left; 
  }
+.nav-category-content a:hover{
+    color: #986;
+}
 
  .sortbar{height: 44px;line-height: 44px;background-color: #673413;margin-top: 16px;color: #ccc;overflow: hidden;}
  .sort-btn{overflow: hidden;}

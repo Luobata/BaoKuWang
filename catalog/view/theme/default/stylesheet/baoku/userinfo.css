@@ -3,8 +3,9 @@
 .nes-tip{color: red}
 .input-title{width: 70px;display: inline-block;}
 .error{ color:red; padding-left: 25px;height: 30px;position: relative;bottom: 10px;}
-.toedit{ position: absolute; top: 35px; right: 100px;}
-.toedit > a { text-decoration: underline; color: #673414; }
+
+.toedit{ text-decoration: underline; color: #673414; }
+.toedit_forum{ text-decoration: underline; color: #673414; }
 
 .input-content{margin-left: 20px;width: 200px;height: 28px;padding-left: 10px}
 input{border:1px;border-style: solid;border-color: #e8dcc4;}

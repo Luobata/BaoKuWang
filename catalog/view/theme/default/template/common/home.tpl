@@ -8,28 +8,36 @@
     <div class="first">
 
         <div class="content_head">
-        <?php //var_dump($categories); ?>
+
         <?php foreach( $categories as $cat ) { ?>
-        <div class="goods">
-            <div class="goods_line">
-                <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
-                <li><?php echo $cat['parent']['name']; ?></li></a>
-            </div>
-            <div class="item" id="item">
-             <?php if((sizeof($cat['children'])!=0)){ ?>
-                 <?php foreach( $cat['children'] as $cats ) { ?>
-                <div class="goods">
-                    <div class="goods_line">
-                        <a href="index.php?route=product/list&filter_category=<?php echo $cats['id']; ?>">
-                        <li><?php echo $cats['name']; ?></li></a>
+            <div class="goods">
+
+                <div class="goods_line">
+                    <a href="/index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
+                    <li><?php echo $cat['parent']['name']; ?></li></a>
+                </div>
+
+                <div class="item" id="item">
+                <?php $child_num = count($cat['children']); ?>
+                <?php if($child_num>0) { ?>
+                     <div class="goods2">
+                         <p>
+                     <?php $count = 0; ?>
+                     <?php foreach( $cat['children'] as $cats ) { ?>
+                         <a href="/index.php?route=product/list&filter_category=<?php echo $cats['id']; ?>">
+                             <span><?php echo $cats['name']; ?></span>
+                         </a>
+                    <?php     if($count%3==2){ ?> </p><p> <?php } ?>
+                    <?php     $count++; ?>
+                    <?php } ?>
+                         </p>
                     </div>
-                </div>    
                 <?php } ?>
-             <?php } ?>
+                </div>
+
             </div>
-        </div>
-            
         <?php } ?>
+
         </div>
 
         <div class="pic">

@@ -127,8 +127,10 @@ class ControllerAccountWishList extends Controller {
 		$cid=$_SESSION['customer_id'];
 		//获取已发布 已下架 未鉴定 已鉴定 收藏的数目
 		//收藏宝贝数
-		$postnum['wishlist']=count($this->data['products']);
-		//发布宝贝数
+//		$postnum['wishlist']=count($this->data['products']);
+        $postnum['wishlist'] = (isset($this->session->data['wishlist']))?count($this->session->data['wishlist']):'0';
+
+        //发布宝贝数
 		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,1)->rows;
 		$postnum['up']=count($product_info_num);
 		//下架宝贝数

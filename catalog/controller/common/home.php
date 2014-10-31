@@ -40,18 +40,18 @@ class ControllerCommonHome extends Controller {
 
         // 获取广告横图
         $Helper = new Helper();
-        $banner_images = $Helper->http_post( HTTP_SERVER . '/admin/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'9' ));
+        $banner_images = $Helper->http_post( HTTP_SERVER . '/adminbaocoolove25/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'9' ));
         $this->data['banner_images'] = $Helper->string_to_array($banner_images,'#split#','image','link');
 
         // 获取宝贝推荐
         $Helper = new Helper();
-        $recommend_images = $Helper->http_post( HTTP_SERVER . '/admin/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'10' ));
+        $recommend_images = $Helper->http_post( HTTP_SERVER . '/adminbaocoolove25/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'10' ));
         $this->data['recommend_images'] = $Helper->string_to_array($recommend_images,'#split#','image','link');
         //var_dump($recommend_images,$this->data['recommend_images']);
 
         // 获取最热宝贝
         $Helper = new Helper();
-        $hot_images = $Helper->http_post( HTTP_SERVER . '/admin/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'11' ));
+        $hot_images = $Helper->http_post( HTTP_SERVER . '/adminbaocoolove25/index.php?route=design/banner/getBanner_shop' , array( 'secret'=>SECRET , 'bid'=>'11' ));
         $this->data['hot_images'] = $Helper->string_to_array($hot_images,'#split#','image','link');
         //var_dump($this->data['hot_images']);
 

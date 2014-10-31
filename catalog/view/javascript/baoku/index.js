@@ -157,12 +157,14 @@ $('.content_head > .goods').hover(function() {
      $('.item').css('display', 'none');    
      $(this).children('.item').show();
 }, function() {
-   $('.goods').attr('style', 'background-color:#8a775e');
+   $('.goods').attr('style', 'background-color:#986');
    $(this).children('.item').css('display', 'none');
     
 });
+
+/*
 $('.item > .goods').hover(function() {
-    /* Stuff to do when the mouse enters the element */
+    // Stuff to do when the mouse enters the element
      var eq = $('.item > .goods').index(this),
      h = $('.item').offset().top;  
      $('.item .goods').css('background-color', '#8a775e');
@@ -171,6 +173,7 @@ $('.item > .goods').hover(function() {
 }, function() {
     
 });
+*/
 
 
 $('.all-sort-list > .item').hover(function(){
