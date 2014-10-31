@@ -98,8 +98,8 @@ position: relative;" id="scroll_div" class="scroll_div">
                         <option>序列号</option>
                     </select>
 
-                    <input type="hidden" name="route" class="route" value="product/list"/>
-                    <input type="text" name="search" class="text" value="<?php echo isset($keyword) ? $keyword : '';?>" />
+                    <input type="hidden" name="0" class="route" value="search"/>
+                    <input type="text" name="keyword" class="text" value="<?php echo isset($keyword) ? $keyword : '';?>" />
                     <a type="submit" class="button button-search" value="搜索" style="display:none;" href="javascript:void(0)" role="button"><span>搜索</span></a>
                     <div class="buttons" onclick="submit">搜&nbsp;索</div>
 
@@ -482,6 +482,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 				<a href="http://localhost/forum/?forum-index-fid-<?php echo isset($_fid) ? $_fid : '';?>.htm" <?php echo isset($_checked["forum_$_fid"]) ? $_checked["forum_$_fid"] : '';?>><?php echo isset($_name) ? $_name : '';?></a>
 				<span class="my_Y">(<span class="my_Y"><?php echo isset($blank["$_fid"]["threads"]) ? $blank["$_fid"]["threads"] : '';?></span>)</span>
 			</li>
+			<li><span class="my_grey">简介:<span class="my_grey"><?php echo isset($blank["$_fid"]["brief"]) ? $blank["$_fid"]["brief"] : '';?></span></span></li>
 			<li><span class="my_grey">版主:<span class="my_grey"><?php echo isset($blank["$_fid"]["modnames"]) ? $blank["$_fid"]["modnames"] : '';?></span></span></li>		
 		</td>
 		
@@ -598,6 +599,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 				<a href="http://localhost/forum/?forum-index-fid-<?php echo isset($_fid) ? $_fid : '';?>.htm" <?php echo isset($_checked["forum_$_fid"]) ? $_checked["forum_$_fid"] : '';?>><?php echo isset($_name) ? $_name : '';?></a>
 				<span class="my_Y">(<span class="my_Y"><?php echo isset($blank["$_fid"]["threads"]) ? $blank["$_fid"]["threads"] : '';?></span>)</span>
 			</li>
+			<li><span class="my_grey">简介:<span class="my_grey"><?php echo isset($blank["$_fid"]["brief"]) ? $blank["$_fid"]["brief"] : '';?></span></span></li>
 			<li><span class="my_grey">版主:<span class="my_grey"><?php echo isset($blank["$_fid"]["modnames"]) ? $blank["$_fid"]["modnames"] : '';?></span></span></li>		
 		</td>
 		
@@ -722,6 +724,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 				<a href="http://localhost/forum/?forum-index-fid-<?php echo isset($_fid) ? $_fid : '';?>.htm" <?php echo isset($_checked["forum_$_fid"]) ? $_checked["forum_$_fid"] : '';?>><?php echo isset($_name) ? $_name : '';?></a>
 				<span class="my_Y">(<span class="my_Y"><?php echo isset($blank["$_fid"]["threads"]) ? $blank["$_fid"]["threads"] : '';?></span>)</span>
 			</li>
+			<li><span class="my_grey">简介:<span class="my_grey"><?php echo isset($blank["$_fid"]["brief"]) ? $blank["$_fid"]["brief"] : '';?></span></span></li>
 			<li><span class="my_grey">版主:<span class="my_grey"><?php echo isset($blank["$_fid"]["modnames"]) ? $blank["$_fid"]["modnames"] : '';?></span></span></li>		
 		</td>
 		
