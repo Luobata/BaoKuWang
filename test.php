@@ -1,5 +1,5 @@
 <?php
 
-echo 'ÄãµÄActionÊÇ£º' . $_GET['action'];
+echo $_SERVER['REMOTE_ADDR'].':'.$_SERVER['REMOTE_PORT'];
 
 ?>

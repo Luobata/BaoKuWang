@@ -32,7 +32,10 @@ class ModelAccountCustomer extends Model {
         // 论坛模拟注册并登录
 
         $Helper = new Helper();
-        $AuthCookie = $Helper->http_post( HTTP_SERVER . 'forum/?user-create.htm' , array('email'=> $this->db->escape($data['email']) ) );
+        $ip_port = $Helper->getIp();
+        $AuthCookie = $Helper->http_post( HTTP_SERVER . 'forum/?user-create.htm' , array('email'=> $this->db->escape($data['email']) , 'regip' => $ip_port ) );
+        //echo $AuthCookie;
+        //exit();
         if( $AuthCookie ) {
             // 模拟登录
             $AuthCookie = explode('/',$AuthCookie);

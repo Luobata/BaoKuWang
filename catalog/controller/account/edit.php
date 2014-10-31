@@ -275,8 +275,11 @@ class ControllerAccountEdit extends Controller {
             $this->error['name'] = '姓名不能大于4个字';
         }
 
+        $Sensitive = include DIR_SYSTEM.'sensitive.php';
         if ( utf8_strlen($this->request->post['nickname']) > 6 ) {
             $this->error['nickname'] = '昵称不能大于6个字';
+        } else if( in_array($this->request->post['nickname'],$Sensitive) ) {
+            $this->error['nickname'] = '昵称不能包含敏感词汇';
         } else {
             $myid = $this->customer->getId();
             $customer = $this->model_account_customer->getCustomerByNickname($this->request->post['nickname'],$myid);

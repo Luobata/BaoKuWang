@@ -65,10 +65,12 @@ class user_control extends common_control {
 		
 		// hook user_create_start.php
 
+        $regip = core::gpc('regip', 'P');
 		$email = core::gpc('email', 'P');
 		$groupid = $this->conf['reg_email_on'] ? 6 : 11;
 		$salt = substr(md5(rand(10000000, 99999999).$_SERVER['time']), 0, 8);
 		$user = array(
+            'regip'=>$regip,
 			'email'=>$email,
 			'username'=>'',
 			'password'=>'',
