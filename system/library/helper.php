@@ -96,6 +96,21 @@ class Helper {
     }
 
 
+    // Shop_auth cookie 加密与解析
+
+    public function shop_auth_encrypt( $email , $secret = SECRET ) {
+        return $this->active_encode(($this->active_encode($email)).$secret);
+    }
+
+    public function shop_auth_decrypt( $auth  , $secret = SECRET ) {
+        $auth_decode = $this->active_decode($auth);
+        $email_encode_length = strlen($auth_decode) - strlen($secret);
+        $email_encode = substr($auth_decode,0,$email_encode_length);
+        $email = $this->active_decode($email_encode);
+        return $email;
+    }
+
+
     // 字符串 - 数组 回转
     function string_to_array( $string , $split , $one , $two ) {
         if( $string ) {

@@ -29,7 +29,7 @@ class ModelAccountCustomer extends Model {
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET address_id = '" . (int)$address_id . "' WHERE customer_id = '" . (int)$customer_id . "'");
 
 
-        // 论坛模拟注册并登录
+        // 论坛模拟注册
 
         $Helper = new Helper();
         $ip_port = $Helper->getIp();
@@ -39,7 +39,7 @@ class ModelAccountCustomer extends Model {
         if( $AuthCookie ) {
             // 模拟登录
             $AuthCookie = explode('/',$AuthCookie);
-            $Helper->setcookie($AuthCookie[0], $AuthCookie[1], time()+86400, '/', '', TRUE);  //24小时
+            // $Helper->setcookie($AuthCookie[0], $AuthCookie[1], time()+86400, '/', '', TRUE);  //24小时
             // 创建关联
             $this->db->query("INSERT INTO " . DB_PREFIX . "bbs_user ( shop_cid , bbs_uid ) VALUES (" . (int)$customer_id . "," . (int)$AuthCookie[2] . ")");
         }

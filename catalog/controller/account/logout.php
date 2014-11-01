@@ -28,6 +28,7 @@ class ControllerAccountLogout extends Controller {
             // 论坛模拟退出
             $Helper = new Helper();
             $Helper->setcookie('bbs_auth', '', 0, '/', '', TRUE);
+            $Helper->setcookie('shop_auth', '', 0, '/', '', TRUE);
             $Helper->http_post( HTTP_SERVER . 'forum/?user-logout.htm' );
 		}
 
