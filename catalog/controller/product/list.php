@@ -82,7 +82,34 @@ class ControllerProductList extends Controller {
 
         // 获取地区数据
         $this->load->model('localisation/zone');
-        $this->data['zones'] = $this->model_localisation_zone->getZonesByCountryId(44);
+        $zoness=$this->model_localisation_zone->getZonesByCountryId(44);
+        //把北京字段放在首位
+        foreach ($zoness as $key => $value) {
+            if($value['name']=='北京'){
+                $temp=$zoness[$key];
+                $zoness[$key]=$zoness[0];
+                $zoness[0]=$temp;
+            }
+        }
+        $temp=$zoness[0];
+        //删除首元素
+        unset($zoness[0]);
+        //排序
+        foreach($zoness as $v){
+        $t[] = $v['name'];
+        }
+        //按地域字段排序
+        array_multisort($t, $zoness); 
+        //逆序
+        $zoness=array_reverse($zoness);
+        //在末尾加入首元素
+        array_push($zoness, $temp);
+        //逆序
+        $zoness=array_reverse($zoness);
+        //赋值
+        $this->data['zones']=$zoness;
+        //var_dump($zoness);
+        //$this->data['zones'] = $this->model_localisation_zone->getZonesByCountryId(44);
 
         // 设置已选择
         $this->data['selected'] = array();
