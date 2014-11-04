@@ -48,27 +48,27 @@
 		<div class="f_content">
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_1"></div>
-				<li><a href="/index.php?route=about/zheng/">正品保证</a></li>
+				<li><!-- <a href="/index.php?route=about/zheng/"> -->正品保证<!-- </a> --></li>
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_2"></div>
-				<li><a href="/index.php?route=about/zheng/zhuanjia">专家评估</a></li>
+				<li><!-- <a href="/index.php?route=about/zheng/zhuanjia"> -->专家评估<!-- </a> --></li>
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_3"></div>
-				<li><a href="/index.php?route=about/zheng/quanwei">权威保证</a></li>
+				<li><!-- <a href="/index.php?route=about/zheng/quanwei"> -->权威保证<!-- </a> --></li>
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_4"></div>
-				<li><a href="/index.php?route=about/zheng/qitian">7天退货</a></li>
+				<li><!-- <a href="/index.php?route=about/zheng/qitian"> -->7天退货<!-- </a> --></li>
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_5"></div>
-				<li><a href="/index.php?route=about/zheng/wuxing">担保交易</a></li>
+				<li><!-- <a href="/index.php?route=about/zheng/wuxing"> -->担保交易<!-- </a> --></li>
 			</div>
 		</div>
 	</div>
-    <div class="footer_2">
+    <!-- <div class="footer_2">
         <div class="f2_content" id="company">
             <a href="javascript:void(0)" style="padding:0 5px 0 0;">合作伙伴</a>
             <a href="javascript:void(0)">北京邮电大学</a>|
@@ -79,7 +79,7 @@
             <a href="javascript:void(0)">复旦大学</a>|
             <a href="javascript:void(0)">上海交通大学</a>
         </div>
-    </div>
+    </div> -->
 	<div class="footer_2">
 		<div class="f2_content">
 			<div class="num">服务热线：010-64814142</div>
@@ -88,10 +88,10 @@
 						<li class="f2_line">|</li>
 						<li class="f2_text"><a href="/index.php?route=about/zheng/gouwu">购物流程</a></li>
 						<li class="f2_line">|</li>
-						<li class="f2_text"><a href="/index.php?route=about/zheng/changjian">常见问题</a></li>
+						<!-- <li class="f2_text"><a href="/index.php?route=about/zheng/changjian">常见问题</a></li>
 						<li class="f2_line">|</li>
 						<li class="f2_text"><a href="/index.php?route=about/zheng/liansuo">连锁查询</a></li>
-						<li class="f2_line">|</li>
+						<li class="f2_line">|</li> -->
 						<li class="f2_text"><a href="/index.php?route=about/zheng/mianze">免责声明</a></li>
 						<li class="f2_line">|</li>
 						<li class="f2_text"><a href="/index.php?route=about/zheng/tuihuo">退货说明</a></li>

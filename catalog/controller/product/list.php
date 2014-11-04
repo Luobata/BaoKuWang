@@ -94,12 +94,22 @@ class ControllerProductList extends Controller {
         $temp=$zoness[0];
         //删除首元素
         unset($zoness[0]);
+        // //转码成gb
+        // foreach($zoness as $k=>$v) {
+        //   $zoness[$k] = iconv('UTF-8', 'GB2312',$v);
+        //  }
         //排序
         foreach($zoness as $v){
+        $v['name']=iconv('UTF-8', 'GB2312',$v['name']);
         $t[] = $v['name'];
         }
         //按地域字段排序
         array_multisort($t, $zoness); 
+         //转会utf8
+        foreach($zoness as $v){
+        //$v['name']=iconv('GB2312', 'UTF-8', $v['name']);
+        }
+        
         //逆序
         $zoness=array_reverse($zoness);
         //在末尾加入首元素
