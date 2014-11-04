@@ -79,6 +79,10 @@ class ControllerDesignBanner extends Controller {
 		$this->load->model('design/banner');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+
+            //var_dump($this->request->post);
+            //exit();
+
 			if( $this->request->get['banner_id']==9 ) {
                 $this->model_design_banner->editBanner($this->request->get['banner_id'], $this->request->post);
             } elseif( $this->request->get['banner_id']==10 || $this->request->get['banner_id']==11 ) {

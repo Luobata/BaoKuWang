@@ -42,7 +42,8 @@
 .row{overflow: hidden;margin-bottom: 4px;}
 .col{position: relative;border: 1px;border-style: solid;border-color: #ccc;width: 245px;height:248px;float: left;margin-right: 4px;}
 .col_img{width: 100%; height: 180px;position: relative;}
-.col img{width: 100%; height: 100%;}
+.col img{ /*width: 100%; height: 100%;*/}
+.background-cover-base{ width: 100%; height: 190px; }
 .col-last{margin-right: 0px;}
 .item-title{padding: 16px 10px 0;}
 .price-info .delete{text-decoration: line-through;color: #ccc}

@@ -24,7 +24,7 @@ $ext_arr = array(
 	'file' => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2'),
 );
 //最大文件大小
-$max_size = 1000000;
+$max_size = 5*1024*1024;
 
 $save_path = realpath($save_path) . '/';
 
@@ -115,13 +115,45 @@ if (empty($_FILES) === false) {
 	if (!file_exists($save_path)) {
 		mkdir($save_path);
 	}
+
 	//新文件名
 	$new_file_name = date("YmdHis") . '_' . rand(10000, 99999) . '.' . $file_ext;
-	//移动文件
 	$file_path = $save_path . $new_file_name;
-	if (move_uploaded_file($tmp_name, $file_path) === false) {
-		alert("上传文件失败。");
-	}
+
+    //新文件的大小配置
+    $new_size_max = 100 * 1024;
+    $old_size = filesize($tmp_name);
+
+    if( $old_size > $new_size_max ) {
+
+        //获取图片处理工具包
+        $imageTool = "../../../system/library/image.php";
+        if(!file_exists($imageTool)){
+            alert("图片压缩引擎出错。");
+        }
+        require_once($imageTool);
+
+        //新文件大小设定
+        $image = new Image($tmp_name);
+        $image_info = $image->getInfo();
+        $new_scale = sqrt($old_size/$new_size_max);
+        $new_file_width  = $image_info['width']/$new_scale;
+        $new_file_height = $image_info['height']/$new_scale;
+
+        //对临时文件进行压缩并转移
+        $image->resize($new_file_width,$new_file_height);
+        $image->save($file_path);
+
+        //销毁临时文件
+        unlink($tmp_name);
+
+    } else {
+        // 图片不大，直接转移
+        if (move_uploaded_file($tmp_name, $file_path) === false) {
+            alert("上传文件失败。");
+        }
+    }
+
 	@chmod($file_path, 0644);
 	$file_url = $save_url . $new_file_name;
 

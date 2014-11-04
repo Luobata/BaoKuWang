@@ -250,10 +250,15 @@ top: 10%;
 }
 .jian{
 	position: relative;
-float: right;
-right: 72px;
-top: 20px;
-font-size: 18px;
+    float: right;
+    right: 72px;
+    top: 20px;
+    font-size: 18px;
+}
+
+.s_right img{
+    max-width: 670px;
+    max-height: 700px;
 }
 
 #demo { margin:0 auto; width:350px; }

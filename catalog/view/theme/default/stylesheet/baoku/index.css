@@ -111,7 +111,7 @@ border-color: #d3d3d3;
 	border-bottom-color: #ad813f; 
 	border-top-color: #d3d3d3;
 	border-left-width: 0px;
-		
+	margin-bottom: 10px;
 }
 .t_head .jew{
 	float: left;
@@ -217,6 +217,7 @@ border-color: #d3d3d3;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+    font-weight: bolder;
 }
 
 .t_row_pic a {

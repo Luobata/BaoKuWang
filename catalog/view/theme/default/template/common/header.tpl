@@ -22,6 +22,7 @@
 
     <!-- CSS文件 -->
     <link rel="stylesheet" type="text/css" href="/catalog/view/theme/default/stylesheet/baoku/common.css" />
+    <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
     <!--
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/stylesheet.css" />
     -->
@@ -30,11 +31,11 @@
     <?php } ?>
 
     <!-- JS文件 -->
-    <script type="text/javascript" src="catalog/view/javascript/jquery/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
-    <script type="text/javascript" src="catalog/view/javascript/common.js"></script>
-    <script type="text/javascript" src="catalog/view/javascript/baoku/common.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/common.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/baoku/common.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/jquery.lazyload.min.js"></script>
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
@@ -50,6 +51,7 @@
     DD_belatedPNG.fix('#logo img');
     </script>
     <![endif]-->
+
     <?php if ($stores) { ?>
     <script type="text/javascript">
     $(document).ready(function() {
@@ -59,6 +61,7 @@
     });
     </script>
     <?php } ?>
+
     <?php echo $google_analytics; ?>
 </head>
 

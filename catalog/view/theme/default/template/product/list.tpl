@@ -157,11 +157,14 @@
     <div class="item-content">
         <div class="row">
             <?php foreach( $products as $key => $product ) { ?>
-            <div class="col background-cover-base<?php if((($key+1)%4)==0){ ?> col-last<?php } ?>">
+            <div class="col<?php if((($key+1)%4)==0){ ?> col-last<?php } ?>">
                 <?php if($product['identify']==1){ ?>
                 <div class="jian">鉴</div>
                 <?php } ?>
-                <a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>"><img class="background-cover" src="/image/<?php echo $product['image'];?>"/></a>
+                <div class="background-cover-base">
+                    <a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>">
+                    <img class="lazy background-cover" src="/catalog/view/theme/default/image/loading.gif" data-original="/image/<?php echo $product['image'];?>"/></a>
+                </div>
                 <div class="simple">
                     <h3 class="item-title"><a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>"><?php echo (utf8_strlen($product['title'])>13) ? (mb_substr($product['title'],0,13).'&nbsp;...') : ($product['title']); ?></a></h3>
                     <div class="price-info"><span class="price"><b>￥<?php echo $product['price'];?></b></span></div>

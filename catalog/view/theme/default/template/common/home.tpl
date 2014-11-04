@@ -84,7 +84,9 @@
                 <div class="row">
                     <?php foreach( $recommend_images as $key =>$image ) { ?>
                     <div class="pics" id="pic<?php echo ($key+1);?>">
-                        <a href="<?php echo $image['link']; ?>"><img src="/image/<?php echo $image['image']; ?>"></a>
+                        <a href="<?php echo $image['link']; ?>">
+                        <img class="lazy" src="/catalog/view/theme/default/image/loading.gif" data-original="/image/<?php echo $image['image']; ?>">
+                        </a>
                     </div>
                     <?php if($key==2) { ?>
                     </div><div class="row">
@@ -152,7 +154,7 @@
                         <td><div class="t_row_jew" >
                                 <div class="t_row_pic background-cover-base" id="t_row_pic1">
                                     <a id="url_<?php echo $count; ?>" href="/index.php?route=product/product&product_id=<?php echo $id;?>">
-                                    <img id="img_<?php echo $count; ?>" src="/image/<?php echo $info['image'];?>" class="background-cover"></a>
+                                    <img id="img_<?php echo $count; ?>" class="lazy background-cover" src="/catalog/view/theme/default/image/loading.gif" data-original="/image/<?php echo $info['image'];?>" /></a>
                                 </div>
                                 <div class="simple">
                                     <li class="desc" id="text_<?php echo $count; ?>"><?php echo $info['title']; ?></li>

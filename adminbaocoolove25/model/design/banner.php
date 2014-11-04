@@ -41,13 +41,14 @@ class ModelDesignBanner extends Model {
 	}
 
     public function editBanner_other($banner_id, $data) {
+
+        //var_dump($data['banner_image']);
+        //exit();
+
         $this->db->query("UPDATE " . DB_PREFIX . "banner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "' WHERE banner_id = '" . (int)$banner_id . "'");
 
         $this->db->query("DELETE FROM " . DB_PREFIX . "banner_image WHERE banner_id = '" . (int)$banner_id . "'");
         $this->db->query("DELETE FROM " . DB_PREFIX . "banner_image_description WHERE banner_id = '" . (int)$banner_id . "'");
-
-        //var_dump($data['banner_image']);
-        //exit();
 
         if (isset($data['banner_image'])) {
 

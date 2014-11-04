@@ -18,6 +18,13 @@ class ControllerCatalogProduct extends Controller {
         echo $this->model_catalog_product->addProduct($this->request->post);
     }
 
+    public function update_customer() {
+        $this->load->model('catalog/product');
+        //var_dump($this->request->post);
+        $product_id = $this->request->post['product_id'];
+        $this->model_catalog_product->editProduct($product_id,$this->request->post);
+    }
+
     public function delete_customer() {
         $this->load->model('catalog/product');
         echo $this->model_catalog_product->deleteProduct($this->request->post['product_id']);
