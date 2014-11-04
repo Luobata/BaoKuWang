@@ -58,7 +58,7 @@ class Helper {
 
     // 获取随机字符串
 
-    function generate_rand($l){
+    public function generate_rand($l){
 
         if($l<1) {
             return false;
@@ -81,18 +81,33 @@ class Helper {
 
     // 注册激活链接制造
 
-    function active_encode( $cid ) {
+    public function active_encode( $cid ) {
         for( $i=0 ; $i<8 ; $i++ ) {
             $cid = base64_encode($cid);
         }
         return $cid;
     }
 
-    function active_decode( $cid ) {
+    public function active_decode( $cid ) {
         for( $i=0 ; $i<8 ; $i++ ) {
             $cid = base64_decode($cid);
         }
         return $cid;
+    }
+
+
+    // Shop_auth cookie 加密与解析
+
+    public function shop_auth_encrypt( $email , $secret = SECRET ) {
+        return $this->active_encode(($this->active_encode($email)).$secret);
+    }
+
+    public function shop_auth_decrypt( $auth  , $secret = SECRET ) {
+        $auth_decode = $this->active_decode($auth);
+        $email_encode_length = strlen($auth_decode) - strlen($secret);
+        $email_encode = substr($auth_decode,0,$email_encode_length);
+        $email = $this->active_decode($email_encode);
+        return $email;
     }
 
 
@@ -112,4 +127,17 @@ class Helper {
             return $result;
         }
     }
+
+
+    // 获取客户端IP
+
+    public function getIp() {
+        if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown")) $ip = getenv("HTTP_CLIENT_IP");
+        else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknown")) $ip = getenv("HTTP_X_FORWARDED_FOR");
+        else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown")) $ip = getenv("REMOTE_ADDR");
+        else if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown")) $ip = $_SERVER['REMOTE_ADDR'];
+        else $ip = "127.0.0.1";
+        return ($ip);
+    }
+
 }

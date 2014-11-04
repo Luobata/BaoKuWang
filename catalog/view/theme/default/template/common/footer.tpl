@@ -68,7 +68,10 @@
 			</div>
 		</div>
 	</div>
-    <!-- <div class="footer_2">
+
+<!--
+    <div class="footer_2">
+
         <div class="f2_content" id="company">
             <a href="javascript:void(0)" style="padding:0 5px 0 0;">合作伙伴</a>
             <a href="javascript:void(0)">北京邮电大学</a>|
@@ -79,7 +82,9 @@
             <a href="javascript:void(0)">复旦大学</a>|
             <a href="javascript:void(0)">上海交通大学</a>
         </div>
+
     </div> -->
+
 	<div class="footer_2">
 		<div class="f2_content">
 			<div class="num">服务热线：010-64814142</div>

@@ -22,6 +22,7 @@
 
     <!-- CSS文件 -->
     <link rel="stylesheet" type="text/css" href="/catalog/view/theme/default/stylesheet/baoku/common.css" />
+    <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
     <!--
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/stylesheet.css" />
     -->
@@ -30,11 +31,11 @@
     <?php } ?>
 
     <!-- JS文件 -->
-    <script type="text/javascript" src="catalog/view/javascript/jquery/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
-    <script type="text/javascript" src="catalog/view/javascript/common.js"></script>
-    <script type="text/javascript" src="catalog/view/javascript/baoku/common.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/common.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/baoku/common.js"></script>
+    <script type="text/javascript" src="/catalog/view/javascript/jquery.lazyload.min.js"></script>
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
@@ -50,6 +51,7 @@
     DD_belatedPNG.fix('#logo img');
     </script>
     <![endif]-->
+
     <?php if ($stores) { ?>
     <script type="text/javascript">
     $(document).ready(function() {
@@ -59,12 +61,13 @@
     });
     </script>
     <?php } ?>
+
     <?php echo $google_analytics; ?>
 </head>
 
 
 <body>
-    <header>
+    <div class="header">
         <script type="text/javascript"> 
      window.onload = function(){
            //ScrollImgLeft();
@@ -104,8 +107,8 @@ position: relative;" id="scroll_div" class="scroll_div">
 <div id="scroll_end"></div> 
 </div> 
 </div>  -->
+        <img src="/catalog/view/theme/default/image/baoku/title.png"/>
         <div class="head">
-
             <?php if ($logo) { ?>
             <div class="logo">
                 <a href="<?php echo $home; ?>">
@@ -149,39 +152,48 @@ position: relative;" id="scroll_div" class="scroll_div">
                 <?php } ?>
             </div>
 
-            <div class="qbcode"></div>
+            <div class="qbcode">
+                <img src="/catalog/view/theme/default/image/baoku/qbcode.png" />
+            </div>
 
         </div>
-    </header>
+    </div>
 
     <div class="title">
         <div class="index">
             <div class="all">
                 <li><a href="">全部宝贝分类</a></li>
                 <div class="content_head" style="position:absolute;z-index:100;display:none;">
+
                     <?php foreach( $category_head as $cat ) { ?>
                     <div class="goods">
+
                         <div class="goods_line">
-                            <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
-                            <li><?php echo $cat['parent']['name']; ?></li></a>
+                            <a href="/index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
+                                <li><?php echo $cat['parent']['name']; ?></li></a>
                         </div>
 
                         <div class="item" id="item">
-                         <?php if((sizeof($cat['children'])!=0)){ ?>
-                            <?php foreach( $cat['children'] as $cats ) { ?>
-                            
-                            <div class="goods">
-                                <div class="goods_line">
-                                    <a href="index.php?route=product/list&filter_category=<?php echo $cats['id']; ?>">
-                                    <li><?php echo $cats['name']; ?></li></a>
-                                </div>
-                            </div> 
-                            <?php } ?>   
-                        <?php } ?>
+                            <?php $child_num = count($cat['children']); ?>
+                            <?php if($child_num>0) { ?>
+                            <div class="goods2">
+                                <p>
+                                    <?php $count = 0; ?>
+                                    <?php foreach( $cat['children'] as $cats ) { ?>
+                                    <a href="/index.php?route=product/list&filter_category=<?php echo $cats['id']; ?>">
+                                        <span><?php echo $cats['name']; ?></span>
+                                    </a>
+                                    <?php     if($count%3==2){ ?> </p><p> <?php } ?>
+                                    <?php     $count++; ?>
+                                    <?php } ?>
+                                </p>
+                            </div>
+                            <?php } ?>
                         </div>
+
                     </div>
-                        
                     <?php } ?>
+
                 </div>
             </div>
             <div class="others">

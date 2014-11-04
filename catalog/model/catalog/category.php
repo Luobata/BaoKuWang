@@ -57,6 +57,12 @@ class ModelCatalogCategory extends Model {
 		return $query->rows;
 	}
 
+    public function getParentId($category_id = 0) {
+        $query = $this->db->query("SELECT parent_id FROM " . DB_PREFIX . "category WHERE category_id = '" . $category_id . "'");
+        $row = $query->row;
+        return $row['parent_id'];
+    }
+
 	public function getCategoryFilters($category_id) {
 		$implode = array();
 		

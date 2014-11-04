@@ -60,12 +60,15 @@
        <form>
           <div class="form-content">
 
-              <div class="toedit"><a href="/index.php?route=account/edit">编辑个人资料</a></div>
-
           <?php if ($success) { ?>
+              <div style="position: absolute; top: 70px; right: 100px;"><a class="toedit" href="/index.php?route=account/edit">编辑个人资料</a></div>
+              <div style="position: absolute; top: 105px; right: 100px;"><a class="toedit_forum" href="/forum/?my-profile.htm">设置论坛资料</a></div>
               <div class="row" style="color:red;position:relative;bottom:10px;padding-left:65px;">
                 <div class="success"><?php echo $success; ?></div>
               </div>
+          <?php } else { ?>
+              <div style="position: absolute; top: 35px; right: 100px;"><a class="toedit" href="/index.php?route=account/edit">编辑个人资料</a></div>
+              <div style="position: absolute; top: 70px; right: 100px;"><a class="toedit_forum" href="/forum/?my-profile.htm">设置论坛资料</a></div>
           <?php } ?>
 
           <div class="row">

@@ -29,23 +29,27 @@ body {
 	overflow: hidden;
 }
 
-header{
-	
-	background-position: center;
-	background-image:url('../../image/baoku/title.png');
+.header{
+    position: relative;
 }
+.header img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
 .head{
 	width: 1000px;
 	height: 110px;
 	margin-left: auto;
 	margin-right: auto;
-	
 }
 
 
 .logo{
 	width:185px;
-	height: 80px;
+	height: 100px;
 	position: relative;
 	top: 2%;
 	background-repeat: no-repeat;
@@ -84,7 +88,7 @@ header{
 	border-right-width: 0px;
 	height: 33px;
 	line-height: 33px;
-	padding: 2px 0;
+	padding: 5px 0;
 }
 .search .hot{
     margin-left: 46px;
@@ -118,16 +122,18 @@ header{
 	margin-right: 14px;
 
 }
+
 .qbcode{
-	width:95px;
-	height: 102px;
+	width:100px;
+	height: 100px;
 	position: absolute;
 	margin-left: 909px;
 	top: 4px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-image:url('../../image/baoku/qbcode.png');
-	float: left;
+    float: left;
+}
+.qbcode > img{
+    width: 100%;
+    height: 100%;
 }
 
 .nav .text:hover{
@@ -315,42 +321,58 @@ header{
 	line-height: 44px;
 	padding-left: 16px;
 }
-.item{
-	/*width: 200px;*/
-	min-height: 45px;
-	overflow: hidden;
-	background-color: #8a775e;
-	position: absolute;
-	margin-left: 200px;
-	margin-top: -45px;
-	z-index: 100;
-	display: none;
-}
-.content_head{
-	/*width: 200px;
-	overflow: hidden;
-	float: left;
-	//position: relative;*/
 
 
-}
+
+
+
 .content_head .goods{
-	width: 200px;
-	height: 45px;
-	text-align: center;
-	background-color: #8a775e;
-	line-height: 45px;
+    width: 200px;
+    height: 45px;
+    text-align: center;
+    background-color: #986;
 }
 .goods .goods_line{
-	width: 194px;
-	height:44px;
-	border-bottom-color: #c5bfbd;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	margin-right: auto;
-	margin-left: auto;
+    width: 194px;
+    height:44px;
+    border-bottom-color: #c5bfbd;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .goods_line li{
-    color: white;
+    color: #fff;
+    line-height: 45px;
+}
+
+.item{
+    /*width: 200px;*/
+    overflow: hidden;
+    background-color: #ba8;
+    position: absolute;
+    margin-left: 200px;
+    margin-top: -45px;
+    z-index: 100;
+    display: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.goods2{
+    width: 240px;
+    overflow: hidden;
+    line-height: 44px;
+    text-align: left;
+}
+.goods2 p{
+    margin: 0;
+    border-bottom: 1px dotted #986;
+}
+.goods2 span{
+    padding-left: 30px;
+    color: #673413;
+}
+.goods2 span:hover{
+    color: #edc;
 }

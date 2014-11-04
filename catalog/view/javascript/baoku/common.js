@@ -42,10 +42,10 @@ if($('#index').val()!='index'){
 
 
 
-
+/*
 
 $('.content_head > .goods').hover(function() {
-    /* Stuff to do when the mouse enters the element */
+    // Stuff to do when the mouse enters the element
      var eq = $('.content_head > .goods').index(this),
      h = $('.content_head').offset().top;  
      //$('.goods').attr('style', 'background-color:#edeced');
@@ -53,8 +53,10 @@ $('.content_head > .goods').hover(function() {
      $('.item').css('display', 'none');    
      $(this).children('.item').show();
 }, function() {
-   $('.goods').attr('style', 'background-color:#edeced');
+   $('.goods').attr('style', 'background-color:#986');
    $(this).children('.item').css('display', 'none');
    
     //a.css('display','none');
 });
+
+*/

@@ -317,6 +317,7 @@ class ControllerProductProduct extends Controller {
 			$this->data['qq']=$product_info['qq'];
 			$this->data['wechat']=$product_info['wechat'];
             $this->data['detail']=$product_info['detail'];
+            $this->data['owner'] = $product_info['owner'];
 			//$this->data['detail']=htmlspecialchars_decode($product_info['detail']);
             //var_dump($this->data['detail'],$product_info['detail']);
 			//判断是否坚定字段
@@ -327,7 +328,7 @@ class ControllerProductProduct extends Controller {
 			$customer_info = $this->model_account_customer->getCustomer($product_info['cid']);
 			//传入name
 
-            $this->data['customer_name'] = $customer_info ? $customer_info['name'] : '-';
+            //$this->data['customer_name'] = $customer_info ? $customer_info['name'] : '-';
 
 			//var_dump($_SESSION);
 			//var_dump($customer_info);
@@ -376,22 +377,25 @@ class ControllerProductProduct extends Controller {
 				$this->data['popup'] = '';
 			}
 
-			if ($product_info['image']) {
-				$this->data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
-			} else {
-				$this->data['thumb'] = '';
-			}
+                        if ($product_info['image']) {
+                            //$this->data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+                            $this->data['thumb'] = '/image/' . $product_info['image'];
+                            //echo $this->data['thumb'];
+                        } else {
+                            $this->data['thumb'] = '';
+                        }
+            /*
+                    $this->data['images'] = array();
 
-			$this->data['images'] = array();
+                    $results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
 
-			$results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
-
-			foreach ($results as $result) {
-				$this->data['images'][] = array(
-					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
-					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
-				);
-			}
+                    foreach ($results as $result) {
+                        $this->data['images'][] = array(
+                            'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
+                            'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
+                        );
+                    }
+            */
 
 			if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
 				$this->data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));

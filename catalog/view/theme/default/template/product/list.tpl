@@ -29,14 +29,61 @@
         <div class="nav-category">
             <h4 title="分类">分类<span>：</span></h4>
             <div class="nav-category-wrap">
+                <!-- 父分类 -->
+                <ul class="nav-category-content">
+                    <?php foreach( $categories as $cat ) { ?>
+                    <li><a href="<?php echo $url['category'].'&filter_category='.$cat['parent']['id']; ?>"><?php echo $cat['parent']['name']; ?></a></li>
+                    <?php } ?>
+                </ul>
+                <!-- 子分类 -->
+                <?php if(isset($filter_category)) {
+                        foreach( $categories as $cat ) {
+                            $cat_group = array();
+                            $cat_group[] = $cat['parent']['id'];
+                            foreach( $cat['children'] as $child ) {
+                                $cat_group[] = $child['id'];
+                            }
+                            if( in_array($filter_category,$cat_group) && count($cat_group)>1 ) { ?>
+                            <!-- 子分类 -->
+                            <br/>
+                            <ul class="nav-category-content" style="height:40px;border-top: 1px dotted #986;">
+                                <?php foreach( $cat['children'] as $child ) { ?>
+                                <li style="margin-right: 25px;margin-bottom:5px;height:35px;line-height: 35px;"><a href="<?php echo $url['category'].'&filter_category='.$child['id']; ?>"><?php echo $child['name']; ?></a></li>
+                                <?php } ?>
+                            </ul>
+                            <!-- 子分类 -->
+                <?php       break;
+                            }
+                        }
+                      } ?>
+
+                <!--
                 <ul class="nav-category-content">
                 <?php foreach( $categories as $cat ) { ?>
-                    <li><a href="<?php echo $url['category'].'&filter_category='.$cat['parent']['id']; ?>"><?php echo $cat['parent']['name']; ?></a></li>
-                <?php   foreach( $cat['children'] as $child ) { ?>
-                        <li><a href="<?php echo $url['category'].'&filter_category='.$child['id']; ?>"><?php echo $child['name']; ?></a></li>
-                <?php   } ?>
+                    <li class="parent_cat_btn" pid="<?php echo $cat['parent']['id']; ?>"><a href="<?php echo $url['category'].'&filter_category='.$cat['parent']['id']; ?>"><?php echo $cat['parent']['name']; ?></a></li>
                 <?php } ?>
                 </ul>
+                <br/>
+                <ul class="nav-category-content" style="height:40px;border-top: 1px dotted #986;">
+                    <?php $count = 0;
+                          foreach( $categories as $cat ) { ?>
+                    <?php   foreach( $cat['children'] as $child ) { ?>
+                    <li class="child_cat_btn child_from_<?php echo $cat['parent']['id']; ?>" style="<?php if(!$count) echo 'display:none;'; ?>margin-right: 25px;margin-bottom:5px;height:35px;line-height: 35px;"><a href="<?php echo $url['category'].'&filter_category='.$child['id']; ?>"><?php echo $child['name']; ?></a></li>
+                    <?php   } ?>
+                    <?php $count++; ?>
+                    <?php } ?>
+                </ul>
+                <script>
+                $(document).ready(function(){
+                    $('.parent_cat_btn').bind('mouseover',function(){
+                        var pid = $(this).attr('pid');
+                        $('.child_cat_btn').hide();
+                        $('.child_from_'+pid).show();
+                    });
+                });
+                </script>
+                -->
+
             </div>
         </div>
 
@@ -110,11 +157,14 @@
     <div class="item-content">
         <div class="row">
             <?php foreach( $products as $key => $product ) { ?>
-            <div class="col background-cover-base<?php if((($key+1)%4)==0){ ?> col-last<?php } ?>">
+            <div class="col<?php if((($key+1)%4)==0){ ?> col-last<?php } ?>">
                 <?php if($product['identify']==1){ ?>
                 <div class="jian">鉴</div>
                 <?php } ?>
-                <a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>"><img class="background-cover" src="/image/<?php echo $product['image'];?>"/></a>
+                <div class="background-cover-base">
+                    <a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>">
+                    <img class="lazy background-cover" src="/catalog/view/theme/default/image/loading.gif" data-original="/image/<?php echo $product['image'];?>"/></a>
+                </div>
                 <div class="simple">
                     <h3 class="item-title"><a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'];?>"><?php echo (utf8_strlen($product['title'])>13) ? (mb_substr($product['title'],0,13).'&nbsp;...') : ($product['title']); ?></a></h3>
                     <div class="price-info"><span class="price"><b>￥<?php echo $product['price'];?></b></span></div>

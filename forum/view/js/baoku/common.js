@@ -44,18 +44,20 @@ $('.all').hover(function() {
      $('.item').css('display', 'none');    
      $(this).children('.item').show();
 }, function() {
-   $('.goods').attr('style', 'background-color:#8a775e');
+   $('.goods').attr('style', 'background-color:#986');
    $(this).children('.item').css('display', 'none');
    
     //a.css('display','none');
 });
+
+/*
 $('.item > .goods').hover(function() {
-    /* Stuff to do when the mouse enters the element */
+    //Stuff to do when the mouse enters the element
      var eq = $('.item > .goods').index(this),
      h = $('.item').offset().top;  
-     $('.item .goods').css('background-color', '#8a775e');
+     $('.item .goods').css('background-color', '#986');
      $(this).css('background-color', '#7e6a52');
-     $(this).attr('style', 'background-color:#7e6a52');
 }, function() {
     
 });
+*/

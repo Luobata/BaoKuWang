@@ -86,18 +86,18 @@
                          <th style="width:107px;">操作</th>
                      </tr>
                   </thead>
-                     <?php //var_dump($products); ?>
+
                      <?php if(isset($products)) { ?>
                      <?php foreach ($products as $product) { ?>
-
+                     <?php //var_dump($products); ?>
                 <tbody id="wishlist-row<?php echo $product['product_id']; ?>">
                   <tr class="items">
                        <td class="pic" style="border-right: 1px solid #ddd;">
                           <?php if ($product['thumb']) { ?>
-                          <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
+                          <a target="_blank" href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
                           <?php } ?>
                           <div class="goods-info">
-                            <div class="goods-title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+                            <div class="goods-title"><a target="_blank" href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
                             <div class="goods-price"><?php echo $product['price'];?></div>
                           </div>
                        </td>
@@ -125,9 +125,9 @@
                       <tbody id="wishlist-row<?php echo $product[$i]['product_id']; ?>">
                   <tr class="items">
                        <td class="pic" style="border-right: 1px solid #ddd;">
-                         <a href="./index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>"><img src="./image/<?php echo $product[$i]['image']; ?>" alt="<?php echo $product[$i]['title']; ?>" title="<?php echo $product[$i]['title']; ?>" /></a>
+                         <a target="_blank" href="/index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>"><img src="./image/<?php echo $product[$i]['image']; ?>" alt="<?php echo $product[$i]['title']; ?>" title="<?php echo $product[$i]['title']; ?>" /></a>
                           <div class="goods-info">
-                            <div class="goods-title"><a href="./index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>">
+                            <div class="goods-title"><a target="_blank" href="/index.php?route=product/product&product_id=<?php echo$product[$i]['product_id'];?>">
                               <?php echo $product[$i]['title']; ?></a></div>
                             <div class="goods-price">￥<?php echo $product[$i]['price'];?></div>
                           </div>
@@ -146,9 +146,10 @@
                              <?php if($type==4){ ?>
                              <a href="/index.php?route=product/identify">鉴定</a>&nbsp;&nbsp;
                              <?php } elseif ($type==2) { ?>
-                             <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">上架</a>&nbsp;&nbsp;
+                             <a href="/index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">上架</a>&nbsp;&nbsp;
                              <?php } elseif ($type==1) { ?>
-                             <a href="./index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">下架</a>&nbsp;&nbsp;
+                             <a target="_blank" href="/index.php?route=account/new&product_id=<?php echo $product[$i]['product_id'];?>">编辑</a><br/>
+                             <a href="/index.php?route=account/wishlist/changestatus&type=<?php echo$type;?>&product_id=<?php echo $product[$i]['product_id'];?>">下架</a>&nbsp;&nbsp;
                              <?php } ?>
                          <a href="/index.php?route=account/new/delete&product_id=<?php echo $product[$i]['product_id']; ?>&type=<?php echo $type;?>">删除</a>
                        </td>

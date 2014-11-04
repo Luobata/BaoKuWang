@@ -8,7 +8,9 @@
         <?php } ?>
     </ul>
 
-    <form action="/index.php?route=account/new/insert" onsubmit="return product_validate();" method="post" enctype="multipart/form-data">
+    <form action="<?php echo $form_action; ?>" onsubmit="return product_validate();" method="post" enctype="multipart/form-data">
+
+        <?php if(isset($product_id)) echo '<input type="hidden" name="product_id" value="' . $product_id . '" />'; ?>
 
         <div class="form-content">
 
@@ -20,8 +22,24 @@
                     <span class="input-title">一级分类</span>
                     <select class="input-content" id="category_parent">
                         <?php
-                            foreach( $categories as $branch ) {
-                                echo '<option value="' . $branch['parent']['id'] . '">' . $branch['parent']['name'] . '</option>';
+                            if( $category ) {
+                                // 编辑商品
+                                if( $category_pid == '0' ) {
+                                    // 为一级
+                                    foreach( $categories as $branch ) {
+                                        echo '<option value="' . $branch['parent']['id'] . '" ' . (($category==$branch['parent']['id'])?('selected="selected"'):'') . ' >' . $branch['parent']['name'] . '</option>';
+                                    }
+                                } else {
+                                    // 为二级
+                                    foreach( $categories as $branch ) {
+                                    echo '<option value="' . $branch['parent']['id'] . '" ' . (($category_pid==$branch['parent']['id'])?('selected="selected"'):'') . ' >' . $branch['parent']['name'] . '</option>';
+                                    }
+                                }
+                            } else {
+                                // 新建商品
+                                foreach( $categories as $branch ) {
+                                    echo '<option value="' . $branch['parent']['id'] . '">' . $branch['parent']['name'] . '</option>';
+                                }
                             }
                         ?>
                     </select>
@@ -32,12 +50,38 @@
                     <span class="input-title">二级分类</span>
                     <select class="input-content" id="category_children" name="category">
                         <?php
-                            if(!empty($categories[0]['children'])) {
-                                foreach( $categories[0]['children'] as $child ) {
-                                    echo '<option value="' . $child['id'] . '">' . $child['name'] . '</option>';
+                            if( $category ) {
+                                // 编辑商品
+                                if( $category_pid == '0' ) {
+                                    // 为一级
+                                    echo '<option value="' . $category . '" selected="selected">--无--</option>';
+                                    foreach( $categories as $branch ) {
+                                        if( $branch['parent']['id'] == $category ) {
+                                            foreach( $branch['children'] as $child ) {
+                                                echo '<option value="' . $child['id'] . '">' . $child['name'] . '</option>';
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    // 为二级
+                                    foreach( $categories as $branch ) {
+                                        if( $branch['parent']['id'] == $category_pid ) {
+                                            foreach( $branch['children'] as $child ) {
+                                            echo '<option value="' . $child['id'] . '" ' . (($category==$child['id'])?('selected="selected"'):'') . ' >' . $child['name'] . '</option>';
+                                            }
+                                        }
+                                    }
                                 }
                             } else {
-                                echo '<option value="' . $categories[0]['parent']['id'] . '" selected="selected">--无--</option>';
+                                // 新建商品
+                                if(!empty($categories[0]['children'])) {
+                                    echo '<option value="' . $categories[0]['parent']['id'] . '" selected="selected">--无--</option>';
+                                    foreach( $categories[0]['children'] as $child ) {
+                                        echo '<option value="' . $child['id'] . '">' . $child['name'] . '</option>';
+                                    }
+                                } else {
+                                    echo '<option value="' . $categories[0]['parent']['id'] . '" selected="selected">--无--</option>';
+                                }
                             }
                         ?>
                     </select>
@@ -72,7 +116,7 @@
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <input type="text" class="htitle input-content" name="title" id="product_title"/>
+                <input type="text" class="htitle input-content" name="title" id="product_title" value="<?php if($title) echo $title; ?>" />
                 <a class="tip-btn" target="_blank" href="/index.php?route=product/identify">免费鉴定</a>
                 <span id="error_title" class="error_prompt"></span>
             </div>
@@ -82,7 +126,7 @@
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">转让价格</span>
-                <input type="text" class="price input-content" name="price" id="product_price">
+                <input type="text" class="price input-content" name="price" id="product_price" value="<?php if($price) echo $price; ?>" />
                 <span style="margin-left:16px;">元</span>
                 <a class="tip-btn" target="_blank" href="/index.php?route=product/valuation">免费估值</a>
                 <span id="error_price" class="error_prompt"></span>
@@ -104,13 +148,15 @@
                     </div>
                     <!-- 事件按钮 -->
                     <div style="display: inline-block;width:600px;">
-                        <div id="product_image_main" class="product_image"></div>
-                        <input id="image_main_btn" type="button" class="pic input-content" value="选择图片" />
+                        <div id="product_image_main" class="product_image">
+                            <?php if($image) echo '<img src="/image/'.$image.'" />'; ?>
+                        </div>
+                        <input id="image_main_btn" type="button" class="pic input-content" value="选择图片" />&nbsp;&nbsp;<span>（图片大小限制为5M内）</span>
                         <span id="error_image_main" class="error_prompt"></span>
                     </div>
                 </div>
                 <!-- 隐藏域 -->
-                <input type="hidden" name="image" id="product_image" />
+                <input type="hidden" name="image" id="product_image" value="<?php if($image) echo $image; ?>"/>
             </div>
 
             <!-- 更多图片 -->
@@ -125,15 +171,23 @@
                     </div>
                     <!-- 按钮事件 -->
                     <div style="display: inline-block;">
-                        <div id="product_image_more" class="product_image"></div>
+                        <div id="product_image_more" class="product_image">
+                            <?php
+                                if( isset($product_image) && !empty($product_image) ) {
+                                    foreach( $product_image as $image_single ) {
+                                        echo '<img src="/image/' . $image_single['image'] . '" />';
+                                    }
+                                }
+                            ?>
+                        </div>
                         <input id="image_more_btn" type="button" class="pic input-content" value="选择更多图片" />&nbsp;&nbsp;<span>（最多4张）</span>
                     </div>
                 </div>
                 <!-- 隐藏域 -->
-                <input type="hidden" name="product_image[0][image]" id="product_image_0" />
-                <input type="hidden" name="product_image[1][image]" id="product_image_1" />
-                <input type="hidden" name="product_image[2][image]" id="product_image_2" />
-                <input type="hidden" name="product_image[3][image]" id="product_image_3" />
+                <input type="hidden" name="product_image[0][image]" id="product_image_0" value="<?php if(isset($product_image[0])) echo $product_image[0]['image']; ?>" class="product_image_arr"/>
+                <input type="hidden" name="product_image[1][image]" id="product_image_1" value="<?php if(isset($product_image[1])) echo $product_image[1]['image']; ?>" class="product_image_arr"/>
+                <input type="hidden" name="product_image[2][image]" id="product_image_2" value="<?php if(isset($product_image[2])) echo $product_image[2]['image']; ?>" class="product_image_arr"/>
+                <input type="hidden" name="product_image[3][image]" id="product_image_3" value="<?php if(isset($product_image[3])) echo $product_image[3]['image']; ?>" class="product_image_arr"/>
                 <input type="hidden" name="product_image[0][sort_order]" value="1" />
                 <input type="hidden" name="product_image[1][sort_order]" value="2" />
                 <input type="hidden" name="product_image[2][sort_order]" value="3" />
@@ -146,7 +200,7 @@
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">详细说明</span>
                 <span id="error_description" class="error_prompt"></span>
-                <textarea name="detail_content">联系我时，请说明是在宝库网看到的。</textarea>
+                <textarea name="detail_content"><?php if($detail) echo $detail; ?></textarea>
                 <input id="product_description_data" name="detail" type="hidden" />
             </div>
 
@@ -158,8 +212,9 @@
                     <span class="input-title">所&nbsp;在&nbsp;&nbsp;地</span>
                     <select class="input-content" name="place" id="product_place">
                         <?php
+                            $place = ( $place ? $place : '北京' );
                             foreach( $zones as $zone ) {
-                                if( $zone['name'] == '北京' ) {
+                                if( $zone['name'] == $place ) {
                                     echo '<option selected="selected" value="' . $zone['name'] . '">' . $zone['name'] . '</option>';
                                 } else {
                                     echo '<option value="' . $zone['name'] . '">' . $zone['name'] . '</option>';
@@ -176,7 +231,7 @@
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">联&nbsp;系&nbsp;&nbsp;人</span>
-                <input type="text" class="input-content" name="owner" id="product_owner" value="<?php echo $name; ?>"/>
+                <input type="text" class="input-content" name="owner" id="product_owner" value="<?php if($owner) echo $owner; ?>" />
                 <span id="error_owner" class="error_prompt"></span>
             </div>
 
@@ -185,7 +240,7 @@
                 <span class="nes-tip">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">手&nbsp;机&nbsp;&nbsp;号</span>
-                <input type="text" class="input-content" name="mobile" id="product_mobile" value="<?php echo $telephone; ?>"/>
+                <input type="text" class="input-content" name="mobile" id="product_mobile" value="<?php if($mobile) echo $mobile; ?>"/>
                 <span id="error_mobile" class="error_prompt"></span>
             </div>
 
@@ -194,7 +249,7 @@
                 <span class="nes-tip none">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">QQ&nbsp;号码</span>
-                <input type="text" class="input-content" name="qq" value="<?php echo $qq; ?>"/>
+                <input type="text" class="input-content" name="qq" value="<?php if($qq) echo $qq; ?>" />
             </div>
 
             <!-- 微信号 -->
@@ -202,7 +257,7 @@
                 <span class="nes-tip none">*</span>
                 &nbsp;&nbsp;&nbsp;
                 <span class="input-title">微&nbsp;信&nbsp;&nbsp;号</span>
-                <input type="text" class="input-content" name="wechat" value="<?php echo $wechat; ?>"/>
+                <input type="text" class="input-content" name="wechat" value="<?php if($wechat) echo $wechat; ?>" />
             </div>
 
             <input type="submit" value="提交并发布" class="submit-btn">
@@ -247,6 +302,7 @@
                         clickFn: function (urlList) {
                             var product_image_more = K('#product_image_more');
                             product_image_more.html('');
+                            K('.product_image_arr').val('');
                             K.each(urlList, function(i, data) {
                                 if(i>=4) return;
                                 //最多只能四张图

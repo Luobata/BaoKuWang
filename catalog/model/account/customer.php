@@ -29,14 +29,17 @@ class ModelAccountCustomer extends Model {
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET address_id = '" . (int)$address_id . "' WHERE customer_id = '" . (int)$customer_id . "'");
 
 
-        // 论坛模拟注册并登录
+        // 论坛模拟注册
 
         $Helper = new Helper();
-        $AuthCookie = $Helper->http_post( HTTP_SERVER . 'forum/?user-create.htm' , array('email'=> $this->db->escape($data['email']) ) );
+        $ip_port = $Helper->getIp();
+        $AuthCookie = $Helper->http_post( HTTP_SERVER . 'forum/?user-create.htm' , array('email'=> $this->db->escape($data['email']) , 'regip' => $ip_port ) );
+        //echo $AuthCookie;
+        //exit();
         if( $AuthCookie ) {
             // 模拟登录
             $AuthCookie = explode('/',$AuthCookie);
-            $Helper->setcookie($AuthCookie[0], $AuthCookie[1], time()+86400, '/', '', TRUE);  //24小时
+            // $Helper->setcookie($AuthCookie[0], $AuthCookie[1], time()+86400, '/', '', TRUE);  //24小时
             // 创建关联
             $this->db->query("INSERT INTO " . DB_PREFIX . "bbs_user ( shop_cid , bbs_uid ) VALUES (" . (int)$customer_id . "," . (int)$AuthCookie[2] . ")");
         }
@@ -159,8 +162,8 @@ class ModelAccountCustomer extends Model {
 		return $query->row;
 	}
 
-    public function getCustomerByNickname($nickname) {
-        $query = $this->db->query("SELECT customer_id FROM " . DB_PREFIX . "customer WHERE nickname = '" . $this->db->escape($nickname) . "'");
+    public function getCustomerByNickname($nickname,$myid) {
+        $query = $this->db->query("SELECT customer_id FROM " . DB_PREFIX . "customer WHERE nickname = '" . $this->db->escape($nickname) . "' AND customer_id != '" . $myid . "'");
 
         return $query->row;
     }

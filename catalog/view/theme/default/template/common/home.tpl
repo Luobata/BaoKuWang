@@ -8,28 +8,36 @@
     <div class="first">
 
         <div class="content_head">
-        <?php //var_dump($categories); ?>
+
         <?php foreach( $categories as $cat ) { ?>
-        <div class="goods">
-            <div class="goods_line">
-                <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
-                <li><?php echo $cat['parent']['name']; ?></li></a>
-            </div>
-            <div class="item" id="item">
-             <?php if((sizeof($cat['children'])!=0)){ ?>
-                 <?php foreach( $cat['children'] as $cats ) { ?>
-                <div class="goods">
-                    <div class="goods_line">
-                        <a href="index.php?route=product/list&filter_category=<?php echo $cats['id']; ?>">
-                        <li><?php echo $cats['name']; ?></li></a>
+            <div class="goods">
+
+                <div class="goods_line">
+                    <a href="/index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
+                    <li><?php echo $cat['parent']['name']; ?></li></a>
+                </div>
+
+                <div class="item" id="item">
+                <?php $child_num = count($cat['children']); ?>
+                <?php if($child_num>0) { ?>
+                     <div class="goods2">
+                         <p>
+                     <?php $count = 0; ?>
+                     <?php foreach( $cat['children'] as $cats ) { ?>
+                         <a href="/index.php?route=product/list&filter_category=<?php echo $cats['id']; ?>">
+                             <span><?php echo $cats['name']; ?></span>
+                         </a>
+                    <?php     if($count%3==2){ ?> </p><p> <?php } ?>
+                    <?php     $count++; ?>
+                    <?php } ?>
+                         </p>
                     </div>
-                </div>    
                 <?php } ?>
-             <?php } ?>
+                </div>
+
             </div>
-        </div>
-            
         <?php } ?>
+
         </div>
 
         <div class="pic">
@@ -76,7 +84,9 @@
                 <div class="row">
                     <?php foreach( $recommend_images as $key =>$image ) { ?>
                     <div class="pics" id="pic<?php echo ($key+1);?>">
-                        <a href="<?php echo $image['link']; ?>"><img src="/image/<?php echo $image['image']; ?>"></a>
+                        <a href="<?php echo $image['link']; ?>">
+                        <img class="lazy" src="/catalog/view/theme/default/image/loading.gif" data-original="/image/<?php echo $image['image']; ?>">
+                        </a>
                     </div>
                     <?php if($key==2) { ?>
                     </div><div class="row">
@@ -144,7 +154,7 @@
                         <td><div class="t_row_jew" >
                                 <div class="t_row_pic background-cover-base" id="t_row_pic1">
                                     <a id="url_<?php echo $count; ?>" href="/index.php?route=product/product&product_id=<?php echo $id;?>">
-                                    <img id="img_<?php echo $count; ?>" src="/image/<?php echo $info['image'];?>" class="background-cover"></a>
+                                    <img id="img_<?php echo $count; ?>" class="lazy background-cover" src="/catalog/view/theme/default/image/loading.gif" data-original="/image/<?php echo $info['image'];?>" /></a>
                                 </div>
                                 <div class="simple">
                                     <li class="desc" id="text_<?php echo $count; ?>"><?php echo $info['title']; ?></li>

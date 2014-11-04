@@ -157,12 +157,14 @@ $('.content_head > .goods').hover(function() {
      $('.item').css('display', 'none');    
      $(this).children('.item').show();
 }, function() {
-   $('.goods').attr('style', 'background-color:#8a775e');
+   $('.goods').attr('style', 'background-color:#986');
    $(this).children('.item').css('display', 'none');
     
 });
+
+/*
 $('.item > .goods').hover(function() {
-    /* Stuff to do when the mouse enters the element */
+    // Stuff to do when the mouse enters the element
      var eq = $('.item > .goods').index(this),
      h = $('.item').offset().top;  
      $('.item .goods').css('background-color', '#8a775e');
@@ -171,6 +173,7 @@ $('.item > .goods').hover(function() {
 }, function() {
     
 });
+*/
 
 
 $('.all-sort-list > .item').hover(function(){
@@ -212,27 +215,69 @@ $('.all-sort-list > .item').hover(function(){
         });
 
 
-$('img.background-cover').each(function () {
-    $(this).load(function () {
-        var $img = $(this).css('position', 'absolute')
-        var $parent = $img.parents('.background-cover-base').css('position', 'relative')
-        var img_size = [$img.width(), $img.height()]
-        var parent_size = [$parent.width(), $parent.height()]
 
-        img_size[2] = img_size[0] / img_size[1]
-        parent_size[2] = parent_size[0] / parent_size[1]
 
-        if (img_size[2] > parent_size[2]) {
-            var new_width = img_size[0] * parent_size[1] / img_size[1]
-            $img.height(parent_size[1])
-            $img.width(new_width)
-            $img.css('left', (parent_size[0] - new_width) / 2)
-        } else {
-            var new_height = img_size[1] * parent_size[0] / img_size[0]
-            $img.height(parent_size[0])
-            $img.width(new_height)
-            $img.css('top', (parent_size[1] - new_height) / 2)
-        }
+// 图片延迟加载
+
+$(document).ready(function(){
+
+    $('img.lazy').lazyload();
+
+    // 图片显示处理
+
+    $('img.background-cover').each(function () {
+
+        $(this).load(function(){
+            //alert('我被加载了！');
+
+            var $img = $(this).css('position', 'absolute')
+            var $parent = $img.parents('.background-cover-base').css('position', 'relative')
+            var img_size = [$img.width(), $img.height()]
+            var parent_size = [$parent.width(), $parent.height()]
+
+            // 图片宽高比
+            img_size[2] = img_size[0] / img_size[1]
+
+            // 父元素宽高比
+            parent_size[2] = parent_size[0] / parent_size[1]
+
+            //alert(img_size[2]+','+parent_size[2]);
+
+            if (img_size[2] > parent_size[2]) {
+                //alert($img.attr('src'));
+
+                /*
+                 // 留白方案
+                 $img.width(parent_size[0])
+                 var new_height = img_size[1] * $img.width() / img_size[0]
+                 $img.height(new_height)
+                 $img.css('top', (parent_size[1] - new_height) / 2)
+                 */
+
+                // 裁剪方案
+                $img.height(parent_size[1])
+                var new_width = img_size[0] * $img.height() / img_size[1]
+                $img.width(new_width)
+                $img.css('left', (parent_size[0] - new_width) / 2)
+
+            } else {
+
+                /*
+                 // 留白方案
+                 $img.height(parent_size[1])
+                 var new_width = img_size[0] * $img.height() / img_size[1]
+                 $img.width(new_width)
+                 $img.css('left', (parent_size[0] - new_width) / 2)
+                 */
+
+                // 裁剪方案
+                $img.width(parent_size[0])
+                var new_height = img_size[1] * $img.width() / img_size[0]
+                $img.height(new_height)
+                $img.css('top', (parent_size[1] - new_height) / 2)
+            }
+        })
 
     })
-})
+
+});

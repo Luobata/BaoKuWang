@@ -190,6 +190,10 @@ class Image {
 		$b = hexdec($b);    
 
 		return array($r, $g, $b);
-	}	
+	}
+
+    public function getInfo() {
+        return $this->info;
+    }
 }
 ?>

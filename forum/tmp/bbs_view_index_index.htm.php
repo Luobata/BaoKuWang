@@ -25,7 +25,7 @@
 <body>
 
 
-<header>
+<div class="header">
 	<script type="text/javascript"> 
      window.onload = function(){
            //ScrollImgLeft();
@@ -67,6 +67,9 @@ position: relative;" id="scroll_div" class="scroll_div">
 </div>  -->
 
 <!-- <?php var_dump($product_id);?>-->
+
+    <img src="/catalog/view/theme/default/image/baoku/title.png"/>
+
 		<div class="head">
 
 					
@@ -95,8 +98,8 @@ position: relative;" id="scroll_div" class="scroll_div">
                         <option>序列号</option>
                     </select>
 
-                    <input type="hidden" name="route" class="route" value="product/list"/>
-                    <input type="text" name="search" class="text" value="<?php echo isset($keyword) ? $keyword : '';?>" />
+                    <input type="hidden" name="0" class="route" value="search"/>
+                    <input type="text" name="keyword" class="text" value="<?php echo isset($keyword) ? $keyword : '';?>" />
                     <a type="submit" class="button button-search" value="搜索" style="display:none;" href="javascript:void(0)" role="button"><span>搜索</span></a>
                     <div class="buttons" onclick="submit">搜&nbsp;索</div>
 
@@ -125,42 +128,43 @@ position: relative;" id="scroll_div" class="scroll_div">
                 </div>
             <?php } ?>
 
+            <div class="qbcode">
+                <img src="/catalog/view/theme/default/image/baoku/qbcode.png" />
+            </div>
 
-			<div class="qbcode">
-				
-			</div>
 		</div>	
-	</header>
-					
-					 
-					  
-
+	</div>
 	<div class="title">
 			<div class="index">
 				<div class="all">
 					<li><a href="">全部宝贝分类</a></li>
 					<div class="content_head" style="position:absolute;z-index:100;display:none;">
+
                     <?php if(!empty($product_id)) { foreach($product_id as &$cat) {?>
                     <div class="goods">
                         <div class="goods_line">
-                            <a href="index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
+                            <a href="/index.php?route=product/list&filter_category=<?php echo $cat['parent']['id']; ?>">
                             <li><?php echo $cat['parent']['name']; ?></li></a>
                         </div>
                         <div class="item" id="item">
-                        <?php if(sizeof($cat['children']!=0)) { ?>
-                            <?php if(!empty($cat['children'])) { foreach($cat['children'] as &$cats) {?>
-                            <div class="goods">
-                                <div class="goods_line">
-                                    <a href="index.php?route=product/list&filter_category=<?php echo $cats['id']; ?>">
-                                    <li><?php echo $cats['name']; ?></li></a>
-                                </div>
-                            </div>    
-                            <?php }} ?>
+                        <?php if(sizeof($cat['children'])>0 ) { ?>
+                            <div class="goods2">
+                                <p>
+                                <?php $count=0; ?>
+                                <?php if(!empty($cat['children'])) { foreach($cat['children'] as &$cats) {?>
+                                <a href="/index.php?route=product/list&filter_category=<?php echo $cats['id']; ?>">
+                                    <span><?php echo $cats['name']; ?></span>
+                                </a>
+                                    <?php if($count%3==2 ) { ?> </p><p> <?php } ?>
+                                    <?php $count++; ?>
+                                <?php }} ?>
+                                </p>
+                            </div>
                         <?php } ?>
                         </div>
                     </div>
-                        
                     <?php }} ?>
+
                 </div>
 					
 					
@@ -190,7 +194,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 					</ul>
 				</div>
 			</div>
-	</div>
+
 <!-- head--> 
         
         
@@ -251,7 +255,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 				<a class="icon icon-home" href="./"></a>
 				<span class="sep"></span>
 				
-				<span>我要交流</span>
+				<span>宝库社区</span>
 				
 			</td>
 			<td class="center2">
@@ -278,7 +282,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 					
 					<span id="pm">
                         <a href="http://localhost/forum/?my-post.htm" class="pm"><!--<span class="icon icon-pm"></span>-->我的发帖</a>
-                        <a href="http://localhost/forum/?my-profile.htm" class="pm"><!--<span class="icon icon-pm"></span>-->设置</a>
+                        <a href="http://localhost/forum/?my-profile.htm" class="pm"><!--<span class="icon icon-pm"></span>-->论坛设置</a>
 						<a href="http://localhost/forum/?my-pm.htm" class="pm"><span class="icon icon-pm"></span>&nbsp;消息</a>
                         <a href="http://localhost/forum/?my-pm.htm" style="display: none;" aria-label="消息" class="newpm"><span class="icon icon-newpm"></span> 消息</a>
 					</span>
@@ -478,6 +482,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 				<a href="http://localhost/forum/?forum-index-fid-<?php echo isset($_fid) ? $_fid : '';?>.htm" <?php echo isset($_checked["forum_$_fid"]) ? $_checked["forum_$_fid"] : '';?>><?php echo isset($_name) ? $_name : '';?></a>
 				<span class="my_Y">(<span class="my_Y"><?php echo isset($blank["$_fid"]["threads"]) ? $blank["$_fid"]["threads"] : '';?></span>)</span>
 			</li>
+			<li><span class="my_grey">简介:<span class="my_grey"><?php echo isset($blank["$_fid"]["brief"]) ? $blank["$_fid"]["brief"] : '';?></span></span></li>
 			<li><span class="my_grey">版主:<span class="my_grey"><?php echo isset($blank["$_fid"]["modnames"]) ? $blank["$_fid"]["modnames"] : '';?></span></span></li>		
 		</td>
 		
@@ -594,6 +599,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 				<a href="http://localhost/forum/?forum-index-fid-<?php echo isset($_fid) ? $_fid : '';?>.htm" <?php echo isset($_checked["forum_$_fid"]) ? $_checked["forum_$_fid"] : '';?>><?php echo isset($_name) ? $_name : '';?></a>
 				<span class="my_Y">(<span class="my_Y"><?php echo isset($blank["$_fid"]["threads"]) ? $blank["$_fid"]["threads"] : '';?></span>)</span>
 			</li>
+			<li><span class="my_grey">简介:<span class="my_grey"><?php echo isset($blank["$_fid"]["brief"]) ? $blank["$_fid"]["brief"] : '';?></span></span></li>
 			<li><span class="my_grey">版主:<span class="my_grey"><?php echo isset($blank["$_fid"]["modnames"]) ? $blank["$_fid"]["modnames"] : '';?></span></span></li>		
 		</td>
 		
@@ -718,6 +724,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 				<a href="http://localhost/forum/?forum-index-fid-<?php echo isset($_fid) ? $_fid : '';?>.htm" <?php echo isset($_checked["forum_$_fid"]) ? $_checked["forum_$_fid"] : '';?>><?php echo isset($_name) ? $_name : '';?></a>
 				<span class="my_Y">(<span class="my_Y"><?php echo isset($blank["$_fid"]["threads"]) ? $blank["$_fid"]["threads"] : '';?></span>)</span>
 			</li>
+			<li><span class="my_grey">简介:<span class="my_grey"><?php echo isset($blank["$_fid"]["brief"]) ? $blank["$_fid"]["brief"] : '';?></span></span></li>
 			<li><span class="my_grey">版主:<span class="my_grey"><?php echo isset($blank["$_fid"]["modnames"]) ? $blank["$_fid"]["modnames"] : '';?></span></span></li>		
 		</td>
 		
@@ -897,10 +904,11 @@ position: relative;" id="scroll_div" class="scroll_div">
 			</div>
 			<div class="f_head">
 				<div class="f_pic" id="f_pic_5"></div>
-				<li><a href="/index.php?route=about/zheng/wuxing">五星物流服务</a></li>
+				<li><a href="/index.php?route=about/zheng/wuxing">担保交易</a></li>
 			</div>
 		</div>
 	</div>
+ <!--
     <div class="footer_2">
         <div class="f2_content" id="company">
             <a href="javascript:void(0)" style="padding:0 5px 0 0;">合作伙伴</a>
@@ -913,6 +921,7 @@ position: relative;" id="scroll_div" class="scroll_div">
             <a href="javascript:void(0)">上海交通大学</a>
         </div>
     </div>
+-->
 	<div class="footer_2">
 		<div class="f2_content">
 			<div class="num">服务热线：010-64814142</div>

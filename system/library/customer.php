@@ -22,6 +22,14 @@ class Customer {
 		$this->request = $registry->get('request');
 		$this->session = $registry->get('session');
 
+        // 检测 cookie 并登陆
+        if (isset($_COOKIE['shop_auth'])) {
+            $shop_auth = $_COOKIE['shop_auth'];
+            $Helper = new Helper();
+            $email = $Helper->shop_auth_decrypt($shop_auth,SECRET);
+            $this->login($email,'',TRUE);
+        }
+
 		if (isset($this->session->data['customer_id'])) { 
 			$customer_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$this->session->data['customer_id'] . "' AND status = '1'");
 
@@ -63,6 +71,14 @@ class Customer {
 		}
 
 		if ($customer_query->num_rows) {
+
+            if(!$override) {
+                // 设置 Cookie
+                $Helper = new Helper();
+                $shop_auth = $Helper->shop_auth_encrypt($email,SECRET);
+                $Helper->setcookie('shop_auth', $shop_auth, time()+86400, '/', '', TRUE);  //24小时
+            }
+
 			$this->session->data['customer_id'] = $customer_query->row['customer_id'];	
 
 			if ($customer_query->row['cart'] && is_string($customer_query->row['cart'])) {
@@ -125,6 +141,11 @@ class Customer {
 		$this->newsletter = '';
 		$this->customer_group_id = '';
 		$this->address_id = '';
+
+        if (isset($_COOKIE['shop_auth'])) {
+            $Helper = new Helper();
+            $Helper->setcookie('shop_auth','');
+        }
 	}
 
 	public function isLogged() {

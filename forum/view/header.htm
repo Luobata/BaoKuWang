@@ -25,7 +25,7 @@
 <body>
 
 
-<header>
+<div class="header">
 	<script type="text/javascript"> 
      window.onload = function(){
            //ScrollImgLeft();
@@ -67,6 +67,9 @@ position: relative;" id="scroll_div" class="scroll_div">
 </div>  -->
 
 <!-- {php var_dump($product_id);}-->
+
+    <img src="/catalog/view/theme/default/image/baoku/title.png"/>
+
 		<div class="head">
 
 					
@@ -125,42 +128,43 @@ position: relative;" id="scroll_div" class="scroll_div">
                 </div>
             {/if}
 
+            <div class="qbcode">
+                <img src="/catalog/view/theme/default/image/baoku/qbcode.png" />
+            </div>
 
-			<div class="qbcode">
-				
-			</div>
 		</div>	
-	</header>
-					
-					 
-					  
-
+	</div>
 	<div class="title">
 			<div class="index">
 				<div class="all">
 					<li><a href="">全部宝贝分类</a></li>
 					<div class="content_head" style="position:absolute;z-index:100;display:none;">
+
                     {loop $product_id $cat}
                     <div class="goods">
                         <div class="goods_line">
-                            <a href="index.php?route=product/list&filter_category={php echo $cat['parent']['id']; }">
+                            <a href="/index.php?route=product/list&filter_category={php echo $cat['parent']['id']; }">
                             <li>{php echo $cat['parent']['name']; }</li></a>
                         </div>
                         <div class="item" id="item">
-                        {if sizeof($cat['children']!=0)}
-                            {loop $cat['children'] $cats}
-                            <div class="goods">
-                                <div class="goods_line">
-                                    <a href="index.php?route=product/list&filter_category={php echo $cats['id']; }">
-                                    <li>{php echo $cats['name']; }</li></a>
-                                </div>
-                            </div>    
-                            {/loop}
+                        {if sizeof($cat['children'])>0 }
+                            <div class="goods2">
+                                <p>
+                                {php $count=0; }
+                                {loop $cat['children'] $cats}
+                                <a href="/index.php?route=product/list&filter_category={php echo $cats['id']; }">
+                                    <span>{php echo $cats['name']; }</span>
+                                </a>
+                                    {if  $count%3==2 } </p><p> {/if}
+                                    {php $count++; }
+                                {/loop}
+                                </p>
+                            </div>
                         {/if}
                         </div>
                     </div>
-                        
                     {/loop}
+
                 </div>
 					
 					
@@ -190,7 +194,7 @@ position: relative;" id="scroll_div" class="scroll_div">
 					</ul>
 				</div>
 			</div>
-	</div>
+
 <!-- head--> 
         
         

@@ -13,22 +13,25 @@ li{
 	list-style: none;
 	text-align: center;
 }
-header{
-	
-	background-position: center;
-	background-image:url('../image/title.png');
+.header{
+    position: relative;
+}
+.header img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
 }
 .head{
 	width: 1000px;
 	height: 110px;
 	margin-left: auto;
 	margin-right: auto;
-	
 }
 
 .logo{
 	width:185px;
-	height: 80px;
+	height: 100px;
 	position: relative;
 	top: 2%;
 	background-repeat: no-repeat;
@@ -39,6 +42,7 @@ header{
 .search {
 	overflow: hidden;
 	float: left;
+    height: 100px;
 }
 .head .text {
 	width:359px;
@@ -76,7 +80,7 @@ header{
 	border-right-width: 0px;
 	height: 33px;
 	line-height: 33px;
-	padding: 2px 0;
+	padding: 5px 0;
 }
 .search .hot{
     margin-left: 46px;
@@ -106,15 +110,16 @@ header{
 }
 
 .qbcode{
-	width:95px;
-	height: 95px;
-	position: absolute;
-	margin-left: 909px;
-	top: 8px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-image:url('../image/qbcode.png');
-	float: left;
+    width:100px;
+    height: 100px;
+    position: absolute;
+    margin-left: 909px;
+    top: 4px;
+    float: left;
+}
+.qbcode > img{
+    width: 100%;
+    height: 100%;
 }
 
 .nav .text:hover{
@@ -289,23 +294,12 @@ header{
 	top:4px;
 	position: absolute;
 }
-.item{
-	/*width: 200px;*/
-	min-height: 45px;
-	overflow: hidden;
-	background-color: #8a775e;
-	position: absolute;
-	margin-left: 200px;
-	margin-top: -45px;
-	z-index: 100;
-	display: none;
-}
+
 .content_head .goods{
 	width: 200px;
 	height: 45px;
 	text-align: center;
-	background-color: #8a775e;
-	line-height: 45px;
+	background-color: #986;
 }
 .goods .goods_line{
 	width: 194px;
@@ -319,4 +313,35 @@ header{
 
 .goods_line li{
     color: #fff;
+    line-height: 45px;
+}
+
+.item{
+    /*width: 200px;*/
+    overflow: hidden;
+    background-color: #ba8;
+    position: absolute;
+    margin-left: 200px;
+    margin-top: -45px;
+    z-index: 100;
+    display: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.goods2{
+    width: 240px;
+    overflow: hidden;
+    line-height: 44px;
+    text-align: left;
+}
+.goods2 p{
+    margin: 0;
+    border-bottom: 1px dotted #986;
+}
+.goods2 span{
+    padding-left: 30px;
+    color: #673413;
+}
+.goods2 span:hover{
+    color: #edc;
 }

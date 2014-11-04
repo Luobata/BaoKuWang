@@ -3,6 +3,7 @@ class ControllerAccountEdit extends Controller {
 	private $error = array();
 
 	public function index() {
+        //echo 'aa';
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/edit', '', 'SSL');
 
@@ -11,11 +12,12 @@ class ControllerAccountEdit extends Controller {
 
 		$this->language->load('account/edit');
 
-		$cid=$_SESSION['customer_id'];
+		$cid = $this->customer->getId();//$_SESSION['customer_id'];
+        //echo $cid.'aaaa';
 		$this->load->model('catalog/product');
 		//获取已发布 已下架 未鉴定 已鉴定 收藏的数目
 		//收藏宝贝数
-		$postnum['wishlist']=count($this->session->data['wishlist']);
+		$postnum['wishlist'] = (isset($this->session->data['wishlist']))?count($this->session->data['wishlist']):'0';
 		//发布宝贝数
 		$product_info_num = $this->model_catalog_product->getProductsBycidnoli($cid,1)->rows;
 		$postnum['up']=count($product_info_num);
@@ -273,10 +275,15 @@ class ControllerAccountEdit extends Controller {
             $this->error['name'] = '姓名不能大于4个字';
         }
 
+        $Sensitive = include DIR_SYSTEM.'sensitive.php';
         if ( utf8_strlen($this->request->post['nickname']) > 6 ) {
             $this->error['nickname'] = '昵称不能大于6个字';
+        } else if( in_array($this->request->post['nickname'],$Sensitive) ) {
+            $this->error['nickname'] = '昵称不能包含敏感词汇';
         } else {
-            if( !empty($this->model_account_customer->getCustomerByNickname($this->request->post['nickname'])) ) {
+            $myid = $this->customer->getId();
+            $customer = $this->model_account_customer->getCustomerByNickname($this->request->post['nickname'],$myid);
+            if( !empty($customer) ) {
                 $this->error['nickname'] = '此昵称已被使用';
             }
         }

@@ -631,7 +631,7 @@ Aui.ready( function()
         <div class="f_texts_con">
           <li>价&nbsp&nbsp&nbsp格 :<span style="color: red;font-weight: bolder;">&nbsp&nbsp&nbsp;<?php echo $price;?> 元</span></li>
           <li>所在地 :<span>&nbsp&nbsp&nbsp;<?php echo $place;?></span></li>
-          <li>卖&nbsp&nbsp&nbsp家 :<span>&nbsp;&nbsp;&nbsp;<?php echo $customer_name;?></span></li>
+          <li>卖&nbsp&nbsp&nbsp家 :<span>&nbsp;&nbsp;&nbsp;<?php echo $owner;?></span></li>
           <!-- <li>咨&nbsp&nbsp&nbsp询 :<span>&nbsp&nbsp&nbsp</span><a href="javascript:show()"><img src="./catalog/view/theme/default/image/baoku/liuyan.png"></a>
           </li> -->
 
