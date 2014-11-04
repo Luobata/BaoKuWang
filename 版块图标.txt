@@ -1,0 +1,10 @@
+版块icon与版块id对应，放于forum\view\image\icon文件夹下
+
+
+命名规则为blank_icon_版块id.png
+
+关于版块id：可以根据点击版块看浏览器地址栏的url确定
+比如技术交流版块
+http://www.baoroo.com/forum/?forum-index-fid-2.htm
+
+forum-index-fid-2.htm 2就是版块id
