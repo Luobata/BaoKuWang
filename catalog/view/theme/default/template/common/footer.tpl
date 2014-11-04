@@ -113,7 +113,7 @@
         <div style="padding:3px 8px; background-color: #673413; color: white; font-size: 19px; font-weight: bolder;">服务热线</div>
         <div style="padding:9px 4px;color:#673413;font-size:20px;font-weight:bolder; background-color:white;">010-64814142</div>
     </div>
-
+<script type="text/javascript" src="/catalog/view/javascript/baoku/placeholders.min.js"></script>
 <script type="text/javascript" src="/catalog/view/javascript/baoku/swipe.js"></script>
 <script type="text/javascript" src="/catalog/view/javascript/baoku/index.js" charset="utf-8"></script>
 

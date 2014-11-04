@@ -370,13 +370,14 @@ tid_add_read($tid, $_SERVER[time]);
 
 $('#create_post').click(function() {
 	if(g_uid == 0) {
-		ajaxdialog_request('?user-login.htm', function() {
-			$('#create_post').unbind('click');
-			ajaxdialog_request($('#create_post').attr('href'));
-			$('#create_post').click(function() {
-				ajaxdialog_request($('#create_post').attr('href'));
-			});
-		});
+		window.location.href="/index.php?route=account/login";
+		// ajaxdialog_request('?user-login.htm', function() {
+		// 	$('#create_post').unbind('click');
+		// 	ajaxdialog_request($('#create_post').attr('href'));
+		// 	$('#create_post').click(function() {
+		// 		ajaxdialog_request($('#create_post').attr('href'));
+		// 	});
+		// });
 		return false;
 	} else {
 		return true;
