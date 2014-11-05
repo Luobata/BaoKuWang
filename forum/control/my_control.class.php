@@ -232,7 +232,7 @@ class my_control extends common_control {
 		
 		// hook my_pm_before.php
 		$userlist = $this->pmnew->get_recent_userlist($uid);
-		
+		//var_dump($userlist);
 		// 清理掉新短消息标志
 		$user = $this->user->read($uid);
 		if($user['newpms'] > 0) {

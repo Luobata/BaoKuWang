@@ -152,6 +152,9 @@ top: 10%;
 	border-width: 1px;
 	border-color: #ad813f;
 	float: left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .s_friends,.s_goods,.s_solder{
 	margin-top: 26px;
@@ -192,6 +195,9 @@ top: 10%;
 	line-height: 44px;
 	border-bottom-style: dashed;
 	border-bottom-width: 1px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 #s_left_con{
 	border: none;
